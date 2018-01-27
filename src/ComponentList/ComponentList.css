@@ -1,0 +1,41 @@
+.content {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 56px;
+    bottom: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.content .form-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    margin: 0;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.form-group>label,
+.two-inputs .two-inputs-title {
+    width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    white-space: nowrap;
+    vertical-align: middle;
+    display: table-cell;
+    color: #666666;
+    font-size: 18px;
+    padding: 8px 12px;
+}
+
+label {
+    font-size: 12px;
+    font-weight: normal;
+    color: #999;
+    margin-bottom: 0px;
+}

@@ -1,0 +1,10 @@
+
+.content {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 56px;
+  bottom: 56px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}

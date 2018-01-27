@@ -1,0 +1,18 @@
+.listview {
+    border-top: 1px #e4e4e4 solid;
+    border-bottom: 1px #e4e4e4 solid;
+}
+.listview .row input{
+    border: none;
+    text-align: right;
+}
+
+.listview .row label{
+    margin: 0;
+    padding: 0;
+}
+
+.listview .row .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, 
+.col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+    padding-right: 0;
+}

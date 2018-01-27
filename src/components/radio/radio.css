@@ -1,0 +1,33 @@
+.divide {
+    display: inline-block;
+    border: 1px solid #318ccf;
+    padding: 5px 20px;
+    font-size: 16px;
+}
+.default {
+    font-size: 16px;
+}
+
+.lg {
+    font-size: 20px;
+}
+
+.sm {
+    font-size: 14px;
+}
+
+
+.divide:first-child {
+    border-right-width: 0px;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.divide:last-child {
+    border-left-width: 0px;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.active {
+    background-color: #318ccf;
+    color: #ffffff;
+}

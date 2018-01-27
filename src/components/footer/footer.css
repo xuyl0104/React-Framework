@@ -1,0 +1,20 @@
+.footer {
+    height: 56px;
+    /* background-color: #318ccf; */
+}
+
+.footer div {
+    /* text-align: center; */
+    /* font-size: 20px; */
+    /* display: inline-block; */
+    padding: 15px 0;
+}
+
+.buttonHeight {
+    height: 56px;
+}
+
+
+.w-33 {
+    width: 33.3%;
+}
