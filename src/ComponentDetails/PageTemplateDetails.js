@@ -78,20 +78,32 @@ class Details extends Component {
                         </div>
                         <label className="text-dark text-uppercase font-weight-bold">行内多个按钮</label>
                         <div className="p-2">
-                            <Button style="new" newStyle={{backgroundColor: 'white', color: '#318ccf'}} size="lg" text={"取消"} col={6} onClick={this.buttonClick.bind(this)} />
-                            <Button style="inspur" size="lg" text={"评论"} col={6} onClick={this.buttonClick.bind(this)} />
+                            <Button style="new" newStyle={{backgroundColor: 'white', color: '#318ccf'}} size="sm" text={"取消"} col={6} onClick={this.buttonClick.bind(this)} />
+                            <Button style="inspur" size="sm" text={"评论"} col={6} onClick={this.buttonClick.bind(this)} />
                         </div>
-                        <label className="text-dark text-uppercase font-weight-bold">复选框样式</label>
+                        <div className="p-2">
+                            <Button style="new" newStyle={{backgroundColor: 'white', color: '#318ccf'}} 
+                                size="lg" text={"取消"} col={4} onClick={this.buttonClick.bind(this)} />
+                            <Button style="default" size="lg" text={"删除"} col={4} onClick={this.buttonClick.bind(this)} />
+                            <Button style="inspur" size="lg" text={"评论"} col={4} onClick={this.buttonClick.bind(this)} />
+                        </div>
+                        <div className="p-2">
+                            <Button style="new" newStyle={{backgroundColor: 'white', color: '#318ccf'}} 
+                                size="lg" text={"取消"} col={3} onClick={this.buttonClick.bind(this)} />
+                            <Button style="default" size="lg" text={"删除"} col={3} onClick={this.buttonClick.bind(this)} />
+                            <Button style="default" size="lg" text={"评论"} col={3} onClick={this.buttonClick.bind(this)} />
+                            <Button style="inspur" size="lg" text={"分享"} col={3} onClick={this.buttonClick.bind(this)} />
+                        </div>
+                        <label className="text-dark text-uppercase font-weight-bold">行内一个按钮</label>
+                        <div className="p-2">
+                            <Button style="inspur" size="lg" text={"提交"} col={12} onClick={this.buttonClick.bind(this)} />
+                        </div>
+                        <label className="text-dark text-uppercase font-weight-bold">通栏按钮样式</label>
                         <CheckGroup 
                             option={['待确认', '制作中', '待结算', '已完成']}
                             val={[0, 1, 2, 3]}
                             selected={this.state.selectedCheckbox}
                             onChange={this.checkChange.bind(this)}/>
-
-                        <label className="text-dark text-uppercase font-weight-bold">行内一个按钮</label>
-                        <div className="p-2">
-                            <Button style="inspur" size="lg" text={"提交"} col={12} onClick={this.buttonClick.bind(this)} />
-                        </div>
 
                         <label className="text-success text-lowercase font-italic">lowercase-italic-success</label>
                         <div className="bg-light text-black p-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
