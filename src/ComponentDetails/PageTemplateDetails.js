@@ -104,20 +104,6 @@ class Details extends Component {
                             val={[0, 1, 2, 3]}
                             selected={this.state.selectedCheckbox}
                             onChange={this.checkChange.bind(this)}/>
-
-                        <label className="text-success text-lowercase font-italic">lowercase-italic-success</label>
-                        <div className="bg-light text-black p-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                            <p className="text-uppercase">使用说明：</p> 
-                            <p>本页面模板基于Bootstrap V4设计与编码，采用了Flex布局排版技术。</p>
-                            <p>如要使用切换动画，在最外层添加<code>div</code>，并将<code>className</code>设置为<code>transition-item detail-page</code>;</p>
-                            <p><code>Container</code>：<code>Container</code>定义了页面的height和width，并分别设置为100%，同时用户可以根据实际需要改变属性
-                                <code>padding</code>以实现对页面整体内边距的设置；使用时须将<code>Container</code>至于外层；
-                            </p>
-                            <p><code>Header</code>：<code>Header</code>组件为固定在屏幕顶部的蓝色区域，高度为<code>56px</code>，不随页面滚动而消失；</p>
-                            <p><code>Content</code>：<code>Content</code>组件定义了屏幕中央内容区域，该区域在内容较多时可以滚动显示；</p>
-                            <p><code>Footer</code>：<code>Footer</code>组件定义了固定于屏幕底部的区域，该区域内的按钮数量、按钮样式、按钮回调方法可以自由定义。</p>
-
-                        </div>
                     
                     </Content>
                     <Footer size={"lg"}
