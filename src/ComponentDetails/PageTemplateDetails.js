@@ -28,6 +28,7 @@ class Details extends Component {
                         onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
                     </Header>
                     <Content padding={[0,0,0,0]}>
+                        <label className="text-dark text-uppercase font-weight-bold">卡片样式</label>
                         <Card key={1}
                             avatar={<img className={`align-self-start mr-3`} 
                                         src={require("../images/avatar.png")} alt="Generic placeholder image" 
@@ -62,7 +63,7 @@ class Details extends Component {
                                 </div>
                             </div>
                         </Card>
-                        <label className="text-dark text-uppercase font-weight-bold">uppercase-bold-dark</label>
+                        <label className="text-dark text-uppercase font-weight-bold">文字段落样式</label>
                         <div className="bg-white p-2 text-justify">
                             <p className="text-uppercase">使用说明：</p> 
                             <p>本页面模板基于Bootstrap V4设计与编码，采用了Flex布局排版技术。</p>
@@ -75,18 +76,19 @@ class Details extends Component {
                             <p><code>Footer</code>：<code>Footer</code>组件定义了固定于屏幕底部的区域，该区域内的按钮数量、按钮样式、按钮回调方法可以自由定义。</p>
 
                         </div>
-
+                        <label className="text-dark text-uppercase font-weight-bold">行内多个按钮</label>
                         <div className="p-2">
                             <Button style="new" newStyle={{backgroundColor: 'white', color: '#318ccf'}} size="lg" text={"取消"} col={6} onClick={this.buttonClick.bind(this)} />
                             <Button style="inspur" size="lg" text={"评论"} col={6} onClick={this.buttonClick.bind(this)} />
                         </div>
-
+                        <label className="text-dark text-uppercase font-weight-bold">复选框样式</label>
                         <CheckGroup 
                             option={['待确认', '制作中', '待结算', '已完成']}
                             val={[0, 1, 2, 3]}
                             selected={this.state.selectedCheckbox}
                             onChange={this.checkChange.bind(this)}/>
 
+                        <label className="text-dark text-uppercase font-weight-bold">行内一个按钮</label>
                         <div className="p-2">
                             <Button style="inspur" size="lg" text={"提交"} col={12} onClick={this.buttonClick.bind(this)} />
                         </div>
