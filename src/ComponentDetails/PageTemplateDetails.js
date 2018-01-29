@@ -25,7 +25,7 @@ class Details extends Component {
                 <Header name="PageTemplate" 
                     onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
                 </Header>
-                <Container padding={[0,0,0,0]} tb={[56, 56]}>
+                <Container padding={[0, 0, 0, 0]} tb={[56, 56]}>
                     <Card key={1}
                         avatar={<img className={`align-self-start mr-3`} 
                                     src={require("../images/avatar.png")} alt="Generic placeholder image" 
@@ -61,7 +61,7 @@ class Details extends Component {
                         </div>
                     </Card>
                     <label className="text-dark text-uppercase font-weight-bold">uppercase-bold-dark</label>
-                    <p className="bg-light p-2 text-justify"><span className="text-uppercase">Text-justify: </span> 
+                    <p className="bg-white p-2 text-justify"><span className="text-uppercase">Text-justify: </span> 
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                         when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
@@ -100,7 +100,7 @@ class Details extends Component {
                     
                     
                 </Container>
-                <Footer
+                <Footer size={"lg"}
                     style={[{'color': '#318ccf', 'backgroundColor': '#ffffff'}, 
                             {'color': 'white', 'backgroundColor': '#318ccf'}]}
                     buttonName={["拒单", "接单"]}

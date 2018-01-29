@@ -5,6 +5,7 @@ class Footer extends Component {
     render() {
         let buttonNameArr = this.props.buttonName;
         let buttonStyleArr = this.props.style;
+        let size = this.props.size || "lg";
         let numOfButton = buttonNameArr.length;
         let buttonWidth;
         switch (buttonNameArr.length) {
@@ -25,9 +26,22 @@ class Footer extends Component {
                 break;
         }
 
+        let paddingY;
+        switch (size) {
+            case "lg":
+                paddingY = "py-15";
+                break;
+            case "sm":
+                paddingY = "py-11";
+                break;
+            default:
+                paddingY = "py-15";
+                break;
+        }
+
         let footerButtonDiv = buttonNameArr.map((button, index) => {
             return (
-                <div className={`${buttonWidth} buttonHeight text-center d-inline-block py-15`}
+                <div className={`${buttonWidth} buttonHeight-${size} text-center d-inline-block ${paddingY}`}
                     style={buttonStyleArr[index]}
                     key={index}
                     onClick={this.onButtonClick.bind(this, index)}>{button}</div>

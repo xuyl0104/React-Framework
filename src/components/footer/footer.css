@@ -1,19 +1,28 @@
-.footer {
-    height: 56px;
-    /* background-color: #318ccf; */
+/* .footer {
+    font-size: 18px;
 }
 
 .footer div {
-    /* text-align: center; */
-    /* font-size: 20px; */
-    /* display: inline-block; */
     padding: 15px 0;
-}
+} */
 
-.buttonHeight {
+.buttonHeight-lg {
+    font-size: 18px;
     height: 56px;
 }
 
+.buttonHeight-sm {
+    font-size: 14px;
+    height: 44px;
+}
+
+.py-11 {
+    padding: 11px 0;
+}
+
+.py-15 {
+    padding: 15px 0;
+}
 
 .w-33 {
     width: 33.3%;

@@ -91,7 +91,13 @@ class Details extends Component {
 
                     {/* </Container> */}
 
-                    <label>CheckGroup</label>
+                    <label>复选框</label>
+                    <CheckGroup 
+                        option={['待确认', '制作中', '待结算', '已完成']}
+                        val={[0, 1, 2, 3]}
+                        selected={this.state.selectedCheckbox}
+                        onChange={this.checkChange.bind(this)}/>
+                    <label>复选框</label>
                     <CheckGroup 
                         option={['待确认', '制作中', '待结算', '已完成']}
                         val={[0, 1, 2, 3]}

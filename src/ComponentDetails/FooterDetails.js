@@ -26,7 +26,8 @@ class Details extends Component {
     constructor() {
         super();
         this.state = {
-            key: 1
+            key: 1,
+            size: "lg"
         };
     }
 
@@ -36,8 +37,15 @@ class Details extends Component {
         let headerImageSrc = "../images/arrowback-large.png";
         let footerDiv;
         if(this.state.key === 1) {
-            footerDiv = (
-                <Footer
+            footerDiv = this.state.size === "lg" ? (
+                <Footer size="lg"
+                    style={[{'color': 'white', 'backgroundColor': '#318ccf'}]}
+                    buttonName={["下单"]}
+                    callBackFooterButtonClick={[
+                        this.callBackFooter0]}>
+                </Footer>
+            ) : (
+                <Footer size="sm"
                     style={[{'color': 'white', 'backgroundColor': '#318ccf'}]}
                     buttonName={["下单"]}
                     callBackFooterButtonClick={[
@@ -45,8 +53,18 @@ class Details extends Component {
                 </Footer>
             );
         } else if(this.state.key === 2) {
-            footerDiv = (
-                <Footer
+            footerDiv = this.state.size === "lg" ? (
+                <Footer size="lg"
+                    style={[{'color': '#318ccf', 'backgroundColor': '#ffffff'}, 
+                            {'color': 'white', 'backgroundColor': '#318ccf'}]}
+                    buttonName={["拒单", "接单"]}
+                    callBackFooterButtonClick={[
+                        this.callBackFooter0, 
+                        this.callBackFooter1
+                        ]}>
+                </Footer>
+            ) : (
+                <Footer size="sm"
                     style={[{'color': '#318ccf', 'backgroundColor': '#ffffff'}, 
                             {'color': 'white', 'backgroundColor': '#318ccf'}]}
                     buttonName={["拒单", "接单"]}
@@ -57,8 +75,20 @@ class Details extends Component {
                 </Footer>
             );
         } else {
-            footerDiv = (
-                <Footer
+            footerDiv = this.state.size === "lg" ? (
+                <Footer size="lg"
+                    style={[{'color': '#318ccf', 'backgroundColor': '#ffffff'}, 
+                            {'color': 'white', 'backgroundColor': '#318ccf'},
+                            {'color': '#318ccf', 'backgroundColor': '#ffffff'}]}
+                    buttonName={["取消", "删除", "确定"]}
+                    callBackFooterButtonClick={[
+                        this.callBackFooter0, 
+                        this.callBackFooter1,
+                        this.callBackFooter2
+                        ]}>
+                </Footer>
+            ) : (
+                <Footer size="sm"
                     style={[{'color': '#318ccf', 'backgroundColor': '#ffffff'}, 
                             {'color': 'white', 'backgroundColor': '#318ccf'},
                             {'color': '#318ccf', 'backgroundColor': '#ffffff'}]}
@@ -82,9 +112,12 @@ class Details extends Component {
                     <div className="content">
 
                         <Row>
-                            <Button style="primary" size="" text="一个按钮的footer" col={12} onClick={this.onButtonClick.bind(this, 1)}/>
-                            <Button style="primary" size="" text="两个按钮的footer" col={12} onClick={this.onButtonClick.bind(this, 2)}/>
-                            <Button style="primary" size="" text="三个按钮的footer" col={12} onClick={this.onButtonClick.bind(this, 3)}/>
+                            <Button style="primary" size="lg" text="一个按钮的footer-lg" col={12} onClick={this.onButtonClick.bind(this, 1, "lg")}/>
+                            <Button style="primary" size="lg" text="两个按钮的footer-lg" col={12} onClick={this.onButtonClick.bind(this, 2, "lg")}/>
+                            <Button style="primary" size="lg" text="三个按钮的footer-lg" col={12} onClick={this.onButtonClick.bind(this, 3, "lg")}/>
+                            <Button style="primary" size="" text="一个按钮的footer-sm" col={12} onClick={this.onButtonClick.bind(this, 1, "sm")}/>
+                            <Button style="primary" size="" text="两个按钮的footer-sm" col={12} onClick={this.onButtonClick.bind(this, 2, "sm")}/>
+                            <Button style="primary" size="" text="三个按钮的footer-sm" col={12} onClick={this.onButtonClick.bind(this, 3, "sm")}/>
                         </Row>
                        {footerDiv}
                                                 
@@ -94,9 +127,10 @@ class Details extends Component {
         );
     }
 
-    onButtonClick(key) {
+    onButtonClick(key, size) {
         this.setState({
-            key: key
+            key: key,
+            size: size
         });
     }
 
