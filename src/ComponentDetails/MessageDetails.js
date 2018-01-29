@@ -8,7 +8,7 @@ import request from '../Utils/fetchUtil';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import Row from '../components/row/row';
-import Container from '../components/container/container';
+import Content from '../components/content/content';
 import Button from '../components/button/button';
 import RadioGroup from '../components/radio/radio';
 import Modals from '../components/modal/modal';
@@ -19,7 +19,6 @@ import Toast from '../components/third-party/toast';
 import '../components/third-party/toast/style/css';
 import Icon from 'antd/lib/icon';
 import Stepper from '../components/stepper/stepper';
-import container from '../components/container/container';
 import _ from 'lodash';
 
 class Details extends Component {

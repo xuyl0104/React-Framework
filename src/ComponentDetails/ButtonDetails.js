@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import './ComponentDetails.css';
 import Header from '../components/header/header';
 import Row from '../components/row/row';
-import Container from '../components/container/container';
+import Content from '../components/content/content';
 import Button from '../components/button/button';
 
 class Details extends Component {

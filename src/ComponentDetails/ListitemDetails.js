@@ -4,10 +4,9 @@ import './ComponentDetails.css';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import Row from '../components/row/row';
-import Container from '../components/container/container';
+import Content from '../components/content/content';
 import '../components/third-party/toast/style/css';
 import Icon from 'antd/lib/icon';
-import container from '../components/container/container';
 import Input from '../components/input/input';
 
 class Details extends Component {
@@ -29,11 +28,11 @@ class Details extends Component {
                 <Header name="Listitem" 
                     onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
                 </Header>
-                <Container padding={[8, 8, 8, 8]}>
+                <Content padding={[8, 8, 8, 8]}>
                     <div className="content">
                         
                     </div>
-                </Container>
+                </Content>
             </div>
         );
     }

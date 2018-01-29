@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import * as ReactDOM from 'react-dom';
 import './ComponentDetails.css';
 import Header from '../components/header/header';
-import Container from '../components/container/container';
+import Content from '../components/content/content';
 import Card from '../components/card/card';
 import Icon from 'antd/lib/icon';
 
@@ -44,17 +44,17 @@ class Details extends Component {
                             <div style={{'display': 'inline-table'}}>
                                 <img src={require("../images/timg.jpg")} alt="" style={{'width': '200px'}}/>
                             </div>
-                            <div style={{'display': 'inline-flex', 'margin': '10px 10px 5px 10px'}}>
-                                <div className="col-3" style={{'textAlign': 'center'}} onClick={this.thumbsUp.bind(this)}>
+                            <div className="d-flex justify-content-around mt-2">
+                                <div className="text-center" onClick={this.thumbsUp.bind(this)}>
                                     <Icon type="heart-o" style={{ fontSize: 26, color: '#318ccf'}}/>
                                 </div>
-                                <div className="col-3" style={{'textAlign': 'center'}} onClick={this.shareToWeibo.bind(this)}>
+                                <div className="text-center" onClick={this.shareToWeibo.bind(this)}>
                                     <Icon type="weibo-circle" style={{ fontSize: 26, color: '#318ccf' }}/>
                                 </div>
-                                <div className="col-3" style={{'textAlign': 'center'}} onClick={this.shareToWeChat.bind(this)}>
+                                <div className="text-center" onClick={this.shareToWeChat.bind(this)}>
                                     <Icon type="wechat" style={{ fontSize: 26, color: '#318ccf' }}/>
                                 </div>
-                                <div className="col-3" style={{'textAlign': 'center'}} onClick={this.editForm.bind(this)}>
+                                <div className="text-center" onClick={this.editForm.bind(this)}>
                                     <Icon type="form" style={{ fontSize: 26, color: '#318ccf' }}/>
                                 </div>
                             </div>

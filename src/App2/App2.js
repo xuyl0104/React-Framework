@@ -5,7 +5,7 @@ import request from '../Utils/fetchUtil';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import Row from '../components/row/row';
-import Container from '../components/container/container'; 
+import Content from '../components/content/content';
 import Button from '../components/button/button';
 import RadioGroup from '../components/radio/radio';
 import Modals from '../components/modal/modal'; 
@@ -163,7 +163,7 @@ class App extends Component {
 			</Header>
 
 			<div className="content">
-				<Container padding={[8, 0, 8, 0]}>
+				<Content padding={[8, 0, 8, 0]}>
 					<Spin spinning={this.state.isSpinning} tip={"加载中"} delay={500} size="large">		
 						<PullToRefresh 
 							ref={el => this.ptr = el}
@@ -189,7 +189,7 @@ class App extends Component {
 							{/* </InfiniteScroll> */}
 						</PullToRefresh>
 					</Spin>
-				</Container>
+				</Content>
 			</div>
 
 			<Footer

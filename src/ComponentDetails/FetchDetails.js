@@ -7,11 +7,10 @@ import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import Row from '../components/row/row';
 import Button from '../components/button/button';
-import Container from '../components/container/container';
+import Content from '../components/content/content';
 import Modals from '../components/modal/modal';
 import Card from '../components/card/card';
 import CardList from '../components/cardlist/cardlist';
-import container from '../components/container/container';
 
 
 class Details extends Component {

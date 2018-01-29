@@ -11,8 +11,9 @@ class Button extends Component {
         let size = this.props.size;
         let value = this.props.text;
         let col = this.props.col;
+        let newStyle = style === 'new' ? this.props.newStyle : {};
         return (
-            <button className={`btn btn-${style} btn-${size} btncol-${col} gutter`}
+            <button className={`btn btn-${style} btn-${size} btncol-${col} gutter`} style={newStyle}
                 onClick={this.onButtonClick.bind(this)}>{value}</button>
         );
     }

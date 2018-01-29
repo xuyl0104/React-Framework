@@ -50,7 +50,7 @@ class Footer extends Component {
 
         return (
             <div>
-                <div className="fixed-bottom w-100 footer">
+                <div className="w-100">
                     {footerButtonDiv}
                 </div>
             </div>

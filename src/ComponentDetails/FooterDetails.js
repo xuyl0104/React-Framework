@@ -9,6 +9,7 @@ import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import Row from '../components/row/row';
 import Container from '../components/container/container';
+import Content from '../components/content/content';
 import Button from '../components/button/button';
 import RadioGroup from '../components/radio/radio';
 import Modals from '../components/modal/modal';
@@ -19,7 +20,6 @@ import Toast from '../components/third-party/toast';
 import '../components/third-party/toast/style/css';
 import Icon from 'antd/lib/icon';
 import Stepper from '../components/stepper/stepper';
-import container from '../components/container/container';
 import _ from 'lodash';
 
 class Details extends Component {
@@ -104,25 +104,22 @@ class Details extends Component {
 
         return (
             <div className="transition-item detail-page">
-                <Header name="Footer" 
-                    headerImageSrc={headerImageSrc}
-                    onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
-                </Header>
-                {/* <Container padding={[8, 8, 8, 8]}> */}
-                    <div className="content">
-
-                        <Row>
-                            <Button style="primary" size="lg" text="一个按钮的footer-lg" col={12} onClick={this.onButtonClick.bind(this, 1, "lg")}/>
-                            <Button style="primary" size="lg" text="两个按钮的footer-lg" col={12} onClick={this.onButtonClick.bind(this, 2, "lg")}/>
-                            <Button style="primary" size="lg" text="三个按钮的footer-lg" col={12} onClick={this.onButtonClick.bind(this, 3, "lg")}/>
-                            <Button style="primary" size="" text="一个按钮的footer-sm" col={12} onClick={this.onButtonClick.bind(this, 1, "sm")}/>
-                            <Button style="primary" size="" text="两个按钮的footer-sm" col={12} onClick={this.onButtonClick.bind(this, 2, "sm")}/>
-                            <Button style="primary" size="" text="三个按钮的footer-sm" col={12} onClick={this.onButtonClick.bind(this, 3, "sm")}/>
-                        </Row>
-                       {footerDiv}
-                                                
-                    </div>
-                {/* </Container> */}
+                <Container>
+                    <Header name="Footer" 
+                        onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
+                    </Header>
+                    <Content padding={[8, 8, 8, 8]}>
+                            <Row>
+                                <Button style="primary" size="lg" text="一个按钮的footer-lg" col={12} onClick={this.onButtonClick.bind(this, 1, "lg")}/>
+                                <Button style="primary" size="lg" text="两个按钮的footer-lg" col={12} onClick={this.onButtonClick.bind(this, 2, "lg")}/>
+                                <Button style="primary" size="lg" text="三个按钮的footer-lg" col={12} onClick={this.onButtonClick.bind(this, 3, "lg")}/>
+                                <Button style="primary" size="" text="一个按钮的footer-sm" col={12} onClick={this.onButtonClick.bind(this, 1, "sm")}/>
+                                <Button style="primary" size="" text="两个按钮的footer-sm" col={12} onClick={this.onButtonClick.bind(this, 2, "sm")}/>
+                                <Button style="primary" size="" text="三个按钮的footer-sm" col={12} onClick={this.onButtonClick.bind(this, 3, "sm")}/>
+                            </Row>
+                    </Content>
+                    {footerDiv}                          
+                </Container>
             </div>
         );
     }

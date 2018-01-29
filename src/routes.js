@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import * as ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ComponentList from './ComponentList/ComponentList';
-import App from './App/App';
-import App2 from './App2/App2';
 import Details from './Details/Details';
 import PageTransition from "react-router-page-transition";
 import ButtonDetails from './ComponentDetails/ButtonDetails';
@@ -30,7 +28,6 @@ class Routes extends Component {
                     <PageTransition timeout={500}>
                         <Switch location={location}>
                             <Route exact path="/" component={ComponentList}/>
-                            <Route path="/App" component={App}/>
                             <Route path="/ButtonDetails" component={ButtonDetails}/>
                             <Route path="/InputDetails" component={InputDetails}/>
                             <Route path="/MessageDetails" component={MessageDetails}/>

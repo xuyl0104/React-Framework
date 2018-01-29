@@ -6,7 +6,7 @@ import showMessage from "../Utils/showMessage";
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import Row from '../components/row/row';
-import Container from '../components/container/container'; 
+import Content from '../components/content/content';
 import Button from '../components/button/button';
 import RadioGroup from '../components/radio/radio';
 import showModal from '../components/modal/modal'; 
@@ -130,7 +130,7 @@ class App extends Component {
         </Header>
 
         <div className="content">
-          <Container padding={[8, 8, 8, 8]}>
+          <Content padding={[8, 8, 8, 8]}>
 
             <div className="button">
               <Row>
@@ -191,7 +191,7 @@ class App extends Component {
                 </List>
               </Card>
             </Modal>            
-          </Container>
+          </Content>
         </div>
 
         <Footer

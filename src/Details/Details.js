@@ -5,7 +5,7 @@ import request from '../Utils/fetchUtil';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import Row from '../components/row/row';
-import Container from '../components/container/container'; 
+import Content from '../components/content/content';
 import Button from '../components/button/button';
 import RadioGroup from '../components/radio/radio';
 import Modals from '../components/modal/modal'; 
@@ -16,7 +16,6 @@ import Toast from '../components/third-party/toast';
 import '../components/third-party/toast/style/css';
 import Icon from 'antd/lib/icon';
 import Stepper from '../components/stepper/stepper';
-import container from '../components/container/container';
 import _ from 'lodash';
 
 class Details extends Component {
@@ -51,7 +50,7 @@ class Details extends Component {
                 </Header>
                 
                 <div className = "content">
-                    <Container padding={[8, 0, 8, 0]}>
+                    <Content padding={[8, 0, 8, 0]}>
                         <Listview text={"审批人"} style={{'backgroundColor': '#ffffff', 'fontSize': '16px', 'padding': '8px'}}>
                             <input value={this.state.spName} style={{'width': '200px'}} onChange={this.changeInput.bind(this)} placeholder={"请输入审批人姓名"}/>
                         </Listview>
@@ -68,13 +67,13 @@ class Details extends Component {
                         <Listview text={"审批意见"} style={{'backgroundColor': '#ffffff', 'fontSize': '16px', 'padding': '8px'}}>
                             <textarea rows={6} style={{'width': '220px'}}/>
                         </Listview>
-                    </Container>
-                    <Container padding={[8, 0, 8, 0]}>
+                    </Content>
+                    <Content padding={[8, 0, 8, 0]}>
                         <div className="col-12">
                             <Stepper titles={['徐云龙', '陈经理', '孙总', '郑总']} descriptions={['发起人', '直接上级', '分管经理', '部门经理']} current={3}>
                             </Stepper>
                         </div>
-                    </Container>
+                    </Content>
                 </div>
 
                 <Footer

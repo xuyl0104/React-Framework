@@ -16,7 +16,7 @@ class Header extends Component {
 
         //     {this.renderChildren(this.props)}
         // </header>
-        <div className="fixed-top w-100">
+        <div className="w-100">
           <Row>
             <div className="col-2 no-gutter header pl-0">
               <img id="quitOut" src={require("../../images/arrowback-large.png")} alt="" className="pull-left arrowback"
