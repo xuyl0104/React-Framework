@@ -23,37 +23,73 @@ export default class Request {
             ...defaultOptions,
             ...this.options
         };
+        return this.request(newOptions);
     }
 
-    post() {}
-
-    put() {}
-
-    delete() {}
-
-    toJson(promise) {
-        return promise.json();
-    }
-    
-    request() {
+    post() {
         const defaultOptions = {
-            credentials: 'include'
+            credentials: 'include',
+            method: 'POST'
         };
         const newOptions = {
             ...defaultOptions,
             ...this.options
         };
-        if (newOptions.method === 'POST' || newOptions.method === 'PUT') {
-            newOptions.headers = {
-                Accept: 'application/json',
-                'Content-Type': 'application/json; charset=utf-8',
-                ...newOptions.headers
-            };
-            newOptions.body = JSON.stringify(newOptions.body);
-        }
+        newOptions.headers = {
+            Accept: 'application/json',
+            'Content-Type': 'application/json; charset=utf-8',
+            ...newOptions.headers
+        };
+        newOptions.body = JSON.stringify(newOptions.body);
+        return this.request(newOptions);
+    }
 
-        console.log(newOptions);
-        let fetch_promise = fetch(this.url, newOptions);
+    put() {
+        const defaultOptions = {
+            credentials: 'include',
+            method: 'PUT'
+        };
+        const newOptions = {
+            ...defaultOptions,
+            ...this.options
+        };
+        newOptions.headers = {
+            Accept: 'application/json',
+            'Content-Type': 'application/json; charset=utf-8',
+            ...newOptions.headers
+        };
+        newOptions.body = JSON.stringify(newOptions.body);
+        return this.request(newOptions);
+    }
+
+    delete() {
+        const defaultOptions = {
+            credentials: 'include',
+            method: 'DELETE'
+        };
+        const newOptions = {
+            ...defaultOptions,
+            ...this.options
+        };
+        return this.request(newOptions);
+    }
+
+    patch() {
+        const defaultOptions = {
+            credentials: 'include',
+            method: 'PATCH'
+        };
+        const newOptions = {
+            ...defaultOptions,
+            ...this.options
+        };
+        console.log(newOptions)
+        return this.request(newOptions);
+    }
+    
+    request(options) {
+        // console.log(options);
+        let fetch_promise = fetch(this.url, options);
 
         let abort_fn = null;
 

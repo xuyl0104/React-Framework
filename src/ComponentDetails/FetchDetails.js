@@ -7,6 +7,7 @@ import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import Row from '../components/row/row';
 import Button from '../components/button/button';
+import Container from '../components/container/container';
 import Content from '../components/content/content';
 import Modals from '../components/modal/modal';
 import Card from '../components/card/card';
@@ -23,14 +24,13 @@ class Details extends Component {
     }
 
     fetchGET() {
-        let url = "http://jsonplaceholder.typicode.com/userss";
+        let url = "http://jsonplaceholder.typicode.com/users";
 		let optionsGET = {
 		};
         let FETCH = new requestObj(url, optionsGET);
         let self = this;
-        FETCH.request()
+        FETCH.get()
         .then((resp) => {
-            console.log(resp);
             if(!resp.ok) {
                 showMessage("info", "列表获取失败，请重试");
             }
@@ -62,13 +62,11 @@ class Details extends Component {
          * body: 用于POST|PUT等方法，不需要调用JSON.stringify()
          */
         let optionsPOST = {
-            method: 'POST',
             body: cartInfoToUpload
         };
         let FETCH = new requestObj(url, optionsPOST);
-        FETCH.request()
+        FETCH.post()
         .then((resp) => {
-            console.log(resp);
             if(!resp.ok) {
                 showMessage("info", "下单失败，请重试");
             }
@@ -96,13 +94,11 @@ class Details extends Component {
             userId: 1
         };
         let optionPUT = {
-            method: 'PUT',
             body: infoToUpload
         };
         let FETCH = new requestObj(urlPut, optionPUT);
-        FETCH.request()
+        FETCH.put()
         .then((resp) => {
-            console.log(resp);
             //API出现异常时，给出友好提示
             if(!resp.ok) {
                 showMessage("info", "信息更新失败，请重试");
@@ -131,10 +127,9 @@ class Details extends Component {
          * body: 用于POST|PUT等方法，不需要调用JSON.stringify()
          */
         let optionsDELETE = {
-            method: 'DELETE',
         };
         let FETCH = new requestObj(urlDelete, optionsDELETE);
-        FETCH.request()
+        FETCH.delete()
         .then((resp) => {
             console.log(resp);
             if(!resp.ok) {
@@ -159,14 +154,13 @@ class Details extends Component {
         let self = this;
         let urlPatch = 'https://jsonplaceholder.typicode.com/posts/1';
         let optionPATCH = {
-            method: 'PATCH',
             mode: 'cors',
             body: {
                 title: 'foo'
             }
         };
         let FETCH = new requestObj(urlPatch, optionPATCH);
-        FETCH.request()
+        FETCH.patch()
         .then((resp) => {
             console.log(resp);
             if(!resp.ok) {
@@ -200,11 +194,11 @@ class Details extends Component {
 		
         return (
             <div className="transition-item detail-page">
-                <Header name="Fetch" 
-                    onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
-                </Header>
-                {/* <Container padding={[8, 8, 8, 8]}> */}
-                    <div className="content">
+                <Container>
+                    <Header name="Fetch" 
+                        onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
+                    </Header>
+                    <Content padding={[1, 1, 1, 1]}>
                        <Row>
                             <Button style="inspur" size="lg" text={"GET"} col={6} onClick={ this.fetchGET.bind(this)}/>
                             <Button style="primary" size="lg" text={"POST"} col={6} onClick={ this.fetchPOST.bind(this)}/>
@@ -213,8 +207,8 @@ class Details extends Component {
                             <Button style="default" size="lg" text={"PATCH"} col={6} onClick={this.fetchPUT.bind(this)}/>
                             <Button style="default" size="lg" text={"CHECKSTATUS"} col={6} onClick={this.fetchCheckNetworkStatus.bind(this)}/>
                         </Row>
-                    </div>
-                {/* </Container> */}
+                    </Content>
+                </Container>
             </div>
         );
     }
