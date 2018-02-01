@@ -30,10 +30,10 @@ class RadioGroup extends Component {
                     </div>
                 );
             });
-        } else {
+        } else if(mode === "vertical") {
             radioDivs = options.map((option, index) => {
                 return (
-                    <div style={{'margin': '8px 0'}} key={index}>
+                    <div className="checkgroup" style={{'margin': '8px 0'}} key={index}>
                         <input
                             type='radio' name={name} id={id[index]} 
                             checked={selected === values[index]}
@@ -45,6 +45,9 @@ class RadioGroup extends Component {
                     </div>
                 );
             });
+        } else if(mode === "slideup") {
+            // todo
+            // 目前存在问题，初步打算使用Antd-mobile的picker，做出slideup的效果，但该插件改写有问题
         }
         
         return (

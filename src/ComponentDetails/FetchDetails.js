@@ -185,6 +185,14 @@ class Details extends Component {
         })
     }
 
+    fetchCheckNetworkStatus() {
+        let url = "http://jsonplaceholder.typicode.com/userss";
+		let optionsGET = {};
+        let FETCH = new requestObj(url, optionsGET);
+        let self = this;
+        FETCH.checkNetworkStatus();
+    }
+
 
 
     render() {
@@ -203,6 +211,7 @@ class Details extends Component {
                             <Button style="warning" size="lg" text={"DELETE"} col={6} onClick={this.fetchDELETE.bind(this)}/>
                             <Button style="success" size="lg" text={"PUT"} col={6} onClick={this.fetchPUT.bind(this)}/>
                             <Button style="default" size="lg" text={"PATCH"} col={6} onClick={this.fetchPUT.bind(this)}/>
+                            <Button style="default" size="lg" text={"CHECKSTATUS"} col={6} onClick={this.fetchCheckNetworkStatus.bind(this)}/>
                         </Row>
                     </div>
                 {/* </Container> */}

@@ -14,7 +14,7 @@ class Details extends Component {
 
     render() {
         let finishedComponent = ['Button', 'Input', 'Message', 'Modal', 'Card', 'Stepper', 'Picker', 'Header', 'Footer', 'Refresh/Load More', 'RadioCheck', 'Listitem', 'Fetch', 'Page template'];
-        let finishedIndicator = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1];
+        let finishedIndicator = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
         let displayDivs = finishedComponent.map((item, index) => {
             return (
                 <List.Item arrow="horizontal" onClick={this.goToSeeDetails.bind(this, index)} key={index}>

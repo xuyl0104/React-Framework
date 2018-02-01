@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch';
+import OfflineFunc from './offline';
 
 export default class Request {
     constructor(url, options) {
@@ -6,36 +7,34 @@ export default class Request {
         this.options = options;
     }
 
-    //该方法未使用
-    checkStatus(response) {
-        if (response.status >= 200 && response.status < 300) {
-            return response;
-        }
-        let codeMessage = {
-            200: '服务器成功返回请求的数据',
-            201: '新建或修改数据成功。',
-            202: '一个请求已经进入后台排队（异步任务）',
-            204: '删除数据成功。',
-            400: '操作失败，请重试',
-            401: '操作失败，请重试',
-            403: '操作失败，请重试',
-            404: '页面未找到',
-            406: '操作失败，请重试',
-            410: '操作失败，请重试',
-            422: '操作失败，请重试',
-            500: '操作失败，请重试',
-            502: '操作失败，请重试',
-            503: '操作失败，请重试',
-            504: '操作失败，请重试'
-        };
-        
-        const errortext = codeMessage[response.status] || response.statusText;
-        const error = new Error(errortext);
-        error.name = response.status;
-        error.response = response;
-        throw error;
+    checkNetworkStatus() {
+        let object = OfflineFunc().check();
+        console.log(OfflineFunc());
+        console.log(object.status);
+        console.log(OfflineFunc().check());
     }
 
+    get() {
+        const defaultOptions = {
+            credentials: 'include',
+            method: 'GET'
+        };
+        const newOptions = {
+            ...defaultOptions,
+            ...this.options
+        };
+    }
+
+    post() {}
+
+    put() {}
+
+    delete() {}
+
+    toJson(promise) {
+        return promise.json();
+    }
+    
     request() {
         const defaultOptions = {
             credentials: 'include'
@@ -73,28 +72,5 @@ export default class Request {
         }, 5 * 1000);
 
         return abortable_promise
-        // .then(this.checkStatus)
-        // .then((response) => {
-        //     if(successText !== "") {
-        //         showMessage("success", successText);
-        //     }
-        //     if(type === "json") {
-        //         return response.json()
-        //     } else if(type === "text") {
-        //         return response.text();
-        //     }else if(type === "blob") {
-        //         return response.blob();
-        //     }
-
-        // })
-        // .catch((error) => {
-        //     console.log(error.message);
-        //     if(error.message) {
-        //         showMessage("warning", error.message, 4);
-        //     }
-        //     if ('stack' in error && 'message' in error) {
-        //         showMessage("warning", errorMessage, 2);
-        //     }
-        // });
     }
 }

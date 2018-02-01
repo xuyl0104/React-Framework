@@ -31,3 +31,14 @@
     background-color: #318ccf;
     color: #ffffff;
 }
+
+.checkgroup > label {
+    color: black;
+    margin-left: 0.5em;
+}
+
+input[type="radio"] {
+    height: 20px;
+    width: 20px;
+    vertical-align: sub;
+}

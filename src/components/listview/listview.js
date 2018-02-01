@@ -2,19 +2,38 @@ import React, {Component} from 'react';
 import './listview.css';
 
 class Listview extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         let text = this.props.text;
         let style = this.props.style;
+        let tagClassName;
+        let tagClassNameLg;
+        // console.log(this.props.children);
+        switch (this.props.children.length) {
+            case 1:
+                tagClassName = 4; tagClassNameLg = 2;
+                break;
+            case 2:
+                tagClassName = 4; tagClassNameLg = 2;
+                break;
+            case 3:
+                tagClassName = 3; tagClassNameLg = 2;
+                break;
+        
+            default:
+                tagClassName = 4; tagClassNameLg = 2;
+                break;
+        }
         return (
-            <div className="listview" style={style}>
-                <div className="row" >
-                    <div className="col-4" >
-                        <label>{text}</label>
+            <div className="listview d-flex" 
+                onClick={this.props.onClick}>
+                    <label className={"col-"+""+tagClassName+" col-lg-2 col-md-2"}><nobr>{text}</nobr></label>
+                    <div className={"itemContent col-"+""+(12-tagClassName)+" col-lg-"+(12-tagClassNameLg)+" col-md-"+(12-tagClassNameLg)+" d-flex "+"justify-content-between "+"pr-0"}>
+                        {this.props.children}
                     </div>
-                    <div className="col-8" style={{'display': 'inline-flex'}}>
-                        {this.renderChildren(this.props)}
-                    </div>
-                </div>
             </div>
         );
     }
