@@ -7,7 +7,7 @@ class Content extends Component {
     }
     
     render() {
-        let padding = this.props.padding;
+        let padding = this.props.padding || [0, 0, 0, 0];
         let paddingTop, paddingRight, paddingBottom, paddingLeft;
         [paddingTop, paddingRight, paddingBottom, paddingLeft] = padding;
         // let tb = this.props.tb;

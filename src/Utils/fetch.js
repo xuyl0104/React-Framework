@@ -46,7 +46,6 @@ export default class Request {
         }
     }
 
-
     get() {
         const defaultOptions = {
             credentials: 'include',

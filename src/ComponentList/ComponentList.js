@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import * as ReactDOM from 'react-dom';
 import './ComponentList.css';
+import Container from '../components/container/container';
+import Content from '../components/content/content';
 import Header from '../components/header/header';
 import List from 'antd-mobile/lib/list';
 import 'antd-mobile/lib/list/style/css';
@@ -24,15 +26,17 @@ class Details extends Component {
         });
         return (
             <div className="transition-item list-page">
-                <Header name="组件列表" 
-                    onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
-                </Header>
+                <Container>
+                    <Header name="组件列表" 
+                        onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
+                    </Header>
 
-                <div className="content">
-                    <List>
-                        {displayDivs}
-                    </List>
-                </div>
+                    <Content>
+                        <List>
+                            {displayDivs}
+                        </List>
+                    </Content>
+                </Container>
             </div>
         );
     }

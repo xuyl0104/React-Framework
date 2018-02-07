@@ -5,6 +5,7 @@ import Card from '../components/card/card';
 import showModal from '../Utils/showModals';
 import Header from '../components/header/header';
 import Row from '../components/row/row';
+import Container from '../components/container/container';
 import Content from '../components/content/content';
 import Button from '../components/button/button';
 import Modal from 'antd-mobile/lib/modal';
@@ -28,12 +29,12 @@ class Details extends Component {
         let headerImageSrc = "../images/arrowback-large.png";
         return (
             <div className="transition-item detail-page">
-                <Header name="Message" 
-                    headerImageSrc={headerImageSrc}
-                    onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
-                </Header>
-                {/* <Container padding={[8, 8, 8, 8]}> */}
-                    <div className="content">
+                <Container>
+                    <Header name="Message" 
+                        headerImageSrc={headerImageSrc}
+                        onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
+                    </Header>
+                    <Content>
                         <label>Alert</label>
                         <Row>
                             <Button style="primary" size="lg" text="普通提示框" col={12} 
@@ -123,8 +124,8 @@ class Details extends Component {
                                 </Card>
                             </Modal>            
                         </Row>
-                    </div>
-                {/* </Container> */}
+                    </Content>
+                </Container>
             </div>
         );
     }

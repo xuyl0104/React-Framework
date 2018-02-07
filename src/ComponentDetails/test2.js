@@ -54,10 +54,10 @@ class Details extends Component {
                     <Footer size="sm"
                         style={[{'color': '#318ccf', 'backgroundColor': '#ffffff'}, 
                                 {'color': 'white', 'backgroundColor': '#318ccf'}]}
-                        buttonName={["拒单", "接单"]}
+                        buttonName={["返回", "接单"]}
                         callBackFooterButtonClick={[
-                            this.callBackFooter0, 
-                            this.callBackFooter1
+                            this.callBackFooter0.bind(this), 
+                            this.callBackFooter1.bind(this)
                             ]}>
                     </Footer>
                 </Container>
@@ -71,7 +71,8 @@ class Details extends Component {
     }
 
     callBackFooter0() {
-        console.log("Footer 0 is clicked...");
+        window.sessionStorage.setItem("middle", "-reverse");
+        this.props.history.goBack();
     }
 
     callBackFooter1() {

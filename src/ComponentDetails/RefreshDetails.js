@@ -4,6 +4,7 @@ import './ComponentDetails.css';
 import request from '../Utils/fetchUtil';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
+import Container from '../components/container/container';
 import Content from '../components/content/content';
 import Button from '../components/button/button';
 import RadioGroup from '../components/radio/radio';
@@ -160,27 +161,29 @@ class Details extends Component {
         
         return (
             <div className="transition-item detail-page">
-                <Header name="Refresh" 
-                    onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
-                </Header>
-                {/* <Container padding={[8, 8, 8, 8]}> */}
-                    <div className="content" ref={ node => this.contentNode = node }>
-                        <Spin spinning={this.state.isSpinning} tip={"加载中"} delay={500} size="large">		
-                            <PullToRefresh 
-                                ref={el => this.ptr = el}
-                                style={{
-                                    height: this.state.height - 56,
-                                }}
-                                distanceToRefresh={80}
-                                refreshing={this.state.isRefreshing} 
-                                onRefresh={this.refresh.bind(this)}>
-                                    <CardList>
-                                        {listDiv}
-                                    </CardList>
-                            </PullToRefresh>
-                        </Spin>
-                    </div>
-                {/* </Container> */}
+                <Container>
+                    <Header name="Refresh" 
+                        onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
+                    </Header>
+                    <Content>
+                        <div className="content" ref={ node => this.contentNode = node }>
+                            <Spin spinning={this.state.isSpinning} tip={"加载中"} delay={500} size="large">		
+                                <PullToRefresh 
+                                    ref={el => this.ptr = el}
+                                    style={{
+                                        height: this.state.height - 56,
+                                    }}
+                                    distanceToRefresh={80}
+                                    refreshing={this.state.isRefreshing} 
+                                    onRefresh={this.refresh.bind(this)}>
+                                        <CardList>
+                                            {listDiv}
+                                        </CardList>
+                                </PullToRefresh>
+                            </Spin>
+                        </div>
+                    </Content>
+                </Container>
             </div>
         );
     }

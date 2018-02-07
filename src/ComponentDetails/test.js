@@ -60,13 +60,9 @@ class Details extends Component {
                         <div>Test</div>
                     </Content>
                     <Footer size="sm"
-                        style={[{'color': '#318ccf', 'backgroundColor': '#ffffff'}, 
-                                {'color': 'white', 'backgroundColor': '#318ccf'}]}
-                        buttonName={["拒单", "接单"]}
-                        callBackFooterButtonClick={[
-                            this.callBackFooter0.bind(this), 
-                            this.callBackFooter1.bind(this)
-                            ]}>
+                        style={[{'color': 'white', 'backgroundColor': '#318ccf'}]}
+                        buttonName={["前往下一页"]}
+                        callBackFooterButtonClick={[this.callBackFooter0.bind(this)]}>
                     </Footer>
                 </Container>
             </div>
@@ -83,10 +79,6 @@ class Details extends Component {
             pathname: '/test2',
             state: {}
         });
-    }
-
-    callBackFooter1() {
-        console.log("Footer 1 is clicked...");    
     }
 
 }

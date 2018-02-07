@@ -8,6 +8,7 @@ import request from '../Utils/fetchUtil';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import Row from '../components/row/row';
+import Container from '../components/container/container';
 import Content from '../components/content/content';
 import Button from '../components/button/button';
 import RadioGroup from '../components/radio/radio';
@@ -35,30 +36,32 @@ class Details extends Component {
         let headerImageSrc = "../images/arrowback-large.png";
         return (
             <div className="transition-item detail-page">
-                <Header name="Stepper" 
-                    headerImageSrc={headerImageSrc}
-                    onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
-                </Header>
-                {/* <Container padding={[8, 8, 8, 8]}> */}
-                    <div className="content">
-                        <label>纵向审批流程</label>
-                        <Stepper 
-                            titles={['徐云龙', '陈经理', '孙总', '郑总']} 
-                            descriptions={['发起人', '直接上级', '分管经理', '部门经理']} 
-                            current={3}
-                            direction="vertical">
-                        </Stepper>
-                        <label>Example-2</label>
-                        <label>横向审批流程</label>
-                        <Stepper 
-                            titles={['徐云龙', '陈经理', '孙总']} 
-                            descriptions={['发起人', '直接上级', '分管经理']} 
-                            current={2}
-                            direction="horizontal">
-                        </Stepper>
+                <Container>
+                    <Header name="Stepper" 
+                        headerImageSrc={headerImageSrc}
+                        onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
+                    </Header>
+                    <Content>
+                        <div className="bg-white">
+                            <label>纵向审批流程</label>
+                            <Stepper 
+                                titles={['徐云龙', '陈经理', '孙总', '郑总']} 
+                                descriptions={['发起人', '直接上级', '分管经理', '部门经理']} 
+                                current={3}
+                                direction="vertical">
+                            </Stepper>
+                            <label>Example-2</label>
+                            <label>横向审批流程</label>
+                            <Stepper 
+                                titles={['徐云龙', '陈经理', '孙总']} 
+                                descriptions={['发起人', '直接上级', '分管经理']} 
+                                current={2}
+                                direction="horizontal">
+                            </Stepper>
 
-                    </div>
-                {/* </Container> */}
+                        </div>
+                    </Content>
+                </Container>
             </div>
         );
     }

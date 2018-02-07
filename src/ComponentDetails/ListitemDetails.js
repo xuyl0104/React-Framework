@@ -3,16 +3,11 @@ import * as ReactDOM from 'react-dom';
 import './ComponentDetails.css';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
-import Row from '../components/row/row';
-import '../components/third-party/toast/style/css';
 import Icon from 'antd/lib/icon';
-import Input from '../components/input/input';
 import RadioGroup from '../components/radio/radio';
 import Container from '../components/container/container';
 import Content from '../components/content/content';
 import Listview from '../components/listview/listview';
-// import Switch from 'antd-mobile/lib/switch';
-import 'antd-mobile/lib/switch/style/css';
 import Switch from '../components/switch/switch';
 
 class Details extends Component {
