@@ -11,8 +11,9 @@ import RadioGroup from '../components/radio/radio';
 import Container from '../components/container/container';
 import Content from '../components/content/content';
 import Listview from '../components/listview/listview';
-import Switch from 'antd-mobile/lib/switch';
+// import Switch from 'antd-mobile/lib/switch';
 import 'antd-mobile/lib/switch/style/css';
+import Switch from '../components/switch/switch';
 
 class Details extends Component {
     constructor(props) {
@@ -72,7 +73,7 @@ class Details extends Component {
                         </Listview>
                         <Listview text={"删除购买历史"}>
                             <div></div>
-                            <Switch checked={this.state.switchChecked} onChange={this.onSwitchChange.bind(this)} color={"red"}/>
+                            <Switch checked={this.state.switchChecked} onChange={this.onSwitchChange.bind(this)} color={"#318ccf"}/>
                         </Listview>
                         <Listview text={"支付方式"}>
                             <div></div>

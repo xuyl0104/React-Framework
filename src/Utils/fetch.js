@@ -1,5 +1,9 @@
 import fetch from 'isomorphic-fetch';
 import OfflineFunc from './offline';
+import showMessage from './showMessage';
+import showToast from './showToast';
+import "rxjs";
+import { Observable } from "rxjs";
 
 export default class Request {
     constructor(url, options) {
@@ -7,12 +11,41 @@ export default class Request {
         this.options = options;
     }
 
-    checkNetworkStatus() {
-        let object = OfflineFunc().check();
-        console.log(OfflineFunc());
-        console.log(object.status);
-        console.log(OfflineFunc().check());
+
+    buildRequestObservable = fetch => {
+        const request = new Promise((resolve, reject) => {
+            fetch.then((response) => {
+                if (!response.ok) {
+                    // console.log(response)
+                    reject(this.buildErrorInfo('error', 'api调用失败: ' + response.status + " " + response.statusText));
+                } else {
+                    response.json()
+                    .then((data) => {
+                        resolve(data);
+                    })
+                    .catch((e) => {
+                        console.log(e)
+                        reject(this.buildErrorInfo('error', e.toString()));
+                    });
+                }
+            })
+            .catch((e) => {
+                if(e.status === 'timeout') {
+                    reject(this.buildErrorInfo('timeout', '网络超时，请重试'));
+                }
+                reject(this.buildErrorInfo('offline', 'fetch failed'));
+            });
+        });
+        return Observable.fromPromise(request);
+    };
+
+    buildErrorInfo(code, msg) {
+        return {
+            status: code,
+            msg: msg
+        }
     }
+
 
     get() {
         const defaultOptions = {
@@ -23,7 +56,7 @@ export default class Request {
             ...defaultOptions,
             ...this.options
         };
-        return this.request(newOptions);
+        return this.buildRequestObservable(this.request(newOptions));
     }
 
     post() {
@@ -89,6 +122,7 @@ export default class Request {
     
     request(options) {
         // console.log(options);
+        let self = this;
         let fetch_promise = fetch(this.url, options);
 
         let abort_fn = null;
@@ -96,7 +130,7 @@ export default class Request {
         //这是一个可以被reject的promise
         let abort_promise = new Promise(function (resolve, reject) {
             abort_fn = function() {
-                reject(new Error('请求超时,请重试'));
+                reject(self.buildErrorInfo('timeout', '网络超时，请重试'));
             };
         });
 

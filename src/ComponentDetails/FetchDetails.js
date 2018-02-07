@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import './ComponentDetails.css';
 import requestObj from '../Utils/fetch';
 import showMessage from '../Utils/showMessage';
+import showToast from '../Utils/showToast';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import Row from '../components/row/row';
@@ -30,20 +31,24 @@ class Details extends Component {
         let FETCH = new requestObj(url, optionsGET);
         let self = this;
         FETCH.get()
-        .then((resp) => {
-            if(!resp.ok) {
+        .subscribe(result => {
+            this.setState({
+                results: result
+            }, () => {
+                showMessage("success", "列表获取成功！");
+            });
+            
+        }, function (err) {
+            if(err.status === 'timeout') {
+                showMessage("info", "网络超时，请重试");
+            }
+            if(err.status=== 'offline') {
+                showToast("offline", "网络连接不可用，请检查网络设置");
+            }
+            if(err.status=== 'error') {
+                console.log(err);
                 showMessage("info", "列表获取失败，请重试");
             }
-            return resp.json()
-        })
-        .then((resj) => {
-            self.setState({
-                results: resj
-            })
-        })
-        .catch((e) => {
-            console.log(e);
-            showMessage("info", "网络超时，请重试");
         })
     }
 
@@ -75,6 +80,8 @@ class Details extends Component {
         .then((resp) => {
             self.setState({
                 results: resp
+            }, () => {
+                showMessage("success", "下单成功！");
             })
         })
         .catch((e) => {
@@ -131,7 +138,7 @@ class Details extends Component {
         let FETCH = new requestObj(urlDelete, optionsDELETE);
         FETCH.delete()
         .then((resp) => {
-            console.log(resp);
+            // console.log(resp);
             if(!resp.ok) {
                 showMessage("info", "订单删除失败，请重试");
             }
@@ -180,11 +187,12 @@ class Details extends Component {
     }
 
     fetchCheckNetworkStatus() {
-        let url = "http://jsonplaceholder.typicode.com/userss";
+        let url = "http://jsonplaceholder.typicode.com/users";
 		let optionsGET = {};
         let FETCH = new requestObj(url, optionsGET);
         let self = this;
-        FETCH.checkNetworkStatus();
+        let flag = FETCH.checkNetworkStatus();
+        console.log(flag);
     }
 
 

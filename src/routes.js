@@ -18,6 +18,8 @@ import RadioCheckDetails from './ComponentDetails/CheckRadioDetails';
 import ListitemDetails from './ComponentDetails/ListitemDetails';
 import FetchDetails from './ComponentDetails/FetchDetails';
 import PageTemplateDetails from './ComponentDetails/PageTemplateDetails';
+import Test from './ComponentDetails/test';
+import Test2 from './ComponentDetails/test2';
 
 class Routes extends Component {
     render() {
@@ -43,6 +45,8 @@ class Routes extends Component {
                             <Route path="/FetchDetails" component={FetchDetails}/>
                             <Route path="/FetchDetails" component={FetchDetails}/>
                             <Route path="/PageTemplateDetails" component={PageTemplateDetails}/>
+                            <Route path="/test" component={Test}/>
+                            <Route path="/test2" component={Test2}/>
 
                         </Switch>
                     </PageTransition>

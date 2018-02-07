@@ -1,9 +1,0 @@
-.App2 .content {
-    position: absolute;
-    top: 56px;
-    left: 0;
-    bottom: 0px;
-    width: 100%;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-}

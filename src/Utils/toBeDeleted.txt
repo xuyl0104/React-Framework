@@ -1,0 +1,43 @@
+// let xhr = new XMLHttpRequest;
+        // xhr.open('GET', options.checks.xhr.url, true);
+        // if (xhr.timeout != null) {
+        //     xhr.timeout = 3000;
+        // }
+        // xhr.onload = function () {
+        //     if((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+        //         console.log(xhr.responseText);
+        //         networkStatus = true;
+        //         console.log(networkStatus)
+        //         return networkStatus;
+        //     }
+        // }
+        // xhr.onerror = function() {
+        //     networkStatus = false;
+        //     console.log(networkStatus)
+        //     showToast("offline", "网络连接不可用，请检查网络设置");
+        // };
+        // try {
+        //     xhr.send();
+        // }
+        // catch(e) {
+        //     console.log("ERROR")
+        // }
+
+
+
+        checkNetworkStatus() {
+        let networkStatus = true;
+        let options = {
+            checks: { xhr: { url: 'http://jsonplaceholder.typicode.com/posts/1/comments' } }
+        }
+        fetch(options.checks.xhr.url)
+        .then(response => {
+            if (!response.ok) {
+                throw Error(response.statusText);
+            }
+            console.log("ok");
+            return response;
+        }).catch(error=> {
+            showToast("offline", "网络连接不可用，请检查网络设置");
+        })
+    }

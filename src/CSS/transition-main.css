@@ -39,7 +39,7 @@ body {
 }
 
 .list-page.transition-appear {
-    opacity: 0;
+    opacity: 1;
     transform: translate3d(-100%, 0, 0);
 }
 
@@ -54,7 +54,7 @@ body {
 }
 
 .list-page.transition-leave.transition-leave-active {
-    opacity: 0;
+    opacity: 1;
     transform: translate3d(-100%, 0, 0);
 }
 
@@ -70,7 +70,7 @@ body {
 }
 
 .detail-page.transition-appear {
-    opacity: 0;
+    opacity: 1;
     transform: translate3d(100%, 0, 0);
 }
 
@@ -85,38 +85,37 @@ body {
 }
 
 .detail-page.transition-leave.transition-leave-active {
-    opacity: 0;
+    opacity: 1;
     transform: translate3d(100%, 0, 0);
 }
 
 
-/* 新添加的第三页面的过渡动画效果 */
-.edit-page {
+/* 中间界面反向 */
+.detail-page-reverse {
     overflow: auto;
     box-sizing: border-box;
-    padding: 20px;
+    /* padding: 20px; */
     height: 100vh;
-    background-color: #fff;
+    /* background-color: #03a9f4; */
     transition: transform .5s, opacity .5s;
-    transform: translate3d(0, 0, 0);
 }
 
-.edit-page.transition-appear {
-    opacity: 0;
+.detail-page-reverse.transition-appear {
+    opacity: 1;
     transform: translate3d(-100%, 0, 0);
 }
 
-.edit-page.transition-appear.transition-appear-active {
+.detail-page-reverse.transition-appear.transition-appear-active {
     opacity: 1;
     transform: translate3d(0, 0, 0);
 }
 
-.edit-page.transition-leave {
+.detail-page-reverse.transition-leave {
     opacity: 1;
     transform: translate3d(0, 0, 0);
 }
 
-.edit-page.transition-leave.transition-leave-active {
-    opacity: 0;
-    transform: translate3d(100%, 0, 0);
+.detail-page-reverse.transition-leave.transition-leave-active {
+    opacity: 1;
+    transform: translate3d(-100%, 0, 0);
 }

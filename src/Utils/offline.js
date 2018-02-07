@@ -1,12 +1,8 @@
-export default function OfflineFunc() {
-    var options = {
-        game: false,
-        checks: { 
-            xhr: { url: 'http://jsonplaceholder.typicode.com/posts/1/comments' }
-        }
-    };
+import showMessage from './showMessage';
+import showToast from './showToast';
 
-    let Offline,
+export default function OfflineFunc() {
+    var Offline,
         checkXHR,
         defaultOptions,
         extendNative,
@@ -36,9 +32,16 @@ export default function OfflineFunc() {
     };
 
     Offline = {};
-
-    Offline.options = options;
-
+    
+    var run = function () {
+    if (Offline.state === 'up')
+        Offline.check();
+    }
+    setInterval(run, 5000);
+    Offline.options = {
+        game: false,
+        checks: { xhr: { url: 'http://jsonplaceholder.typicode.com/posts/1/comments' } }
+    }
 
     defaultOptions = {
         checks: {
@@ -125,10 +128,13 @@ export default function OfflineFunc() {
 
     Offline.markDown = function () {
         Offline.trigger('confirmed-down');
+        
         if (Offline.state === 'down') {
             return;
         }
         Offline.state = 'down';
+        // showMessage("info", "断网了！", 2);
+        showToast("offline", "网络连接不可用,请检查网络设置");
         return Offline.trigger('down');
     };
 
@@ -201,6 +207,7 @@ export default function OfflineFunc() {
                 handler = ref1[1];
                 results.push(handler.call(ctx));
             }
+            console.log("triggering");
             return results;
         }
     };
@@ -290,7 +297,6 @@ export default function OfflineFunc() {
     Offline.checks.up = Offline.markUp;
 
     Offline.check = function () {
-        // console.log("check function");
         Offline.trigger('checking');
         return Offline.checks[Offline.getOption('checks.active')]();
     };
@@ -368,6 +374,6 @@ export default function OfflineFunc() {
 
     setTimeout(init, 0);
 
-    return Offline;
+    window.Offline = Offline;
 
 }

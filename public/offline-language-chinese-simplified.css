@@ -3,27 +3,27 @@
 /* line 6, ../sass/_content.sass */
 
 .offline-ui .offline-ui-retry:before {
-    content: "重连";
+    /* content: "重连"; */
 }
 
 
 /* line 11, ../sass/_content.sass */
 
 .offline-ui.offline-ui-up .offline-ui-content:before {
-    content: "您的电脑已经连接到网络。";
+    content: "您的设备已连接到网络";
 }
 
 @media (max-width: 1024px) {
     /* line 11, ../sass/_content.sass */
     .offline-ui.offline-ui-up .offline-ui-content:before {
-        content: "您的设备已经连接到网络。";
+        content: "您的设备已连接到网络";
     }
 }
 
 @media (max-width: 568px) {
     /* line 11, ../sass/_content.sass */
     .offline-ui.offline-ui-up .offline-ui-content:before {
-        content: "您的设备已经连接到网络。";
+        content: "您的设备已连接到网络";
     }
 }
 
@@ -31,20 +31,20 @@
 /* line 22, ../sass/_content.sass */
 
 .offline-ui.offline-ui-down .offline-ui-content:before {
-    content: "您的电脑失去了网络连接。";
+    content: "网络连接中断";
 }
 
 @media (max-width: 1024px) {
     /* line 22, ../sass/_content.sass */
     .offline-ui.offline-ui-down .offline-ui-content:before {
-        content: "您的设备失去了网络连接。";
+        content: "网络连接中断";
     }
 }
 
 @media (max-width: 568px) {
     /* line 22, ../sass/_content.sass */
     .offline-ui.offline-ui-down .offline-ui-content:before {
-        content: "您的设备失去了网络连接。";
+        content: "网络连接中断";
     }
 }
 
@@ -53,20 +53,20 @@
 
 .offline-ui.offline-ui-down.offline-ui-connecting .offline-ui-content:before,
 .offline-ui.offline-ui-down.offline-ui-connecting-2s .offline-ui-content:before {
-    content: "正在尝试重连...";
+    /* content: "正在尝试重连..."; */
 }
 
 
 /* line 42, ../sass/_content.sass */
 
 .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="second"]:before {
-    content: "失去网络连接。 即将重连：" attr(data-retry-in-value) "秒...";
+    /* content: "失去网络连接。 即将重连：" attr(data-retry-in-value) "秒..."; */
 }
 
 @media (max-width: 568px) {
     /* line 42, ../sass/_content.sass */
     .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="second"]:before {
-        content: "即将重连：" attr(data-retry-in-value) "s...";
+        /* content: "即将重连：" attr(data-retry-in-value) "s..."; */
     }
 }
 
@@ -74,13 +74,13 @@
 /* line 50, ../sass/_content.sass */
 
 .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="second"][data-retry-in-value="1"]:before {
-    content: "失去网络连接。 即将重连：" attr(data-retry-in-value) "秒...";
+    /* content: "失去网络连接。 即将重连：" attr(data-retry-in-value) "秒..."; */
 }
 
 @media (max-width: 568px) {
     /* line 50, ../sass/_content.sass */
     .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="second"][data-retry-in-value="1"]:before {
-        content: "即将重连：" attr(data-retry-in-value) "s...";
+        /* content: "即将重连：" attr(data-retry-in-value) "s..."; */
     }
 }
 
@@ -88,13 +88,13 @@
 /* line 58, ../sass/_content.sass */
 
 .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="minute"]:before {
-    content: "失去网络连接。 即将重连：" attr(data-retry-in-value) "分钟...";
+    /* content: "失去网络连接。 即将重连：" attr(data-retry-in-value) "分钟..."; */
 }
 
 @media (max-width: 568px) {
     /* line 58, ../sass/_content.sass */
     .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="minute"]:before {
-        content: "即将重连：" attr(data-retry-in-value) "m...";
+        /* content: "即将重连：" attr(data-retry-in-value) "m..."; */
     }
 }
 
@@ -102,13 +102,13 @@
 /* line 66, ../sass/_content.sass */
 
 .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="minute"][data-retry-in-value="1"]:before {
-    content: "失去网络连接。 即将重连：" attr(data-retry-in-value) "分钟...";
+    /* content: "失去网络连接。 即将重连：" attr(data-retry-in-value) "分钟..."; */
 }
 
 @media (max-width: 568px) {
     /* line 66, ../sass/_content.sass */
     .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="minute"][data-retry-in-value="1"]:before {
-        content: "即将重连：" attr(data-retry-in-value) "m...";
+        /* content: "即将重连：" attr(data-retry-in-value) "m..."; */
     }
 }
 
@@ -116,13 +116,13 @@
 /* line 74, ../sass/_content.sass */
 
 .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="hour"]:before {
-    content: "失去网络连接。 即将重连：" attr(data-retry-in-value) "小时...";
+    /* content: "失去网络连接。 即将重连：" attr(data-retry-in-value) "小时..."; */
 }
 
 @media (max-width: 568px) {
     /* line 74, ../sass/_content.sass */
     .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="hour"]:before {
-        content: "即将重连：" attr(data-retry-in-value) "h...";
+        /* content: "即将重连：" attr(data-retry-in-value) "h..."; */
     }
 }
 
@@ -130,13 +130,13 @@
 /* line 82, ../sass/_content.sass */
 
 .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="hour"][data-retry-in-value="1"]:before {
-    content: "失去网络连接。 即将重连：" attr(data-retry-in-value) "小时...";
+    /* content: "失去网络连接。 即将重连：" attr(data-retry-in-value) "小时..."; */
 }
 
 @media (max-width: 568px) {
     /* line 82, ../sass/_content.sass */
     .offline-ui.offline-ui-down.offline-ui-waiting .offline-ui-content[data-retry-in-unit="hour"][data-retry-in-value="1"]:before {
-        content: "即将重连：" attr(data-retry-in-value) "h...";
+        /* content: "即将重连：" attr(data-retry-in-value) "h..."; */
     }
 }
 
@@ -151,5 +151,5 @@
 /* line 93, ../sass/_content.sass */
 
 .offline-ui.offline-ui-down.offline-ui-reconnect-failed-2s .offline-ui-content:before {
-    content: "尝试连接网络失败。";
+    /* content: "尝试连接网络失败。"; */
 }

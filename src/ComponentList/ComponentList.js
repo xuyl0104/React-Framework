@@ -20,10 +20,6 @@ class Details extends Component {
                 <List.Item arrow="horizontal" onClick={this.goToSeeDetails.bind(this, index)} key={index}>
                     {<span style={{color: finishedIndicator[index] === 1 ? 'black' : '#a29e9e'}}>{item}</span>}
                 </List.Item>
-                // <div className="form-group" onClick={this.goToSeeDetails.bind(this, index)} key={index}>
-                //         <label>{item}</label>
-                //         <img style={{'height': '26px', 'float': 'right', 'margin': '10px 12px 0 0'}} src={require('../images/arrowright-large.png')}></img>
-                // </div>
             );
         });
         return (
@@ -98,6 +94,7 @@ class Details extends Component {
 
     onLeftArrowClick() {
         console.log("Quit button is clicked...");
+        window.sessionStorage.removeItem('middle');
     }
 
 

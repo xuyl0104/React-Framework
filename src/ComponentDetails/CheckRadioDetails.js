@@ -11,7 +11,6 @@ import CheckGroup from '../components/checkbox/checkbox';
 import Modals from '../components/modal/modal';
 import Card from '../components/card/card';
 import CardList from '../components/cardlist/cardlist';
-import Listview from '../components/listview/listview';
 import Toast from '../components/third-party/toast';
 import '../components/third-party/toast/style/css';
 import Icon from 'antd/lib/icon';
@@ -22,6 +21,7 @@ import 'antd/lib/spin/style/css';
 import PullToRefresh from 'antd-mobile/lib/pull-to-refresh';
 import 'antd-mobile/lib/pull-to-refresh/style/css';
 import checkbox from '../components/checkbox/checkbox';
+import Listview from '../components/listview/listview';
 
 class Details extends Component {
     constructor() {
@@ -78,15 +78,20 @@ class Details extends Component {
 
 
                         <div style={{margin: '5px'}}></div>
-                        <label>large</label>
-                        <RadioGroup name="payment" mode="vertical"
-                            size="lg"
-                            option={['签单', '工卡', '微信']} 
-                            val={[0, 1, 2]} 
-                            id={['op1', 'op2', 'op3']}
-                            selected={this.state.selectedRadio}
-                            onChange={this.radioChange.bind(this)}>
-                        </RadioGroup> 
+                        <label>Small</label>
+                        <Listview text={"支付方式"}>
+                            <div></div>
+                            <div className="pt-1">
+                                <RadioGroup name="payment" mode="horizontal"
+                                    size="sm"
+                                    option={['签单', '工卡', '微信']} 
+                                    val={[0, 1, 2]} 
+                                    id={['op1', 'op2', 'op3']}
+                                    selected={this.state.selectedRadio}
+                                    onChange={this.radioChange.bind(this)}>
+                                </RadioGroup>
+                            </div>
+                        </Listview>
 
                     {/* </Container> */}
 
