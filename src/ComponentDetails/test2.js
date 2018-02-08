@@ -1,14 +1,10 @@
 import React, {Component} from 'react';
-import * as ReactDOM from 'react-dom';
 import './ComponentDetails.css';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
-import Row from '../components/row/row';
 import Container from '../components/container/container';
 import Content from '../components/content/content';
 import '../components/third-party/toast/style/css';
-import Icon from 'antd/lib/icon';
-import Input from '../components/input/input';
 
 class Details extends Component {
     constructor(props) {
@@ -20,7 +16,12 @@ class Details extends Component {
 
     componentDidMount() {}
 
-    componentWillUnmount() {}
+    componentWillMount() {
+        let middle = this.props.history.action === "POP" ? "-reverse" : "";
+        this.setState({
+            className: middle
+        });
+    }
 
     componentWillReceiveProps(nextProps) {
         // 后退的时候，直接pop最上面的page
@@ -54,7 +55,7 @@ class Details extends Component {
                     <Footer size="sm"
                         style={[{'color': '#318ccf', 'backgroundColor': '#ffffff'}, 
                                 {'color': 'white', 'backgroundColor': '#318ccf'}]}
-                        buttonName={["返回", "接单"]}
+                        buttonName={["返回", "前进"]}
                         callBackFooterButtonClick={[
                             this.callBackFooter0.bind(this), 
                             this.callBackFooter1.bind(this)
@@ -66,17 +67,20 @@ class Details extends Component {
     }
 
     onLeftArrowClick() {
-        window.sessionStorage.setItem("middle", "-reverse");
+        // window.sessionStorage.setItem("middle", "-reverse");
 		this.props.history.goBack();
     }
 
     callBackFooter0() {
-        window.sessionStorage.setItem("middle", "-reverse");
+        // window.sessionStorage.setItem("middle", "-reverse");
         this.props.history.goBack();
     }
 
     callBackFooter1() {
-        console.log("Footer 1 is clicked...");    
+        this.props.history.push({
+            pathname: '/test3',
+            state: {}
+        });
     }
 
 }

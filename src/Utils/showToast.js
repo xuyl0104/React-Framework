@@ -1,5 +1,5 @@
-import Toast from '../components/third-party/toast';
-import '../components/third-party/toast/style/css';
+import Toast from 'antd-mobile/lib/toast';
+import 'antd-mobile/lib/toast/style/css';
 
 export default function showToast(type, text, duration = 2) {
     

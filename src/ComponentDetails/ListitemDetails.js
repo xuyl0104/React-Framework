@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import * as ReactDOM from 'react-dom';
 import './ComponentDetails.css';
 import Header from '../components/header/header';
-import Footer from '../components/footer/footer';
 import Icon from 'antd/lib/icon';
 import RadioGroup from '../components/radio/radio';
 import Container from '../components/container/container';
@@ -30,9 +28,18 @@ class Details extends Component {
                     <Header name="Listitem" 
                         onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
                     </Header>
-                    <Content padding={[0, 0, 0, 0]}>
+                    <Content padding={[0, 0, 0, 0]} bgColor={'#e8e8e8'}>
                         <Listview text={"时间"}>
                             <label onClick={this.onClick.bind(this)}>{"2018-01-30 16:45:30"}</label>
+                        </Listview>
+                        <Listview text={"时间"}>
+                            {/* 只有一个child时，需要添加一个空的div进行占位以实现右对齐，否则会呈现左对齐。处理方法待改进 */}
+                            <div></div>
+                            <label onClick={this.onClick.bind(this)}>{"2018-01-30 16:45:30"}</label>
+                        </Listview>
+                        <Listview text={"所在单位"}>
+                            <div></div>
+                            <div className="pt-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
                         </Listview>
                         <Listview text={"出发时间"}>
                             <label onClick={this.onClick.bind(this)}>{"2018-01-30 "}</label>
@@ -61,7 +68,7 @@ class Details extends Component {
                             <div className="pt-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
                         </Listview>
 
-                        {/* 只有一个child且该child不为label时，需要添加一个空的div进行占位以实现右对齐，否则会呈现左对齐。处理方法待改进 */}
+                        {/* 只有一个child时，需要添加一个空的div进行占位以实现右对齐，否则会呈现左对齐。处理方法待改进 */}
                         <Listview text={"索要发票"}>
                             <div></div>
                             <Switch checked={this.state.switchChecked} onChange={this.onSwitchChange.bind(this)}/>

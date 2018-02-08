@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import * as ReactDOM from 'react-dom';
 import './ComponentDetails.css';
 import Header from '../components/header/header';
 import Row from '../components/row/row';
@@ -20,7 +19,6 @@ class Details extends Component {
     componentDidMount() {}
 
     render() {
-        let headerImageSrc = "../images/arrowback-large.png";
         let headerDiv;
         if(this.state.key ===0) {
             headerDiv = (
@@ -53,9 +51,9 @@ class Details extends Component {
                     <Content>
                         <div className="content">
                             <Row>
-                                <Button style="primary" size="" text="无按钮的header" col={12} onClick={this.onButtonClick.bind(this, 0)}/>
-                                <Button style="primary" size="" text="一个按钮的header" col={12} onClick={this.onButtonClick.bind(this, 1)}/>
-                                <Button style="primary" size="" text="多个按钮的header" col={12} onClick={this.onButtonClick.bind(this, 2)}/>
+                                <Button style={"primary"} size="" text="无按钮的header" col={12} onClick={this.onButtonClick.bind(this, 0)}/>
+                                <Button style={"primary"} size="" text="一个按钮的header" col={12} onClick={this.onButtonClick.bind(this, 1)}/>
+                                <Button style={"primary"} size="" text="多个按钮的header" col={12} onClick={this.onButtonClick.bind(this, 2)}/>
                             </Row>                                                
                         </div>
                     </Content>

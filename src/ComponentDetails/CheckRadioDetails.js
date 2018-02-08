@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
-import * as ReactDOM from 'react-dom';
 import './ComponentDetails.css';
 import Header from '../components/header/header';
 import Container from '../components/container/container';
 import Content from '../components/content/content';
 import RadioGroup from '../components/radio/radio';
 import CheckGroup from '../components/checkbox/checkbox';
-
 import 'antd-mobile/lib/pull-to-refresh/style/css';
-import checkbox from '../components/checkbox/checkbox';
 import Listview from '../components/listview/listview';
 
 class Details extends Component {

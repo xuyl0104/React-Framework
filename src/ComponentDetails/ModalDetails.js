@@ -26,18 +26,16 @@ class Details extends Component {
     componentDidMount() {}
 
     render() {
-        let headerImageSrc = "../images/arrowback-large.png";
         return (
             <div className="transition-item detail-page">
                 <Container>
                     <Header name="Message" 
-                        headerImageSrc={headerImageSrc}
                         onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
                     </Header>
                     <Content>
                         <label>Alert</label>
                         <Row>
-                            <Button style="primary" size="lg" text="普通提示框" col={12} 
+                            <Button style={"primary"} size="lg" text="普通提示框" col={12} 
                                 onClick={
                                     () => {showModal("alert", 
                                         "这是一个提示框", 
@@ -50,7 +48,7 @@ class Details extends Component {
                                     }
                                 }
                             />
-                            <Button style="primary" size="lg" text="多按钮提示框" col={12} 
+                            <Button style={"primary"} size="lg" text="多按钮提示框" col={12} 
                                 onClick={
                                     () => {showModal("alert", 
                                         "这是一个提示框", 
@@ -67,7 +65,7 @@ class Details extends Component {
                         </Row>
                         <label>Prompt</label>
                         <Row>
-                            <Button style="success" size="lg" text="普通输入框" col={12} 
+                            <Button style={"success"} size="lg" text="普通输入框" col={12} 
                                 onClick={
                                     () => {showModal("prompt", 
                                         "这是一个输入框", 
@@ -80,7 +78,7 @@ class Details extends Component {
                                     }
                                 }
                             />
-                            <Button style="success" size="lg" text="带默认值输入框" col={12} 
+                            <Button style={"success"} size="lg" text="带默认值输入框" col={12} 
                                 onClick={
                                     () => {showModal("prompt", 
                                         "这是一个输入框", 
@@ -97,7 +95,7 @@ class Details extends Component {
                         </Row>
                         <label>Slide Up</label>
                         <Row>
-                            <Button style="warning" size="lg" text="划出" col={12} 
+                            <Button style={"warning"} size="lg" text="划出" col={12} 
                                 onClick={() => {this.callback5('modal2')}}
                             />
                             <Modal

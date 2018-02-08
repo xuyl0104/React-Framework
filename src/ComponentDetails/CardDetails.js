@@ -23,13 +23,12 @@ class Details extends Component {
                         onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
                     </Header>
                     <Content>
-                        <div className="content">
-                            <label>Example-1</label>
+                            <label>Example-1: 复杂卡片</label>
                             <Card key={1}
                                 avatar={<img className={`align-self-start mr-3`} 
                                             src={require("../images/avatar.png")} alt="Generic placeholder image" 
-                                            style={{'width': `40px`}}/>}
-                                avatarSize={40}
+                                            style={{'width': `54px`}}/>}
+                                // avatarSize={54}
                                 avatarPosition={'start'}
                                 title={"年夜饭"}
                                 text={"蒜烧海鳗鱼"}
@@ -60,12 +59,12 @@ class Details extends Component {
                                 </div>
                             </Card>
 
-                            <label>Example-2</label>
+                            <label>Example-2：机票申请</label>
                             <Card key={2}
                                 avatar={<img className={`align-self-center mr-3`} 
                                             src={require("../images/avatar.png")} alt="Generic placeholder image" 
                                             style={{'width': `54px`}}/>}
-                                avatarSize={54}
+                                // avatarSize={54}
                                 avatarPosition={'start'}
                                 title={"张经理"}
                                 text={"平台与技术部"}
@@ -75,39 +74,77 @@ class Details extends Component {
                                 <div className="ticketInfo"><label>出票时间：</label> <label>2018-01-22</label></div>
                             </Card>
 
-                            <label>Example-3</label>
+                            <label>Example-3：餐厅卡片</label>
                             <Card key={3}
-                                avatar={<img className={`align-self-center mr-3`} 
+                                avatar={<img className={`align-self-center mr-2`} 
                                             src={require("../images/canteen.jpg")} alt="Generic placeholder image" 
                                             style={{'width': `120px`}}/>}
-                                avatarSize={200}
+                                // avatarSize={200}
                                 avatarPosition={'start'}
                                 title={"舜华餐厅（S05负一楼）"}
                                 text={"点菜时间：周一至周五下午4点前。"}
                                 onClick={this.goCardDetails.bind(this)}>
                             </Card>
                             <Card key={4}
-                                avatar={<img className={`align-self-center mr-3`} 
+                                avatar={<img className={`align-self-center mr-2`} 
                                             src={require("../images/canteen2.jpg")} alt="Generic placeholder image" 
                                             style={{'width': `120px`}}/>}
-                                avatarSize={200}
+                                // avatarSize={200}
                                 avatarPosition={'start'}
                                 title={"庆丰餐厅（S06负一楼）"}
                                 text={"点菜时间：周一至周五下午4点前。"}
                                 onClick={this.goCardDetails.bind(this)}>
                             </Card>
                             <Card key={5}
-                                avatar={<img className={`align-self-center mr-3`} 
+                                avatar={<img className={`align-self-center mr-2`} 
                                             src={require("../images/canteen3.jpg")} alt="Generic placeholder image" 
                                             style={{'width': `120px`}}/>}
-                                avatarSize={200}
+                                // avatarSize={200}
                                 avatarPosition={'start'}
                                 title={"金膳林餐厅（S06一楼）"}
                                 text={"点菜时间：周一至周五下午4点前。"}
                                 onClick={this.goCardDetails.bind(this)}>
                             </Card>
-
-                        </div>
+                            
+                            <label>Example-4：仿微信消息卡片</label>
+                            <Card key={6}
+                                avatar={<img className={`align-self-center mr-1`} 
+                                            src={require("../images/avatar.jpg")} alt="Generic placeholder image" 
+                                            style={{'width': `60px`, borderRadius: '5px'}}/>}
+                                // avatarSize={200}
+                                avatarPosition={'start'}
+                                title={"哈士奇"}
+                                text={"再不回来我就拆家！再不回来我就拆家！再不回来我就拆家！再不回来我就拆家！"}
+                                topRight={<label>17:30:00</label>}
+                                bottomRight={<Icon type="star-o" />}
+                                onClick={this.goCardDetails.bind(this)}>
+                            </Card>
+                            <Card key={7}
+                                avatar={<img className={`align-self-center mr-1`} 
+                                            src={require("../images/avatar2.jpg")} alt="Generic placeholder image" 
+                                            style={{'width': `60px`, borderRadius: '5px'}}/>}
+                                // avatarSize={200}
+                                avatarPosition={'start'}
+                                title={"铲屎官"}
+                                text={"马上到家！"}
+                                topRight={<label>17:31:12</label>}
+                                bottomRight={<Icon type="star-o" />}
+                                onClick={this.goCardDetails.bind(this)}>
+                            </Card>
+                            <Card key={8}
+                                avatar={<img className={`align-self-center mr-1`} 
+                                            src={require("../images/avatar2.jpg")} alt="Generic placeholder image" 
+                                            style={{'width': `60px`, borderRadius: '5px'}}/>}
+                                // avatarSize={200}
+                                avatarPosition={'start'}
+                                title={"铲屎官"}
+                                text={"马上到家！"}
+                                topRight={  
+                                            <img src={require("../images/rejected.jpg")} alt="" 
+                                            style={{'width': `60px`, borderRadius: '5px'}}/>}
+                                bottomRight={<Icon type="star-o" />}
+                                onClick={this.goCardDetails.bind(this)}>
+                            </Card>
                     </Content>
                 </Container>
             </div>

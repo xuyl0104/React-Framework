@@ -1,9 +1,0 @@
-.detail .content {
-    position: absolute;
-    left: 0;
-    top: 56px;
-    bottom: 56px;
-    width: 100%;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-}

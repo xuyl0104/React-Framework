@@ -1,7 +1,4 @@
 import fetch from 'isomorphic-fetch';
-import Toast from "antd-mobile/lib/toast";
-import 'antd-mobile/lib/toast/style/css';
-import message from 'antd/lib/message';
 import 'antd/lib/message/style/css';
 import showMessage from './showMessage';
 

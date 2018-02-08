@@ -1,7 +1,4 @@
 import fetch from 'isomorphic-fetch';
-import OfflineFunc from './offline';
-import showMessage from './showMessage';
-import showToast from './showToast';
 import "rxjs";
 import { Observable } from "rxjs";
 

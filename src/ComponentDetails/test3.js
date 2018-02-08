@@ -16,13 +16,7 @@ class Details extends Component {
 
     componentDidMount() {}
 
-    componentWillMount() {
-        let middle = this.props.history.action === "POP" ? "-reverse" : "";
-        this.setState({
-            className: middle
-        });
-    }
-
+    componentWillUnmount() {}
 
     componentWillReceiveProps(nextProps) {
         // 后退的时候，直接pop最上面的page
@@ -44,21 +38,23 @@ class Details extends Component {
     }
 
     render() {
-
-        // console.log(this.props.history)
         return (
             <div className={`transition-item detail-page`+this.state.className}>
                 <Container>
-                    <Header name="Test" 
+                    <Header name="Test3" 
                         onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
                     </Header>
                     <Content padding={[0, 0, 0, 0]}>
-                        <div>Test</div>
+                        <div>Test3</div>
                     </Content>
                     <Footer size="sm"
-                        style={[{'color': 'white', 'backgroundColor': '#318ccf'}]}
-                        buttonName={["前往下一页"]}
-                        callBackFooterButtonClick={[this.callBackFooter0.bind(this)]}>
+                        style={[{'color': '#318ccf', 'backgroundColor': '#ffffff'}, 
+                                {'color': 'white', 'backgroundColor': '#318ccf'}]}
+                        buttonName={["返回", "接单"]}
+                        callBackFooterButtonClick={[
+                            this.callBackFooter0.bind(this), 
+                            this.callBackFooter1.bind(this)
+                            ]}>
                     </Footer>
                 </Container>
             </div>
@@ -71,10 +67,12 @@ class Details extends Component {
     }
 
     callBackFooter0() {
-        this.props.history.push({
-            pathname: '/test2',
-            state: {}
-        });
+        // window.sessionStorage.setItem("middle", "-reverse");
+        this.props.history.goBack();
+    }
+
+    callBackFooter1() {
+        console.log("Footer 1 is clicked...");    
     }
 
 }
