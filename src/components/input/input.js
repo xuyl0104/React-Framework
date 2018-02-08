@@ -18,7 +18,7 @@ class Input extends Component {
             <div className="form-group-input d-flex" 
                 onClick={this.props.onClick}>
                     <label className={"col-4 col-lg-3"}><nobr>{label}</nobr></label>
-                    <div className={"col-8 col-lg-9 d-flex "+"justify-content-between "+"pr-0"}>
+                    <div className={"col-8 col-lg-9 d-flex justify-content-between pr-0"}>
                         <input type="text" value={text} onChange={this.onTextChange.bind(this)} placeholder={placeholder} 
                             style={{textAlign: `${align}`, border: 'none', width: '100%'}}/>
                         <div className="pt-2 ml-2" style={{display: (clear===true && text !== '') ? '' : 'none'}} 

@@ -8,9 +8,6 @@ import 'antd-mobile/lib/switch/style/css';
  * 
  */
 class SwitchButton extends Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         let checked = this.props.checked;
         let color = this.props.color;

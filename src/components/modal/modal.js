@@ -1,11 +1,6 @@
-import React, {Component} from 'react';
 import './modal.css';
 import Modal from 'antd-mobile/lib/modal';
 import 'antd-mobile/lib/modal/style/css';
-import List from 'antd-mobile/lib/list';
-import 'antd-mobile/lib/list/style/css';
-import Button from 'antd-mobile/lib/button';
-import 'antd-mobile/lib/button/style/css';
 
 export default function showModal(mode, title, message, texts, callbacks) {
 

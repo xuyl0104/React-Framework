@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import * as ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ComponentList from './ComponentList/ComponentList';
-import Details from './Details/Details';
 import PageTransition from "react-router-page-transition";
 import ButtonDetails from './ComponentDetails/ButtonDetails';
 import InputDetails from './ComponentDetails/InputDetails';
@@ -18,8 +16,10 @@ import RadioCheckDetails from './ComponentDetails/CheckRadioDetails';
 import ListitemDetails from './ComponentDetails/ListitemDetails';
 import FetchDetails from './ComponentDetails/FetchDetails';
 import PageTemplateDetails from './ComponentDetails/PageTemplateDetails';
+import PageTransitionDeatils from './ComponentDetails/PageTransitionDetails';
 import Test from './ComponentDetails/test';
 import Test2 from './ComponentDetails/test2';
+import Test3 from './ComponentDetails/test3';
 
 class Routes extends Component {
     render() {
@@ -45,9 +45,10 @@ class Routes extends Component {
                             <Route path="/FetchDetails" component={FetchDetails}/>
                             <Route path="/FetchDetails" component={FetchDetails}/>
                             <Route path="/PageTemplateDetails" component={PageTemplateDetails}/>
+                            <Route path="/PageTransitionDeatils" component={PageTransitionDeatils}/>
                             <Route path="/test" component={Test}/>
                             <Route path="/test2" component={Test2}/>
-
+                            <Route path="/test3" component={Test3}/>
                         </Switch>
                     </PageTransition>
                 )}/>

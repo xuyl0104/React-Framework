@@ -7,14 +7,13 @@ class Content extends Component {
     }
     
     render() {
-        let padding = this.props.padding;
+        let backgroundColor = this.props.bgColor || '#f8f9fa';
+        let padding = this.props.padding || [0, 0, 0, 0];
         let paddingTop, paddingRight, paddingBottom, paddingLeft;
         [paddingTop, paddingRight, paddingBottom, paddingLeft] = padding;
-        // let tb = this.props.tb;
-        // let top, bottom;
-        // [top, bottom] = tb;
         return (
-                <div className={`w-100 webkitscroll pt-${paddingTop} pb-${paddingBottom} pl-${paddingLeft} pr-${paddingRight} flex1`}>
+                <div className={`w-100 webkitscroll pt-${paddingTop} pb-${paddingBottom} pl-${paddingLeft} pr-${paddingRight} flex1`}
+                    style={{backgroundColor: backgroundColor}}>
                     {this.renderChildren(this.props)}
                 </div>
         );

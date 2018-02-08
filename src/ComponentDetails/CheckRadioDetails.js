@@ -1,26 +1,11 @@
 import React, {Component} from 'react';
-import * as ReactDOM from 'react-dom';
 import './ComponentDetails.css';
-import request from '../Utils/fetchUtil';
 import Header from '../components/header/header';
-import Footer from '../components/footer/footer';
+import Container from '../components/container/container';
 import Content from '../components/content/content';
-import Button from '../components/button/button';
 import RadioGroup from '../components/radio/radio';
 import CheckGroup from '../components/checkbox/checkbox';
-import Modals from '../components/modal/modal';
-import Card from '../components/card/card';
-import CardList from '../components/cardlist/cardlist';
-import Toast from '../components/third-party/toast';
-import '../components/third-party/toast/style/css';
-import Icon from 'antd/lib/icon';
-import Stepper from '../components/stepper/stepper';
-import _ from 'lodash';
-import Spin from 'antd/lib/spin';
-import 'antd/lib/spin/style/css';
-import PullToRefresh from 'antd-mobile/lib/pull-to-refresh';
 import 'antd-mobile/lib/pull-to-refresh/style/css';
-import checkbox from '../components/checkbox/checkbox';
 import Listview from '../components/listview/listview';
 
 class Details extends Component {
@@ -38,12 +23,11 @@ class Details extends Component {
     render() {
         return (
             <div className="transition-item detail-page">
-                <Header name="Refresh" 
-                    onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
-                </Header>
-                <div className="content">
-                    {/* <Container padding={[8, 8, 8, 8]}> */}
-                        <div style={{margin: '5px'}}></div>
+                <Container>
+                    <Header name="Check/Radio" 
+                        onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
+                    </Header>
+                    <Content>
                         <label>large</label>
                         <RadioGroup name="payment" mode="horizontal"
                             size="lg"
@@ -93,16 +77,14 @@ class Details extends Component {
                             </div>
                         </Listview>
 
-                    {/* </Container> */}
-
-                    <label>复选框</label>
-                    <CheckGroup 
-                        option={['待确认', '制作中', '待结算', '已完成']}
-                        val={[0, 1, 2, 3]}
-                        selected={this.state.selectedCheckbox}
-                        onChange={this.checkChange.bind(this)}/>
-
-                </div>
+                        <label>复选框</label>
+                        <CheckGroup 
+                            option={['待确认', '制作中', '待结算', '已完成']}
+                            val={[0, 1, 2, 3]}
+                            selected={this.state.selectedCheckbox}
+                            onChange={this.checkChange.bind(this)}/>
+                    </Content>
+                </Container>
             </div>
         );
     }

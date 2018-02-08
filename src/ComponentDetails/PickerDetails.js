@@ -1,26 +1,13 @@
 import React, {Component} from 'react';
-import * as ReactDOM from 'react-dom';
 import './ComponentDetails.css';
-import showMessage from "../Utils/showMessage";
-import showToast from '../Utils/showToast';
-import message from 'antd/lib/message';
-import request from '../Utils/fetchUtil';
 import Header from '../components/header/header';
-import Footer from '../components/footer/footer';
-import Row from '../components/row/row';
+import Container from '../components/container/container';
 import Content from '../components/content/content';
-import Button from '../components/button/button';
-import RadioGroup from '../components/radio/radio';
-import Modals from '../components/modal/modal';
-import Card from '../components/card/card';
-import CardList from '../components/cardlist/cardlist';
 import Listview from '../components/listview/listview';
-import Toast from '../components/third-party/toast';
 import '../components/third-party/toast/style/css';
 import Icon from 'antd/lib/icon';
-import Stepper from '../components/stepper/stepper';
-import _ from 'lodash';
 import DatePicker from '../components/picker/picker';
+import PageTransition from '../components/pageTransition/pageTransition';
 
 class Details extends Component {
     constructor() {
@@ -44,20 +31,19 @@ class Details extends Component {
     componentDidMount() {}
 
     render() {
-        let headerImageSrc = "../images/arrowback-large.png";
         return (
-            <div className="transition-item detail-page">
-                <Header name="Picker" 
-                    onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
-                </Header>
-                {/* <Container padding={[8, 8, 8, 8]}> */}
-                    <div className="content">
+            // <div className="transition-item detail-page">
+            <PageTransition transitionClass={"detail-page"} direction={""}>
+                <Container>
+                    <Header name="Picker" 
+                        onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
+                    </Header>
+                    <Content>
                         <label>日期时间DateTime</label>
-                        <div className="form-group" onClick={this.handleClick1.bind(this)}>
-                            <label>{"就餐时间"}</label>
-                            <label>{this.state.timestring1}</label>
-                            <img style={{'height': '26px', 'float': 'right', 'margin': '10px 12px 0 0'}} src={require('../images/arrowright-large.png')}></img>
-                        </div>
+                        <Listview text={"时间"} onClick={this.handleClick1.bind(this)}>
+                            <label onClick={this.handleClick1.bind(this)}>{this.state.timestring1}</label>
+                            <div className="pt-2"><Icon type="right" size={'lg'}/></div>
+                        </Listview>
                         <div>
                             <DatePicker
                                 value={this.state.time1}
@@ -71,11 +57,10 @@ class Details extends Component {
                         </div>
 
                         <label>带时间限制的日期时间DateTime</label>
-                        <div className="form-group" onClick={this.handleClick2.bind(this)}>
-                            <label>{"就餐时间"}</label>
-                            <label>{this.state.timestring2}</label>
-                            <img style={{'height': '26px', 'float': 'right', 'margin': '10px 12px 0 0'}} src={require('../images/arrowright-large.png')}></img>
-                        </div>
+                        <Listview text={"就餐时间"} onClick={this.handleClick2.bind(this)}>
+                            <label onClick={this.handleClick2.bind(this)}>{this.state.timestring2}</label>
+                            <div className="pt-2"><Icon type="right" size={'lg'}/></div>
+                        </Listview>
                         <div>
                             <DatePicker
                                 value={this.state.time2}
@@ -90,11 +75,10 @@ class Details extends Component {
                         </div>
                         
                         <label>日期Date</label>
-                        <div className="form-group" onClick={this.handleClick3.bind(this)}>
-                            <label>{"借款日期"}</label>
-                            <label>{this.state.timestring3}</label>
-                            <img style={{'height': '26px', 'float': 'right', 'margin': '10px 12px 0 0'}} src={require('../images/arrowright-large.png')}></img>
-                        </div>
+                        <Listview text={"借款日期"} onClick={this.handleClick3.bind(this)}>
+                            <label onClick={this.handleClick3.bind(this)}>{this.state.timestring3}</label>
+                            <div className="pt-2"><Icon type="right" size={'lg'}/></div>
+                        </Listview>
                         <div>
                             <DatePicker
                                 value={this.state.time3}
@@ -109,11 +93,10 @@ class Details extends Component {
                         </div>
 
                         <label>时间Time</label>
-                        <div className="form-group" onClick={this.handleClick4.bind(this)}>
-                            <label>{"就餐时间"}</label>
-                            <label>{this.state.timestring4}</label>
-                            <img style={{'height': '26px', 'float': 'right', 'margin': '10px 12px 0 0'}} src={require('../images/arrowright-large.png')}></img>
-                        </div>
+                        <Listview text={"就餐时间"} onClick={this.handleClick4.bind(this)}>
+                            <label onClick={this.handleClick4.bind(this)}>{this.state.timestring4}</label>
+                            <div className="pt-2"><Icon type="right" size={'lg'}/></div>
+                        </Listview>
                         <div>
                             <DatePicker
                                 value={this.state.time4}
@@ -126,9 +109,10 @@ class Details extends Component {
                                 min={this.state.time}
                             />
                         </div>
-                    </div>
-                {/* </Container> */}
-            </div>
+                    </Content>
+                </Container>
+            </PageTransition>
+            // </div>
         );
     }
 

@@ -1,19 +1,13 @@
 import React, {Component} from 'react';
-import * as ReactDOM from 'react-dom';
 import './ComponentDetails.css';
 import requestObj from '../Utils/fetch';
 import showMessage from '../Utils/showMessage';
 import showToast from '../Utils/showToast';
 import Header from '../components/header/header';
-import Footer from '../components/footer/footer';
 import Row from '../components/row/row';
 import Button from '../components/button/button';
 import Container from '../components/container/container';
 import Content from '../components/content/content';
-import Modals from '../components/modal/modal';
-import Card from '../components/card/card';
-import CardList from '../components/cardlist/cardlist';
-
 
 class Details extends Component {
     constructor() {
@@ -29,7 +23,6 @@ class Details extends Component {
 		let optionsGET = {
 		};
         let FETCH = new requestObj(url, optionsGET);
-        let self = this;
         FETCH.get()
         .subscribe(result => {
             this.setState({
@@ -190,7 +183,6 @@ class Details extends Component {
         let url = "http://jsonplaceholder.typicode.com/users";
 		let optionsGET = {};
         let FETCH = new requestObj(url, optionsGET);
-        let self = this;
         let flag = FETCH.checkNetworkStatus();
         console.log(flag);
     }
@@ -208,12 +200,11 @@ class Details extends Component {
                     </Header>
                     <Content padding={[1, 1, 1, 1]}>
                        <Row>
-                            <Button style="inspur" size="lg" text={"GET"} col={6} onClick={ this.fetchGET.bind(this)}/>
-                            <Button style="primary" size="lg" text={"POST"} col={6} onClick={ this.fetchPOST.bind(this)}/>
-                            <Button style="warning" size="lg" text={"DELETE"} col={6} onClick={this.fetchDELETE.bind(this)}/>
-                            <Button style="success" size="lg" text={"PUT"} col={6} onClick={this.fetchPUT.bind(this)}/>
-                            <Button style="default" size="lg" text={"PATCH"} col={6} onClick={this.fetchPUT.bind(this)}/>
-                            <Button style="default" size="lg" text={"CHECKSTATUS"} col={6} onClick={this.fetchCheckNetworkStatus.bind(this)}/>
+                            <Button style={"inspur"} size="lg" text={"GET"} col={6} onClick={ this.fetchGET.bind(this)}/>
+                            <Button style={"primary"} size="lg" text={"POST"} col={6} onClick={ this.fetchPOST.bind(this)}/>
+                            <Button style={"warning"} size="lg" text={"DELETE"} col={6} onClick={this.fetchDELETE.bind(this)}/>
+                            <Button style={"success"} size="lg" text={"PUT"} col={6} onClick={this.fetchPUT.bind(this)}/>
+                            <Button style={"default"} size="lg" text={"PATCH"} col={6} onClick={this.fetchPUT.bind(this)}/>
                         </Row>
                     </Content>
                 </Container>

@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
-import * as ReactDOM from 'react-dom';
 import './ComponentList.css';
+import Container from '../components/container/container';
+import Content from '../components/content/content';
 import Header from '../components/header/header';
+import Listview from '../components/listview/listview';
+// import Icon from 'antd/lib/icon';
+import Icon from 'antd-mobile/lib/icon';
 import List from 'antd-mobile/lib/list';
 import 'antd-mobile/lib/list/style/css';
 
@@ -13,26 +17,32 @@ class Details extends Component {
     }
 
     render() {
-        let finishedComponent = ['Button', 'Input', 'Message', 'Modal', 'Card', 'Stepper', 'Picker', 'Header', 'Footer', 'Refresh/Load More', 'RadioCheck', 'Listitem', 'Fetch', 'Page template'];
-        let finishedIndicator = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+        let finishedComponent = ['Button', 'Input', 'Message', 'Modal', 'Card', 'Stepper', 'Picker', 'Header', 'Footer', 'Refresh/Load More', 'RadioCheck', 'Listitem', 'Fetch', 'Page template', 'Page transition'];
+        let finishedIndicator = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
         let displayDivs = finishedComponent.map((item, index) => {
             return (
                 <List.Item arrow="horizontal" onClick={this.goToSeeDetails.bind(this, index)} key={index}>
                     {<span style={{color: finishedIndicator[index] === 1 ? 'black' : '#a29e9e'}}>{item}</span>}
                 </List.Item>
+                // <Listview text={item} onClick={this.goToSeeDetails.bind(this, index)} key={index}>
+                //     <div></div>
+                //     <div className="pt-2"><Icon type="right" size={'md'} color={'#b6b6b6'}/></div>
+                // </Listview>
             );
         });
         return (
             <div className="transition-item list-page">
-                <Header name="组件列表" 
-                    onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
-                </Header>
+                <Container>
+                    <Header name="组件列表" 
+                        onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
+                    </Header>
 
-                <div className="content">
-                    <List>
-                        {displayDivs}
-                    </List>
-                </div>
+                    <Content>
+                        <List>
+                            {displayDivs}
+                        </List>
+                    </Content>
+                </Container>
             </div>
         );
     }
@@ -82,6 +92,9 @@ class Details extends Component {
             case 13:
                 detailsPage = "/PageTemplateDetails";
                 break;
+            case 14:
+                detailsPage = "/PageTransitionDeatils";
+                break;
         
             default:
                 break;
@@ -93,7 +106,7 @@ class Details extends Component {
     }
 
     onLeftArrowClick() {
-        console.log("Quit button is clicked...");
+        console.log("程序已经退出...");
         window.sessionStorage.removeItem('middle');
     }
 

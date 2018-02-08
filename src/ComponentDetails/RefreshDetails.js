@@ -1,26 +1,18 @@
 import React, {Component} from 'react';
-import * as ReactDOM from 'react-dom';
 import './ComponentDetails.css';
 import request from '../Utils/fetchUtil';
 import Header from '../components/header/header';
-import Footer from '../components/footer/footer';
+import Container from '../components/container/container';
 import Content from '../components/content/content';
-import Button from '../components/button/button';
-import RadioGroup from '../components/radio/radio';
-import Modals from '../components/modal/modal';
 import Card from '../components/card/card';
 import CardList from '../components/cardlist/cardlist';
-import Listview from '../components/listview/listview';
 import Toast from '../components/third-party/toast';
 import '../components/third-party/toast/style/css';
 import Icon from 'antd/lib/icon';
-import Stepper from '../components/stepper/stepper';
-import _ from 'lodash';
 import Spin from 'antd/lib/spin';
 import 'antd/lib/spin/style/css';
 import PullToRefresh from 'antd-mobile/lib/pull-to-refresh';
 import 'antd-mobile/lib/pull-to-refresh/style/css';
-import showToast from '../Utils/showToast';
 
 class Details extends Component {
     constructor() {
@@ -115,9 +107,7 @@ class Details extends Component {
 	}
 
     render() {
-        const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />
         console.log(this.state.results);
-		let headerImageSrc = "../../images/arrowback-large.png";
 		let listDiv = this.state.results.length === 0 ? (<div></div>) : this.state.results.map((item, index) => {
 			return (
 				<Card key={index}
@@ -160,27 +150,29 @@ class Details extends Component {
         
         return (
             <div className="transition-item detail-page">
-                <Header name="Refresh" 
-                    onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
-                </Header>
-                {/* <Container padding={[8, 8, 8, 8]}> */}
-                    <div className="content" ref={ node => this.contentNode = node }>
-                        <Spin spinning={this.state.isSpinning} tip={"加载中"} delay={500} size="large">		
-                            <PullToRefresh 
-                                ref={el => this.ptr = el}
-                                style={{
-                                    height: this.state.height - 56,
-                                }}
-                                distanceToRefresh={80}
-                                refreshing={this.state.isRefreshing} 
-                                onRefresh={this.refresh.bind(this)}>
-                                    <CardList>
-                                        {listDiv}
-                                    </CardList>
-                            </PullToRefresh>
-                        </Spin>
-                    </div>
-                {/* </Container> */}
+                <Container>
+                    <Header name="Refresh" 
+                        onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
+                    </Header>
+                    <Content>
+                        <div className="content" ref={ node => this.contentNode = node }>
+                            <Spin spinning={this.state.isSpinning} tip={"加载中"} delay={500} size="large">		
+                                <PullToRefresh 
+                                    ref={el => this.ptr = el}
+                                    style={{
+                                        height: this.state.height - 56,
+                                    }}
+                                    distanceToRefresh={80}
+                                    refreshing={this.state.isRefreshing} 
+                                    onRefresh={this.refresh.bind(this)}>
+                                        <CardList>
+                                            {listDiv}
+                                        </CardList>
+                                </PullToRefresh>
+                            </Spin>
+                        </div>
+                    </Content>
+                </Container>
             </div>
         );
     }

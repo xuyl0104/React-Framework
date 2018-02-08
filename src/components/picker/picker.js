@@ -1,13 +1,8 @@
 import React, {Component} from 'react';
-import * as ReactDOM from 'react-dom';
 import './picker.css';
 import DatePicker from 'react-mobile-datepicker';
 
 class Picker extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         let value = this.props.value;
         let isOpen = this.props.isOpen;
