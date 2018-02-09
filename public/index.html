@@ -7,22 +7,16 @@
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <!-- <script src="http://github.hubspot.com/offline/offline.min.js"></script> -->
-    <!-- <script src="http://github.hubspot.com/offline/js/snake.js"></script> -->
-    <!-- <link rel="stylesheet" href="http://github.hubspot.com/offline/themes/offline-theme-chrome.css" /> -->
     <link rel="stylesheet" href="./offline-language-chinese-simplified.css" />
-    <!-- <link rel="stylesheet" href="./indicator-theme.css" /> -->
     <link rel="stylesheet" href="./offline-theme-chrome.css" />
     <script src="./offline.min.js"></script>
+    <script src="%PUBLIC_URL%/impbase.js"></script>
     
     <script>
 
       Offline.options = {
         game: false,
         checks: { xhr: { url: 'http://jsonplaceholder.typicode.com/posts/1/comments' } }
-        // checks: { xhr: { url: 'https://www.baidu.com/' } }
-        // checks: { xhr: { url: 'http://oms.inspur.com/cwbase/web/gsprtf/main.aspx' } }
-        // checks: { image: { url: 'http://yourcustomurl.com/offlinejs/my-image.gif' } }
       }
       var run = function () {
         if (Offline.state === 'up')
@@ -33,10 +27,6 @@
     <title>React App</title>
   </head>
   <body>
-    <!-- <div class="offline-ui offline-ui-up">
-      <div class="offline-ui-content">
-      </div>
-    </div> -->
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>

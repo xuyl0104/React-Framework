@@ -16,7 +16,7 @@ class Card extends Component {
         // let BRClass = bottomRight ? "col-2" : "";
 
         return (
-            <div className="card" style={{'margin': '3px 0', 'padding': '8px 8px'}} onClick={this.props.onClick}>
+            <div className="card" style={{'padding': '8px 8px'}} onClick={this.props.onClick}>
                 <div className="media">
                     {this.props.avatar}
                     <div className="media-body">

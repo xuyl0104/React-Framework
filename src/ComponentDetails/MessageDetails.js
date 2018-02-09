@@ -30,7 +30,7 @@ class Details extends Component {
                     <Content>
                             <label>Message</label>
                             <Row>
-                                <Button style={"primary"} size="lg" text="info" col={12} onClick={() => {showMessage("info", "这是一条消息", 200)}}/>
+                                <Button style={"primary"} size="lg" text="info" col={12} onClick={() => {showMessage("info", "这是一条消息", 2)}}/>
                                 <Button style={"success"} size="lg" text="success" col={12} onClick={() => {showMessage("success", "这是一条成功提示")}}/>
                                 <Button style={"danger"} size="lg" text="danger" col={12} onClick={() => {showMessage("fail", "这是一条危险提示")}}/>
                                 <Button style={"warning"} size="lg" text="warning" col={12} onClick={() => {showMessage("warning", "这是一条警告提示")}}/>

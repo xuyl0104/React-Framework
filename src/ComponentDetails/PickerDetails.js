@@ -17,14 +17,20 @@ class Details extends Component {
             timestring2: "",
             timestring3: "",
             timestring4: "",
+            timestring5: "",
+            timestring6: "",
             time1: new Date(),
             time2: new Date(),
             time3: new Date(),
             time4: new Date(),
+            time5: new Date(),
+            time6: new Date(),
             isOpen1: false,
             isOpen2: false,
             isOpen3: false,
-            isOpen4: false
+            isOpen4: false,
+            isOpen5: false,
+            isOpen6: false
         };
     }
 
@@ -109,6 +115,41 @@ class Details extends Component {
                                 min={this.state.time}
                             />
                         </div>
+
+                        <label>起止时间</label>
+                        <Listview text={"起止时间"}>
+                            <input type="text" value={this.state.timestring5} placeholder={"起始时间"}
+                                onClick={this.handleClick5.bind(this)} readonly="true"/>
+                            {/* <label onClick={this.handleClick5.bind(this)}>{this.state.timestring5}</label> */}
+                            <div className="pt-2 ml-2 mr-2"><Icon type="arrow-right" size={'lg'}/></div>
+                            {/* <label onClick={this.handleClick6.bind(this)}>{this.state.timestring6}</label> */}
+                            <input type="text" value={this.state.timestring6} placeholder={"结束时间"}
+                                onClick={this.handleClick6.bind(this)} readonly="true"/>
+                        </Listview>
+                        <div>
+                            <DatePicker
+                                value={this.state.time5}
+                                isOpen={this.state.isOpen5}
+                                onSelect={this.handleSelect5.bind(this)}
+                                onCancel={this.handleCancel5.bind(this)}
+                                dateFormat={['hh', 'mm']}
+                                showFormat={'hh:mm'}
+                                theme={'android'}
+                                min={this.state.time}
+                            />
+                        </div>
+                        <div>
+                            <DatePicker
+                                value={this.state.time6}
+                                isOpen={this.state.isOpen6}
+                                onSelect={this.handleSelect6.bind(this)}
+                                onCancel={this.handleCancel6.bind(this)}
+                                dateFormat={['hh', 'mm']}
+                                showFormat={'hh:mm'}
+                                theme={'android'}
+                                min={this.state.time}
+                            />
+                        </div>
                     </Content>
                 </Container>
             </PageTransition>
@@ -124,7 +165,8 @@ class Details extends Component {
         let hour = time.getHours() < 10 ? ("0"+time.getHours()) : time.getHours();
         let minute = time.getMinutes() < 10 ? ("0"+time.getMinutes()) : time.getMinutes();
         // let second = time.getSeconds();
-        let dateString = year + "-" + month + "-" +day + " " + hour + ":" + minute;
+        let dateString = year + "-" + month + "-" +day;
+        // let dateString = year + "-" + month + "-" +day + " " + hour + ":" + minute;
         return (dateString);
     }
     
@@ -143,6 +185,12 @@ class Details extends Component {
     handleClick4() {
         this.setState({ isOpen4: true });
     }
+    handleClick5() {
+        this.setState({ isOpen5: true });
+    }
+    handleClick6() {
+        this.setState({ isOpen6: true });
+    }
 
     handleCancel1() {
         this.setState({ isOpen1: false });
@@ -155,6 +203,12 @@ class Details extends Component {
     }
     handleCancel4() {
         this.setState({ isOpen4: false });
+    }
+    handleCancel5() {
+        this.setState({ isOpen5: false });
+    }
+    handleCancel6() {
+        this.setState({ isOpen6: false });
     }
 
     handleSelect1(time) {
@@ -183,6 +237,20 @@ class Details extends Component {
             time4: time,
             timestring4: this.getDateString(time), 
             isOpen4: false 
+        });
+    }
+    handleSelect5(time) {
+        this.setState({
+            time5: time,
+            timestring5: this.getDateString(time), 
+            isOpen5: false 
+        });
+    }
+    handleSelect6(time) {
+        this.setState({
+            time6: time,
+            timestring6: this.getDateString(time), 
+            isOpen6: false 
         });
     }
 

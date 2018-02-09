@@ -28,3 +28,12 @@
     -o-text-overflow:ellipsis; 
     overflow:hidden;
 }
+
+.listview .itemContent > input[type="text"] {
+    border: none;
+    width: 45%;
+    font-size: 17px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

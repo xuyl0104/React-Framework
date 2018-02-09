@@ -4,7 +4,6 @@ import Container from '../components/container/container';
 import Content from '../components/content/content';
 import Header from '../components/header/header';
 import Listview from '../components/listview/listview';
-// import Icon from 'antd/lib/icon';
 import Icon from 'antd-mobile/lib/icon';
 import List from 'antd-mobile/lib/list';
 import 'antd-mobile/lib/list/style/css';
@@ -105,9 +104,17 @@ class Details extends Component {
         });
     }
 
+    /**
+     * 在第一个页面点击后退按钮，彻底退出云+应用程序
+     * Usage: 
+     * Step 1. 调用window.gsp.rtf.func.closeCurrent()方法
+     * Step 2. 将impbase.js置于public文件夹（npm run build命令将其打包至build文件夹）
+     * Step 3. 在index.html中添加<script src="%PUBLIC_URL%/impbase.js"></script>，引入impbase.js文件
+     * 云+其他底层文件引用方法与此类似
+     */
     onLeftArrowClick() {
         console.log("程序已经退出...");
-        window.sessionStorage.removeItem('middle');
+        window.gsp.rtf.func.closeCurrent();
     }
 
 

@@ -114,7 +114,7 @@ class Details extends Component {
                             // avatarSize={200}
                             avatarPosition={'start'}
                             title={"哈士奇"}
-                            text={"再不回来我就拆家！再不回来我就拆家！再不回来我就拆家！再不回来我就拆家！"}
+                            text={"再不回来我就拆家!"}
                             topRight={<label>17:30:00</label>}
                             bottomRight={<Icon type="star-o" />}
                             onClick={this.goCardDetails.bind(this)}>
@@ -139,8 +139,7 @@ class Details extends Component {
                             avatarPosition={'start'}
                             title={"铲屎官"}
                             text={"马上到家！"}
-                            topRight={  
-                                        <img src={require("../images/rejected.jpg")} alt="" 
+                            topRight={<img src={require("../images/rejected.jpg")} alt="" 
                                         style={{'width': `60px`, borderRadius: '5px'}}/>}
                             bottomRight={<Icon type="star-o" />}
                             onClick={this.goCardDetails.bind(this)}>
