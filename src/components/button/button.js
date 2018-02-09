@@ -7,8 +7,8 @@ class Button extends Component {
         this.state = this.props;
     }
     render() {
-        let style = this.props.style;
-        let size = this.props.size;
+        let style = this.props.style || "primary";
+        let size = this.props.size || "lg";
         let value = this.props.text;
         let col = this.props.col;
         let newStyle = style === 'new' ? this.props.newStyle : {};

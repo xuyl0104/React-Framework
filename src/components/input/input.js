@@ -14,7 +14,7 @@ class Input extends Component {
         let label = this.props.label;
         let text = this.props.text;
         let placeholder = this.props.placeholder || "";
-        let align = this.props.align;
+        let align = this.props.align || "left";
         let image = this.props.img;
         let clear = this.props.clear;
         return (
