@@ -17,24 +17,24 @@ http://localhost:3000
 
 ## Components
 
-##### Header
+### Header
 
-##### Footer
+### Footer
 
-##### Button
+### Button
 
-##### Input
+### Input
 
-##### Message
+### Message
 
-##### Modal
+### Modal
 
-##### Card
+### Card
 
-##### Stepper
+### Stepper
 
-##### Picker
+### Picker
 
-##### Refresh/Loadmore
+### Refresh/Loadmore
 
-##### Listitem
+### Listitem
