@@ -3,7 +3,7 @@
 ## install and start
 
 ```javascript
-git clone ...
+git clone https://github.com/xuyl0104/test-bootstrap.git
 npm install
 npm start
 http://localhost:3000
