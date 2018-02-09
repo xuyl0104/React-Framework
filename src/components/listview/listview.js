@@ -18,24 +18,24 @@ class Listview extends Component {
         // console.log(this.props.children);
         switch (length) {
             case 1:
-                tagClassName = 4; tagClassNameLg = 2;
+                tagClassName = 4; tagClassNameLg = 4;
                 break;
             case 2:
-                tagClassName = 4; tagClassNameLg = 2;
+                tagClassName = 4; tagClassNameLg = 4;
                 break;
             case 3:
-                tagClassName = 3; tagClassNameLg = 2;
+                tagClassName = 3; tagClassNameLg = 4;
                 break;
         
             default:
-                tagClassName = 4; tagClassNameLg = 2;
+                tagClassName = 4; tagClassNameLg = 4;
                 break;
         }
         return (
             <div className="listview d-flex" 
                 onClick={this.props.onClick}>
-                    <label className={"col-"+""+tagClassName+" col-lg-2 col-md-2"}><nobr>{text}</nobr></label>
-                    <div className={"itemContent col-"+""+(12-tagClassName)+" col-lg-"+(12-tagClassNameLg)+" col-md-"+(12-tagClassNameLg)+" d-flex justify-content-between pr-0"}>
+                    <label className={"col-"+""+tagClassName+" col-lg-"+(tagClassNameLg)+ " col-md-"+(tagClassNameLg)}><nobr>{text}</nobr></label>
+                    <div className={"itemContent col-"+""+(12-tagClassName)+" col-lg-"+(12-tagClassNameLg)+" col-md-"+(12-tagClassNameLg)+" d-flex justify-content-end pr-0"}>
                         {this.props.children}
                     </div>
             </div>

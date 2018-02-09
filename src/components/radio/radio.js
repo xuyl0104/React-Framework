@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import './radio.css';
+import List from 'antd-mobile/lib/list';
+import 'antd-mobile/lib/list/style/css';
+import Radio from 'antd-mobile/lib/radio';
+import 'antd-mobile/lib/radio/style/css';
 
 /**
  * RadioGroup
@@ -21,7 +25,7 @@ class RadioGroup extends Component {
         let size = this.props.size;
         let selected = this.props.selected;
         let radioDivs;
-        if(mode === "horizontal") {
+        if(mode === "divide") {
             radioDivs = options.map((option, index) => {
                 return (
                     <div className={`divide ${size} ${selected === values[index] ? 'active' : ''}`}
@@ -48,6 +52,20 @@ class RadioGroup extends Component {
         } else if(mode === "slideup") {
             // todo
             // 目前存在问题，初步打算使用Antd-mobile的picker，做出slideup的效果，但该插件改写有问题
+        } else if(mode === "line") {
+            let radios;
+            radios = options.map((option, index) => {
+                return (
+                        <Radio.RadioItem key={index} checked={selected === values[index]} onChange={this.onRadioClick.bind(this, values[index])}>
+                            {option}
+                        </Radio.RadioItem>
+                );
+            });
+            radioDivs = (
+                <List>
+                    {radios}
+                </List>
+            );
         }
         
         return (

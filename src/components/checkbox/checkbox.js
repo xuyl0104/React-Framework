@@ -14,12 +14,14 @@ class CheckGroup extends Component {
         let option = this.props.option;
         let val = this.props.val;
         let selected = this.props.selected;
-
         return (
             <List>
                 {
                     option.map((i, index) => (
-                        <Checkbox.CheckboxItem key={index} onChange={() => this.onCheckClick(val[index])}>
+                        <Checkbox.CheckboxItem key={index} 
+                            onChange={() => this.onCheckClick(val[index])} 
+                            checked={selected[index] === 1}
+                        >
                             {i}
                         </Checkbox.CheckboxItem>
                     ))

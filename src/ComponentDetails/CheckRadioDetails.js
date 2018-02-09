@@ -13,7 +13,7 @@ class Details extends Component {
         super();
         this.state = {
             selectedRadio: 1,
-            selectedCheckbox: [0, 0, 0, 0]
+            selectedCheckbox: [1, 1, 1, 0]
         };
     }
 
@@ -28,8 +28,9 @@ class Details extends Component {
                         onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
                     </Header>
                     <Content>
+                        <label>单选按钮-mode="divide"</label><br />
                         <label>large</label>
-                        <RadioGroup name="payment" mode="horizontal"
+                        <RadioGroup name="payment" mode="divide"
                             size="lg"
                             option={['签单', '工卡', '微信']} 
                             val={[0, 1, 2]} 
@@ -40,7 +41,7 @@ class Details extends Component {
                         
                         <div style={{margin: '5px'}}></div>
                         <label>Default</label>
-                        <RadioGroup name="payment" mode="horizontal"
+                        <RadioGroup name="payment" mode="divide"
                             size=""
                             option={['签单', '工卡', '微信']} 
                             val={[0, 1, 2]} 
@@ -51,7 +52,7 @@ class Details extends Component {
 
                         <div style={{margin: '5px'}}></div>
                         <label>Small</label>
-                        <RadioGroup name="payment" mode="horizontal"
+                        <RadioGroup name="payment" mode="divide"
                             size="sm"
                             option={['签单', '工卡', '微信']} 
                             val={[0, 1, 2]} 
@@ -62,11 +63,10 @@ class Details extends Component {
 
 
                         <div style={{margin: '5px'}}></div>
-                        <label>Small</label>
                         <Listview text={"支付方式"}>
                             <div></div>
                             <div className="pt-1">
-                                <RadioGroup name="payment" mode="horizontal"
+                                <RadioGroup name="payment" mode="divide"
                                     size="sm"
                                     option={['签单', '工卡', '微信']} 
                                     val={[0, 1, 2]} 
@@ -76,6 +76,16 @@ class Details extends Component {
                                 </RadioGroup>
                             </div>
                         </Listview>
+
+                        <label>单选按钮-mode="line"</label>
+                        <RadioGroup name="payment" mode="line"
+                            size="sm"
+                            option={['签单', '工卡', '微信']} 
+                            val={[0, 1, 2]} 
+                            id={['op1', 'op2', 'op3']}
+                            selected={this.state.selectedRadio}
+                            onChange={this.radioChange.bind(this)}>
+                        </RadioGroup>
 
                         <label>复选框</label>
                         <CheckGroup 
@@ -95,16 +105,18 @@ class Details extends Component {
 
     radioChange(selected) {
         this.setState({
-        selectedRadio: selected
+            selectedRadio: selected
         });
     }
 
     checkChange(val) {
-        console.log(val);
-
-        // this.setState({
-            
-        // });
+        let selected = this.state.selectedCheckbox;
+        selected.splice(val, 1, selected[val] === 1 ? 0 : 1);
+        console.log(selected);
+        // 此处添加对选中值的处理
+        this.setState({
+            selectedCheckbox: selected
+        });
     }
 }
 
