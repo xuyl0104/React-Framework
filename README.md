@@ -1,4 +1,4 @@
-#React framework使用说明
+# React framework使用说明
 
 ## install and start
 
@@ -15,7 +15,7 @@ http://localhost:3000
 
 ## Transition
 
-##Components
+## Components
 
 ##### Header
 
