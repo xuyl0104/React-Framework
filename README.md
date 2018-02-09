@@ -1,40 +1,40 @@
-React framework使用说明
+#React framework使用说明
 
-install and start
+## install and start
 
-    git clone ...
-    npm install
-    npm start
-    http://localhost:3000
+```javascript
+git clone ...
+npm install
+npm start
+http://localhost:3000
+```
 
-Layout
+## Layout
 
 页面布局基于Bootstrap v4，采用Flex布局排版技术。
 
-Transition
+## Transition
 
+##Components
 
+##### Header
 
-Components
+##### Footer
 
-Header
+##### Button
 
-Footer
+##### Input
 
-Button
+##### Message
 
-Input
+##### Modal
 
-Message
+##### Card
 
-Modal
+##### Stepper
 
-Card
+##### Picker
 
-Stepper
+##### Refresh/Loadmore
 
-Picker
-
-Refresh/Loadmore
-
-Listitem
+##### Listitem
