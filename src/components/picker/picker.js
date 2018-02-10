@@ -10,7 +10,7 @@ class Picker extends Component {
         let onCancel = this.props.onCancel;
         let dateFormat = this.props.dateFormat;
         let showFormat = this.props.showFormat;
-        let theme = this.props.theme;
+        let theme = this.props.theme || "android";
         let min = this.props.min;
         return (
             <div>

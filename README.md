@@ -98,12 +98,10 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
      </PageTransition>
      ```
 
-     | 属性              | 描述        | 默认值  | 类型     |
-     | --------------- | --------- | ---- | ------ |
-     | transitionClass | 本页面的CSS属性 | —    | string |
-     | direction       | 动画方向      | ""   | string |
-
-     ​
+     | 属性              | 描述        | 默认值  | 类型      |
+     | --------------- | --------- | ---- | ------- |
+     | transitionClass | 本页面的CSS属性 | —    | string  |
+     | direction       | 动画方向      | ""   | string​ |
 
   4. 编写React生命周期函数，实现动画方向的正确设定
 
@@ -351,7 +349,7 @@ Card组件基于Bootstrap v4的[Media-object](https://getbootstrap.com/docs/4.0/
 </Card>
 ```
 
-```Js
+```js
 <label>Example-2：仿微信消息卡片</label>
 <Card key={7}
     avatar={<img className={`align-self-center mr-1`} 
@@ -429,12 +427,121 @@ Card组件基于Bootstrap v4的[Media-object](https://getbootstrap.com/docs/4.0/
 </Card>
 ```
 
-
-
-### Stepper
-
 ### Picker
 
+目前只有时间选择器。
+
+时间选择器基于`react-mobile-datepicker` 开发，可以对YYYY、MM、DD、hh、mm进行选择。
+
+| 属性         | 描述              | 默认值       | 类型                                    |
+| ---------- | --------------- | --------- | ------------------------------------- |
+| value      | 时间控件的值          | —         | object: Date()                        |
+| isOpen     | 是否显示选择器         | false     | bool                                  |
+| onSelect   | 点击“完成”调用的方法     | —         | func                                  |
+| onCancel   | 点击“取消”调用的方法     | —         | Func                                  |
+| dateFormat | 时间格式            | —         | []: string                            |
+| showFormat | 显示在选择器上方的事件字符样式 | —         | string                                |
+| theme      | 样式主题            | "android" | string ("android", "ios")，推荐"android" |
+| min        | 最小时间            | —         | object: Date()                        |
+
+```js
+<label>日期时间DateTime</label>
+<Listview text={"时间"} onClick={this.handleClick1.bind(this)}>
+    <label onClick={this.handleClick1.bind(this)}>{this.state.timestring1}			</label>
+    <div className="pt-2"><Icon type="right" size={'lg'}/></div>
+</Listview>
+<div>
+    <DatePicker
+        value={this.state.time1}
+        isOpen={this.state.isOpen1}
+        onSelect={this.handleSelect1.bind(this)}
+        onCancel={this.handleCancel1.bind(this)}
+        dateFormat={['YYYY', 'MM', 'DD', 'hh', 'mm']}
+        showFormat={'YYYY-MM-DD hh:mm'}
+        theme={'android'}
+    />
+</div>
+```
+
+```Js
+<label>日期Date</label>
+<Listview text={"借款日期"} onClick={this.handleClick3.bind(this)}>
+    <label onClick={this.handleClick3.bind(this)}>{this.state.timestring3}			</label>
+    <div className="pt-2"><Icon type="right" size={'lg'}/></div>
+</Listview>
+<div>
+    <DatePicker
+        value={this.state.time3}
+        isOpen={this.state.isOpen3}
+        onSelect={this.handleSelect3.bind(this)}
+        onCancel={this.handleCancel3.bind(this)}
+        dateFormat={['YYYY', 'MM', 'DD']}
+        showFormat={'YYYY-MM-DD'}
+        theme={'android'}
+        min={this.state.time}
+    />
+</div>
+```
+
+```js
+<label>起止时间</label>
+<Listview text={"起止时间"}>
+    <input type="text" value={this.state.timestring5} placeholder={"起始时间"}
+        onClick={this.handleClick5.bind(this)} readOnly="true"/>
+    <div className="pt-2 ml-2 mr-2"><Icon type="arrow-right" size={'lg'}/></div>
+    <input type="text" value={this.state.timestring6} placeholder={"结束时间"}
+        onClick={this.handleClick6.bind(this)} readOnly="true"/>
+</Listview>
+<div>
+    <DatePicker
+        value={this.state.time5}
+        isOpen={this.state.isOpen5}
+        onSelect={this.handleSelect5.bind(this)}
+        onCancel={this.handleCancel5.bind(this)}
+        dateFormat={['hh', 'mm']}
+        showFormat={'hh:mm'}
+        theme={'android'}
+        min={this.state.time}
+    />
+</div>
+<div>
+    <DatePicker
+        value={this.state.time6}
+        isOpen={this.state.isOpen6}
+        onSelect={this.handleSelect6.bind(this)}
+        onCancel={this.handleCancel6.bind(this)}
+        dateFormat={['hh', 'mm']}
+        showFormat={'hh:mm'}
+        theme={'android'}
+        min={this.state.time}
+    />
+</div>
+```
+
+```js
+handleClick1() {
+    this.setState({ isOpen1: true });
+}
+```
+
+```js
+handleCancel1() {
+    this.setState({ isOpen1: false });
+}
+```
+
+```js
+handleSelect1(time) {
+    this.setState({
+        time1: time,
+        timestring1: this.getDateString(time), 
+        isOpen1: false 
+    });
+}
+```
+
 ### Refresh/Loadmore
+
+
 
 ### Listitem

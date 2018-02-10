@@ -119,12 +119,12 @@ class Details extends Component {
                         <label>起止时间</label>
                         <Listview text={"起止时间"}>
                             <input type="text" value={this.state.timestring5} placeholder={"起始时间"}
-                                onClick={this.handleClick5.bind(this)} readonly="true"/>
+                                onClick={this.handleClick5.bind(this)} readOnly="true"/>
                             {/* <label onClick={this.handleClick5.bind(this)}>{this.state.timestring5}</label> */}
                             <div className="pt-2 ml-2 mr-2"><Icon type="arrow-right" size={'lg'}/></div>
                             {/* <label onClick={this.handleClick6.bind(this)}>{this.state.timestring6}</label> */}
                             <input type="text" value={this.state.timestring6} placeholder={"结束时间"}
-                                onClick={this.handleClick6.bind(this)} readonly="true"/>
+                                onClick={this.handleClick6.bind(this)} readOnly="true"/>
                         </Listview>
                         <div>
                             <DatePicker
