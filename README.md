@@ -200,11 +200,11 @@ Footer组件可以包含不同数量的按钮
 | buttonName                | 按钮名称数组   | —    | []: string          |
 | callBackFooterButtonClick | 按钮调用方法数组 | —    | []: func            |
 | style                     | 按钮样式数组   | —    | []: object          |
-| size                      | 按钮大小     | "lg" | string ("lg", "sm") |
+| size                      | 按钮高度     | "lg" | string ("lg", "sm") |
 
 ### Button
 
-Button组件根据Bootstrap v4的button进行封装。
+Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/components/buttons/)进行封装。
 
 | 属性       | 描述               | 默认值       | 类型                                       |
 | -------- | ---------------- | --------- | ---------------------------------------- |
@@ -227,13 +227,209 @@ Button组件根据Bootstrap v4的button进行封装。
 | onChange    | 输入时调用的方法     | —      | func                     |
 | 内部child组件   | 嵌套的内部组件      | —      | React elem               |
 
-
-
 ### Message
+
+消息提示Message组件完全移植自`antd`的`Message`组件和`antd-mobile`的`Toast`组件，将Message和Toast的调用进行了简单的封装，导出为 `showMessage`和`showToast`两个方法，易于调用。
+
+| 属性       | 描述                       | 默认值  | 类型                                   |
+| -------- | ------------------------ | ---- | ------------------------------------ |
+| type     | Message的类型               | —    | String（success, fail, info, warning） |
+| text     | Message内容                | —    | String                               |
+| duration | Message显示时长（秒）           | 2    | num                                  |
+| position | Message显示在屏幕的位置（距顶部的像素数） | 70   | num                                  |
+
+| 属性       | 描述        | 默认值  | 类型                                     |
+| -------- | --------- | ---- | -------------------------------------- |
+| type     | Toast的类型  | —    | String（success, fail, offline,loading） |
+| text     | Toast的内容  | —    | String                                 |
+| duration | Toast显示时长 | 2    | num                                    |
+
+```javascript
+import showMessage from "../Utils/showMessage";
+import showToast from '../Utils/showToast';
+
+<Button style={"primary"} size="lg" text="info" col={12} onClick={() => showMessage("info", "这是一条消息", 2)}/>
+
+<Button style={"primary"} size="lg" text={"success"} col={6} onClick={() => showToast("success", "加载成功")}/>
+
+
+```
 
 ### Modal
 
+Modal组件是弹出的对话框及输入框，移植自`antd-mobile`的`Modal`组件，导出为`showModals`方法。
+
+| 属性           | 描述                             | 默认值  | 类型                         |
+| ------------ | ------------------------------ | ---- | -------------------------- |
+| mode         | Modal类型                        | —    | string （"alert", "prompt"） |
+| title        | 标题                             | —    | string                     |
+| message      | 提示信息                           | —    | string                     |
+| actionArr    | 按钮文字及绑定的方法                     | —    | []:  {text, onPress}       |
+| option       | mode为"prompt"时可以设置，用于设置输入框的默认值 | —    | string （"default"）         |
+| defaultValue | mode为"prompt"时可以设置，输入框的默认值     | —    | string                     |
+
+```javascript
+import showModal from '../Utils/showModals';
+```
+
+```javascript
+<Button style={"primary"} size="lg" text="普通提示框" col={12} 
+    onClick={
+        () => {showModal("alert", 
+            "这是一个提示框", 
+            "确定要删除？", 
+            [
+                { text: 'Button1', onPress: () => this.callback1() },
+                { text: 'Button2', onPress: () => this.callback2() },
+            ]
+            )
+        }
+    }
+/>
+```
+
+```javascript
+<Button style={"success"} size="lg" text="普通输入框" col={12} 
+    onClick={
+        () => {showModal("prompt", 
+            "这是一个输入框", 
+            "请输入要导出的邮箱", 
+            [
+                { text: '取消', onPress: () => this.callback1() },
+                { text: '确认', onPress: (pswd) => this.callback4(pswd) },
+            ]
+            )
+        }
+    }
+/>
+```
+
+```javascript
+<Button style={"success"} size="lg" text="带默认值输入框" col={12} 
+    onClick={
+        () => {showModal("prompt", 
+            "这是一个输入框", 
+            "请输入要导出的邮箱", 
+            [
+                { text: '取消', onPress: () => this.callback1() },
+                { text: '确认', onPress: (pswd) => this.callback4(pswd) },
+            ], 'default', 'abc@inspur.com'
+            )
+        }
+    }
+/>
+```
+
 ### Card
+
+Card组件用于设计页面中的卡片元素以更好地展示内容。
+
+Card组件基于Bootstrap v4的[Media-object](https://getbootstrap.com/docs/4.0/layout/media-object/) 设计，可以制作美观的卡片header部分，并在下方嵌套所需的其他组件。
+
+| 属性             | 描述              | 默认值     | 类型         |
+| -------------- | --------------- | ------- | ---------- |
+| avatar         | 头像              | —       | <img>      |
+| avatarPosition | 头像在在左侧的位置       | "start" | string     |
+| title          | 标题              | —       | string     |
+| text           | 标题下方文字          | —       | String     |
+| onClick        | 点击卡片的调用方法       | —       | func       |
+| 内部child组件      | 卡片header下方的其他内容 | —       | React elem |
+| topRight       | header右上方显示内容   | —       | React elem |
+| bottomRight    | header右下方显示的内容  | —       | React elem |
+
+```javascript
+<label>Example-1：餐厅卡片</label>
+<Card key={3}
+    avatar={<img className={`align-self-center mr-2`} 
+                src={require("../images/canteen.jpg")} alt="image" 
+                style={{'width': `120px`}}/>}
+    // avatarSize={200}
+    avatarPosition={'start'}
+    title={"舜华餐厅（S05负一楼）"}
+    text={"点菜时间：周一至周五下午4点前。"}
+    onClick={this.goCardDetails.bind(this)}>
+</Card>
+```
+
+```Js
+<label>Example-2：仿微信消息卡片</label>
+<Card key={7}
+    avatar={<img className={`align-self-center mr-1`} 
+                src={require("../images/avatar2.jpg")} alt="image" 
+                style={{'width': `60px`, borderRadius: '5px'}}/>}
+    // avatarSize={200}
+    avatarPosition={'start'}
+    title={"张三"}
+    text={"马上到家！"}
+    topRight={<label>17:31:12</label>}
+    bottomRight={<Icon type="star-o" />}
+    onClick={this.goCardDetails.bind(this)}>
+</Card>
+```
+
+```js
+<label>Example-3：机票申请</label>
+<Card key={2}
+    avatar={<img className={`align-self-center mr-3`} 
+                src={require("../images/avatar.png")} alt="image" 
+                style={{'width': `54px`}}/>}
+    // avatarSize={54}
+    avatarPosition={'start'}
+    title={"张经理"}
+    text={"平台与技术部"}
+    onClick={this.goCardDetails.bind(this)}
+>
+    <div className="ticketInfo">
+      <label>起止城市：</label> <label>济南 - 成都</label>
+    </div>
+    <div className="ticketInfo">
+      <label>航班信息：</label> <label>2018-01-26 ca4527 经济舱</label>
+    </div>
+    <div className="ticketInfo">
+      <label>出票时间：</label> <label>2018-01-22</label>
+    </div>
+</Card>
+```
+
+```js
+<label>Example-1: 复杂卡片</label>
+<Card key={1}
+    avatar={<img className={`align-self-start mr-3`} 
+                src={require("../images/avatar.png")} alt="Generic placeholder image" 
+                style={{'width': `54px`}}/>}
+    // avatarSize={54}
+    avatarPosition={'start'}
+    title={"美食频道"}
+    text={"2018/01/26"}
+    onClick={this.goCardDetails.bind(this)}
+>
+    <p>
+        每到年终岁尾的新年晚宴，中国人总得有点讲究的内容，比如说一定要有鱼，
+        就是要年年有余。今天给大伙儿准备的就是一道不光有余，
+        还天长地久的私房菜，蒜烧海鳗鱼。
+    </p>
+
+    <div style={{'display': 'inline-table'}}>
+        <img src={require("../images/timg.jpg")} alt="" style={{'width': '200px'}}/>
+    </div>
+    <div className="d-flex justify-content-around mt-2">
+        <div className="text-center" onClick={this.thumbsUp.bind(this)}>
+            <Icon type="heart-o" style={{ fontSize: 26, color: '#318ccf'}}/>
+        </div>
+        <div className="text-center" onClick={this.shareToWeibo.bind(this)}>
+            <Icon type="weibo-circle" style={{ fontSize: 26, color: '#318ccf' }}/>
+        </div>
+        <div className="text-center" onClick={this.shareToWeChat.bind(this)}>
+            <Icon type="wechat" style={{ fontSize: 26, color: '#318ccf' }}/>
+        </div>
+        <div className="text-center" onClick={this.editForm.bind(this)}>
+            <Icon type="form" style={{ fontSize: 26, color: '#318ccf' }}/>
+        </div>
+    </div>
+</Card>
+```
+
+
 
 ### Stepper
 
