@@ -30,8 +30,8 @@ class Details extends Component {
                                         style={{'width': `54px`}}/>}
                             // avatarSize={54}
                             avatarPosition={'start'}
-                            title={"年夜饭"}
-                            text={"蒜烧海鳗鱼"}
+                            title={"美食频道"}
+                            text={"2018/01/26"}
                             onClick={this.goCardDetails.bind(this)}
                         >
                             <p>
