@@ -70,7 +70,7 @@ export default class Request {
             ...newOptions.headers
         };
         newOptions.body = JSON.stringify(newOptions.body);
-        return this.request(newOptions);
+        return this.buildRequestObservable(this.request(newOptions));
     }
 
     put() {
@@ -88,7 +88,7 @@ export default class Request {
             ...newOptions.headers
         };
         newOptions.body = JSON.stringify(newOptions.body);
-        return this.request(newOptions);
+        return this.buildRequestObservable(this.request(newOptions));
     }
 
     delete() {
@@ -100,7 +100,7 @@ export default class Request {
             ...defaultOptions,
             ...this.options
         };
-        return this.request(newOptions);
+        return this.buildRequestObservable(this.request(newOptions));
     }
 
     patch() {
@@ -113,7 +113,7 @@ export default class Request {
             ...this.options
         };
         console.log(newOptions)
-        return this.request(newOptions);
+        return this.buildRequestObservable(this.request(newOptions));
     }
     
     request(options) {

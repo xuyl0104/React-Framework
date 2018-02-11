@@ -64,22 +64,24 @@ class Details extends Component {
         };
         let FETCH = new requestObj(url, optionsPOST);
         FETCH.post()
-        .then((resp) => {
-            if(!resp.ok) {
-                showMessage("info", "下单失败，请重试");
-            }
-            return resp.json()
-        })
-        .then((resp) => {
-            self.setState({
-                results: resp
+        .subscribe(result => {
+            this.setState({
+                results: result
             }, () => {
                 showMessage("success", "下单成功！");
-            })
-        })
-        .catch((e) => {
-            console.log(e);
-            showMessage("info", "网络超时，请重试");
+            });
+            
+        }, function (err) {
+            if(err.status === 'timeout') {
+                showMessage("info", "网络超时，请重试");
+            }
+            if(err.status=== 'offline') {
+                showToast("offline", "网络连接不可用，请检查网络设置");
+            }
+            if(err.status=== 'error') {
+                console.log(err);
+                showMessage("info", "下单失败，请重试");
+            }
         })
     }
 
@@ -98,23 +100,24 @@ class Details extends Component {
         };
         let FETCH = new requestObj(urlPut, optionPUT);
         FETCH.put()
-        .then((resp) => {
-            //API出现异常时，给出友好提示
-            if(!resp.ok) {
+        .subscribe(result => {
+            this.setState({
+                results: result
+            }, () => {
+                showMessage("success", "个人信息更新成功！");
+            });
+            
+        }, function (err) {
+            if(err.status === 'timeout') {
+                showMessage("info", "网络超时，请重试");
+            }
+            if(err.status=== 'offline') {
+                showToast("offline", "网络连接不可用，请检查网络设置");
+            }
+            if(err.status=== 'error') {
+                console.log(err);
                 showMessage("info", "信息更新失败，请重试");
             }
-            return resp.json()
-        })
-        .then((resp) => {
-            //API调用正常，处理数据
-            self.setState({
-                results: resp
-            })
-        })
-        .catch((e) => {
-            //网络超时，显示超时提示信息
-            console.log(e);
-            showMessage("info", "网络超时，请重试");
         })
     }
 
@@ -130,23 +133,24 @@ class Details extends Component {
         };
         let FETCH = new requestObj(urlDelete, optionsDELETE);
         FETCH.delete()
-        .then((resp) => {
-            // console.log(resp);
-            if(!resp.ok) {
-                showMessage("info", "订单删除失败，请重试");
-            }
-            return resp.json()
-        })
-        .then((resp) => {
-            self.setState({
-                results: resp
+        .subscribe(result => {
+            this.setState({
+                results: result
             }, () => {
                 showMessage("success", "订单删除成功！");
-            })
-        })
-        .catch((e) => {
-            console.log(e);
-            showMessage("info", "网络超时，请重试");
+            });
+            
+        }, function (err) {
+            if(err.status === 'timeout') {
+                showMessage("info", "网络超时，请重试");
+            }
+            if(err.status=== 'offline') {
+                showToast("offline", "网络连接不可用，请检查网络设置");
+            }
+            if(err.status=== 'error') {
+                console.log(err);
+                showMessage("info", "订单删除失败，请重试");
+            }
         })
     }
 
@@ -161,21 +165,24 @@ class Details extends Component {
         };
         let FETCH = new requestObj(urlPatch, optionPATCH);
         FETCH.patch()
-        .then((resp) => {
-            console.log(resp);
-            if(!resp.ok) {
-                showMessage("info", "订单删除，请重试");
+        .subscribe(result => {
+            this.setState({
+                results: result
+            }, () => {
+                showMessage("success", "订单信息更新成功！");
+            });
+            
+        }, function (err) {
+            if(err.status === 'timeout') {
+                showMessage("info", "网络超时，请重试");
             }
-            return resp.json()
-        })
-        .then((resp) => {
-            self.setState({
-                results: resp
-            })
-        })
-        .catch((e) => {
-            console.log(e);
-            showMessage("info", "网络超时，请重试");
+            if(err.status=== 'offline') {
+                showToast("offline", "网络连接不可用，请检查网络设置");
+            }
+            if(err.status=== 'error') {
+                console.log(err);
+                showMessage("info", "信息更新失败，请重试");
+            }
         })
     }
 
