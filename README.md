@@ -226,10 +226,6 @@ Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/comp
 
 ![](https://ws3.sinaimg.cn/large/006tKfTcly1fochqrd7g4j30lw0i0my5.jpg) 
 
-```html
-<img src="https://ws3.sinaimg.cn/large/006tKfTcly1fochqrd7g4j30lw0i0my5.jpg" style="zoom:50%" />
-```
-
 ### Input
 
 | 属性          | 描述           | 默认值    | 类型                       |
@@ -251,7 +247,7 @@ Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/comp
 <Input label={"交易金额"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请输入	金额"} align={"right"} img={<Icon type="pay-circle-o" />}/>
 ```
 
-
+![](https://ws1.sinaimg.cn/large/006tKfTcly1foci5gzil5j30lu0futah.jpg) 
 
 ### Message
 
@@ -346,6 +342,16 @@ import showModal from '../Utils/showModals';
 />
 ```
 
+| ![](https://ws2.sinaimg.cn/large/006tKfTcly1foci8opa6aj30hw0a0dgd.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1foci8oja8yj30hw0foq3m.jpg) |
+| :--------------------------------------: | :--------------------------------------: |
+|                 两个按钮的提示框                 |                 多个按钮的提示框                 |
+
+| ![](https://ws2.sinaimg.cn/large/006tKfTcly1foci8odxfgj30hq0cq0tg.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1foci8o5fekj30i60ciq3r.jpg) |
+| :--------------------------------------: | :--------------------------------------: |
+|                  普通输入框                   |                 带默认值的输入框                 |
+
+
+
 ### Card
 
 Card组件用于设计页面中的卡片元素以更好地展示内容。
@@ -418,7 +424,7 @@ Card组件基于Bootstrap v4的[Media-object](https://getbootstrap.com/docs/4.0/
 ```
 
 ```js
-<label>Example-1: 复杂卡片</label>
+<label>Example-4: 复杂卡片</label>
 <Card key={1}
     avatar={<img className={`align-self-start mr-3`} 
                 src={require("../images/avatar.png")} alt="Generic placeholder image" 
@@ -454,6 +460,10 @@ Card组件基于Bootstrap v4的[Media-object](https://getbootstrap.com/docs/4.0/
     </div>
 </Card>
 ```
+
+| ![](https://ws2.sinaimg.cn/large/006tKfTcly1focifk4xcbj30ky0b2n33.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1focifjo6sqj30l00d8tb7.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1focifjedd4j30l209qwfl.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1focifj4u0gj30l20j8n6g.jpg) |
+| :--------------------------------------: | :--------------------------------------: | :--------------------------------------: | :--------------------------------------: |
+|                   餐厅卡片                   |                  仿微信卡片                   |                  机票申请卡片                  |                   复杂卡片                   |
 
 ### Picker
 
@@ -827,3 +837,8 @@ refresh() {
     </div>
 </Listview> 
 ```
+
+| ![](https://ws1.sinaimg.cn/large/006tKfTcly1focijwpf9tj30ky02oq30.jpg) | ![](https://ws1.sinaimg.cn/large/006tKfTcly1focijwko5gj30l002qq34.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1focijwf5pbj30l202g0sv.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1focijw9nmjj30l202mwen.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1focijx18h1j30kw02idfx.jpg) | ![](https://ws1.sinaimg.cn/large/006tKfTcly1focijwxcitj30l002mq32.jpg) |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| 时间                                       | 所在单位                                     | 起止时间                                     | 城市区间                                     | 索要发票                                     | 支付方式                                     |
+
