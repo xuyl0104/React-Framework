@@ -177,6 +177,10 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
 | onLeftArrowClick | 返回按钮调用方法 | —    | func       |
 | 内部child元素        | 内嵌元素     | —    | React elem |
 
+| ![](https://ws4.sinaimg.cn/large/006tKfTcly1fochic1y34j30lq0d20tm.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1fochibtjf5j30lq0cudgr.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1fochibkgjej30lo0d2gmj.jpg) |
+| :--------------------------------------: | :--------------------------------------: | :--------------------------------------: |
+|                  右侧无按钮                   |                  右侧一个按钮                  |                  右侧若干按钮                  |
+
 ### Footer
 
 Footer组件可以包含不同数量的按钮
@@ -202,6 +206,11 @@ Footer组件可以包含不同数量的按钮
 | style                     | 按钮样式数组   | —    | []: object          |
 | size                      | 按钮高度     | "lg" | string ("lg", "sm") |
 
+| ![](https://ws2.sinaimg.cn/large/006tKfTcly1fochnr6iuoj30mo04w74a.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fochnr286wj30mc042t8s.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1fochnqx9j6j30ly03ujrk.jpg) |
+| :--------------------------------------: | :--------------------------------------: | :--------------------------------------: |
+| ![](https://ws4.sinaimg.cn/large/006tKfTcly1fochnqq5a2j30mm03iq2w.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fochnqhc9yj30me03smx7.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1fochnqcwwkj30m203gjri.jpg) |
+|                   一个按钮                   |                   两个按钮                   |                   三个按钮                   |
+
 ### Button
 
 Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/components/buttons/)进行封装。
@@ -214,6 +223,8 @@ Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/comp
 | col      | 按钮所占col          | —         | num (12, 6, 4, 3)                        |
 | onClick  | 调用方法             |           | func                                     |
 | newStyle | style={"new"}时设定 | —         | object，例如 {color: 'white', backgroundColor: '#318ccf'} |
+
+![](https://ws3.sinaimg.cn/large/006tKfTcly1fochqrd7g4j30lw0i0my5.jpg){:height="100px" width="100px"}  
 
 ### Input
 
