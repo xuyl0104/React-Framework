@@ -1,5 +1,7 @@
 # React framework使用说明
 
+[TOC]
+
 ## install and start
 
 ```
@@ -45,7 +47,7 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
 
 ### PageTransition
 
-- PageTransition需要与第三方组件**[react-router-page-transition](https://github.com/trungdq88/react-router-page-transition)**结合使用
+- PageTransition需要与第三方组件[react-router-page-transition](https://github.com/trungdq88/react-router-page-transition)结合使用
 
   ```
   npm install react-router-page-transition --save
@@ -542,6 +544,261 @@ handleSelect1(time) {
 
 ### Refresh/Loadmore
 
+**下拉刷新**组件知识对antd-mobile的PullToRefresh进行了简单的封装，调用过程相对简单。
 
+如需在刷新时显示旋转加载动画，可以引入<Spin />组件并包裹在外层。
+
+```js
+import PullRefresh from '../components/pullToRefresh/PullToRefresh';
+import Spin from 'antd/lib/spin';
+```
+
+```js
+<Spin spinning={this.state.isSpinning} tip={"加载中"} delay={500} size="large">
+    <PullRefresh 
+        style={{
+            height: this.state.height - 56,
+        }}
+        distanceToRefresh={80}
+        indicator={{ activate: '松开刷新', deactivate: '继续下拉刷新', finish: '刷新完成' }}
+        refreshing={false} 
+        onRefresh={this.refresh.bind(this)}
+    >
+        {listDiv}
+    </PullRefresh>
+</Spin>
+
+refresh() {
+    let url = "http://jsonplaceholder.typicode.com/users";
+    let self = this;
+    let optionsGET = {
+    };
+    let FETCH = new requestObj(url, optionsGET);
+    FETCH.get()
+    .subscribe(result => {
+        this.setState({
+            results: result,
+            isSpinning: false
+        });
+    }, function (err) {
+        if(err.status === 'timeout') {
+            showMessage("info", "网络超时，请重试");
+        }
+        if(err.status=== 'offline') {
+            showToast("offline", "网络连接不可用，请检查网络设置");
+        }
+        if(err.status=== 'error') {
+            showMessage("info", "列表获取失败，请重试");
+        }
+    })
+}
+```
+
+| 属性                | 描述                           | 默认值                                      | 类型         |
+| ----------------- | ---------------------------- | ---------------------------------------- | ---------- |
+| style             | （目前没搞明白原理…）可以控制<Spin />的显示位置 | —                                        | objec      |
+| distanceToRefresh | 激活刷新的的拉动距离                   | 80                                       | num        |
+| indicator         | 组件不同状态时的提示文字                 | { activate: '松开立即刷新', deactivate: '下拉可以刷新', finish: '完成刷新' } | object     |
+| refreshing        | （不建议修改该属性）是否显示刷新状态           | false                                    | bool       |
+| onRefresh         | 必选，刷新回调函数                    | —                                        | func       |
+| 内部child组件         | 调用下拉刷新的长列表                   | —                                        | React elem |
+
+**上滑加载**功能因为需要调用React自身的生命周期函数，所以尚未封装为独立的组件。（antd-mobile中的上划加载功能因为强制使用其List组件，且调用不便，所以目前未采用）
+
+实现步骤：
+
+1. 为页面添加ref
+
+   ```js
+   <div className="content" ref={ node => this.contentNode = node }>
+     <Spin spinning={this.state.isSpinning} tip={"加载中"} delay={500} size="large">		
+         <PullRefresh 
+             style={{
+                 height: this.state.height - 56,
+             }}
+             distanceToRefresh={80}
+             refreshing={this.state.isRefreshing} 
+             onRefresh={this.refresh.bind(this)}
+         >
+             {listDiv}
+         </PullRefresh>
+     </Spin>
+   </div>
+   ```
+
+2. 挂载scroll监听方法至contentNode上
+
+   ```js
+   componentDidMount() {
+       if (this.contentNode) {
+           this.contentNode.addEventListener('scroll', this.onScrollHandle.bind(this));
+       }
+       this.refresh();
+   }
+
+   ```
+
+   ​
+
+3. scroll监听方法，滚动至底部时，自动加载loadMore()方法—>更新state中的数据—>更新dom
+
+   ```js
+   onScrollHandle(event) {
+       const clientHeight = event.target.clientHeight; // 屏幕高度
+       const scrollHeight = event.target.scrollHeight; // 总的内容高度
+       const scrollTop = event.target.scrollTop; // 已经滑动的距离
+       const isBottom = (clientHeight + scrollTop === scrollHeight)
+       if(isBottom) {
+           this.loadMore();
+           console.log(this.state.results);
+       }
+   }
+   ```
+
+   ```js
+   loadMore() {
+       let url = "http://jsonplaceholder.typicode.com/users";
+       let self = this;
+       let optionsGET = {};
+
+       Toast.loading("加载中", 1, () => {
+           let FETCH = new requestObj(url, optionsGET);
+           FETCH.get()
+           .subscribe(result => {
+               let prevResults = self.state.results;
+               let newResults = prevResults.concat(result);
+               self.setState({
+                   results: newResults,
+                   isSpinning: false,
+                   hasMore: true
+               });
+           }, function (err) {
+               if(err.status === 'timeout') {
+                   showMessage("info", "网络超时，请重试");
+               }
+               if(err.status=== 'offline') {
+                   showToast("offline", "网络连接不可用，请检查网络设置");
+               }
+               if(err.status=== 'error') {
+                   console.log(err);
+                   showMessage("info", "列表获取失败，请重试");
+               }
+           })
+       }, false);  
+   }
+   ```
+
+   ​
+
+4. 卸载scroll监听方法
+
+   ```js
+   componentWillUnmount() {
+       if (this.contentNode) {
+           this.contentNode.removeEventListener('scroll', this.onScrollHandle.bind(this));
+       }
+   }
+
+   ```
+
+   ​
 
 ### Listitem
+
+- Listitem组件方便用户在页面上进行信息设定。
+
+
+- 左侧为提示性信息，右侧根据用户需要可以嵌套不同数量、不同种类的元素(Icon，image， Input， label，Switch，Button等)；
+
+- 右侧部分应用了Bootstrap v4定位，根据元素数量自动定位
+
+  | 右侧元素数量 | 右侧分布情况                          |
+  | ------ | ------------------------------- |
+  | 1      | A                               |
+  | 2      | A————————————————————————————B  |
+  | 3      | A——————————————B————————————— C |
+
+
+
+```js
+<Listview text={"时间"}>
+    <input type="text" value={"2018-01-30 16:45:30"} placeholder={"请输入时间"}
+        onClick={this.onClick.bind(this)} readOnly="true" style={{width: '100%'}}/>
+</Listview>
+```
+
+```js
+<Listview text={"所在单位"}>
+    <label onClick={this.onClick.bind(this)}>{"浪潮国际平台与技术部"}</label>
+    <div className="pt-2 ml-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
+</Listview>
+```
+
+```js
+<Listview text={"起止时间"}>
+    <input type="text" value={this.state.timestring5} placeholder={"起始时间"}
+        onClick={this.handleClick5.bind(this)} readOnly="true"/>
+    <div className="pt-2 ml-2 mr-2"><Icon type="arrow-right" size={'lg'}/></div>
+    <input type="text" value={this.state.timestring6} placeholder={"结束时间"} className="text-right"
+        onClick={this.handleClick6.bind(this)} readOnly="true"/>
+</Listview>
+<div>
+    <DatePicker
+        value={this.state.time5}
+        isOpen={this.state.isOpen5}
+        onSelect={this.handleSelect5.bind(this)}
+        onCancel={this.handleCancel5.bind(this)}
+        dateFormat={['hh', 'mm']}
+        showFormat={'hh:mm'}
+        theme={'android'}
+        min={this.state.time}
+    />
+</div>
+<div>
+    <DatePicker
+        value={this.state.time6}
+        isOpen={this.state.isOpen6}
+        onSelect={this.handleSelect6.bind(this)}
+        onCancel={this.handleCancel6.bind(this)}
+        dateFormat={['hh', 'mm']}
+        showFormat={'hh:mm'}
+        theme={'android'}
+        min={this.state.time}
+    />
+</div>
+```
+
+```js
+<Listview text={"城市区间"}>
+    <input type="text" value={"济南市"} placeholder={"始发城市"}
+        onClick={this.onClick.bind(this)} readOnly="true"/>
+    {/* <div className="pt-2 ml-2 mr-2"><Icon type="arrow-right" size={'lg'}/></div> */}
+    <img className="mt-3" src={require("../images/arrowdotted.png")} alt="" style={{width: "20px", height: "10px"}}/>
+    <input type="text" value={"布宜诺斯艾利斯"} placeholder={"到达城市"} className="text-right"
+        onClick={this.onClick.bind(this)} readOnly="true"/>
+</Listview>
+```
+
+```Js
+<Listview text={"索要发票"}>
+    <div></div>
+    <Switch checked={this.state.switchChecked} onChange={this.onSwitchChange.bind(this)}/>
+</Listview>
+```
+
+```Js
+<Listview text={"支付方式"}>
+    <div></div>
+    <div className="pt-1">
+        <RadioGroup name="payment" mode="divide"
+            size="sm"
+            option={['签单', '工卡', '微信']} 
+            val={[0, 1, 2]} 
+            id={['op1', 'op2', 'op3']}
+            selected={this.state.selectedRadio}
+            onChange={this.radioChange.bind(this)}>
+        </RadioGroup>
+    </div>
+</Listview>
+```
+
