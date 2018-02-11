@@ -18,14 +18,14 @@ class Header extends Component {
         // </header>
         <div className="w-100">
           <Row>
-            <div className="col-2 no-gutter header pl-0">
+            <div className="col-3 no-gutter header pl-0">
               <img id="quitOut" src={require("../../images/arrowback-large.png")} alt="" className="pull-left arrowback"
                 onClick={this.props.onLeftArrowClick}></img>
             </div>
-            <div className="col-8 no-gutter header pl-0">
+            <div className="col-6 no-gutter header pl-0">
               <span className="header header-brand">{this.props.name}</span>
             </div>
-            <div className="col-2 no-gutter header pl-0">
+            <div className="col-3 no-gutter header pl-0">
               <div className="float-right buttonright">{this.renderChildren(this.props)}</div>
             </div>
 

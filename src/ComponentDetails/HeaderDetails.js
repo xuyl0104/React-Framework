@@ -30,7 +30,7 @@ class Details extends Component {
             headerDiv = (
                 <Header name="Header" 
                     onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
-                    <img src={require("../images/add.png")} width="25" 
+                    <img src={require("../images/add.png")} style={{width: '25px', height: '25px'}} 
                         alt="" className="pull-right"
                         onClick={this.props.onLeftArrowClick}></img>
                 </Header>
@@ -39,7 +39,10 @@ class Details extends Component {
             headerDiv = (
                  <Header name="Header" 
                     onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
-                    <Icon key="1" type="ellipsis" size={'md'}/>
+                    <img src={require("../images/add.png")} style={{width: '25px', height: '25px'}} 
+                        alt="" className="pull-right"
+                        onClick={this.props.onLeftArrowClick}></img>
+                    <div className="ml-2"><Icon key="1" type="ellipsis" size={'md'}/></div>
                 </Header>
             );
         }
