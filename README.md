@@ -510,7 +510,7 @@ Card组件基于Bootstrap v4的[Media-object](https://getbootstrap.com/docs/4.0/
 </div>
 ```
 
-```Js
+```js
 <label>日期Date</label>
 <Listview text={"借款日期"} onClick={this.handleClick3.bind(this)}>
     <label onClick={this.handleClick3.bind(this)}>{this.state.timestring3}			</label>
@@ -592,6 +592,8 @@ handleSelect1(time) {
 **下拉刷新**组件知识对antd-mobile的PullToRefresh进行了简单的封装，调用过程相对简单。
 
 如需在刷新时显示旋转加载动画，可以引入<Spin />组件并包裹在外层。
+
+![](https://ws4.sinaimg.cn/large/006tKfTcly1focmzm3f4eg309i0goe85.gif)
 
 ```js
 import PullRefresh from '../components/pullToRefresh/PullToRefresh';
@@ -824,7 +826,7 @@ refresh() {
 </Listview>
 ```
 
-```Js
+```js
 <Listview text={"索要发票"}>
     <div></div>
     <Switch checked={this.state.switchChecked} onChange={this.onSwitchChange.bind(this)}/>
