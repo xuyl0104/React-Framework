@@ -39,7 +39,10 @@ class Details extends Component {
                             <Button style={"primary"} size="sm" text="col-3" col={3} onClick={this.buttonClick.bind(this)} />
                             <Button style={"primary"} size="sm" text="col-3" col={3} onClick={this.buttonClick.bind(this)} />
                             <Button style={"primary"} size="sm" text="col-3" col={3} onClick={this.buttonClick.bind(this)} />
-                            <Button style={"new"} newStyle={{color: 'white', backgroundColor: '#318ccf'}} size="sm" text="自定义" col={12} onClick={this.buttonClick.bind(this)} />
+                            <Button style={"new"} 
+                                newStyle={{color: 'white', backgroundColor: '#318ccf', borderRadius: '0'}} 
+                                size="sm" 
+                                text="自定义" col={12} onClick={this.buttonClick.bind(this)} />
                         </Row>
                     </Content>
                 </Container>

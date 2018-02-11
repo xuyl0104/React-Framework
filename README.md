@@ -224,6 +224,21 @@ Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/comp
 | onClick  | 调用方法             |           | func                                     |
 | newStyle | style={"new"}时设定 | —         | object，例如 {color: 'white', backgroundColor: '#318ccf'} |
 
+```js
+<Button style={"primary"} size="lg" text={"col-12"} col={12} onClick={this.buttonClick.bind(this)} />
+<Button style={"primary"} size="lg" text={"col-6"} col={6} onClick={this.buttonClick.bind(this)} />
+<Button style={"default"} size="lg" text={"col-6"} col={6} onClick={this.buttonClick.bind(this)}/>
+<Button style={"success"} size="" text={"col-4"} col={4} onClick={this.buttonClick.bind(this)} />
+<Button style={"warning"} size="" text={"col-4"} col={4} onClick={this.buttonClick.bind(this)} />
+<Button style={"danger"} size="" text={"col-4"} col={4} onClick={this.buttonClick.bind(this)}/>
+<Button style={"primary"} size="sm" text="col-3" col={3} onClick={this.buttonClick.bind(this)} />
+<Button style={"primary"} size="sm" text="col-3" col={3} onClick={this.buttonClick.bind(this)} />
+<Button style={"primary"} size="sm" text="col-3" col={3} onClick={this.buttonClick.bind(this)} />
+<Button style={"primary"} size="sm" text="col-3" col={3} onClick={this.buttonClick.bind(this)} />
+<Button style={"new"} newStyle={{color: 'white', backgroundColor: '#318ccf'}} size="sm" text="自定义" col={12} onClick={this.buttonClick.bind(this)} />
+
+```
+
 ![](https://ws3.sinaimg.cn/large/006tKfTcly1fochqrd7g4j30lw0i0my5.jpg) 
 
 ### Input
