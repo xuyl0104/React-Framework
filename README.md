@@ -56,7 +56,7 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
 
 - 页面切换实现步骤
 
-  1. 添加react-router-page-transition到router，设定timeout、location；须使用Switch组件。
+  1. 添加react-router-page-transition到router，设定timeout、location；须使用React-router-dom中的Switch组件。
 
      ```javascript
      <Router>
@@ -100,10 +100,10 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
      </PageTransition>
      ```
 
-     | 属性              | 描述        | 默认值  | 类型      |
-     | --------------- | --------- | ---- | ------- |
-     | transitionClass | 本页面的CSS属性 | —    | string  |
-     | direction       | 动画方向      | ""   | string​ |
+     | 属性              | 描述        | 默认值  | 类型     |
+     | --------------- | --------- | ---- | ------ |
+     | transitionClass | 本页面的CSS属性 | —    | string |
+     | direction       | 动画方向      | ""   | string |
 
   4. 编写React生命周期函数，实现动画方向的正确设定
 
@@ -155,7 +155,7 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
      }
      ```
 
-     ​
+     ![](https://ws3.sinaimg.cn/large/006tKfTcly1fochd6f2rjg309h0go7gk.gif)
 
 ### Header
 
@@ -228,12 +228,12 @@ Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/comp
 | 内部child组件   | 嵌套的内部组件      | —      | React elem               |
 
 ```js
-<Input label={"左对齐带清空"} text={this.state.text} onChange={this.onTextChange} placeholder={"姓名"} align={"left"} clear={true} />
-<Input label={"上级审批人"} text={this.state.text} onChange={this.onTextChange} placeholder={"上级审批人姓名"} align={"left"} />
-<Input label={"左对齐带图标"} text={this.state.text} onChange={this.onTextChange} placeholder={"审批意见"} align={"left"} img={<Icon type="calendar" />}/>
-<Input label={"右对齐带清空"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请输入金额"} align={"right"} clear={true}/>
-<Input label={"交易金额"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请输入金额"} align={"right"} img={<Icon type="right" />}/>
-<Input label={"交易金额"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请输入金额"} align={"right"} img={<Icon type="pay-circle-o" />}/>
+<Input label={"左对齐带清空"} text={this.state.text} onChange={this.onTextChange} placeholder={"姓		名"} align={"left"} clear={true} />
+<Input label={"上级审批人"} text={this.state.text} onChange={this.onTextChange} placeholder={"上级审	批人姓名"} align={"left"} />
+<Input label={"左对齐带图标"} text={this.state.text} onChange={this.onTextChange} placeholder={"审批	意见"} align={"left"} img={<Icon type="calendar" />}/>
+<Input label={"右对齐带清空"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请	输入金额"} align={"right"} clear={true}/>
+<Input label={"交易金额"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请输入	金额"} align={"right"} img={<Icon type="right" />}/>
+<Input label={"交易金额"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请输入	金额"} align={"right"} img={<Icon type="pay-circle-o" />}/>
 ```
 
 
@@ -797,7 +797,7 @@ refresh() {
 </Listview>
 ```
 
-```Js
+```js
 <Listview text={"支付方式"}>
     <div></div>
     <div className="pt-1">
@@ -810,6 +810,5 @@ refresh() {
             onChange={this.radioChange.bind(this)}>
         </RadioGroup>
     </div>
-</Listview>
+</Listview> 
 ```
-
