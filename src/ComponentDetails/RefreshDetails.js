@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import './ComponentDetails.css';
 import request from '../Utils/fetchUtil';
+import requestObj from '../Utils/fetch';
+import showMessage from '../Utils/showMessage';
+import showToast from '../Utils/showToast';
+import PullRefresh from '../components/pullToRefresh/PullToRefresh';
 import Header from '../components/header/header';
 import Container from '../components/container/container';
 import Content from '../components/content/content';
@@ -11,15 +15,12 @@ import '../components/third-party/toast/style/css';
 import Icon from 'antd/lib/icon';
 import Spin from 'antd/lib/spin';
 import 'antd/lib/spin/style/css';
-import PullToRefresh from 'antd-mobile/lib/pull-to-refresh';
-import 'antd-mobile/lib/pull-to-refresh/style/css';
 
 class Details extends Component {
     constructor() {
         super();
         this.state = {
             results: [],
-			spin: true,
 			isRefreshing: false,
 			isLoading: false,
 			hasMore: true,
@@ -55,9 +56,9 @@ class Details extends Component {
      * @param {*} event 
      */
     onScrollHandle(event) {
-        const clientHeight = event.target.clientHeight
-        const scrollHeight = event.target.scrollHeight
-        const scrollTop = event.target.scrollTop
+        const clientHeight = event.target.clientHeight; // 屏幕高度
+        const scrollHeight = event.target.scrollHeight; // 总的内容高度
+        const scrollTop = event.target.scrollTop; // 已经滑动的距离
         const isBottom = (clientHeight + scrollTop === scrollHeight)
         if(isBottom) {
             this.loadMore();
@@ -70,40 +71,57 @@ class Details extends Component {
 		let self = this;
 		let optionsGET = {
 		};
-		request(url, optionsGET, "json", "列表加载失败", "").then((resjson) => {
-			if(typeof(resjson) !== "undefined") {
-				
-				self.setState({
-					results: resjson,
-					isSpinning: false
-				});
-			} else {
-				console.log(self.state.results.length)
-				console.log("else ")
-			}
-		})
+        
+        let FETCH = new requestObj(url, optionsGET);
+        FETCH.get()
+        .subscribe(result => {
+            this.setState({
+                results: result,
+                isSpinning: false
+            });
+        }, function (err) {
+            if(err.status === 'timeout') {
+                showMessage("info", "网络超时，请重试");
+            }
+            if(err.status=== 'offline') {
+                showToast("offline", "网络连接不可用，请检查网络设置");
+            }
+            if(err.status=== 'error') {
+                console.log(err);
+                showMessage("info", "列表获取失败，请重试");
+            }
+        })
 	}
 
     loadMore() {
-		console.log("Loading...");
 		let url = "http://jsonplaceholder.typicode.com/users";
 		let self = this;
-		let optionsGET = {};
-		request(url, optionsGET, "json", "列表加载失败", "").then((resjson) => {
-			if(typeof(resjson) !== "undefined") {
-				let prevResults= self.state.results;
-                let newResults= prevResults.concat(resjson);
-                // showToast("loading", "加载中");
-                Toast.loading("加载中", 1, () => {
-                    self.setState({
-                        results: newResults,
-                        isSpinning: false,
-                        hasMore: true
-                    });
-                }, false);
-				
-			} else {}
-		});
+        let optionsGET = {};
+        
+        Toast.loading("加载中", 1, () => {
+            let FETCH = new requestObj(url, optionsGET);
+            FETCH.get()
+            .subscribe(result => {
+                let prevResults = self.state.results;
+                let newResults = prevResults.concat(result);
+                self.setState({
+                    results: newResults,
+                    isSpinning: false,
+                    hasMore: true
+                });
+            }, function (err) {
+                if(err.status === 'timeout') {
+                    showMessage("info", "网络超时，请重试");
+                }
+                if(err.status=== 'offline') {
+                    showToast("offline", "网络连接不可用，请检查网络设置");
+                }
+                if(err.status=== 'error') {
+                    console.log(err);
+                    showMessage("info", "列表获取失败，请重试");
+                }
+            })
+        }, false);  
 	}
 
     render() {
@@ -157,18 +175,17 @@ class Details extends Component {
                     <Content>
                         <div className="content" ref={ node => this.contentNode = node }>
                             <Spin spinning={this.state.isSpinning} tip={"加载中"} delay={500} size="large">		
-                                <PullToRefresh 
-                                    ref={el => this.ptr = el}
+                                <PullRefresh 
                                     style={{
                                         height: this.state.height - 56,
                                     }}
                                     distanceToRefresh={80}
+                                    // indicator={{ activate: '松开刷新', deactivate: '继续下拉刷新', finish: '刷新完成' }}
                                     refreshing={this.state.isRefreshing} 
-                                    onRefresh={this.refresh.bind(this)}>
-                                        <CardList>
-                                            {listDiv}
-                                        </CardList>
-                                </PullToRefresh>
+                                    onRefresh={this.refresh.bind(this)}
+                                >
+                                    {listDiv}
+                                </PullRefresh>
                             </Spin>
                         </div>
                     </Content>
