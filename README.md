@@ -209,7 +209,7 @@ Footer组件可以包含不同数量的按钮
 | ![](https://ws2.sinaimg.cn/large/006tKfTcly1fochnr6iuoj30mo04w74a.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fochnr286wj30mc042t8s.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1fochnqx9j6j30ly03ujrk.jpg) |
 | :--------------------------------------: | :--------------------------------------: | :--------------------------------------: |
 | ![](https://ws4.sinaimg.cn/large/006tKfTcly1fochnqq5a2j30mm03iq2w.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fochnqhc9yj30me03smx7.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1fochnqcwwkj30m203gjri.jpg) |
-|                   一个按钮                   |                   两个按钮                   |                   三个按钮                   |
+|               一个按钮(lg, sm)               |               两个按钮(lg, sm)               |               三个按钮(lg, sm)               |
 
 ### Button
 
@@ -342,15 +342,9 @@ import showModal from '../Utils/showModals';
 />
 ```
 
-| ![](https://ws2.sinaimg.cn/large/006tKfTcly1foci8opa6aj30hw0a0dgd.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1foci8oja8yj30hw0foq3m.jpg) |
-| :--------------------------------------: | :--------------------------------------: |
-|                 两个按钮的提示框                 |                 多个按钮的提示框                 |
-
-| ![](https://ws2.sinaimg.cn/large/006tKfTcly1foci8odxfgj30hq0cq0tg.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1foci8o5fekj30i60ciq3r.jpg) |
-| :--------------------------------------: | :--------------------------------------: |
-|                  普通输入框                   |                 带默认值的输入框                 |
-
-
+| ![](https://ws2.sinaimg.cn/large/006tKfTcly1foci8opa6aj30hw0a0dgd.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1foci8oja8yj30hw0foq3m.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1foci8odxfgj30hq0cq0tg.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1foci8o5fekj30i60ciq3r.jpg) |
+| :--------------------------------------: | :--------------------------------------: | :--------------------------------------: | :--------------------------------------: |
+|                 两个按钮的提示框                 |                 多个按钮的提示框                 |                  普通输入框                   |                 带默认值的输入框                 |
 
 ### Card
 
