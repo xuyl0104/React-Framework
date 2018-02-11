@@ -2,7 +2,7 @@
 
 [TOC]
 
-## install and start
+## Install and start
 
 ```
 git clone https://github.com/xuyl0104/test-bootstrap.git
@@ -226,6 +226,17 @@ Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/comp
 | clear       | 是否带有清空按钮     | —      | bool                     |
 | onChange    | 输入时调用的方法     | —      | func                     |
 | 内部child组件   | 嵌套的内部组件      | —      | React elem               |
+
+```js
+<Input label={"左对齐带清空"} text={this.state.text} onChange={this.onTextChange} placeholder={"姓		名"} align={"left"} clear={true} />
+<Input label={"上级审批人"} text={this.state.text} onChange={this.onTextChange} placeholder={"上级审	批人姓名"} align={"left"} />
+<Input label={"左对齐带图标"} text={this.state.text} onChange={this.onTextChange} placeholder={"审批	意见"} align={"left"} img={<Icon type="calendar" />}/>
+<Input label={"右对齐带清空"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请	输入金额"} align={"right"} clear={true}/>
+<Input label={"交易金额"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请输入	金额"} align={"right"} img={<Icon type="right" />}/>
+<Input label={"交易金额"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请输入	金额"} align={"right"} img={<Icon type="pay-circle-o" />}/>
+```
+
+
 
 ### Message
 
