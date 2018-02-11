@@ -224,7 +224,11 @@ Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/comp
 | onClick  | 调用方法             |           | func                                     |
 | newStyle | style={"new"}时设定 | —         | object，例如 {color: 'white', backgroundColor: '#318ccf'} |
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1fochqrd7g4j30lw0i0my5.jpg){:height="100px" width="100px"}  
+![](https://ws3.sinaimg.cn/large/006tKfTcly1fochqrd7g4j30lw0i0my5.jpg) 
+
+```html
+<img src="https://ws3.sinaimg.cn/large/006tKfTcly1fochqrd7g4j30lw0i0my5.jpg" style="zoom:50%" />
+```
 
 ### Input
 
