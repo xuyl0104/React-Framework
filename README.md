@@ -5,7 +5,7 @@
 ## Install and start
 
 ```
-git clone https://github.com/xuyl0104/test-bootstrap.git
+git clone https://github.com/xuyl0104/React-Framework.git
 npm install
 npm start
 http://localhost:3000
