@@ -66,7 +66,7 @@ class Details extends Component {
                         <div style={{margin: '5px'}}></div>
                         <Listview text={"支付方式"}>
                             <div></div>
-                            <div className="pt-1">
+                            <div className="pt-2">
                                 <RadioGroup name="payment" mode="divide"
                                     size="sm"
                                     option={['签单', '工卡', '微信']} 
