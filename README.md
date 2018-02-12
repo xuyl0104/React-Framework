@@ -13,7 +13,7 @@ http://localhost:3000
 
 ## Layout
 
-页面布局基于Bootstrap v4，采用Flex布局排版技术。
+页面布局基于Bootstrap v4，采用`Flex`布局排版技术。
 
 ### Container
 
@@ -43,6 +43,10 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
 </PageTransition>
 ```
 
+具体详情请见点击PageTemplate查看。
+
+
+
 ## Components
 
 ### PageTransition
@@ -56,7 +60,7 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
 
 - 页面切换实现步骤
 
-  1. 添加react-router-page-transition到router，设定timeout、location；须使用React-router-dom中的Switch组件。
+  1. 添加react-router-page-transition到router，设定timeout、location；须使用`React-router-dom`中的`Switch`组件。
 
      ```javascript
      <Router>
@@ -254,12 +258,12 @@ Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/comp
 | 内部child组件   | 嵌套的内部组件      | —      | React elem               |
 
 ```js
-<Input label={"左对齐带清空"} text={this.state.text} onChange={this.onTextChange} placeholder={"姓名"} align={"left"} clear={true} />
-<Input label={"上级审批人"} text={this.state.text} onChange={this.onTextChange} placeholder={"上级审批人姓名"} align={"left"} />
-<Input label={"左对齐带图标"} text={this.state.text} onChange={this.onTextChange} placeholder={"审批意见"} align={"left"} img={<Icon type="calendar" />}/>
-<Input label={"右对齐带清空"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请输入金额"} align={"right"} clear={true}/>
-<Input label={"交易金额"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请输入金额"} align={"right"} img={<Icon type="right" />}/>
-<Input label={"交易金额"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请输入金额"} align={"right"} img={<Icon type="pay-circle-o" />}/>
+<Input label={"左对齐带清空"} text={this.state.text} onChange={this.onTextChange} placeholder={"姓		名"} align={"left"} clear={true} />
+<Input label={"上级审批人"} text={this.state.text} onChange={this.onTextChange} placeholder={"上级审	批人姓名"} align={"left"} />
+<Input label={"左对齐带图标"} text={this.state.text} onChange={this.onTextChange} placeholder={"审批	意见"} align={"left"} img={<Icon type="calendar" />}/>
+<Input label={"右对齐带清空"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请	输入金额"} align={"right"} clear={true}/>
+<Input label={"交易金额"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请输入	金额"} align={"right"} img={<Icon type="right" />}/>
+<Input label={"交易金额"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请输入	金额"} align={"right"} img={<Icon type="pay-circle-o" />}/>
 ```
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcly1foci5gzil5j30lu0futah.jpg) 
@@ -369,7 +373,7 @@ Card组件基于Bootstrap v4的[Media-object](https://getbootstrap.com/docs/4.0/
 
 | 属性             | 描述              | 默认值     | 类型         |
 | -------------- | --------------- | ------- | ---------- |
-| avatar         | 头像              | —       | <img>      |
+| avatar         | 头像              | —       | `<img>`    |
 | avatarPosition | 头像在在左侧的位置       | "start" | string     |
 | title          | 标题              | —       | string     |
 | text           | 标题下方文字          | —       | String     |
@@ -513,7 +517,7 @@ Card组件基于Bootstrap v4的[Media-object](https://getbootstrap.com/docs/4.0/
 ```js
 <label>日期Date</label>
 <Listview text={"借款日期"} onClick={this.handleClick3.bind(this)}>
-    <label onClick={this.handleClick3.bind(this)}>{this.state.timestring3}			</label>
+    <label onClick={this.handleClick3.bind(this)}>{this.state.timestring3}</label>
     <div className="pt-2"><Icon type="right" size={'lg'}/></div>
 </Listview>
 <div>
@@ -591,7 +595,7 @@ handleSelect1(time) {
 
 **下拉刷新**组件知识对antd-mobile的PullToRefresh进行了简单的封装，调用过程相对简单。
 
-如需在刷新时显示旋转加载动画，可以引入<Spin />组件并包裹在外层。
+如需在刷新时显示旋转加载动画，可以引入`<Spin />`组件并包裹在外层。
 
 ![](https://ws4.sinaimg.cn/large/006tKfTcly1focmzm3f4eg309i0goe85.gif)
 
@@ -641,20 +645,20 @@ refresh() {
 }
 ```
 
-| 属性                | 描述                           | 默认值                                      | 类型         |
-| ----------------- | ---------------------------- | ---------------------------------------- | ---------- |
-| style             | （目前没搞明白原理…）可以控制<Spin />的显示位置 | —                                        | objec      |
-| distanceToRefresh | 激活刷新的的拉动距离                   | 80                                       | num        |
-| indicator         | 组件不同状态时的提示文字                 | { activate: '松开立即刷新', deactivate: '下拉可以刷新', finish: '完成刷新' } | object     |
-| refreshing        | （不建议修改该属性）是否显示刷新状态           | false                                    | bool       |
-| onRefresh         | 必选，刷新回调函数                    | —                                        | func       |
-| 内部child组件         | 调用下拉刷新的长列表                   | —                                        | React elem |
+| 属性                | 描述                             | 默认值                                      | 类型         |
+| ----------------- | ------------------------------ | ---------------------------------------- | ---------- |
+| style             | （目前没搞明白原理…）可以控制`<Spin />`的显示位置 | —                                        | objec      |
+| distanceToRefresh | 激活刷新的的拉动距离                     | 80                                       | num        |
+| indicator         | 组件不同状态时的提示文字                   | { activate: '松开立即刷新', deactivate: '下拉可以刷新', finish: '完成刷新' } | object     |
+| refreshing        | （不建议修改该属性）是否显示刷新状态             | false                                    | bool       |
+| onRefresh         | 必选，刷新回调函数                      | —                                        | func       |
+| 内部child组件         | 调用下拉刷新的长列表                     | —                                        | React elem |
 
 **上滑加载**功能因为需要调用React自身的生命周期函数，所以尚未封装为独立的组件。（antd-mobile中的上划加载功能因为强制使用其List组件，且调用不便，所以目前未采用）
 
 实现步骤：
 
-1. 为页面添加ref
+1. 为页面添加`ref` ，这里起名为contentNode
 
    ```js
    <div className="content" ref={ node => this.contentNode = node }>
@@ -673,7 +677,7 @@ refresh() {
    </div>
    ```
 
-2. 挂载scroll监听方法至contentNode上
+2. 挂载scroll监听方法至`contentNode`上，该过程可以在componentDidMount()声明函数上执行
 
    ```js
    componentDidMount() {
@@ -749,11 +753,11 @@ refresh() {
 - Listitem组件方便用户在页面上进行信息设定。
 
 
-- 左侧为提示性信息，右侧根据用户需要可以嵌套不同数量、不同种类的元素(Icon，image， Input， label，Switch，Button等)；
+- 左侧为提示性信息，右侧根据用户需要可以嵌套不同数量、不同种类的元素(`Icon`，`image`， `Input`， `label`，`Switch`，`Button`等)；
 
 - 右侧部分应用了Bootstrap v4定位，根据元素数量自动定位
 
-- Trick：右侧只有一个元素而又想帖靠在右侧时，可以添加一个空的div进行占位（此时右侧实际包含两个元素，详见“索要发票”示例）
+- Trick：右侧只有一个元素而又想帖靠在右侧时，可以添加一个空的`div`进行占位（此时右侧实际包含两个元素，详见“索要发票”示例）(很矬，待改进)
 
   | 属性        | 描述      | 默认值  | 类型         |
   | --------- | ------- | ---- | ---------- |
@@ -852,4 +856,99 @@ refresh() {
 | ![](https://ws1.sinaimg.cn/large/006tKfTcly1focijwpf9tj30ky02oq30.jpg) | ![](https://ws1.sinaimg.cn/large/006tKfTcly1focijwko5gj30l002qq34.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1focijwf5pbj30l202g0sv.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1focijw9nmjj30l202mwen.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1focijx18h1j30kw02idfx.jpg) | ![](https://ws1.sinaimg.cn/large/006tKfTcly1focijwxcitj30l002mq32.jpg) |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | 时间                                       | 所在单位                                     | 起止时间                                     | 城市区间                                     | 索要发票                                     | 支付方式                                     |
+
+### Radio/Check
+
+单选按钮分为divide型和line型两种；
+
+Checkbox目前有一种样式（之后可能会扩展）。
+
+- Radio
+
+| 属性       | 描述                      | 默认值      | 类型                        |
+| -------- | ----------------------- | -------- | ------------------------- |
+| mode     | Radio样式                 | “divide” | string（"divide", "line"）  |
+| size     | Radio按钮大小               | "md"     | string ("lg", "md", "sm") |
+| option   | Radio选项                 | —        | []                        |
+| val      | Radio按钮的值               | —        | []                        |
+| id       | （可选）按钮的ID，在传统Radio中需要设置 | —        | []                        |
+| selected | 当前选中项                   | —        | num                       |
+| onChange | 点击调用的方法                 | —        | func                      |
+
+- Check
+
+| 属性       | 描述        | 默认值  | 类型      |
+| -------- | --------- | ---- | ------- |
+| option   | Check选项   | —    | []      |
+| val      | Check按钮的值 | —    | []      |
+| selected | 当前选中项     | —    | []: num |
+| onChange | 点击调用方法    | —    | func    |
+
+| ![](https://ws1.sinaimg.cn/large/006tKfTcly1fodglix6jij30kw0agjs4.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fodglj4cy4j30l202kjrj.jpg) | ![](https://ws1.sinaimg.cn/large/006tKfTcly1fodglj9eu0j30l007k0sv.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1fodgljgpjsj30l209ywey.jpg) |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| divide单选按钮                               | divide按钮在listitem中                       | line单选按钮                                 | 多选按钮                                     |
+
+```js
+<RadioGroup name="payment" mode="divide"
+    size="lg"
+    option={['签单', '工卡', '微信']} 
+    val={[0, 1, 2]} 
+    id={['op1', 'op2', 'op3']}
+    selected={this.state.selectedRadio}
+    onChange={this.radioChange.bind(this)}>
+</RadioGroup>
+```
+
+```js
+<RadioGroup name="payment" mode="line"
+    size="sm"
+    option={['签单', '工卡', '微信']} 
+    val={[0, 1, 2]} 
+    id={['op1', 'op2', 'op3']}
+    selected={this.state.selectedRadio}
+    onChange={this.radioChange.bind(this)}>
+</RadioGroup>
+```
+
+```js
+<CheckGroup 
+    option={['待确认', '制作中', '待结算', '已完成']}
+    val={[0, 1, 2, 3]}
+    selected={this.state.selectedCheckbox}
+    onChange={this.checkChange.bind(this)}
+/>
+```
+
+
+
+### Switch
+
+- 建议与Listitem组件一起使用
+
+| 属性       | 描述     | 默认值       | 类型     |
+| -------- | ------ | --------- | ------ |
+| checked  | 是否开启   | —         | bool   |
+| onChange | 点击回调函数 | —         | func   |
+| color    | 开启后的颜色 | "#4dd865" | string |
+| disabled | 禁用     | false     | bool   |
+
+| ![](https://ws1.sinaimg.cn/large/006tKfTcly1fodh0758yuj30ky02eaa5.jpg) | ![](https://ws1.sinaimg.cn/large/006tKfTcly1fodh070tfhj30q80320sz.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fodh1e9ft6j30ky02m74d.jpg) |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| 默认样式                                     | 自定义按钮颜色                                  | 禁用状态                                     |
+
+```js
+<Listview text={"索要发票"}>
+    <div></div>
+    <Switch checked={this.state.switchChecked} onChange={this.onSwitchChange.bind(this)}/>
+</Listview>
+<Listview text={"索要发票"}>
+    <div></div>
+    <Switch checked={this.state.switchChecked} onChange={this.onSwitchChange.bind(this)} disabled/>
+</Listview>
+
+<Listview text={"删除购买历史"}>
+    <div></div>
+    <Switch checked={this.state.switchChecked} onChange={this.onSwitchChange.bind(this)} color={"#318ccf"}/>
+</Listview>
+```
 

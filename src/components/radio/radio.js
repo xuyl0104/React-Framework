@@ -21,8 +21,8 @@ class RadioGroup extends Component {
         let options = this.props.option;
         let id = this.props.id;
         let name = this.props.name;
-        let mode = this.props.mode;
-        let size = this.props.size;
+        let mode = this.props.mode || "divide";
+        let size = this.props.size || "md";
         let selected = this.props.selected;
         let radioDivs;
         if(mode === "divide") {
@@ -37,7 +37,7 @@ class RadioGroup extends Component {
         } else if(mode === "vertical") {
             radioDivs = options.map((option, index) => {
                 return (
-                    <div className="checkgroup" style={{'margin': '8px 0'}} key={index}>
+                    <div className="radiogroup" style={{'margin': '8px 0'}} key={index}>
                         <input
                             type='radio' name={name} id={id[index]} 
                             checked={selected === values[index]}

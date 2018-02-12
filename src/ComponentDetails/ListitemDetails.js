@@ -118,6 +118,10 @@ class Details extends Component {
                             <div></div>
                             <Switch checked={this.state.switchChecked} onChange={this.onSwitchChange.bind(this)}/>
                         </Listview>
+                        <Listview text={"索要发票"}>
+                            <div></div>
+                            <Switch checked={this.state.switchChecked} onChange={this.onSwitchChange.bind(this)} disabled/>
+                        </Listview>
 
                         <Listview text={"删除购买历史"}>
                             <div></div>

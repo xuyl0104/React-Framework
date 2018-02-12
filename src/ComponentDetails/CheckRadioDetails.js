@@ -28,39 +28,40 @@ class Details extends Component {
                         onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
                     </Header>
                     <Content>
-                        <label>单选按钮-mode="divide"</label><br />
-                        <label>large</label>
-                        <RadioGroup name="payment" mode="divide"
-                            size="lg"
-                            option={['签单', '工卡', '微信']} 
-                            val={[0, 1, 2]} 
-                            id={['op1', 'op2', 'op3']}
-                            selected={this.state.selectedRadio}
-                            onChange={this.radioChange.bind(this)}>
-                        </RadioGroup>
-                        
-                        <div style={{margin: '5px'}}></div>
-                        <label>Default</label>
-                        <RadioGroup name="payment" mode="divide"
-                            size=""
-                            option={['签单', '工卡', '微信']} 
-                            val={[0, 1, 2]} 
-                            id={['op1', 'op2', 'op3']}
-                            selected={this.state.selectedRadio}
-                            onChange={this.radioChange.bind(this)}>
-                        </RadioGroup>
+                        <label>单选按钮-mode="divide"</label>
+                        <div className="bg-white pl-2 pr-2">
+                            <label>large</label>
+                            <RadioGroup name="payment" mode="divide"
+                                size="lg"
+                                option={['签单', '工卡', '微信']} 
+                                val={[0, 1, 2]} 
+                                id={['op1', 'op2', 'op3']}
+                                selected={this.state.selectedRadio}
+                                onChange={this.radioChange.bind(this)}>
+                            </RadioGroup>
+                            
+                            <div style={{margin: '5px'}}></div>
+                            <label>Default</label>
+                            <RadioGroup name="payment" mode="divide"
+                                size=""
+                                option={['签单', '工卡', '微信']} 
+                                val={[0, 1, 2]} 
+                                id={['op1', 'op2', 'op3']}
+                                selected={this.state.selectedRadio}
+                                onChange={this.radioChange.bind(this)}>
+                            </RadioGroup>
 
-                        <div style={{margin: '5px'}}></div>
-                        <label>Small</label>
-                        <RadioGroup name="payment" mode="divide"
-                            size="sm"
-                            option={['签单', '工卡', '微信']} 
-                            val={[0, 1, 2]} 
-                            id={['op1', 'op2', 'op3']}
-                            selected={this.state.selectedRadio}
-                            onChange={this.radioChange.bind(this)}>
-                        </RadioGroup>
-
+                            <div style={{margin: '5px'}}></div>
+                            <label>Small</label>
+                            <RadioGroup name="payment" mode="divide"
+                                size="sm"
+                                option={['签单', '工卡', '微信']} 
+                                val={[0, 1, 2]} 
+                                id={['op1', 'op2', 'op3']}
+                                selected={this.state.selectedRadio}
+                                onChange={this.radioChange.bind(this)}>
+                            </RadioGroup>
+                        </div>
 
                         <div style={{margin: '5px'}}></div>
                         <Listview text={"支付方式"}>
