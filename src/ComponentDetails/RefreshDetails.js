@@ -13,6 +13,7 @@ import CardList from '../components/cardlist/cardlist';
 import Toast from '../components/third-party/toast';
 import '../components/third-party/toast/style/css';
 import Icon from 'antd/lib/icon';
+// import { Icon as IconMobile } from 'antd-mobile/lib/icon'
 import Spin from 'antd/lib/spin';
 import 'antd/lib/spin/style/css';
 
@@ -22,7 +23,8 @@ class Details extends Component {
         this.state = {
             results: [],
 			isRefreshing: false,
-			isLoading: false,
+            isLoading: false,
+            timesOfLoad: 0,
 			hasMore: true,
 			top: 10,
 			height: document.documentElement.clientHeight,
@@ -40,6 +42,9 @@ class Details extends Component {
             this.contentNode.addEventListener('scroll', this.onScrollHandle.bind(this));
         }
         this.refresh();
+        this.setState({
+            timesOfLoad: 1
+        });
     }
 
     /**
@@ -61,8 +66,10 @@ class Details extends Component {
         const scrollTop = event.target.scrollTop; // 已经滑动的距离
         const isBottom = (clientHeight + scrollTop === scrollHeight)
         if(isBottom) {
-            this.loadMore();
-            console.log(this.state.results);
+            if(this.state.hasMore) {
+                this.loadMore();
+            }
+            // console.log(this.state.results);
         }
     }
     
@@ -77,7 +84,9 @@ class Details extends Component {
         .subscribe(result => {
             this.setState({
                 results: result,
-                isSpinning: false
+                isSpinning: false,
+                hasMore: true,
+                timesOfLoad: 0
             });
         }, function (err) {
             if(err.status === 'timeout') {
@@ -98,30 +107,31 @@ class Details extends Component {
 		let self = this;
         let optionsGET = {};
         
-        Toast.loading("加载中", 1, () => {
-            let FETCH = new requestObj(url, optionsGET);
-            FETCH.get()
-            .subscribe(result => {
-                let prevResults = self.state.results;
-                let newResults = prevResults.concat(result);
-                self.setState({
-                    results: newResults,
-                    isSpinning: false,
-                    hasMore: true
-                });
-            }, function (err) {
-                if(err.status === 'timeout') {
-                    showMessage("info", "网络超时，请重试");
-                }
-                if(err.status=== 'offline') {
-                    showToast("offline", "网络连接不可用，请检查网络设置");
-                }
-                if(err.status=== 'error') {
-                    console.log(err);
-                    showMessage("info", "列表获取失败，请重试");
-                }
-            })
-        }, false);  
+        let FETCH = new requestObj(url, optionsGET);
+        FETCH.get()
+        .subscribe(result => {
+            let prevResults = self.state.results;
+            let newResults = prevResults.concat(result);
+            let timesOfLoad = self.state.timesOfLoad + 1;
+            let hasMore = timesOfLoad > 2 ? false : true;
+            self.setState({
+                timesOfLoad: timesOfLoad,
+                results: newResults,
+                isSpinning: false,
+                hasMore: hasMore
+            });
+        }, function (err) {
+            if(err.status === 'timeout') {
+                showMessage("info", "网络超时，请重试");
+            }
+            if(err.status=== 'offline') {
+                showToast("offline", "网络连接不可用，请检查网络设置");
+            }
+            if(err.status=== 'error') {
+                console.log(err);
+                showMessage("info", "列表获取失败，请重试");
+            }
+        })
 	}
 
     render() {
@@ -185,6 +195,13 @@ class Details extends Component {
                                     onRefresh={this.refresh.bind(this)}
                                 >
                                     {listDiv}
+
+                                    {/* 下方组件为列表底部提示性信息：列表还有内容时，显示"正在加载"；列表无更多内容时，显示"—— 已无更多 ——" */}
+                                    {<div className="text-center" 
+                                        style={{backgroundColor: '#ededed', color: '#808080', fontSize: '16px', height: '45px', 
+                                            verticalAlign: 'middle', paddingTop: '10px'}}>
+                                        {this.state.hasMore ? <div><Icon type="loading" />  正在加载</div> : "—— 已无更多 ——"}
+                                    </div>}
                                 </PullRefresh>
                             </Spin>
                         </div>
