@@ -198,9 +198,9 @@ class Details extends Component {
 
                                     {/* 下方组件为列表底部提示性信息：列表还有内容时，显示"正在加载"；列表无更多内容时，显示"—— 已无更多 ——" */}
                                     {<div className="text-center" 
-                                        style={{backgroundColor: '#ededed', color: '#808080', fontSize: '16px', height: '45px', 
+                                        style={{backgroundColor: '#ededed', color: '#808080', fontSize: '14px', height: '45px', 
                                             verticalAlign: 'middle', paddingTop: '10px'}}>
-                                        {this.state.hasMore ? <div><Icon type="loading" />  正在加载</div> : "—— 已无更多 ——"}
+                                        {this.state.hasMore ? <div><Icon type="loading" />  正在加载</div> : "———— 已无更多 ————"}
                                     </div>}
                                 </PullRefresh>
                             </Spin>
