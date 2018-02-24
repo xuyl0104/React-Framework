@@ -116,7 +116,7 @@ class Details extends Component {
                             title={<h6>哈士奇</h6>}
                             text={"再不回来我就拆家!"}
                             topRight={<label>17:30:00</label>}
-                            bottomRight={<Icon type="star-o" />}
+                            bottomRight={<Icon type="star-o" onClick={this.thumbsUp.bind(this)}/>}
                             onClick={this.goCardDetails.bind(this)}>
                         </Card>
                         <Card key={7}
@@ -128,7 +128,7 @@ class Details extends Component {
                             title={<h6>铲屎官</h6>}
                             text={"马上到家！"}
                             topRight={<label>17:31:12</label>}
-                            bottomRight={<Icon type="star-o" />}
+                            bottomRight={<Icon type="star-o" onClick={this.thumbsUp.bind(this)}/>}
                             onClick={this.goCardDetails.bind(this)}>
                         </Card>
                         <Card key={8}
@@ -141,7 +141,7 @@ class Details extends Component {
                             text={"马上到家！"}
                             topRight={<img src={require("../images/rejected.jpg")} alt="" 
                                         style={{'width': `60px`, borderRadius: '5px'}}/>}
-                            bottomRight={<Icon type="star-o" />}
+                            bottomRight={<Icon type="star-o" onClick={this.thumbsUp.bind(this)}/>}
                             onClick={this.goCardDetails.bind(this)}>
                         </Card>
                         <label>Example-5：仿YouTube卡片1(图片在上方)</label>
@@ -184,14 +184,14 @@ class Details extends Component {
                         <label>Example-7：仿Gmail卡片</label>
                         <Card key={11}
                             avatar={<img className={`align-self-start mr-1 mt-2`} 
-                                        src={require("../images/avatar.jpg")} alt="Generic placeholder image" 
+                                        src={require("../images/larry.jpg")} alt="Generic placeholder image" 
                                         style={{'width': `48px`, borderRadius: '24px'}}/>}
                             // avatarSize={200}
                             avatarPosition={'start'}
                             title={<div style={{fontSize: '15px', color: '#000000'}}>Gmail安全中心</div>}
                             text={<div style={{fontSize: '10px', color: 'grey'}}>您的账号在新设备上有登陆行为，请注意。</div>}
                             topRight={<label>17:31:12</label>}
-                            bottomRight={<Icon type="star-o" />}
+                            bottomRight={<Icon type="star-o" onClick={this.thumbsUp.bind(this)}/>}
                             middleLeft={<div style={{fontSize: '10px', color: '#000000'}}>您的账号有风险！</div>}
                             onClick={this.goCardDetails.bind(this)}
                         >
@@ -202,7 +202,7 @@ class Details extends Component {
                             title={<div style={{fontSize: '15px', color: '#000000'}}>Gmail安全中心</div>}
                             text={<div style={{fontSize: '10px', color: 'grey'}}>您的账号在新设备上有登陆行为，请注意。</div>}
                             topRight={<label>17:31:12</label>}
-                            bottomRight={<Icon type="star-o" />}
+                            bottomRight={<Icon type="star-o" onClick={this.thumbsUp.bind(this)}/>}
                             middleLeft={<div style={{fontSize: '10px', color: '#000000'}}>您的账号有风险！</div>}
                             middleRight={
                                 <div className="px-1" style={{fontSize: '8px', color: 'grey', backgroundColor: '#e3e3e3'}}>已归档</div>
@@ -218,7 +218,8 @@ class Details extends Component {
                             text={
                                 <div>
                                     <span className="mr-2" style={{fontSize: '12px', color: 'grey', fontFamily: 'Lucida Grande'}}>New York Magazine</span>
-                                    <Icon type="like-o" style={{ fontSize: 16, color: 'grey'}}/>
+                                    <span className="mr-2" style={{fontSize: '12px', color: 'grey', fontFamily: 'Lucida Grande'}}>17:31:12</span>
+                                    <Icon type="like-o" style={{ fontSize: 16, color: 'grey'}} onClick={this.thumbsUp.bind(this)}/>
                                 </div>
                             }
                             onClick={this.goCardDetails.bind(this)}
