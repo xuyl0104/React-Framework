@@ -8,9 +8,9 @@ class Container extends Component {
     
     render() {
         return (
-                <div className="w-100 d-flex flex-column" style={{height: '100vh'}}>
-                    {this.renderChildren(this.props)}
-                </div>
+            <div className="w-100 d-flex flex-column" style={{height: '100vh'}}>
+                {this.renderChildren(this.props)}
+            </div>
         );
     }
 

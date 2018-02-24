@@ -194,6 +194,42 @@ class Details extends Component {
         console.log(flag);
     }
 
+    gitlabGetProjects() {
+        console.log("fetching gitlab projects...");
+        let self = this;
+        let url = "https://git.iec.io/api/v4/projects/279/?private_token=X_qUzr_j-VKAxzaeKxpE";
+        // let url = "https://git.iec.io/api/v4/projects/279/repository/files/yarn.lock/raw?ref=master'?private_token=X_qUzr_j-VKAxzaeKxpE";
+        fetch(url)
+        .then((response) => {
+            return response.json()
+        })
+        .then((resjson) => {
+            self.setState({
+                results: resjson
+            })
+        })
+        .catch()
+    }
+
+    gitlabUploadFile() {
+        let self = this;
+        let url = "https://git.iec.io/api/v4/projects/279/repository/files?private_token=X_qUzr_j-VKAxzaeKxpE";
+        fetch(url, {
+            method: "PUT",
+            headers: {
+            }
+        })
+        .then((response) => {
+            console.log(response)
+            return response.json()
+        })
+        .then((resjson) => {
+            self.setState({
+                results: resjson
+            })
+        })
+        .catch()
+    }
 
 
     render() {
@@ -212,6 +248,8 @@ class Details extends Component {
                             <Button style={"warning"} size="lg" text={"DELETE"} col={6} onClick={this.fetchDELETE.bind(this)}/>
                             <Button style={"success"} size="lg" text={"PUT"} col={6} onClick={this.fetchPUT.bind(this)}/>
                             <Button style={"default"} size="lg" text={"PATCH"} col={6} onClick={this.fetchPUT.bind(this)}/>
+                            <Button style={"success"} size="lg" text={"gitlab"} col={12} onClick={this.gitlabGetProjects.bind(this)}/>
+                            <Button style={"success"} size="lg" text={"gitlabUploadFile"} col={12} onClick={this.gitlabUploadFile.bind(this)}/>
                         </Row>
                     </Content>
                 </Container>

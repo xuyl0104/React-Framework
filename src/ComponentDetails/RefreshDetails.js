@@ -25,11 +25,9 @@ class Details extends Component {
 			isRefreshing: false,
             isLoading: false,
             timesOfLoad: 0,
-			hasMore: true,
-			top: 10,
+			hasMore: true, // 是否继续上划加载
 			height: document.documentElement.clientHeight,
-            isSpinning: true,
-            yPos: 0
+            isSpinning: true
         };
     }
 
@@ -69,7 +67,6 @@ class Details extends Component {
             if(this.state.hasMore) {
                 this.loadMore();
             }
-            // console.log(this.state.results);
         }
     }
     

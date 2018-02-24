@@ -30,7 +30,7 @@ class Details extends Component {
                                         style={{'width': `54px`}}/>}
                             // avatarSize={54}
                             avatarPosition={'start'}
-                            title={"美食频道"}
+                            title={<h6>美食频道</h6>}
                             text={"2018/01/26"}
                             onClick={this.goCardDetails.bind(this)}
                         >
@@ -66,7 +66,7 @@ class Details extends Component {
                                         style={{'width': `54px`}}/>}
                             // avatarSize={54}
                             avatarPosition={'start'}
-                            title={"张经理"}
+                            title={<h6>张经理</h6>}
                             text={"平台与技术部"}
                             onClick={this.goCardDetails.bind(this)}>
                             <div className="ticketInfo"><label>起止城市：</label> <label>济南 - 成都</label></div>
@@ -81,7 +81,7 @@ class Details extends Component {
                                         style={{'width': `120px`}}/>}
                             // avatarSize={200}
                             avatarPosition={'start'}
-                            title={"舜华餐厅（S05负一楼）"}
+                            title={<h6>舜华餐厅（S05负一楼）</h6>}
                             text={"点菜时间：周一至周五下午4点前。"}
                             onClick={this.goCardDetails.bind(this)}>
                         </Card>
@@ -91,7 +91,7 @@ class Details extends Component {
                                         style={{'width': `120px`}}/>}
                             // avatarSize={200}
                             avatarPosition={'start'}
-                            title={"庆丰餐厅（S06负一楼）"}
+                            title={<h6>庆丰餐厅（S06负一楼）</h6>}
                             text={"点菜时间：周一至周五下午4点前。"}
                             onClick={this.goCardDetails.bind(this)}>
                         </Card>
@@ -101,7 +101,7 @@ class Details extends Component {
                                         style={{'width': `120px`}}/>}
                             // avatarSize={200}
                             avatarPosition={'start'}
-                            title={"金膳林餐厅（S06一楼）"}
+                            title={<h6>金膳林餐厅（S06一楼）</h6>}
                             text={"点菜时间：周一至周五下午4点前。"}
                             onClick={this.goCardDetails.bind(this)}>
                         </Card>
@@ -113,7 +113,7 @@ class Details extends Component {
                                         style={{'width': `60px`, borderRadius: '5px'}}/>}
                             // avatarSize={200}
                             avatarPosition={'start'}
-                            title={"哈士奇"}
+                            title={<h6>哈士奇</h6>}
                             text={"再不回来我就拆家!"}
                             topRight={<label>17:30:00</label>}
                             bottomRight={<Icon type="star-o" />}
@@ -125,7 +125,7 @@ class Details extends Component {
                                         style={{'width': `60px`, borderRadius: '5px'}}/>}
                             // avatarSize={200}
                             avatarPosition={'start'}
-                            title={"铲屎官"}
+                            title={<h6>铲屎官</h6>}
                             text={"马上到家！"}
                             topRight={<label>17:31:12</label>}
                             bottomRight={<Icon type="star-o" />}
@@ -137,12 +137,78 @@ class Details extends Component {
                                         style={{'width': `60px`, borderRadius: '5px'}}/>}
                             // avatarSize={200}
                             avatarPosition={'start'}
-                            title={"铲屎官"}
+                            title={<h6>铲屎官</h6>}
                             text={"马上到家！"}
                             topRight={<img src={require("../images/rejected.jpg")} alt="" 
                                         style={{'width': `60px`, borderRadius: '5px'}}/>}
                             bottomRight={<Icon type="star-o" />}
                             onClick={this.goCardDetails.bind(this)}>
+                        </Card>
+                        <label>Example-5：仿YouTube卡片1(图片在上方)</label>
+                        <Card key={9} position={"bottom"}
+                            avatar={<img className={`align-self-start mr-1 mt-2`} 
+                                        src={require("../images/avatar.jpg")} alt="Generic placeholder image" 
+                                        style={{'width': `48px`, borderRadius: '24px'}}/>}
+                            // avatarSize={200}
+                            avatarPosition={'start'}
+                            title={"Stephen Curry UNREAL 44 Pts, 14-19 FG 2018.02.22 Golden States Warrious vs LA Clippers"}
+                            text={<div style={{fontSize: '10px', color: 'grey'}}>FreeDawkings · 17万次观看 · 20小时前</div>}
+                            topRight={
+                                <div className="text-center pt-1" onClick={this.thumbsUp.bind(this)}>
+                                    <Icon type="ellipsis" style={{ fontSize: 18, color: 'grey', transform: 'rotate(90deg)'}}/>
+                                </div>}
+                            onClick={this.goCardDetails.bind(this)}
+                        >
+                            <div className="mb-1" style={{'display': 'inline-table'}}>
+                                <img src={require("../images/nba.jpg")} alt="" style={{'width': '100%', height: '200px'}}/>
+                            </div>
+                        </Card>
+                        <label>Example-6：仿YouTube卡片2</label>
+                        <Card key={10}
+                            avatar={<img className={`align-self-center mr-2`} 
+                                        src={require("../images/nba.jpg")} alt="Generic placeholder image" 
+                                        style={{'width': `150px`}}/>}
+                            // avatarSize={200}
+                            avatarPosition={'start'}
+                            title={"Stephen Curry UNREAL 44 Pts, 14-19 FG 2018.02.22..."}
+                            text={<div style={{fontSize: '10px', color: 'grey'}}>17万次观看 · 20小时前</div>}
+                            topRight={
+                                <div className="text-center pt-1" onClick={this.thumbsUp.bind(this)}>
+                                    <Icon type="ellipsis" style={{ fontSize: 18, color: 'grey', transform: 'rotate(90deg)'}}/>
+                                </div>}
+                            middleLeft={<div style={{fontSize: '10px', color: 'grey'}}>FreeDawkings</div>}
+                            onClick={this.goCardDetails.bind(this)}
+                        >
+                        </Card>
+
+                        <label>Example-7：仿Gmail卡片</label>
+                        <Card key={11}
+                            avatar={<img className={`align-self-start mr-1 mt-2`} 
+                                        src={require("../images/avatar.jpg")} alt="Generic placeholder image" 
+                                        style={{'width': `48px`, borderRadius: '24px'}}/>}
+                            // avatarSize={200}
+                            avatarPosition={'start'}
+                            title={<div style={{fontSize: '15px', color: '#000000'}}>Gmail安全中心</div>}
+                            text={<div style={{fontSize: '10px', color: 'grey'}}>您的账号在新设备上有登陆行为，请注意。</div>}
+                            topRight={<label>17:31:12</label>}
+                            bottomRight={<Icon type="star-o" />}
+                            middleLeft={<div style={{fontSize: '10px', color: '#000000'}}>您的账号有风险！</div>}
+                            onClick={this.goCardDetails.bind(this)}
+                        >
+                        </Card>
+                        <label>Example-8：无头像卡片</label>
+                        <Card key={12}
+                            avatarPosition={'start'}
+                            title={<div style={{fontSize: '15px', color: '#000000'}}>Gmail安全中心</div>}
+                            text={<div style={{fontSize: '10px', color: 'grey'}}>您的账号在新设备上有登陆行为，请注意。</div>}
+                            topRight={<label>17:31:12</label>}
+                            bottomRight={<Icon type="star-o" />}
+                            middleLeft={<div style={{fontSize: '10px', color: '#000000'}}>您的账号有风险！</div>}
+                            middleRight={
+                                <div className="p-1" style={{fontSize: '8px', color: 'grey', backgroundColor: '#e3e3e3'}}>已归档</div>
+                            }
+                            onClick={this.goCardDetails.bind(this)}
+                        >
                         </Card>
                     </Content>
                 </Container>

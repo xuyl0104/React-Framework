@@ -19,6 +19,12 @@ http://localhost:3000
 
 - Container组件设定了flex排列方式。
 
+  ```js
+  <div className="w-100 d-flex flex-column" style={{height: '100vh'}}>
+      {this.renderChildren(this.props)}
+  </div>
+  ```
+
 
 - Container组件需要包裹页面中的其他元素（当使用页面切换效果组件PageTransition时，Container须位于切换组件内部）。
 
@@ -26,10 +32,10 @@ http://localhost:3000
 
 Content组件包裹页面中主体内容部分（即Header、Footer之外的部分）。
 
-| 属性      | 描述   | 默认值          | 类型     |
-| ------- | ---- | ------------ | ------ |
-| padding | 内边距  | [0, 0, 0, 0] | []     |
-| bgColor | 背景颜色 | '#f8f9fa'    | string |
+| 属性    | 描述     | 默认值                                      | 类型   |
+| ------- | -------- | ------------------------------------------- | ------ |
+| padding | 内边距   | [0, 0, 0, 0] （[top, right, bottom, left]） | []     |
+| bgColor | 背景颜色 | '#f8f9fa'                                   | string |
 
 ```js
 <PageTransition>
@@ -43,7 +49,7 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
 </PageTransition>
 ```
 
-详情请见点击PageTemplate查看。
+详情请在演示程序中点击进入PageTemplate页面查看。
 
 
 
@@ -51,7 +57,7 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
 
 ### PageTransition
 
-- PageTransition需要与第三方组件[react-router-page-transition](https://github.com/trungdq88/react-router-page-transition)结合使用
+- PageTransition页面切换过渡动画需要与第三方组件[react-router-page-transition](https://github.com/trungdq88/react-router-page-transition)结合使用
 
   ```
   npm install react-router-page-transition --save
@@ -60,7 +66,7 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
 
 - 页面切换实现步骤
 
-  1. 添加react-router-page-transition到router，设定timeout、location；须使用`React-router-dom`中的`Switch`组件。
+  1. 添加react-router-page-transition到`Router`，设定`timeout`、`location`；须使用`React-router-dom`中的`Switch`组件。
 
      ```javascript
      <Router>
@@ -104,10 +110,12 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
      </PageTransition>
      ```
 
-     | 属性              | 描述        | 默认值  | 类型     |
-     | --------------- | --------- | ---- | ------ |
-     | transitionClass | 本页面的CSS属性 | —    | string |
-     | direction       | 动画方向      | ""   | string |
+     ​
+
+     | 属性            | 描述            | 默认值 | 类型   |
+     | --------------- | --------------- | ------ | ------ |
+     | transitionClass | 本页面的CSS类名 | —      | string |
+     | direction       | 动画方向        | ""     | string |
 
   4. 编写React生命周期函数，实现动画方向的正确设定
 
@@ -167,27 +175,62 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
 - Header组件根据右侧按钮的种类，分为右侧无按钮、右侧一个按钮、右侧多个按钮
 - 可以根据实际需要，在Header内部嵌套不同图标，实现不同功能。该方法易于对不同图标设定相应的调用方法
 
-```javascript
-<Header name="Header" onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
-    <img src={require("../images/add.png")} width="25" 
+| 属性             | 描述             | 默认值 | 类型       |
+| ---------------- | ---------------- | ------ | ---------- |
+| name             | 标题             | —      | string     |
+| onLeftArrowClick | 返回按钮调用方法 | —      | func       |
+| 内部child元素    | 内嵌元素         | —      | React elem |
+
+```js
+<Header name="Header" 
+    onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
+</Header>
+```
+
+```js
+<Header name="Header" 
+    onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
+    <img src={require("../images/add.png")} style={{width: '25px', height: '25px'}} 
         alt="" className="pull-right"
         onClick={this.props.onLeftArrowClick}></img>
 </Header>
 ```
 
-| 属性               | 描述       | 默认值  | 类型         |
-| ---------------- | -------- | ---- | ---------- |
-| name             | 标题       | —    | string     |
-| onLeftArrowClick | 返回按钮调用方法 | —    | func       |
-| 内部child元素        | 内嵌元素     | —    | React elem |
+```javascript
+<Header name="Header" 
+    onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
+    <img src={require("../images/add.png")} style={{width: '25px', height: '25px'}} alt="" className="pull-right" onClick={this.props.onLeftArrowClick}></img>
+    <div className="ml-2"><Icon key="1" type="ellipsis" size={'md'}/></div>
+</Header>
+```
 
-| ![](https://ws4.sinaimg.cn/large/006tKfTcly1fochic1y34j30lq0d20tm.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1fochibtjf5j30lq0cudgr.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1fochibkgjej30lo0d2gmj.jpg) |
-| :--------------------------------------: | :--------------------------------------: | :--------------------------------------: |
-|                  右侧无按钮                   |                  右侧一个按钮                  |                  右侧若干按钮                  |
+| ![](https://ws4.sinaimg.cn/large/006tKfTcly1fochic1y34j30lq0d20tm.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1fochibtjf5j30lq0cudgr.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1forbgevm9oj30lk0cy0tl.jpg) |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+|                          右侧无按钮                          |                         右侧一个按钮                         |                         右侧若干按钮                         |
 
 ### Footer
 
-Footer组件可以包含不同数量的按钮
+- Footer组件可以包含不同数量的按钮。用户可设定footer的按钮数量为1、2、3…（建议不超过3）
+- 每个按钮显示的文字、调用的方法、按钮的样式均可以自由设定
+- 提供了两种高度的footer供用户选择
+
+| 属性                      | 描述             | 默认值 | 类型                |
+| ------------------------- | ---------------- | ------ | ------------------- |
+| buttonName                | 按钮名称数组     | —      | []: string          |
+| callBackFooterButtonClick | 按钮调用方法数组 | —      | []: func            |
+| style                     | 按钮样式数组     | —      | []: object          |
+| size                      | 按钮高度         | "lg"   | string ("lg", "sm") |
+
+```Js
+<Footer size="sm"
+    style={[{'color': 'white', 'backgroundColor': '#318ccf'}]}
+    buttonName={["下单"]}
+    callBackFooterButtonClick={[
+        this.callBackFooter0]}>
+</Footer>
+```
+
+
 
 ```javascript
 <Footer size="lg"
@@ -203,13 +246,6 @@ Footer组件可以包含不同数量的按钮
 </Footer>
 ```
 
-| 属性                        | 描述       | 默认值  | 类型                  |
-| ------------------------- | -------- | ---- | ------------------- |
-| buttonName                | 按钮名称数组   | —    | []: string          |
-| callBackFooterButtonClick | 按钮调用方法数组 | —    | []: func            |
-| style                     | 按钮样式数组   | —    | []: object          |
-| size                      | 按钮高度     | "lg" | string ("lg", "sm") |
-
 | ![](https://ws2.sinaimg.cn/large/006tKfTcly1fochnr6iuoj30mo04w74a.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fochnr286wj30mc042t8s.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1fochnqx9j6j30ly03ujrk.jpg) |
 | :--------------------------------------: | :--------------------------------------: | :--------------------------------------: |
 | ![](https://ws4.sinaimg.cn/large/006tKfTcly1fochnqq5a2j30mm03iq2w.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fochnqhc9yj30me03smx7.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1fochnqcwwkj30m203gjri.jpg) |
@@ -219,14 +255,14 @@ Footer组件可以包含不同数量的按钮
 
 Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/components/buttons/)进行封装。
 
-| 属性       | 描述               | 默认值       | 类型                                       |
-| -------- | ---------------- | --------- | ---------------------------------------- |
-| style    | 按钮样式             | "primary" | string (primary,  secondary, success, danger, warning, info, light, dark) |
-| size     | 按钮大小             | "lg"      | string ("lg", "sm")                      |
-| text     | 按钮文字             | —         | string                                   |
-| col      | 按钮所占col          | —         | num (12, 6, 4, 3)                        |
-| onClick  | 调用方法             |           | func                                     |
-| newStyle | style={"new"}时设定 | —         | object，例如 {color: 'white', backgroundColor: '#318ccf'} |
+| 属性     | 描述                | 默认值    | 类型                                                         |
+| -------- | ------------------- | --------- | ------------------------------------------------------------ |
+| style    | 按钮样式            | "primary" | string ("primary", "secondary", "success", "danger", "warning", "info", "light", "dark") |
+| size     | 按钮大小            | "lg"      | string ("lg", "sm")                                          |
+| text     | 按钮文字            | —         | string                                                       |
+| col      | 按钮所占col         | —         | num (12, 6, 4, 3)                                            |
+| onClick  | 调用方法            |           | func                                                         |
+| newStyle | style={"new"}时设定 | —         | object，例如 {color: 'white', backgroundColor: '#318ccf'}    |
 
 ```js
 <Button style={"primary"} size="lg" text={"col-12"} col={12} onClick={this.buttonClick.bind(this)} />
@@ -270,20 +306,24 @@ Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/comp
 
 ### Message
 
-消息提示Message组件完全移植自`antd`的`Message`组件和`antd-mobile`的`Toast`组件，将Message和Toast的调用进行了简单的封装，导出为 `showMessage`和`showToast`两个方法，易于调用。
+消息提示Message组件完全基于`antd`的`Message`组件和`antd-mobile`的`Toast`组件，将Message和Toast的调用进行了简单的封装，导出为 `showMessage`和`showToast`两个方法，易于调用。
 
-| 属性       | 描述                       | 默认值  | 类型                                   |
-| -------- | ------------------------ | ---- | ------------------------------------ |
-| type     | Message的类型               | —    | String（success, fail, info, warning） |
-| text     | Message内容                | —    | String                               |
-| duration | Message显示时长（秒）           | 2    | num                                  |
-| position | Message显示在屏幕的位置（距顶部的像素数） | 70   | num                                  |
+- Message
 
-| 属性       | 描述        | 默认值  | 类型                                     |
-| -------- | --------- | ---- | -------------------------------------- |
-| type     | Toast的类型  | —    | String（success, fail, offline,loading） |
-| text     | Toast的内容  | —    | String                                 |
-| duration | Toast显示时长 | 2    | num                                    |
+|     属性 | 描述                                      | 默认值 | 类型                                   |
+| -------: | ----------------------------------------- | ------ | -------------------------------------- |
+|     type | Message的类型                             | —      | String（success, fail, info, warning） |
+|     text | Message内容                               | —      | String                                 |
+| duration | Message显示时长（秒）                     | 2      | num                                    |
+| position | Message显示在屏幕的位置（距顶部的像素数） | 70     | num                                    |
+
+- Toast
+
+| 属性     | 描述          | 默认值 | 类型                                     |
+| -------- | ------------- | ------ | ---------------------------------------- |
+| type     | Toast的类型   | —      | String（success, fail, offline,loading） |
+| text     | Toast的内容   | —      | String                                   |
+| duration | Toast显示时长 | 2      | num                                      |
 
 ```javascript
 import showMessage from "../Utils/showMessage";
@@ -298,7 +338,7 @@ import showToast from '../Utils/showToast';
 
 ### Modal
 
-Modal组件是弹出的对话框及输入框，移植自`antd-mobile`的`Modal`组件，导出为`showModals`方法。
+Modal组件是弹出的对话框及输入框，基于`antd-mobile`的`Modal`组件开发，导出为`showModal`方法。
 
 | 属性           | 描述                             | 默认值  | 类型                         |
 | ------------ | ------------------------------ | ---- | -------------------------- |
@@ -371,16 +411,24 @@ Card组件用于设计页面中的卡片元素以更好地展示内容。
 
 Card组件基于Bootstrap v4的[Media-object](https://getbootstrap.com/docs/4.0/layout/media-object/) 设计，可以制作美观的卡片header部分，并在下方嵌套所需的其他组件。
 
-| 属性             | 描述              | 默认值     | 类型         |
-| -------------- | --------------- | ------- | ---------- |
-| avatar         | 头像              | —       | `<img>`    |
-| avatarPosition | 头像在在左侧的位置       | "start" | string     |
-| title          | 标题              | —       | string     |
-| text           | 标题下方文字          | —       | String     |
-| onClick        | 点击卡片的调用方法       | —       | func       |
-| 内部child组件      | 卡片header下方的其他内容 | —       | React elem |
-| topRight       | header右上方显示内容   | —       | React elem |
-| bottomRight    | header右下方显示的内容  | —       | React elem |
+| 属性          | 描述                     | 默认值 | 类型                       |
+| ------------- | ------------------------ | ------ | -------------------------- |
+| avatar        | 头像                     | —      | `<img>`                    |
+| position      | header在Card中的位置     | "top"  | string （"top", "bottom"） |
+| title         | header标题               | —      | string                     |
+| text          | Header内容               | —      | String                     |
+| onClick       | 点击卡片的调用方法       | —      | func                       |
+| 内部child组件 | 卡片header下方的其他内容 | —      | React elem                 |
+| topRight      | header右上方显示内容     | —      | React elem                 |
+| bottomRight   | header右下方显示的内容   | —      | React elem                 |
+| middleLeft    | header中间行左侧的内容   | —      | React elem                 |
+| middleRight   | header中间行右侧的内容   | —      | React elem                 |
+
+解释
+
+![](https://ws3.sinaimg.cn/large/006tKfTcly1fori6v30w4j30fr0cp400.jpg)
+
+
 
 ```javascript
 <label>Example-1：餐厅卡片</label>
@@ -472,17 +520,60 @@ Card组件基于Bootstrap v4的[Media-object](https://getbootstrap.com/docs/4.0/
         </div>
     </div>
 </Card>
+
+```
+
+```js
+<label>Example-5：仿Youtube卡片(图片在上方)</label>
+<Card key={9} position={"below"}
+    avatar={<img className={`align-self-start mr-1 mt-1`} 
+                src={require("../images/avatar.jpg")} alt="Generic placeholder image" 
+                style={{'width': `48px`, borderRadius: '24px'}}/>}
+    // avatarSize={200}
+    avatarPosition={'start'}
+    title={"Stephen Curry UNREAL 44 Pts, 14-19 FG 2018.02.22 Golden States Warrious vs LA Clippers"}
+    text={<div style={{fontSize: '10px', color: 'grey'}}>FreeDawkings · 17万次观看 · 20小时前</div>}
+    topRight={
+        <div className="text-center" onClick={this.thumbsUp.bind(this)}>
+            <Icon type="heart-o" style={{ fontSize: 18, color: 'grey'}}/>
+        </div>}
+    onClick={this.goCardDetails.bind(this)}
+>
+    <div className="mb-1" style={{'display': 'inline-table'}}>
+        <img src={require("../images/nba.jpg")} alt="" style={{'width': '100%', height: '200px'}}/>
+    </div>
+</Card>
+```
+
+```js
+<label>Example-6：仿Gmail卡片</label>
+<Card key={10}
+    avatar={<img className={`align-self-start mr-1 mt-2`} 
+                src={require("../images/avatar.jpg")} alt="Generic placeholder image" 
+                style={{'width': `48px`, borderRadius: '24px'}}/>}
+    // avatarSize={200}
+    avatarPosition={'start'}
+    title={<div style={{fontSize: '15px', color: '#000000'}}>Google安全中心</div>}
+    text={<div style={{fontSize: '10px', color: 'grey'}}>您的账号在新设备上有登陆行为，请注意。</div>}
+    topRight={<label>17:31:12</label>}
+    bottomRight={<Icon type="star-o" />}
+    middleLeft={<div style={{fontSize: '10px', color: '#000000'}}>您的账号有风险！</div>}
+    onClick={this.goCardDetails.bind(this)}
+>
+</Card>
 ```
 
 | ![](https://ws2.sinaimg.cn/large/006tKfTcly1focifk4xcbj30ky0b2n33.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1focifjo6sqj30l00d8tb7.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1focifjedd4j30l209qwfl.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1focifj4u0gj30l20j8n6g.jpg) |
-| :--------------------------------------: | :--------------------------------------: | :--------------------------------------: | :--------------------------------------: |
-|                   餐厅卡片                   |                  仿微信卡片                   |                  机票申请卡片                  |                   复杂卡片                   |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+|                           餐厅卡片                           |                          仿微信卡片                          |                         机票申请卡片                         |                           复杂卡片                           |
+| ![](https://ws1.sinaimg.cn/large/006tKfTcly1fordx6qenij30l80io1bu.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1forj5a2qjnj30qm08wq9r.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1forhsw3xbtj30lg06amyb.jpg) | ![](https://ws1.sinaimg.cn/large/006tKfTcly1forj8vfiycj30lc06swf7.jpg) |
+|                        仿YouTube卡片1                        |                        仿YouTube卡片2                        |                         仿Gmail卡片                          |                          无头像卡片                          |
 
 ### Picker
 
 目前只有时间选择器。
 
-时间选择器基于`react-mobile-datepicker` 开发，可以对YYYY、MM、DD、hh、mm进行选择。
+时间选择器基于`react-mobile-datepicker` 开发，可以对YYYY、MM、DD、hh、mm进行选择。（计划在未来使用antd-mobile的时间选择器）
 
 | 属性         | 描述              | 默认值       | 类型                                    |
 | ---------- | --------------- | --------- | ------------------------------------- |
@@ -597,12 +688,26 @@ handleSelect1(time) {
 
 如需在刷新时显示旋转加载动画，可以引入`<Spin />`组件并包裹在外层。
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1focmzm3f4eg309i0goe85.gif)
+![](https://ws2.sinaimg.cn/large/006tKfTcly1forjrxvzlwg30980go7wj.gif)
 
 ```js
 import PullRefresh from '../components/pullToRefresh/PullToRefresh';
 import Spin from 'antd/lib/spin';
 ```
+
+```js
+this.state = {
+    results: [],
+    isRefreshing: false,
+    isLoading: false,
+    timesOfLoad: 0,
+    hasMore: true, // 是否继续上划加载
+    height: document.documentElement.clientHeight,
+    isSpinning: true
+};
+```
+
+
 
 ```js
 <Spin spinning={this.state.isSpinning} tip={"加载中"} delay={500} size="large">
@@ -624,12 +729,15 @@ refresh() {
     let self = this;
     let optionsGET = {
     };
+
     let FETCH = new requestObj(url, optionsGET);
     FETCH.get()
     .subscribe(result => {
         this.setState({
             results: result,
-            isSpinning: false
+            isSpinning: false,
+            hasMore: true,
+            timesOfLoad: 0
         });
     }, function (err) {
         if(err.status === 'timeout') {
@@ -639,6 +747,7 @@ refresh() {
             showToast("offline", "网络连接不可用，请检查网络设置");
         }
         if(err.status=== 'error') {
+            console.log(err);
             showMessage("info", "列表获取失败，请重试");
         }
     })
@@ -680,26 +789,37 @@ refresh() {
 2. 挂载scroll监听方法至`contentNode`上，该过程可以在componentDidMount()声明函数上执行
 
    ```js
+   /**
+    * 1. 挂载scroll监听方法至contentNode上
+    * 该contentNode为scrollable的实体dom
+    */
    componentDidMount() {
        if (this.contentNode) {
            this.contentNode.addEventListener('scroll', this.onScrollHandle.bind(this));
        }
        this.refresh();
+       this.setState({
+           timesOfLoad: 1
+       });
    }
-
    ```
 
 3. scroll监听方法，滚动至底部时，自动加载loadMore()方法—>更新state中的数据—>更新dom
 
    ```js
+   /**
+    * 2. scroll监听方法，滚动至底部时，在自动加载更多数据的方法-->更新state中的数据-->更新dom
+    * @param {*} event 
+    */
    onScrollHandle(event) {
        const clientHeight = event.target.clientHeight; // 屏幕高度
        const scrollHeight = event.target.scrollHeight; // 总的内容高度
        const scrollTop = event.target.scrollTop; // 已经滑动的距离
        const isBottom = (clientHeight + scrollTop === scrollHeight)
        if(isBottom) {
-           this.loadMore();
-           console.log(this.state.results);
+           if(this.state.hasMore) {
+               this.loadMore();
+           }
        }
    }
    ```
@@ -710,30 +830,31 @@ refresh() {
        let self = this;
        let optionsGET = {};
 
-       Toast.loading("加载中", 1, () => {
-           let FETCH = new requestObj(url, optionsGET);
-           FETCH.get()
-           .subscribe(result => {
-               let prevResults = self.state.results;
-               let newResults = prevResults.concat(result);
-               self.setState({
-                   results: newResults,
-                   isSpinning: false,
-                   hasMore: true
-               });
-           }, function (err) {
-               if(err.status === 'timeout') {
-                   showMessage("info", "网络超时，请重试");
-               }
-               if(err.status=== 'offline') {
-                   showToast("offline", "网络连接不可用，请检查网络设置");
-               }
-               if(err.status=== 'error') {
-                   console.log(err);
-                   showMessage("info", "列表获取失败，请重试");
-               }
-           })
-       }, false);  
+       let FETCH = new requestObj(url, optionsGET);
+       FETCH.get()
+       .subscribe(result => {
+           let prevResults = self.state.results;
+           let newResults = prevResults.concat(result);
+           let timesOfLoad = self.state.timesOfLoad + 1;
+           let hasMore = timesOfLoad > 2 ? false : true;
+           self.setState({
+               timesOfLoad: timesOfLoad,
+               results: newResults,
+               isSpinning: false,
+               hasMore: hasMore
+           });
+       }, function (err) {
+           if(err.status === 'timeout') {
+               showMessage("info", "网络超时，请重试");
+           }
+           if(err.status=== 'offline') {
+               showToast("offline", "网络连接不可用，请检查网络设置");
+           }
+           if(err.status=== 'error') {
+               console.log(err);
+               showMessage("info", "列表获取失败，请重试");
+           }
+       })
    }
    ```
 
@@ -754,22 +875,20 @@ refresh() {
 
 
 - 左侧为提示性信息，右侧根据用户需要可以嵌套不同数量、不同种类的元素(`Icon`，`image`， `Input`， `label`，`Switch`，`Button`等)；
-
 - 右侧部分应用了Bootstrap v4定位，根据元素数量自动定位
-
 - Trick：右侧只有一个元素而又想帖靠在右侧时，可以添加一个空的`div`进行占位（此时右侧实际包含两个元素，详见“索要发票”示例）(很矬，待改进)
 
-  | 属性        | 描述      | 默认值  | 类型         |
-  | --------- | ------- | ---- | ---------- |
-  | text      | 左侧描述性信息 | —    | string     |
-  | 内部child组件 | 右侧元素    | —    | React elem |
+| 右侧元素数量 | 右侧分布情况                       |
+| ------------ | ---------------------------------- |
+| 1            | A                                  |
+| 2            | A —————————————————————————————  B |
+| 3            | A——————————————B———————————————C   |
+| 4            | A————————B————————— C ———————————D |
 
-  | 右侧元素数量 | 右侧分布情况                           |
-  | ------ | -------------------------------- |
-  | 1      | A                                |
-  | 2      | A ———————————————————————————  B |
-  | 3      | A——————————————B—————————————C   |
-  | 4      | A——————B————————— C ———————————D |
+| 属性          | 描述           | 默认值 | 类型       |
+| ------------- | -------------- | ------ | ---------- |
+| text          | 左侧描述性信息 | —      | string     |
+| 内部child组件 | 右侧元素       | —      | React elem |
 
 ```js
 <Listview text={"时间"}>
