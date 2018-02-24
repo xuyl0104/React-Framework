@@ -771,18 +771,26 @@ refresh() {
 
    ```js
    <div className="content" ref={ node => this.contentNode = node }>
-     <Spin spinning={this.state.isSpinning} tip={"加载中"} delay={500} size="large">		
-         <PullRefresh 
-             style={{
-                 height: this.state.height - 56,
-             }}
-             distanceToRefresh={80}
-             refreshing={this.state.isRefreshing} 
-             onRefresh={this.refresh.bind(this)}
-         >
-             {listDiv}
-         </PullRefresh>
-     </Spin>
+       <Spin spinning={this.state.isSpinning} tip={"加载中"} delay={500} size="large">		
+           <PullRefresh 
+               style={{
+                   height: this.state.height - 56,
+               }}
+               distanceToRefresh={80}
+               // indicator={{ activate: '松开刷新', deactivate: '继续下拉刷新', finish: '刷新完成' }}
+               refreshing={this.state.isRefreshing} 
+               onRefresh={this.refresh.bind(this)}
+           >
+               {listDiv}
+
+               {/* 下方组件为列表底部提示性信息：列表还有内容时，显示"正在加载"；列表无更多内容时，显示"—— 已无更多 ——" */}
+               {<div className="text-center" 
+                   style={{backgroundColor: '#ededed', color: '#808080', fontSize: '14px', height: '45px', 
+                       verticalAlign: 'middle', paddingTop: '10px'}}>
+                   {this.state.hasMore ? <div><Icon type="loading" />  正在加载</div> : "———— 已无更多 ————"}
+               </div>}
+           </PullRefresh>
+       </Spin>
    </div>
    ```
 
