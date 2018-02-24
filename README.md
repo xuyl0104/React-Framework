@@ -563,11 +563,32 @@ Card组件基于Bootstrap v4的[Media-object](https://getbootstrap.com/docs/4.0/
 </Card>
 ```
 
-| ![](https://ws2.sinaimg.cn/large/006tKfTcly1focifk4xcbj30ky0b2n33.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1focifjo6sqj30l00d8tb7.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1focifjedd4j30l209qwfl.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1focifj4u0gj30l20j8n6g.jpg) |
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|                           餐厅卡片                           |                          仿微信卡片                          |                         机票申请卡片                         |                           复杂卡片                           |
-| ![](https://ws1.sinaimg.cn/large/006tKfTcly1fordx6qenij30l80io1bu.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1forj5a2qjnj30qm08wq9r.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1forhsw3xbtj30lg06amyb.jpg) | ![](https://ws1.sinaimg.cn/large/006tKfTcly1forj8vfiycj30lc06swf7.jpg) |
-|                        仿YouTube卡片1                        |                        仿YouTube卡片2                        |                         仿Gmail卡片                          |                          无头像卡片                          |
+```js
+<label>Example-9：仿Medium（无头像且上方有图片卡片）</label>
+<Card key={13} position="bottom"
+    title={<div style={{fontSize: '21px', color: '#000000', fontFamily: 'Lucida Grande'}}>The Singular Pursuit of Comrade Bezos</div>}
+    middleLeft={<div style={{fontSize: '16px', color: 'rgba(0, 0, 0, 0.54)', fontFamily: 'Lucida Grande'}}>Is Amazon’s plan to increase our efficiency a good thing?</div>}
+    text={
+        <div>
+            <span className="mr-2" style={{fontSize: '12px', color: 'grey', fontFamily: 'Lucida Grande'}}>New York Magazine</span>
+            <Icon type="like-o" style={{ fontSize: 16, color: 'grey'}}/>
+        </div>
+    }
+    onClick={this.goCardDetails.bind(this)}
+>
+    <div className="mb-1" style={{'display': 'inline-table'}}>
+        <img src={require("../images/jeff-bezos.jpeg")} alt="" style={{'width': '100%', height: '190px'}}/>
+    </div>
+</Card>
+```
+
+
+
+| ![](https://ws2.sinaimg.cn/large/006tKfTcly1focifk4xcbj30ky0b2n33.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1focifjo6sqj30l00d8tb7.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1focifjedd4j30l209qwfl.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1focifj4u0gj30l20j8n6g.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fornzuypa4j30m40l67c4.jpg) |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | ------------------------------------------------------------ |
+|                           餐厅卡片                           |                          仿微信卡片                          |                         机票申请卡片                         |                           复杂卡片                           | 仿Medium卡片                                                 |
+| ![](https://ws1.sinaimg.cn/large/006tKfTcly1fordx6qenij30l80io1bu.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1forj5a2qjnj30qm08wq9r.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1forhsw3xbtj30lg06amyb.jpg) | ![](https://ws1.sinaimg.cn/large/006tKfTcly1forj8vfiycj30lc06swf7.jpg) |                                                              |
+|                        仿YouTube卡片1                        |                        仿YouTube卡片2                        |                         仿Gmail卡片                          |                          无头像卡片                          |                                                              |
 
 ### Picker
 

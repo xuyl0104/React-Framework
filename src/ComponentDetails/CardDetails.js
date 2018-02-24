@@ -155,7 +155,7 @@ class Details extends Component {
                             text={<div style={{fontSize: '10px', color: 'grey'}}>FreeDawkings · 17万次观看 · 20小时前</div>}
                             topRight={
                                 <div className="text-center pt-1" onClick={this.thumbsUp.bind(this)}>
-                                    <Icon type="ellipsis" style={{ fontSize: 18, color: 'grey', transform: 'rotate(90deg)'}}/>
+                                    <Icon type="ellipsis" style={{ fontSize: 18, color: 'grey', transform: 'rotate(90deg)', fontWeight: 'bold'}}/>
                                 </div>}
                             onClick={this.goCardDetails.bind(this)}
                         >
@@ -174,7 +174,7 @@ class Details extends Component {
                             text={<div style={{fontSize: '10px', color: 'grey'}}>17万次观看 · 20小时前</div>}
                             topRight={
                                 <div className="text-center pt-1" onClick={this.thumbsUp.bind(this)}>
-                                    <Icon type="ellipsis" style={{ fontSize: 18, color: 'grey', transform: 'rotate(90deg)'}}/>
+                                    <Icon type="ellipsis" style={{ fontSize: 18, color: 'grey', transform: 'rotate(90deg)', fontWeight: 'bold'}}/>
                                 </div>}
                             middleLeft={<div style={{fontSize: '10px', color: 'grey'}}>FreeDawkings</div>}
                             onClick={this.goCardDetails.bind(this)}
@@ -205,10 +205,27 @@ class Details extends Component {
                             bottomRight={<Icon type="star-o" />}
                             middleLeft={<div style={{fontSize: '10px', color: '#000000'}}>您的账号有风险！</div>}
                             middleRight={
-                                <div className="p-1" style={{fontSize: '8px', color: 'grey', backgroundColor: '#e3e3e3'}}>已归档</div>
+                                <div className="px-1" style={{fontSize: '8px', color: 'grey', backgroundColor: '#e3e3e3'}}>已归档</div>
                             }
                             onClick={this.goCardDetails.bind(this)}
                         >
+                        </Card>
+
+                        <label>Example-9：仿Medium（无头像且上方有图片卡片）</label>
+                        <Card key={13} position="bottom"
+                            title={<div style={{fontSize: '21px', color: '#000000', fontFamily: 'Lucida Grande'}}>The Singular Pursuit of Comrade Bezos</div>}
+                            middleLeft={<div style={{fontSize: '16px', color: 'rgba(0, 0, 0, 0.54)', fontFamily: 'Lucida Grande'}}>Is Amazon’s plan to increase our efficiency a good thing?</div>}
+                            text={
+                                <div>
+                                    <span className="mr-2" style={{fontSize: '12px', color: 'grey', fontFamily: 'Lucida Grande'}}>New York Magazine</span>
+                                    <Icon type="like-o" style={{ fontSize: 16, color: 'grey'}}/>
+                                </div>
+                            }
+                            onClick={this.goCardDetails.bind(this)}
+                        >
+                            <div className="mb-1" style={{'display': 'inline-table'}}>
+                                <img src={require("../images/jeff-bezos.jpeg")} alt="" style={{'width': '100%', height: '190px'}}/>
+                            </div>
                         </Card>
                     </Content>
                 </Container>

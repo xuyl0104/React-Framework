@@ -15,11 +15,6 @@ class Card extends Component {
 
         let position = this.props.position || "top";
 
-        // let TLClass = topRight ? "col-8" : "col-12";
-        // let TRClass = topRight ? "col-4" : "";
-        // let BLClass = bottomRight ? "col-10" : "";
-        // let BRClass = bottomRight ? "col-2" : "";
-
         if(position === "bottom") {
             return (
                 <div className="card" style={{'padding': '8px 8px', borderRadius: '0'}} onClick={this.props.onClick}>
@@ -32,7 +27,15 @@ class Card extends Component {
                                     {title}
                                 </div>
                                 <div className={`pt-1 align-self-start`}>
-                                    <div>{topRight}</div>
+                                    {topRight}
+                                </div>
+                            </div>
+                            <div className="d-flex ml-1 justify-content-between">
+                                <div className={`pt-1 align-self-start`}>
+                                    {middleLeft}
+                                </div>
+                                <div className={`pt-1 align-self-start`}>
+                                    {middleRight}
                                 </div>
                             </div>
                             <div className="d-flex ml-1 justify-content-between">
@@ -58,7 +61,7 @@ class Card extends Component {
                                     {title}
                                 </div>
                                 <div className={`pt-1 align-self-start`}>
-                                    <div>{topRight}</div>
+                                    {topRight}
                                 </div>
                             </div>
                             <div className="d-flex ml-1 justify-content-between">
@@ -66,7 +69,7 @@ class Card extends Component {
                                     {middleLeft}
                                 </div>
                                 <div className={`pt-1 align-self-start`}>
-                                    <div>{middleRight}</div>
+                                    {middleRight}
                                 </div>
                             </div>
                             <div className="d-flex ml-1 justify-content-between">

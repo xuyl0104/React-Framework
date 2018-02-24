@@ -197,7 +197,7 @@ class Details extends Component {
                                     {<div className="text-center" 
                                         style={{backgroundColor: '#ededed', color: '#808080', fontSize: '14px', height: '45px', 
                                             verticalAlign: 'middle', paddingTop: '10px'}}>
-                                        {this.state.hasMore ? <div><Icon type="loading" />  正在加载</div> : "———— 已无更多 ————"}
+                                        {this.state.hasMore ? <div><Icon type="loading" />  正在加载...</div> : "———— 已无更多 ————"}
                                     </div>}
                                 </PullRefresh>
                             </Spin>
