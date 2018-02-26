@@ -747,7 +747,7 @@ handleSelect1(time) {
 
 如需在刷新时显示旋转加载动画，可以引入`<Spin />`组件并包裹在外层。
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1forjrxvzlwg30980go7wj.gif)
+![](https://ws4.sinaimg.cn/large/006tNc79ly1fotyb0fzw1g30aq0iwx6s.gif)
 
 ```js
 import PullRefresh from '../components/pullToRefresh/PullToRefresh';
