@@ -320,7 +320,7 @@ Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/comp
 <Input label={"交易金额"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请输入金额"} align={"right"} img={<Icon type="pay-circle-o" />}/>
 ```
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1foci5gzil5j30lu0futah.jpg) 
+![](https://ws3.sinaimg.cn/large/006tNc79ly1fotw3r7atdj30le0f6jt8.jpg) 
 
 ### Message
 
