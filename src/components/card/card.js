@@ -15,9 +15,11 @@ class Card extends Component {
 
         let position = this.props.position || "top";
 
+        let width = this.props.width || "100%";
+
         if(position === "bottom") {
             return (
-                <div className="card" style={{'padding': '8px 8px', borderRadius: '0'}} onClick={this.props.onClick}>
+                <div className="card" style={{'padding': '8px 8px', borderRadius: '0', width: width}} onClick={this.props.onClick}>
                     {this.renderChildren(this.props)}
                     <div className="media">
                         {this.props.avatar}

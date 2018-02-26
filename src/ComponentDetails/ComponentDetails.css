@@ -3,3 +3,17 @@
     color: black;
     margin-top: 8px;
 }
+
+
+.horizontalSlide {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.horizontalSlide .wrapper {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+}

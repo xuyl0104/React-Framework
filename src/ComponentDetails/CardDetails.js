@@ -228,6 +228,73 @@ class Details extends Component {
                                 <img src={require("../images/jeff-bezos.jpeg")} alt="" style={{'width': '100%', height: '190px'}}/>
                             </div>
                         </Card>
+
+                        <label className="mt-2">Example-10：横向滑动卡片</label>
+                        <div className="horizontalSlide">
+                            <div className="wrapper d-inline-flex">
+                                <Card key={14} position="bottom" width={"40%"}
+                                    title={<div style={{fontSize: '21px', color: '#000000', fontFamily: 'Lucida Grande'}}>Larry</div>}
+                                    text={
+                                        <div>
+                                            <span className="mr-2" style={{fontSize: '12px', color: 'grey', fontFamily: 'Lucida Grande'}}>New York Magazine</span>
+                                            <span className="mr-2" style={{fontSize: '12px', color: 'grey', fontFamily: 'Lucida Grande'}}>17:31:12</span>
+                                            <Icon type="like-o" style={{ fontSize: 16, color: 'grey'}} onClick={this.thumbsUp.bind(this)}/>
+                                        </div>
+                                    }
+                                    // bottomRight={<div>A</div>}
+                                    onClick={this.goCardDetails.bind(this)}
+                                >
+                                    <div className="mb-1" style={{'display': 'inline-table'}}>
+                                        <img src={require("../images/larry.jpg")} alt="" style={{'width': '100%'}}/>
+                                    </div>
+                                </Card>
+                                <Card key={15} position="bottom" width={"40%"}
+                                    title={<div style={{fontSize: '21px', color: '#000000', fontFamily: 'Lucida Grande'}}>Bill</div>}
+                                    text={
+                                        <div>
+                                            <span className="mr-2" style={{fontSize: '12px', color: 'grey', fontFamily: 'Lucida Grande'}}>New York Magazine</span>
+                                            <span className="mr-2" style={{fontSize: '12px', color: 'grey', fontFamily: 'Lucida Grande'}}>17:31:12</span>
+                                            <Icon type="like-o" style={{ fontSize: 16, color: 'grey'}} onClick={this.thumbsUp.bind(this)}/>
+                                        </div>
+                                    }
+                                    onClick={this.goCardDetails.bind(this)}
+                                >
+                                    <div className="mb-1" style={{'display': 'inline-table'}}>
+                                        <img src={require("../images/larry.jpg")} alt="" style={{'width': '100%'}}/>
+                                    </div>
+                                </Card>
+                                <Card key={16} position="bottom" width={"40%"}
+                                    title={<div style={{fontSize: '21px', color: '#000000', fontFamily: 'Lucida Grande'}}>Warren</div>}
+                                    text={
+                                        <div>
+                                            <span className="mr-2" style={{fontSize: '12px', color: 'grey', fontFamily: 'Lucida Grande'}}>New York Magazine</span>
+                                            <span className="mr-2" style={{fontSize: '12px', color: 'grey', fontFamily: 'Lucida Grande'}}>17:31:12</span>
+                                            <Icon type="like-o" style={{ fontSize: 16, color: 'grey'}} onClick={this.thumbsUp.bind(this)}/>
+                                        </div>
+                                    }
+                                    onClick={this.goCardDetails.bind(this)}
+                                >
+                                    <div className="mb-1" style={{'display': 'inline-table'}}>
+                                        <img src={require("../images/larry.jpg")} alt="" style={{'width': '100%'}}/>
+                                    </div>
+                                </Card>
+                                <Card key={17} position="bottom" width={"40%"}
+                                    title={<div style={{fontSize: '21px', color: '#000000', fontFamily: 'Lucida Grande'}}>Elon</div>}
+                                    text={
+                                        <div>
+                                            <span className="mr-2" style={{fontSize: '12px', color: 'grey', fontFamily: 'Lucida Grande'}}>New York Magazine</span>
+                                            <span className="mr-2" style={{fontSize: '12px', color: 'grey', fontFamily: 'Lucida Grande'}}>17:31:12</span>
+                                            <Icon type="like-o" style={{ fontSize: 16, color: 'grey'}} onClick={this.thumbsUp.bind(this)}/>
+                                        </div>
+                                    }
+                                    onClick={this.goCardDetails.bind(this)}
+                                >
+                                    <div className="mb-1" style={{'display': 'inline-table'}}>
+                                        <img src={require("../images/larry.jpg")} alt="" style={{'width': '100%'}}/>
+                                    </div>
+                                </Card>  
+                            </div>
+                        </div>
                     </Content>
                 </Container>
             </div>
@@ -257,7 +324,7 @@ class Details extends Component {
 	shareToWeChat(e) {
 		e.stopPropagation(); //重要！
 		console.log("分享至微信。");
-	}
+    }
 
     
 }
