@@ -110,12 +110,10 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
      </PageTransition>
      ```
 
-     ​
-
-     | 属性            | 描述            | 默认值 | 类型   |
-     | --------------- | --------------- | ------ | ------ |
-     | transitionClass | 本页面的CSS类名 | —      | string |
-     | direction       | 动画方向        | ""     | string |
+     > | 属性            | 描述            | 默认值 | 类型   |
+     > | --------------- | --------------- | ------ | ------ |
+     > | transitionClass | 本页面的CSS类名 | —      | string |
+     > | direction       | 动画方向        | ""     | string |
 
   4. 编写React生命周期函数，实现动画方向的正确设定
 
