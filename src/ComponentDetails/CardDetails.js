@@ -230,6 +230,7 @@ class Details extends Component {
                         </Card>
 
                         <label className="mt-2">Example-10：横向滑动卡片</label>
+                        {/* 应用ComponentDetails.css中的样式 */}
                         <div className="horizontalSlide">
                             <div className="wrapper d-inline-flex">
                                 <Card key={14} position="bottom" width={"40%"}
