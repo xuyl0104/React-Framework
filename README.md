@@ -1120,3 +1120,102 @@ Checkbox目前有一种样式（之后可能会扩展）。
 </Listview>
 ```
 
+
+
+## 断网检测
+
+- 断网监测功能使用了[offline.js插件](http://github.hubspot.com/offline/docs/welcome/) 。
+- Offline.js插件按照一定时间间隔对网络资源进行请求，以此判断设备的网络状况
+- 当设备处于断网状态时，屏幕顶部弹出全局提示条对用户进行友好提示；网络恢复时，自动对网络进行重连并提示用户
+
+使用方法
+
+1. 在`./public` 文件夹中添加一下三个文件:（可去官网下载更多样式或者自定义）
+
+   - offline.min.js		// 断网监测功能
+   - offline-theme-chrome.css        // 提示条样式
+   - offline-language-chine se-simplified.css         // 提示条语言
+
+2. 在`./public/index.html` 文件中引入以上文件并设置定时访问的URL及检测间隔：
+
+   ```Html
+   <head>
+       <link rel="stylesheet" href="./offline-language-chinese-simplified.css" />
+       <link rel="stylesheet" href="./offline-theme-chrome.css" />
+       <script src="./offline.min.js"></script>    
+       <script>
+         Offline.options = {
+           game: false,
+           checks: { xhr: { url: 'http://jsonplaceholder.typicode.com/posts/1/comments' } }
+         }
+         var run = function () {
+           if (Offline.state === 'up')
+             Offline.check();
+         }
+         setInterval(run, 10000);
+       </script>
+   </head>
+   ```
+
+效果展示（色彩有失真…）
+
+![](https://ws2.sinaimg.cn/large/006tNc79ly1fotolmsoxgg30go086gtm.gif)
+
+
+
+## API调用操作
+
+- 对API的操作使用fetch，导出为对象，并对基本的操作方法（GET，POST，PUT，DELETE，PATCH等）进行了简单封装
+- 采用了流式数据操作方式，融入了RxJS的技术
+- 对异常情况进行了简单分类，方便用户调用及异常信息提示
+
+使用方法
+
+1. 引入fetch文件
+
+   ```js
+   import requestObj from '../Utils/fetch';
+   ```
+
+2. 初始化对象示例
+
+   ```Js
+   let url = "http://jsonplaceholder.typicode.com/users";
+   let options = {}; // options不需要进行stringify操作
+   let FETCH = new requestObj(url, options);
+   ```
+
+3. 根据操作方法（GET，POST，PUT，DELETE，PATCH等）的不同，调用不同对象方法，并对获取的数据、产生的异常进行处理
+
+   ```Js
+   FETCH.get()  // .get()|.post()|.put()|.delete()|.patch() ...
+   .subscribe(result => {
+       this.setState({
+           results: result
+       }, () => {
+           showMessage("success", "列表获取成功！"); // 操作成功提示信息
+       });
+
+   }, function (err) {
+       if(err.status === 'timeout') {
+           showMessage("info", "网络超时，请重试");  // 网络超时提示信息
+       }
+       if(err.status=== 'offline') {
+           showToast("offline", "网络连接不可用，请检查网络设置");  // 网络断开提示信息
+       }
+       if(err.status=== 'error') {
+           console.log(err);
+           showMessage("info", "列表获取失败，请重试");  // API操作异常提示信息
+       }
+   })
+   ```
+
+> 网络超时时长可在`fetch.js`文件`request() `方法中设置：
+>
+> ```Js
+> //这里使用Promise.race设置网络超时
+> let abortable_promise = Promise.race([fetch_promise, abort_promise]);
+> setTimeout(function () {
+>     abort_fn();
+> }, 5 * 1000); // 默认网络超时时长为5秒
+> ```
