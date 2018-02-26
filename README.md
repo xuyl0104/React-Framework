@@ -942,7 +942,7 @@ refresh() {
 
 
 - 左侧为提示性信息，右侧根据用户需要可以嵌套不同数量、不同种类的元素(`Icon`，`image`， `Input`， `label`，`Switch`，`Button`等)；
-- 右侧部分应用了Bootstrap v4定位，根据元素数量自动定位
+- 右侧部分应用了Bootstrap v4定位，根据元素数量自动定位 👉[here](https://getbootstrap.com/docs/4.0/utilities/flex/#justify-content)
 - Trick：右侧只有一个元素而又想帖靠在右侧时，可以添加一个空的`div`进行占位（此时右侧实际包含两个元素，详见“索要发票”示例）(很矬，待改进)
 
 | 右侧元素数量 | 右侧分布情况                       |
