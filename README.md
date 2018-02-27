@@ -752,7 +752,7 @@ handleSelect1(time) {
 
 ### Refresh/Loadmore
 
-**下拉刷新**组件知识对antd-mobile的PullToRefresh进行了简单的封装，调用过程相对简单。
+**下拉刷新**组件知识对antd-mobile的[PullToRefresh](https://mobile.ant.design/components/pull-to-refresh-cn/)进行了简单的封装，调用过程相对简单。
 
 如需在刷新时显示旋转加载动画，可以引入`<Spin />`组件并包裹在外层。
 
@@ -1184,9 +1184,9 @@ Checkbox目前有一种样式（之后可能会扩展）。
    </head>
    ```
 
-效果展示（色彩有失真…）
+效果展示
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fotolmsoxgg30go086gtm.gif)
+![](https://ws1.sinaimg.cn/large/006tNc79ly1fourmh4hnhg30ar06rq3p.gif)
 
 
 
