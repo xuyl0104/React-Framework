@@ -1246,3 +1246,8 @@ Checkbox目前有一种样式（之后可能会扩展）。
 >     abort_fn();
 > }, 5 * 1000); // 默认网络超时时长为5秒
 > ```
+
+| ![](https://ws4.sinaimg.cn/large/006tNc79ly1fours7bdsrg30ti06nn0l.gif) | ![](https://ws1.sinaimg.cn/large/006tNc79ly1fouru5gitcg30ah0inacp.gif) | ![](https://ws2.sinaimg.cn/large/006tNc79ly1fourw33zwxg30ah0il768.gif) | ![](https://ws1.sinaimg.cn/large/006tNc79ly1fourzdzjlyg30ae0ihabk.gif) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 正常获取数据并弹出提示信息                                   | 网络连接中断                                                 | 网络超时                                                     | API调用失败                                                  |
+
