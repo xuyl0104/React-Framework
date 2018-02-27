@@ -429,19 +429,21 @@ Card组件用于设计页面中的卡片元素以更好地展示内容。
 
 Card组件基于Bootstrap v4的[Media-object](https://getbootstrap.com/docs/4.0/layout/media-object/) 设计，可以制作美观的卡片header部分，并在下方嵌套所需的其他组件。
 
-| 属性          | 描述                     | 默认值 | 类型                       |
-| ------------- | ------------------------ | ------ | -------------------------- |
-| avatar        | 头像                     | —      | `<img>`                    |
-| position      | header在Card中的位置     | "top"  | string （"top", "bottom"） |
-| title         | header标题               | —      | string                     |
-| text          | Header内容               | —      | String                     |
-| onClick       | 点击卡片的调用方法       | —      | func                       |
-| 内部child组件 | 卡片header下方的其他内容 | —      | React elem                 |
-| topRight      | header右上方显示内容     | —      | React elem                 |
-| bottomRight   | header右下方显示的内容   | —      | React elem                 |
-| middleLeft    | header中间行左侧的内容   | —      | React elem                 |
-| middleRight   | header中间行右侧的内容   | —      | React elem                 |
-| width         | 卡片所占的宽度           | “100%” | string                     |
+| 属性          | 描述                     | 默认值 | 类型                         |
+| ------------- | ------------------------ | ------ | ---------------------------- |
+| avatar        | 头像                     | —      | `<img>`                      |
+| position      | header在Card中的位置     | "top"  | string （"top", "bottom"）   |
+| title         | header标题               | —      | string                       |
+| text          | Header内容               | —      | String                       |
+| onClick       | 点击卡片的调用方法       | —      | func                         |
+| 内部child组件 | 卡片header下方的其他内容 | —      | React elem                   |
+| topRight      | header右上方显示内容     | —      | React elem                   |
+| bottomRight   | header右下方显示的内容   | —      | React elem                   |
+| middleLeft    | header中间行左侧的内容   | —      | React elem                   |
+| middleRight   | header中间行右侧的内容   | —      | React elem                   |
+| width         | 卡片所占的宽度           | “100%” | string                       |
+| padding       | 卡片内边距               | "8px"  | string （"6px 5px 6px 5px"） |
+| margin        | 卡片外边距               | "0"    | string （"6px 5px 6px 5px"） |
 
 解释
 
@@ -602,22 +604,30 @@ Card组件基于Bootstrap v4的[Media-object](https://getbootstrap.com/docs/4.0/
 ```
 
 ```js
-<Card key={14} position="bottom" width={"40%"}
-    title={<div style={{fontSize: '21px', color: '#000000', fontFamily: 'Lucida Grande'}}>Larry</div>}
-    text={
-        <div>
-            <span className="mr-2" style={{fontSize: '12px', color: 'grey', fontFamily: 'Lucida Grande'}}>New York Magazine</span>
-            <span className="mr-2" style={{fontSize: '12px', color: 'grey', fontFamily: 'Lucida Grande'}}>17:31:12</span>
-            <Icon type="like-o" style={{ fontSize: 16, color: 'grey'}} onClick={this.thumbsUp.bind(this)}/>
-        </div>
-    }
-    // bottomRight={<div>A</div>}
-    onClick={this.goCardDetails.bind(this)}
->
-    <div className="mb-1" style={{'display': 'inline-table'}}>
-        <img src={require("../images/larry.jpg")} alt="" style={{'width': '100%'}}/>
+<label>横向滑动卡片列表</label>
+<div className="horizontalSlide">
+    <div className="wrapper d-inline-flex">
+        <Card key={14} position="bottom" width={"40%"} margin={"0 5px 0 0"}
+            title={<div style={{fontSize: '21px', color: '#000000', fontFamily: 'Lucida Grande'}}>Larry</div>}
+            text={
+                <div>
+                    <span className="mr-2" style={{fontSize: '12px', color: 'grey', fontFamily: 'Lucida Grande'}}>New York Magazine</span>
+                    <span className="mr-2" style={{fontSize: '12px', color: 'grey', fontFamily: 'Lucida Grande'}}>17:31:12</span>
+                    <Icon type="like-o" style={{ fontSize: 16, color: 'grey'}} onClick={this.thumbsUp.bind(this)}/>
+                </div>
+            }
+            // bottomRight={<div>A</div>}
+            onClick={this.goCardDetails.bind(this)}
+        >
+            <div className="mb-1" style={{'display': 'inline-table'}}>
+                <img src={require("../images/larry.jpg")} alt="" style={{'width': '100%'}}/>
+            </div>
+        </Card>
+		.
+         .
+         .
     </div>
-</Card>
+</div>
 ```
 
 
