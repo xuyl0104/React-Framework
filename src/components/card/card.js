@@ -17,9 +17,12 @@ class Card extends Component {
 
         let width = this.props.width || "100%";
 
+        let padding = this.props.padding || '8px 8px';
+        let margin = this.props.margin || '0';
+
         if(position === "bottom") {
             return (
-                <div className="card" style={{'padding': '8px 8px', borderRadius: '0', width: width}} onClick={this.props.onClick}>
+                <div className="card" style={{'padding': padding, 'margin': margin, borderRadius: '0', width: width}} onClick={this.props.onClick}>
                     {this.renderChildren(this.props)}
                     <div className="media">
                         {this.props.avatar}

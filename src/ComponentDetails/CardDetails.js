@@ -233,7 +233,7 @@ class Details extends Component {
                         {/* 应用ComponentDetails.css中的样式 */}
                         <div className="horizontalSlide">
                             <div className="wrapper d-inline-flex">
-                                <Card key={14} position="bottom" width={"40%"}
+                                <Card key={14} position="bottom" width={"40%"} margin={"0 5px 0 0"}
                                     title={<div style={{fontSize: '21px', color: '#000000', fontFamily: 'Lucida Grande'}}>Larry</div>}
                                     text={
                                         <div>
@@ -242,14 +242,13 @@ class Details extends Component {
                                             <Icon type="like-o" style={{ fontSize: 16, color: 'grey'}} onClick={this.thumbsUp.bind(this)}/>
                                         </div>
                                     }
-                                    // bottomRight={<div>A</div>}
                                     onClick={this.goCardDetails.bind(this)}
                                 >
                                     <div className="mb-1" style={{'display': 'inline-table'}}>
                                         <img src={require("../images/larry.jpg")} alt="" style={{'width': '100%'}}/>
                                     </div>
                                 </Card>
-                                <Card key={15} position="bottom" width={"40%"}
+                                <Card key={15} position="bottom" width={"40%"} margin={"0 5px 0 0"}
                                     title={<div style={{fontSize: '21px', color: '#000000', fontFamily: 'Lucida Grande'}}>Bill</div>}
                                     text={
                                         <div>
@@ -264,7 +263,7 @@ class Details extends Component {
                                         <img src={require("../images/larry.jpg")} alt="" style={{'width': '100%'}}/>
                                     </div>
                                 </Card>
-                                <Card key={16} position="bottom" width={"40%"}
+                                <Card key={16} position="bottom" width={"40%"} margin={"0 5px 0 0"}
                                     title={<div style={{fontSize: '21px', color: '#000000', fontFamily: 'Lucida Grande'}}>Warren</div>}
                                     text={
                                         <div>
@@ -279,7 +278,7 @@ class Details extends Component {
                                         <img src={require("../images/larry.jpg")} alt="" style={{'width': '100%'}}/>
                                     </div>
                                 </Card>
-                                <Card key={17} position="bottom" width={"40%"}
+                                <Card key={17} position="bottom" width={"40%"} margin={"0 5px 0 0"}
                                     title={<div style={{fontSize: '21px', color: '#000000', fontFamily: 'Lucida Grande'}}>Elon</div>}
                                     text={
                                         <div>
