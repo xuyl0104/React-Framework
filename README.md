@@ -1206,6 +1206,11 @@ Checkbox目前有一种样式（之后可能会扩展）。
 
 2. 初始化对象示例
 
+   接收参数：
+
+   - url：API url
+   - options：API参数，包括需要上传的数据，数据返回的类型（"json"、"text"、"blob"）…
+
    ```Js
    let url = "http://jsonplaceholder.typicode.com/users";
    let options = {format: 'text'}; // options不需要进行stringify操作;可以设置返回值类型
