@@ -1208,7 +1208,7 @@ Checkbox目前有一种样式（之后可能会扩展）。
 
    ```Js
    let url = "http://jsonplaceholder.typicode.com/users";
-   let options = {}; // options不需要进行stringify操作
+   let options = {format: 'text'}; // options不需要进行stringify操作;可以设置返回值类型
    let FETCH = new requestObj(url, options);
    ```
 
