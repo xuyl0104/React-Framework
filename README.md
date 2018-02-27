@@ -616,7 +616,6 @@ Card组件基于Bootstrap v4的[Media-object](https://getbootstrap.com/docs/4.0/
                     <Icon type="like-o" style={{ fontSize: 16, color: 'grey'}} onClick={this.thumbsUp.bind(this)}/>
                 </div>
             }
-            // bottomRight={<div>A</div>}
             onClick={this.goCardDetails.bind(this)}
         >
             <div className="mb-1" style={{'display': 'inline-table'}}>
