@@ -60,6 +60,7 @@ class Details extends Component {
          * body: 用于POST|PUT等方法，不需要调用JSON.stringify()
          */
         let optionsPOST = {
+            format: 'text', // 需要返回的数据类型，fetch对象内部会执行不同方法 response.json()|response.text()|response.blob()
             body: cartInfoToUpload
         };
         let FETCH = new requestObj(url, optionsPOST);

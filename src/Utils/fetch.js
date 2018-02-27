@@ -9,28 +9,49 @@ export default class Request {
     }
 
 
-    buildRequestObservable = fetch => {
+    buildRequestObservable = (fetch, format) => {
         const request = new Promise((resolve, reject) => {
             fetch.then((response) => {
                 if (!response.ok) {
                     // console.log(response)
                     reject(this.buildErrorInfo('error', 'api调用失败: ' + response.status + " " + response.statusText));
                 } else {
-                    response.json()
-                    .then((data) => {
-                        resolve(data);
-                    })
-                    .catch((e) => {
-                        console.log(e)
-                        reject(this.buildErrorInfo('error', e.toString()));
-                    });
+                    if(format === 'json') {
+                        response.json()
+                        .then((data) => {
+                            resolve(data);
+                        })
+                        .catch((e) => {
+                            console.log(e)
+                            reject(this.buildErrorInfo('error', e.toString()));
+                        });
+                    } else if (format === 'text') {
+                        response.text()
+                        .then((data) => {
+                            resolve(data);
+                        })
+                        .catch((e) => {
+                            console.log(e)
+                            reject(this.buildErrorInfo('error', e.toString()));
+                        });
+                    }
+                    else if (format === 'blob') {
+                        response.blob()
+                        .then((data) => {
+                            resolve(data);
+                        })
+                        .catch((e) => {
+                            console.log(e)
+                            reject(this.buildErrorInfo('error', e.toString()));
+                        });
+                    }
                 }
             })
             .catch((e) => {
                 if(e.status === 'timeout') {
                     reject(this.buildErrorInfo('timeout', '网络超时，请重试'));
                 }
-                reject(this.buildErrorInfo('offline', 'fetch failed'));
+                reject(this.buildErrorInfo('offline', 'fetch failed')); // 粗暴地认为是这种异常，之后版本会改进
             });
         });
         return Observable.fromPromise(request);
@@ -52,7 +73,7 @@ export default class Request {
             ...defaultOptions,
             ...this.options
         };
-        return this.buildRequestObservable(this.request(newOptions));
+        return this.buildRequestObservable(this.request(newOptions), newOptions.format|| "json");
     }
 
     post() {
@@ -70,7 +91,7 @@ export default class Request {
             ...newOptions.headers
         };
         newOptions.body = JSON.stringify(newOptions.body);
-        return this.buildRequestObservable(this.request(newOptions));
+        return this.buildRequestObservable(this.request(newOptions), newOptions.format|| "json");
     }
 
     put() {
@@ -88,7 +109,7 @@ export default class Request {
             ...newOptions.headers
         };
         newOptions.body = JSON.stringify(newOptions.body);
-        return this.buildRequestObservable(this.request(newOptions));
+        return this.buildRequestObservable(this.request(newOptions), newOptions.format|| "json");
     }
 
     delete() {
@@ -100,7 +121,7 @@ export default class Request {
             ...defaultOptions,
             ...this.options
         };
-        return this.buildRequestObservable(this.request(newOptions));
+        return this.buildRequestObservable(this.request(newOptions), newOptions.format|| "json");
     }
 
     patch() {
@@ -113,7 +134,7 @@ export default class Request {
             ...this.options
         };
         console.log(newOptions)
-        return this.buildRequestObservable(this.request(newOptions));
+        return this.buildRequestObservable(this.request(newOptions), newOptions.format|| "json");
     }
     
     request(options) {
