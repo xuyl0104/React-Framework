@@ -623,7 +623,7 @@ Card组件基于Bootstrap v4的[Media-object](https://getbootstrap.com/docs/4.0/
                 <img src={require("../images/larry.jpg")} alt="" style={{'width': '100%'}}/>
             </div>
         </Card>
-		.
+         .
          .
          .
     </div>
