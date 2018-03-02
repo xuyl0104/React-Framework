@@ -307,24 +307,48 @@ Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/comp
 
 ### Input
 
-| 属性          | 描述           | 默认值    | 类型                       |
-| ----------- | ------------ | ------ | ------------------------ |
-| label       | 左侧描述性label信息 | —      | string                   |
-| text        | 输入框内的内容      | —      | string                   |
-| placeholder | placeholder  | —      | string                   |
-| align       | 对其方式         | "left" | string ("left", "right") |
-| clear       | 是否带有清空按钮     | —      | bool                     |
-| onChange    | 输入时调用的方法     | —      | func                     |
-| 内部child组件   | 嵌套的内部组件      | —      | React elem               |
+| 属性          | 描述                         | 默认值 | 类型                     |
+| ------------- | ---------------------------- | ------ | ------------------------ |
+| label         | 左侧描述性label信息          | —      | string                   |
+| text          | 输入框内的内容               | —      | string                   |
+| placeholder   | placeholder                  | —      | string                   |
+| align         | 对其方式                     | "left" | string ("left", "right") |
+| clear         | 是否带有清空按钮             | —      | bool                     |
+| onChange      | 输入时调用的方法             | —      | func                     |
+| 内部child组件 | 嵌套的内部组件               | —      | React elem               |
+| `name`        | 绑定数据表中的名为name的字段 | —      | string                   |
+
+> ==name属性需与数据表中的数据属性对应==  📌
 
 ```js
-<Input label={"左对齐带清空"} text={this.state.text} onChange={this.onTextChange} placeholder={"姓名"} align={"left"} clear={true} />
-<Input label={"上级审批人"} text={this.state.text} onChange={this.onTextChange} placeholder={"上级审批人姓名"} align={"left"} />
-<Input label={"左对齐带图标"} text={this.state.text} onChange={this.onTextChange} placeholder={"审批意见"} align={"left"} img={<Icon type="calendar" />}/>
-<Input label={"右对齐带清空"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请输入金额"} align={"right"} clear={true}/>
-<Input label={"交易金额"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请输入金额"} align={"right"} img={<Icon type="right" />}/>
-<Input label={"交易金额"} text={this.state.text2} onChange={this.onTextChange2} placeholder={"请输入金额"} align={"right"} img={<Icon type="pay-circle-o" />}/>
+this.state = {
+    info: [{"a": "", "b": "", "c": "", "d": "", "e": "", "f": ""}]
+};
 ```
+
+```js
+<Input label={"左对齐带清空"} name={"a"} text={this.state.info[0]["a"]} onChange={this.onTextChange} placeholder={"姓名"} align={"left"} clear={true} />
+<Input label={"上级审批人"} name={"b"} text={this.state.info[0]["b"]} onChange={this.onTextChange} placeholder={"上级审批人姓名"} align={"left"} />
+<Input label={"左对齐带图标"} name={"c"} text={this.state.info[0]["c"]} onChange={this.onTextChange} placeholder={"审批意见"} align={"left"} 
+    img={<Icon type="calendar" />}/>
+<Input label={"右对齐带清空"} name={"d"} text={this.state.info[0]["d"]} onChange={this.onTextChange} placeholder={"请输入金额"} align={"right"} clear={true}/>
+<Input label={"交易金额"} name={"e"} text={this.state.info[0]["e"]} onChange={this.onTextChange} placeholder={"请输入金额"} align={"right"} 
+    img={<Icon type="right" />}/>
+<Input label={"交易金额"} name={"f"} text={this.state.info[0]["f"]} onChange={this.onTextChange} placeholder={"请输入金额"} align={"right"} 
+    img={<Icon type="pay-circle-o" />}/>
+```
+
+```js
+onTextChange(e) {
+    let info = this.state.info;
+    info[0][e.target.name] = e.target.value;
+    this.setState({
+        info: info
+    });
+}
+```
+
+
 
 ![](https://ws3.sinaimg.cn/large/006tNc79ly1fotw3r7atdj30le0f6jt8.jpg) 
 
