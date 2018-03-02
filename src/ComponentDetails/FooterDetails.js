@@ -94,12 +94,12 @@ class Details extends Component {
                     </Header>
                     <Content>
                         <Row>
-                            <Button style={"primary"} size="lg" text="一个按钮的footer-lg" col={12} onClick={this.onButtonClick.bind(this, 1, "lg")}/>
-                            <Button style={"primary"} size="lg" text="两个按钮的footer-lg" col={12} onClick={this.onButtonClick.bind(this, 2, "lg")}/>
-                            <Button style={"primary"} size="lg" text="三个按钮的footer-lg" col={12} onClick={this.onButtonClick.bind(this, 3, "lg")}/>
-                            <Button style={"primary"} size="" text="一个按钮的footer-sm" col={12} onClick={this.onButtonClick.bind(this, 1, "sm")}/>
-                            <Button style={"primary"} size="" text="两个按钮的footer-sm" col={12} onClick={this.onButtonClick.bind(this, 2, "sm")}/>
-                            <Button style={"primary"} size="" text="三个按钮的footer-sm" col={12} onClick={this.onButtonClick.bind(this, 3, "sm")}/>
+                            <Button bstyle={"primary"} size="lg" text="一个按钮的footer-lg" col={12} onClick={this.onButtonClick.bind(this, 1, "lg")}/>
+                            <Button bstyle={"primary"} size="lg" text="两个按钮的footer-lg" col={12} onClick={this.onButtonClick.bind(this, 2, "lg")}/>
+                            <Button bstyle={"primary"} size="lg" text="三个按钮的footer-lg" col={12} onClick={this.onButtonClick.bind(this, 3, "lg")}/>
+                            <Button bstyle={"primary"} size="" text="一个按钮的footer-sm" col={12} onClick={this.onButtonClick.bind(this, 1, "sm")}/>
+                            <Button bstyle={"primary"} size="" text="两个按钮的footer-sm" col={12} onClick={this.onButtonClick.bind(this, 2, "sm")}/>
+                            <Button bstyle={"primary"} size="" text="三个按钮的footer-sm" col={12} onClick={this.onButtonClick.bind(this, 3, "sm")}/>
                         </Row>
                     </Content>
                     {footerDiv}                          

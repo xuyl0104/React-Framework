@@ -5,7 +5,6 @@ import Row from '../components/row/row';
 import Container from '../components/container/container';
 import Content from '../components/content/content';
 import Button from '../components/button/button';
-import Icon from 'antd-mobile/lib/icon';
 import Tab from '../components/tab/tab';
 import 'antd-mobile/lib/icon/style/css';
 
@@ -60,11 +59,11 @@ class Details extends Component {
                     <Content>
                         <div className="mt-3"></div>
                         <Row>
-                            <Button style={"primary"} size="sm" text="2个tab" col={6} onClick={this.onButtonClick.bind(this, 2)}/>
-                            <Button style={"primary"} size="sm" text="3个tab" col={6} onClick={this.onButtonClick.bind(this, 3)}/>
-                            <Button style={"primary"} size="sm" text="4个tab" col={6} onClick={this.onButtonClick.bind(this, 4)}/>
-                            <Button style={"primary"} size="sm" text="5个tab" col={6} onClick={this.onButtonClick.bind(this, 5)}/>
-                            <Button style={"warning"} size="sm" text="tab样式" col={12} onClick={this.onButtonClick.bind(this, 6)}/>
+                            <Button bstyle={"primary"} size="sm" text="2个tab" col={6} onClick={this.onButtonClick.bind(this, 2)}/>
+                            <Button bstyle={"primary"} size="sm" text="3个tab" col={6} onClick={this.onButtonClick.bind(this, 3)}/>
+                            <Button bstyle={"primary"} size="sm" text="4个tab" col={6} onClick={this.onButtonClick.bind(this, 4)}/>
+                            <Button bstyle={"primary"} size="sm" text="5个tab" col={6} onClick={this.onButtonClick.bind(this, 5)}/>
+                            <Button bstyle={"warning"} size="sm" text="tab样式" col={12} onClick={this.onButtonClick.bind(this, 6)}/>
                         </Row> 
                         <div style={{height: '2000px'}}></div> 
                     </Content>

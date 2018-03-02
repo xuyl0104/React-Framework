@@ -4,9 +4,6 @@ import PullToRefresh from 'antd-mobile/lib/pull-to-refresh';
 import 'antd-mobile/lib/pull-to-refresh/style/css';
 
 class PullRefresh extends Component {
-    constructor(props) {
-        super(props);
-    }
     
     render() {
         let distanceToRefresh = this.props.distanceToRefresh || 80;

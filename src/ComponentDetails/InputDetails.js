@@ -3,7 +3,6 @@ import './ComponentDetails.css';
 import Header from '../components/header/header';
 import Container from '../components/container/container';
 import Content from '../components/content/content';
-import '../components/third-party/toast/style/css';
 import Icon from 'antd/lib/icon';
 import Input from '../components/input/input';
 

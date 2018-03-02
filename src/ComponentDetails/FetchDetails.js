@@ -47,7 +47,6 @@ class Details extends Component {
 
     fetchPOST() {
         let url = "http://jsonplaceholder.typicode.com/posts/1/comments";
-        let self = this;
         //上传的数据：body
         let cartInfoToUpload = {
             title: 'foo',
@@ -89,7 +88,6 @@ class Details extends Component {
 
     fetchPUT() {
         let urlPut = 'https://jsonplaceholder.typicode.com/posts/1';
-        let self = this;
         let infoToUpload = {
             id: 1,
             title: 'foo',
@@ -124,7 +122,6 @@ class Details extends Component {
 
     fetchDELETE() {
         let urlDelete = "https://jsonplaceholder.typicode.com/posts/1";
-        let self = this;
         /**
          * options格式
          * method: POST|GET|PUT|DELETE|PATCH...
@@ -156,7 +153,6 @@ class Details extends Component {
     }
 
     fetchPATCH() {
-        let self = this;
         let urlPatch = 'https://jsonplaceholder.typicode.com/posts/1';
         let optionPATCH = {
             mode: 'cors',
@@ -187,52 +183,6 @@ class Details extends Component {
         })
     }
 
-    fetchCheckNetworkStatus() {
-        let url = "http://jsonplaceholder.typicode.com/users";
-		let optionsGET = {};
-        let FETCH = new requestObj(url, optionsGET);
-        let flag = FETCH.checkNetworkStatus();
-        console.log(flag);
-    }
-
-    gitlabGetProjects() {
-        console.log("fetching gitlab projects...");
-        let self = this;
-        let url = "https://git.iec.io/api/v4/projects/279/?private_token=X_qUzr_j-VKAxzaeKxpE";
-        // let url = "https://git.iec.io/api/v4/projects/279/repository/files/yarn.lock/raw?ref=master'?private_token=X_qUzr_j-VKAxzaeKxpE";
-        fetch(url)
-        .then((response) => {
-            return response.json()
-        })
-        .then((resjson) => {
-            self.setState({
-                results: resjson
-            })
-        })
-        .catch()
-    }
-
-    gitlabUploadFile() {
-        let self = this;
-        let url = "https://git.iec.io/api/v4/projects/279/repository/files?private_token=X_qUzr_j-VKAxzaeKxpE";
-        fetch(url, {
-            method: "PUT",
-            headers: {
-            }
-        })
-        .then((response) => {
-            console.log(response)
-            return response.json()
-        })
-        .then((resjson) => {
-            self.setState({
-                results: resjson
-            })
-        })
-        .catch()
-    }
-
-
     render() {
         console.log(this.state.results);
 		
@@ -244,13 +194,11 @@ class Details extends Component {
                     </Header>
                     <Content padding={[1, 1, 1, 1]}>
                        <Row>
-                            <Button style={"inspur"} size="lg" text={"GET"} col={6} onClick={ this.fetchGET.bind(this)}/>
-                            <Button style={"primary"} size="lg" text={"POST"} col={6} onClick={ this.fetchPOST.bind(this)}/>
-                            <Button style={"warning"} size="lg" text={"DELETE"} col={6} onClick={this.fetchDELETE.bind(this)}/>
-                            <Button style={"success"} size="lg" text={"PUT"} col={6} onClick={this.fetchPUT.bind(this)}/>
-                            <Button style={"default"} size="lg" text={"PATCH"} col={6} onClick={this.fetchPUT.bind(this)}/>
-                            <Button style={"success"} size="lg" text={"gitlab"} col={12} onClick={this.gitlabGetProjects.bind(this)}/>
-                            <Button style={"success"} size="lg" text={"gitlabUploadFile"} col={12} onClick={this.gitlabUploadFile.bind(this)}/>
+                            <Button bstyle={"inspur"} size="lg" text={"GET"} col={6} onClick={ this.fetchGET.bind(this)}/>
+                            <Button bstyle={"primary"} size="lg" text={"POST"} col={6} onClick={ this.fetchPOST.bind(this)}/>
+                            <Button bstyle={"warning"} size="lg" text={"DELETE"} col={6} onClick={this.fetchDELETE.bind(this)}/>
+                            <Button bstyle={"success"} size="lg" text={"PUT"} col={6} onClick={this.fetchPUT.bind(this)}/>
+                            <Button bstyle={"default"} size="lg" text={"PATCH"} col={6} onClick={this.fetchPATCH.bind(this)}/>
                         </Row>
                     </Content>
                 </Container>

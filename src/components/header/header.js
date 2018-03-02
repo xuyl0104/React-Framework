@@ -4,10 +4,7 @@ import '../../CSS/style.css'; //可以引入CSS文件夹下的字体文件，替
 import Row from '../row/row';
 
 class Header extends Component {
-    constructor(props) {
-        super(props);
-    }
-
+    
     render() {
       return (
         <div className="w-100">

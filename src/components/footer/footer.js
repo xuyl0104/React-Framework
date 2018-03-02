@@ -4,9 +4,8 @@ import './footer.css';
 class Footer extends Component {
     render() {
         let buttonNameArr = this.props.buttonName;
-        let buttonStyleArr = this.props.style;
+        let buttonStyleArr = this.props.style || this.generateButtonStyle(buttonNameArr.length);
         let size = this.props.size || "lg";
-        let numOfButton = buttonNameArr.length;
         let buttonWidth;
         switch (buttonNameArr.length) {
             case 1:
@@ -55,6 +54,10 @@ class Footer extends Component {
                 </div>
             </div>
         );
+    }
+
+    generateButtonStyle(numOfButtons) {
+        
     }
 
     onButtonClick(index) {

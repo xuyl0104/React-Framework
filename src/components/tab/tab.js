@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import './tab.css';
 import '../../CSS/style.css'; //可以引入CSS文件夹下的字体文件，替代图片图标，节省网络资源
-import Row from '../row/row';
 
 class Tab extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         let tabs = this.props.tabs;

@@ -2,9 +2,6 @@ import React, {Component} from 'react';
 import './cardlist.css';
 
 class CardList extends Component {
-    constructor(props) {
-        super(props);
-    }
     
     render() {
         return (

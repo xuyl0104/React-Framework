@@ -3,8 +3,6 @@ import './ComponentList.css';
 import Container from '../components/container/container';
 import Content from '../components/content/content';
 import Header from '../components/header/header';
-import Listview from '../components/listview/listview';
-import Icon from 'antd-mobile/lib/icon';
 import List from 'antd-mobile/lib/list';
 import 'antd-mobile/lib/list/style/css';
 

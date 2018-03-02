@@ -5,7 +5,6 @@ import Row from '../components/row/row';
 import Container from '../components/container/container';
 import Content from '../components/content/content';
 import Button from '../components/button/button';
-import ReactMarkdown from 'react-markdown';
 import PageTransition from '../components/pageTransition/pageTransition';
 
 class Details extends Component {
@@ -65,7 +64,7 @@ class Details extends Component {
                     </Header>
                     <Content>
                         <Row>
-                            <Button style={"primary"} size="lg" text={"点击测试翻页效果"} col={12} onClick={this.goToSeeDetails.bind(this)} />
+                            <Button bstyle={"primary"} size="lg" text={"点击测试翻页效果"} col={12} onClick={this.goToSeeDetails.bind(this)} />
                         </Row>
                     </Content>
                 </Container>

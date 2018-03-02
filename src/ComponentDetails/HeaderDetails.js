@@ -54,9 +54,9 @@ class Details extends Component {
                     <Content>
                         <div className="content">
                             <Row>
-                                <Button style={"primary"} size="" text="无按钮的header" col={12} onClick={this.onButtonClick.bind(this, 0)}/>
-                                <Button style={"primary"} size="" text="一个按钮的header" col={12} onClick={this.onButtonClick.bind(this, 1)}/>
-                                <Button style={"primary"} size="" text="多个按钮的header" col={12} onClick={this.onButtonClick.bind(this, 2)}/>
+                                <Button bstyle={"primary"} size="" text="无按钮的header" col={12} onClick={this.onButtonClick.bind(this, 0)}/>
+                                <Button bstyle={"primary"} size="" text="一个按钮的header" col={12} onClick={this.onButtonClick.bind(this, 1)}/>
+                                <Button bstyle={"primary"} size="" text="多个按钮的header" col={12} onClick={this.onButtonClick.bind(this, 2)}/>
                             </Row>                                                
                         </div>
                     </Content>

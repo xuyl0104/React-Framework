@@ -4,7 +4,6 @@ import Header from '../components/header/header';
 import Container from '../components/container/container';
 import Content from '../components/content/content';
 import Listview from '../components/listview/listview';
-import '../components/third-party/toast/style/css';
 import Icon from 'antd/lib/icon';
 import DatePicker from '../components/picker/picker';
 import PageTransition from '../components/pageTransition/pageTransition';
@@ -162,8 +161,8 @@ class Details extends Component {
         let year = time.getFullYear();
         let month = time.getMonth() < 9 ? ("0"+(time.getMonth()+1)) : (time.getMonth()+1); //0-11，0代表1月，坑...
         let day = time.getDate() < 10 ? ("0"+time.getDate()) : time.getDate();
-        let hour = time.getHours() < 10 ? ("0"+time.getHours()) : time.getHours();
-        let minute = time.getMinutes() < 10 ? ("0"+time.getMinutes()) : time.getMinutes();
+        // let hour = time.getHours() < 10 ? ("0"+time.getHours()) : time.getHours();
+        // let minute = time.getMinutes() < 10 ? ("0"+time.getMinutes()) : time.getMinutes();
         // let second = time.getSeconds();
         let dateString = year + "-" + month + "-" +day;
         // let dateString = year + "-" + month + "-" +day + " " + hour + ":" + minute;

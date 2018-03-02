@@ -2,9 +2,6 @@ import React, {Component} from 'react';
 import './row.css';
 
 class Row extends Component {
-    constructor(props) {
-        super(props);
-    }
     
     render() {
         return (

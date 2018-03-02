@@ -2,9 +2,6 @@ import React, {Component} from 'react';
 import './content.css';
 
 class Content extends Component {
-    constructor(props) {
-        super(props);
-    }
     
     render() {
         let backgroundColor = this.props.bgColor || '#f8f9fa';

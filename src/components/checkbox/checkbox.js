@@ -6,9 +6,6 @@ import Checkbox from 'antd-mobile/lib/checkbox';
 import 'antd-mobile/lib/checkbox/style/css';
 
 class CheckGroup extends Component {
-    constructor(props) {
-        super(props);
-    }
     
     render() {
         let option = this.props.option;

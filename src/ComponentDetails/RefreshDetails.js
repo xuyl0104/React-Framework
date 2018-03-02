@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './ComponentDetails.css';
-import request from '../Utils/fetchUtil';
 import requestObj from '../Utils/fetch';
 import showMessage from '../Utils/showMessage';
 import showToast from '../Utils/showToast';
@@ -9,9 +8,6 @@ import Header from '../components/header/header';
 import Container from '../components/container/container';
 import Content from '../components/content/content';
 import Card from '../components/card/card';
-import CardList from '../components/cardlist/cardlist';
-import Toast from '../components/third-party/toast';
-import '../components/third-party/toast/style/css';
 import Icon from 'antd/lib/icon';
 // import { Icon as IconMobile } from 'antd-mobile/lib/icon'
 import Spin from 'antd/lib/spin';
@@ -72,7 +68,7 @@ class Details extends Component {
     
     refresh() {
 		let url = "http://jsonplaceholder.typicode.com/users";
-		let self = this;
+		// let self = this;
 		let optionsGET = {
 		};
         
@@ -137,7 +133,7 @@ class Details extends Component {
 			return (
 				<Card key={index}
 					avatar={<img className={`align-self-start mr-3`} 
-								src={require("../images/avatar.png")} alt="Generic placeholder image" 
+								src={require("../images/avatar.png")} alt="" 
 								style={{'width': `40px`}}/>}
 					avatarSize={40}
 					avatarPosition={'start'}

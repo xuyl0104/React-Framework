@@ -3,7 +3,7 @@ import './card.css';
 
 class Card extends Component {
     render() {
-        let avatarPosition = this.props.avatarPosition || "start";
+        // let avatarPosition = this.props.avatarPosition || "start";
         // let avatarSize = this.props.avatarSize || 40;
         let title = this.props.title;
         let text = this.props.text;

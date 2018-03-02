@@ -30,7 +30,7 @@ class Details extends Component {
                         <label className="text-dark text-uppercase font-weight-bold">卡片样式</label>
                         <Card key={1}
                             avatar={<img className={`align-self-start mr-3`} 
-                                        src={require("../images/avatar.png")} alt="Generic placeholder image" 
+                                        src={require("../images/avatar.png")} alt="Generic" 
                                         style={{'width': `40px`}}/>}
                             avatarSize={40}
                             avatarPosition={'start'}
@@ -77,25 +77,25 @@ class Details extends Component {
                         </div>
                         <label className="text-dark text-uppercase font-weight-bold">行内多个按钮</label>
                         <div className="p-2">
-                            <Button style={"new"} newStyle={{backgroundColor: 'white', color: '#318ccf'}} size="sm" text={"取消"} col={6} onClick={this.buttonClick.bind(this)} />
-                            <Button style={"inspur"} size="sm" text={"评论"} col={6} onClick={this.buttonClick.bind(this)} />
+                            <Button bstyle={"new"} newStyle={{backgroundColor: 'white', color: '#318ccf'}} size="sm" text={"取消"} col={6} onClick={this.buttonClick.bind(this)} />
+                            <Button bstyle={"inspur"} size="sm" text={"评论"} col={6} onClick={this.buttonClick.bind(this)} />
                         </div>
                         <div className="p-2">
-                            <Button style={"new"} newStyle={{backgroundColor: 'white', color: '#318ccf'}} 
+                            <Button bstyle={"new"} newStyle={{backgroundColor: 'white', color: '#318ccf'}} 
                                 size="lg" text={"取消"} col={4} onClick={this.buttonClick.bind(this)} />
-                            <Button style={"default"} size="lg" text={"删除"} col={4} onClick={this.buttonClick.bind(this)} />
-                            <Button style={"inspur"} size="lg" text={"评论"} col={4} onClick={this.buttonClick.bind(this)} />
+                            <Button bstyle={"default"} size="lg" text={"删除"} col={4} onClick={this.buttonClick.bind(this)} />
+                            <Button bstyle={"inspur"} size="lg" text={"评论"} col={4} onClick={this.buttonClick.bind(this)} />
                         </div>
                         <div className="p-2">
-                            <Button style={"new"} newStyle={{backgroundColor: 'white', color: '#318ccf'}} 
+                            <Button bstyle={"new"} newStyle={{backgroundColor: 'white', color: '#318ccf'}} 
                                 size="lg" text={"取消"} col={3} onClick={this.buttonClick.bind(this)} />
-                            <Button style={"default"} size="lg" text={"删除"} col={3} onClick={this.buttonClick.bind(this)} />
-                            <Button style={"default"} size="lg" text={"评论"} col={3} onClick={this.buttonClick.bind(this)} />
-                            <Button style={"inspur"} size="lg" text={"分享"} col={3} onClick={this.buttonClick.bind(this)} />
+                            <Button bstyle={"default"} size="lg" text={"删除"} col={3} onClick={this.buttonClick.bind(this)} />
+                            <Button bstyle={"default"} size="lg" text={"评论"} col={3} onClick={this.buttonClick.bind(this)} />
+                            <Button bstyle={"inspur"} size="lg" text={"分享"} col={3} onClick={this.buttonClick.bind(this)} />
                         </div>
                         <label className="text-dark text-uppercase font-weight-bold">行内一个按钮</label>
                         <div className="p-2">
-                            <Button style={"inspur"} size="lg" text={"提交"} col={12} onClick={this.buttonClick.bind(this)} />
+                            <Button bstyle={"inspur"} size="lg" text={"提交"} col={12} onClick={this.buttonClick.bind(this)} />
                         </div>
                         <label className="text-dark text-uppercase font-weight-bold">通栏按钮样式</label>
                         <CheckGroup 

@@ -4,7 +4,6 @@ import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import Container from '../components/container/container';
 import Content from '../components/content/content';
-import '../components/third-party/toast/style/css';
 
 class Details extends Component {
     constructor(props) {

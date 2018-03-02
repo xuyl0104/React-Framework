@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import * as ReactDOM from 'react-dom';
 import './ComponentDetails.css';
 import Header from '../components/header/header';
 import Container from '../components/container/container';
@@ -26,7 +25,7 @@ class Details extends Component {
                         <label>Example-1: 复杂卡片</label>
                         <Card key={1}
                             avatar={<img className={`align-self-start mr-3`} 
-                                        src={require("../images/avatar.png")} alt="Generic placeholder image" 
+                                        src={require("../images/avatar.png")} alt="" 
                                         style={{'width': `54px`}}/>}
                             // avatarSize={54}
                             avatarPosition={'start'}
@@ -62,7 +61,7 @@ class Details extends Component {
                         <label>Example-2：机票申请</label>
                         <Card key={2}
                             avatar={<img className={`align-self-center mr-3`} 
-                                        src={require("../images/avatar.png")} alt="Generic placeholder image" 
+                                        src={require("../images/avatar.png")} alt="" 
                                         style={{'width': `54px`}}/>}
                             // avatarSize={54}
                             avatarPosition={'start'}
@@ -77,7 +76,7 @@ class Details extends Component {
                         <label>Example-3：餐厅卡片</label>
                         <Card key={3}
                             avatar={<img className={`align-self-center mr-2`} 
-                                        src={require("../images/canteen.jpg")} alt="Generic placeholder image" 
+                                        src={require("../images/canteen.jpg")} alt="" 
                                         style={{'width': `120px`}}/>}
                             // avatarSize={200}
                             avatarPosition={'start'}
@@ -87,7 +86,7 @@ class Details extends Component {
                         </Card>
                         <Card key={4}
                             avatar={<img className={`align-self-center mr-2`} 
-                                        src={require("../images/canteen2.jpg")} alt="Generic placeholder image" 
+                                        src={require("../images/canteen2.jpg")} alt="" 
                                         style={{'width': `120px`}}/>}
                             // avatarSize={200}
                             avatarPosition={'start'}
@@ -97,7 +96,7 @@ class Details extends Component {
                         </Card>
                         <Card key={5}
                             avatar={<img className={`align-self-center mr-2`} 
-                                        src={require("../images/canteen3.jpg")} alt="Generic placeholder image" 
+                                        src={require("../images/canteen3.jpg")} alt="" 
                                         style={{'width': `120px`}}/>}
                             // avatarSize={200}
                             avatarPosition={'start'}
@@ -109,7 +108,7 @@ class Details extends Component {
                         <label>Example-4：仿微信消息卡片</label>
                         <Card key={6}
                             avatar={<img className={`align-self-center mr-1`} 
-                                        src={require("../images/avatar.jpg")} alt="Generic placeholder image" 
+                                        src={require("../images/avatar.jpg")} alt="" 
                                         style={{'width': `60px`, borderRadius: '5px'}}/>}
                             // avatarSize={200}
                             avatarPosition={'start'}
@@ -121,7 +120,7 @@ class Details extends Component {
                         </Card>
                         <Card key={7}
                             avatar={<img className={`align-self-center mr-1`} 
-                                        src={require("../images/avatar2.jpg")} alt="Generic placeholder image" 
+                                        src={require("../images/avatar2.jpg")} alt="" 
                                         style={{'width': `60px`, borderRadius: '5px'}}/>}
                             // avatarSize={200}
                             avatarPosition={'start'}
@@ -133,7 +132,7 @@ class Details extends Component {
                         </Card>
                         <Card key={8}
                             avatar={<img className={`align-self-center mr-1`} 
-                                        src={require("../images/avatar2.jpg")} alt="Generic placeholder image" 
+                                        src={require("../images/avatar2.jpg")} alt="" 
                                         style={{'width': `60px`, borderRadius: '5px'}}/>}
                             // avatarSize={200}
                             avatarPosition={'start'}
@@ -147,7 +146,7 @@ class Details extends Component {
                         <label>Example-5：仿YouTube卡片1(图片在上方)</label>
                         <Card key={9} position={"bottom"}
                             avatar={<img className={`align-self-start mr-1 mt-2`} 
-                                        src={require("../images/avatar.jpg")} alt="Generic placeholder image" 
+                                        src={require("../images/avatar.jpg")} alt="" 
                                         style={{'width': `48px`, borderRadius: '24px'}}/>}
                             // avatarSize={200}
                             avatarPosition={'start'}
@@ -166,7 +165,7 @@ class Details extends Component {
                         <label>Example-6：仿YouTube卡片2</label>
                         <Card key={10}
                             avatar={<img className={`align-self-center mr-2`} 
-                                        src={require("../images/nba.jpg")} alt="Generic placeholder image" 
+                                        src={require("../images/nba.jpg")} alt="" 
                                         style={{'width': `150px`}}/>}
                             // avatarSize={200}
                             avatarPosition={'start'}
@@ -184,7 +183,7 @@ class Details extends Component {
                         <label>Example-7：仿Gmail卡片</label>
                         <Card key={11}
                             avatar={<img className={`align-self-start mr-1 mt-2`} 
-                                        src={require("../images/larry.jpg")} alt="Generic placeholder image" 
+                                        src={require("../images/larry.jpg")} alt="" 
                                         style={{'width': `48px`, borderRadius: '24px'}}/>}
                             // avatarSize={200}
                             avatarPosition={'start'}
