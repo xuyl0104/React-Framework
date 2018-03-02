@@ -1,4 +1,5 @@
 # React framework使用说明
+[![Build Status](https://travis-ci.org/xuyl0104/React-Framework.svg?branch=master)](https://travis-ci.org/xuyl0104/React-Framework)
 
 - [React framework使用说明](#react-framework%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
     - [Install and start](#install-and-start)
