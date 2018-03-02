@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './ComponentDetails.css';
 import Header from '../components/header/header';
 import Icon from 'antd/lib/icon';
+import 'antd/lib/icon/style/css';
 import RadioGroup from '../components/radio/radio';
 import Container from '../components/container/container';
 import Content from '../components/content/content';

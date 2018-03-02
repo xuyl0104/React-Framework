@@ -5,6 +5,7 @@ import Container from '../components/container/container';
 import Content from '../components/content/content';
 import Listview from '../components/listview/listview';
 import Icon from 'antd/lib/icon';
+import 'antd/lib/icon/style/css';
 import DatePicker from '../components/picker/picker';
 import PageTransition from '../components/pageTransition/pageTransition';
 

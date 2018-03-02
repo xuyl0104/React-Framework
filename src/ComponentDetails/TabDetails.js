@@ -6,7 +6,6 @@ import Container from '../components/container/container';
 import Content from '../components/content/content';
 import Button from '../components/button/button';
 import Tab from '../components/tab/tab';
-import 'antd-mobile/lib/icon/style/css';
 
 class Details extends Component {
     constructor() {

@@ -6,6 +6,7 @@ import Container from '../components/container/container';
 import Content from '../components/content/content';
 import Card from '../components/card/card';
 import Icon from 'antd/lib/icon';
+import 'antd/lib/icon/style/css';
 import CheckGroup from '../components/checkbox/checkbox';
 import Button from '../components/button/button';
 
