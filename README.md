@@ -281,7 +281,7 @@ Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/comp
 
 | 属性     | 描述                | 默认值    | 类型                                                         |
 | -------- | ------------------- | --------- | ------------------------------------------------------------ |
-| style    | 按钮样式            | "primary" | string ("primary", "secondary", "success", "danger", "warning", "info", "light", "dark") |
+| bstyle   | 按钮样式            | "primary" | string ("primary", "secondary", "success", "danger", "warning", "info", "light", "dark") |
 | size     | 按钮大小            | "lg"      | string ("lg", "sm")                                          |
 | text     | 按钮文字            | —         | string                                                       |
 | col      | 按钮所占col         | —         | num (12, 6, 4, 3)                                            |
@@ -289,17 +289,17 @@ Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/comp
 | newStyle | style={"new"}时设定 | —         | object，例如 {color: 'white', backgroundColor: '#318ccf'}    |
 
 ```js
-<Button style={"primary"} size="lg" text={"col-12"} col={12} onClick={this.buttonClick.bind(this)} />
-<Button style={"primary"} size="lg" text={"col-6"} col={6} onClick={this.buttonClick.bind(this)} />
-<Button style={"default"} size="lg" text={"col-6"} col={6} onClick={this.buttonClick.bind(this)}/>
-<Button style={"success"} size="" text={"col-4"} col={4} onClick={this.buttonClick.bind(this)} />
-<Button style={"warning"} size="" text={"col-4"} col={4} onClick={this.buttonClick.bind(this)} />
-<Button style={"danger"} size="" text={"col-4"} col={4} onClick={this.buttonClick.bind(this)}/>
-<Button style={"primary"} size="sm" text="col-3" col={3} onClick={this.buttonClick.bind(this)} />
-<Button style={"primary"} size="sm" text="col-3" col={3} onClick={this.buttonClick.bind(this)} />
-<Button style={"primary"} size="sm" text="col-3" col={3} onClick={this.buttonClick.bind(this)} />
-<Button style={"primary"} size="sm" text="col-3" col={3} onClick={this.buttonClick.bind(this)} />
-<Button style={"new"} newStyle={{color: 'white', backgroundColor: '#318ccf'}} size="sm" text="自定义" col={12} onClick={this.buttonClick.bind(this)} />
+<Button bstyle={"primary"} size="lg" text={"col-12"} col={12} onClick={this.buttonClick.bind(this)} />
+<Button bstyle={"primary"} size="lg" text={"col-6"} col={6} onClick={this.buttonClick.bind(this)} />
+<Button bstyle={"default"} size="lg" text={"col-6"} col={6} onClick={this.buttonClick.bind(this)}/>
+<Button bstyle={"success"} size="" text={"col-4"} col={4} onClick={this.buttonClick.bind(this)} />
+<Button bstyle={"warning"} size="" text={"col-4"} col={4} onClick={this.buttonClick.bind(this)} />
+<Button bstyle={"danger"} size="" text={"col-4"} col={4} onClick={this.buttonClick.bind(this)}/>
+<Button bstyle={"primary"} size="sm" text="col-3" col={3} onClick={this.buttonClick.bind(this)} />
+<Button bstyle={"primary"} size="sm" text="col-3" col={3} onClick={this.buttonClick.bind(this)} />
+<Button bstyle={"primary"} size="sm" text="col-3" col={3} onClick={this.buttonClick.bind(this)} />
+<Button bstyle={"primary"} size="sm" text="col-3" col={3} onClick={this.buttonClick.bind(this)} />
+<Button bstyle={"new"} newStyle={{color: 'white', backgroundColor: '#318ccf'}} size="sm" text="自定义" col={12} onClick={this.buttonClick.bind(this)} />
 
 ```
 
