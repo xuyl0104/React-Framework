@@ -16,8 +16,8 @@ class Details extends Component {
     }
 
     render() {
-        let finishedComponent = ['Button', 'Input', 'Message', 'Modal', 'Card', 'Stepper', 'Picker', 'Header', 'Footer', 'Refresh/Load More', 'RadioCheck', 'Listitem', 'Fetch', 'Page template', 'Page transition'];
-        let finishedIndicator = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+        let finishedComponent = ['Button', 'Input', 'Message', 'Modal', 'Card', 'Stepper', 'Picker', 'Header', 'Footer', 'Refresh/Load More', 'RadioCheck', 'Listitem', 'Tab', 'Fetch', 'Page template', 'Page transition'];
+        let finishedIndicator = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
         let displayDivs = finishedComponent.map((item, index) => {
             return (
                 <List.Item arrow="horizontal" onClick={this.goToSeeDetails.bind(this, index)} key={index}>
@@ -86,15 +86,17 @@ class Details extends Component {
                 detailsPage = "/ListitemDetails";
                 break;
             case 12:
-                detailsPage = "/FetchDetails";
+                detailsPage = "/TabDetails";
                 break;
             case 13:
-                detailsPage = "/PageTemplateDetails";
+                detailsPage = "/FetchDetails";
                 break;
             case 14:
+                detailsPage = "/PageTemplateDetails";
+                break;
+            case 15:
                 detailsPage = "/PageTransitionDeatils";
                 break;
-        
             default:
                 break;
         }
