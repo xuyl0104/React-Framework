@@ -16,11 +16,16 @@
         - [Card](#card)
         - [Picker](#picker)
         - [Refresh/Loadmore](#refreshloadmore)
+        - [Tab](#tab)
         - [Listitem](#listitem)
         - [Radio/Check](#radiocheck)
         - [Switch](#switch)
     - [断网检测](#%E6%96%AD%E7%BD%91%E6%A3%80%E6%B5%8B)
     - [API调用操作](#api%E8%B0%83%E7%94%A8%E6%93%8D%E4%BD%9C)
+
+[TOC]
+
+
 
 ## Install and start
 
@@ -944,6 +949,71 @@ refresh() {
    }
 
    ```
+
+
+
+### Tab
+
+- Tab数量可以设定（2 <= n <= 5）
+- Tab样式可以设定（激活和未激活Tab的字体，背景色等）
+- 当前Tab下方横线样式可以设定（粗细、样式、颜色等）
+
+| 属性           | 描述                    | 默认值                                           | 类型       |
+| -------------- | ----------------------- | ------------------------------------------------ | ---------- |
+| tabs           | tab标签文字数组         | —                                                | []: string |
+| selected       | 当前被选中tab           | 0                                                | num        |
+| callBack       | 点击tab的回调方法       | —                                                | func       |
+| activeStyle    | 激活状态tab样式         | {color: '#318ccf', backgroundColor: '#ffffff'}   | {}         |
+| inactiveStyle  | 未激活状态tab样式       | {color: '#000000', backgroundColor: '#ffffff'}   | {}         |
+| indicatorStyle | 激活状态tab下方横线样式 | {color: '#318ccf', style: 'solid', width: '2px'} | {}         |
+
+Tab组件添加位置：
+
+```html
+<Container>
+    <Header name="Tab" 
+        onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
+    </Header>
+    {/* Tab */}
+    {tabDiv}
+    <Content>
+
+    </Content>
+</Container>
+```
+
+
+
+示例：
+
+```Js
+<Tab tabs={['本日', '本周']} 
+    selected={this.state.selected} callBack={this.changeTab.bind(this)}/>
+```
+
+```Js
+<Tab tabs={['本日', '本周', '本月']} 
+	selected={this.state.selected} callBack={this.changeTab.bind(this)}/>
+```
+
+```Js
+<Tab tabs={['本日', '本周', '本月']} 
+    activeStyle={{color: 'red', backgroundColor: '#ffffff', fontWeight: 'bold'}}
+    inactiveStyle={{color: 'green', backgroundColor: '#ffffff'}}
+    indicatorStyle={{width: '2px', color: '#318ccf', style: 'dashed'}}
+    selected={this.state.selected} callBack={this.changeTab.bind(this)}/>
+```
+
+| ![](https://ws2.sinaimg.cn/large/006tNc79ly1foy8eyf1laj30lg0d40tc.jpg) | ![](https://ws1.sinaimg.cn/large/006tNc79ly1foy8ey7wnoj30la0d0js0.jpg) | ![](https://ws3.sinaimg.cn/large/006tNc79ly1foy8exzs9tj30le0cywf5.jpg) | ![](https://ws3.sinaimg.cn/large/006tNc79ly1foy8extosrj30lg0d63z7.jpg) | ![](https://ws3.sinaimg.cn/large/006tNc79ly1foy8exlpynj30la0d0aam.jpg) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 2个tab                                                       | 3个tab                                                       | 4个tab                                                       | 5个tab                                                       | 样式修改                                                     |
+
+TODO：
+
+- 高度自定义
+- 动画切换效果
+
+
 
 ### Listitem
 
