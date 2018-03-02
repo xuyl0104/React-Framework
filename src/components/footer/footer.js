@@ -57,7 +57,17 @@ class Footer extends Component {
     }
 
     generateButtonStyle(numOfButtons) {
-        
+        let buttonStyleArr = [];
+        let buttonStyle;
+        for (let index = 0; index < numOfButtons; index++) {
+            if(index%2 === 1) {
+                buttonStyle = {'color': '#318ccf', 'backgroundColor': '#ffffff'};
+            } else if(index%2 === 0) {
+                buttonStyle = {'color': 'white', 'backgroundColor': '#318ccf'};
+            }
+            buttonStyleArr.push(buttonStyle);
+        }
+        return buttonStyleArr;
     }
 
     onButtonClick(index) {
