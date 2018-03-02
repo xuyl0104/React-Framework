@@ -83,7 +83,7 @@ class Tab extends Component {
         //     selectedTab: tabIndex,
         //     // tabAnimatationClass: tabAnimatationClass
         // });
-        this.props.callBackParent(selectedTab); 
+        this.props.callBack(selectedTab); 
     }
 }
   

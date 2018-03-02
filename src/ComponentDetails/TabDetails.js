@@ -24,27 +24,27 @@ class Details extends Component {
         if(this.state.key === 2) {
             tabDiv = 
                 <Tab tabs={['本日', '本周']} 
-                    selected={this.state.selected} callBackParent={this.changeTab.bind(this)}/>
+                    selected={this.state.selected} callBack={this.changeTab.bind(this)}/>
             ;
         } else if(this.state.key === 3) {
             tabDiv = 
-                <Tab tabs={['本日', '本周', '本月']} selected={this.state.selected} callBackParent={this.changeTab.bind(this)}/>
+                <Tab tabs={['本日', '本周', '本月']} selected={this.state.selected} callBack={this.changeTab.bind(this)}/>
             ;
         } else if(this.state.key === 4) {
             tabDiv = 
-                <Tab tabs={['本日', '本周', '本月', '本年']} selected={this.state.selected} callBackParent={this.changeTab.bind(this)}/>
+                <Tab tabs={['本日', '本周', '本月', '本年']} selected={this.state.selected} callBack={this.changeTab.bind(this)}/>
             ;
         } else if(this.state.key === 5){
             tabDiv = 
-                <Tab tabs={['本日', '本周', '本月', '本年', '所有']} selected={this.state.selected} callBackParent={this.changeTab.bind(this)}/>
+                <Tab tabs={['本日', '本周', '本月', '本年', '所有']} selected={this.state.selected} callBack={this.changeTab.bind(this)}/>
             ;
         } else if(this.state.key === 6) {
             tabDiv = 
                 <Tab tabs={['本日', '本周', '本月']} 
-                activeStyle={{color: 'red', backgroundColor: '#ffffff', fontWeight: 'bold'}}
-                inactiveStyle={{color: 'green', backgroundColor: '#ffffff'}}
-                indicatorStyle={{width: '2px', color: '#318ccf', style: 'dashed'}}
-                selected={this.state.selected} callBackParent={this.changeTab.bind(this)}/>
+                    activeStyle={{color: 'red', backgroundColor: '#ffffff', fontWeight: 'bold'}}
+                    inactiveStyle={{color: 'green', backgroundColor: '#ffffff'}}
+                    indicatorStyle={{width: '2px', color: '#318ccf', style: 'dashed'}}
+                    selected={this.state.selected} callBack={this.changeTab.bind(this)}/>
             ;
         }
 
