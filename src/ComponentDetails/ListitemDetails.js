@@ -44,29 +44,29 @@ class Details extends Component {
 
                         <Listview text={"时间"}>
                             <label onClick={this.onClick.bind(this)}>{"2018-01-30 16:45:30"}</label>
-                            <div className="pt-2 ml-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
+                            <div className="ml-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
                         </Listview>
 
                         {/* 空div占位实现第二个child右对齐 */}
                         <Listview text={"所在单位"}>
                             <label onClick={this.onClick.bind(this)}>{"浪潮国际平台与技术部"}</label>
-                            <div className="pt-2 ml-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
+                            <div className="ml-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
                         </Listview>
 
                         <Listview text={"出发时间"}>
                             <label onClick={this.onClick.bind(this)}>{"2018-01-30"}</label>
-                            <div className="pt-2 ml-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
+                            <div className="ml-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
                         </Listview>
 
                         <Listview text={"会议结束时间"}>
                             <label onClick={this.onClick.bind(this)}>{"2018-01-30 16:30"}</label>
-                            <div className="pt-2 ml-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
+                            <div className="ml-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
                         </Listview>
                         
                         <Listview text={"起止时间"}>
                             <input type="text" value={this.state.timestring5} placeholder={"起始时间"}
                                 onClick={this.handleClick5.bind(this)} readOnly="true"/>
-                            <div className="pt-2 ml-2 mr-2"><Icon type="arrow-right" size={'lg'}/></div>
+                            <div className="ml-2 mr-2"><Icon type="arrow-right" size={'lg'}/></div>
                             <input type="text" value={this.state.timestring6} placeholder={"结束时间"} className="text-right"
                                 onClick={this.handleClick6.bind(this)} readOnly="true"/>
                         </Listview>
@@ -98,7 +98,7 @@ class Details extends Component {
                         <Listview text={"城市区间"}>
                             <input type="text" value={"济南市"} placeholder={"始发城市"}
                                 onClick={this.onClick.bind(this)} readOnly="true"/>
-                            {/* <div className="pt-2 ml-2 mr-2"><Icon type="arrow-right" size={'lg'}/></div> */}
+                            {/* <div className="ml-2 mr-2"><Icon type="arrow-right" size={'lg'}/></div> */}
                             <img className="mt-3" src={require("../images/arrowdotted.png")} alt="" style={{width: "20px", height: "10px"}}/>
                             <input type="text" value={"布宜诺斯艾利斯"} placeholder={"到达城市"} className="text-right"
                                 onClick={this.onClick.bind(this)} readOnly="true"/>
@@ -106,12 +106,12 @@ class Details extends Component {
 
                         <Listview text={"审批人"}>
                             <label onClick={this.onClick.bind(this)}>{"浪潮国际平台与技术部 陈经理"}</label>
-                            <div className="pt-2 ml-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
+                            <div className="ml-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
                         </Listview>
 
                         <Listview text={"这是十分长的label"}>
                             <label onClick={this.onClick.bind(this)}>{"浪潮国际平台与技术部 陈经理"}</label>
-                            <div className="pt-2 ml-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
+                            <div className="ml-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
                         </Listview>
 
                         {/* 只有一个child时，需要添加一个空的div进行占位以实现右对齐，否则会呈现左对齐。处理方法待改进 */}
@@ -131,16 +131,14 @@ class Details extends Component {
 
                         <Listview text={"支付方式"}>
                             <div></div>
-                            <div className="pt-2">
-                                <RadioGroup name="payment" mode="divide"
-                                    size="sm"
-                                    option={['签单', '工卡', '微信']} 
-                                    val={[0, 1, 2]} 
-                                    id={['op1', 'op2', 'op3']}
-                                    selected={this.state.selectedRadio}
-                                    onChange={this.radioChange.bind(this)}>
-                                </RadioGroup>
-                            </div>
+                            <RadioGroup name="payment" mode="divide"
+                                size="sm"
+                                option={['签单', '工卡', '微信']} 
+                                val={[0, 1, 2]} 
+                                id={['op1', 'op2', 'op3']}
+                                selected={this.state.selectedRadio}
+                                onChange={this.radioChange.bind(this)}>
+                            </RadioGroup>
                         </Listview>
                     </Content>
                 </Container>

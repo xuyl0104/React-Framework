@@ -32,7 +32,7 @@ class Listview extends Component {
             <div className="listview d-flex" 
                 onClick={this.props.onClick}>
                     <label className={"col-"+tagClassName+" col-lg-"+(tagClassNameLg)+ " col-md-"+(tagClassNameLg)}><nobr>{text}</nobr></label>
-                    <div className={"itemContent col-"+(12-tagClassName)+" col-lg-"+(12-tagClassNameLg)+" col-md-"+(12-tagClassNameLg)+" d-flex justify-content-between pr-0"}>
+                    <div className={"itemContent col-"+(12-tagClassName)+" col-lg-"+(12-tagClassNameLg)+" col-md-"+(12-tagClassNameLg)+" d-flex justify-content-between align-items-center pr-0"}>
                         {this.props.children}
                     </div>
             </div>
