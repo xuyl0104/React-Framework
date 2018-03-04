@@ -26,9 +26,9 @@
 
 [TOC]
 
-
-
 ## Install and start
+
+👉 [Demo](http://45.63.37.8:8080/) http://45.63.37.8:8080/
 
 ```
 git clone https://github.com/xuyl0104/React-Framework.git
@@ -316,7 +316,7 @@ Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/comp
 | clear         | 是否带有清空按钮             | —      | bool                     |
 | onChange      | 输入时调用的方法             | —      | func                     |
 | 内部child组件 | 嵌套的内部组件               | —      | React elem               |
-| `name`        | 绑定数据表中的名为name的字段 | —      | string                   |
+| name          | 绑定数据表中的名为name的字段 | —      | string                   |
 
 > ==name属性需与数据表中的数据属性对应==  📌
 
