@@ -9,9 +9,8 @@ import Container from '../components/container/container';
 import Content from '../components/content/content';
 import Card from '../components/card/card';
 import Icon from 'antd/lib/icon';
-// import { Icon as IconMobile } from 'antd-mobile/lib/icon'
-import Spin from 'antd/lib/spin';
 import 'antd/lib/spin/style/css';
+import Spin from '../components/spin/spin';
 
 class Details extends Component {
     constructor() {
@@ -177,26 +176,25 @@ class Details extends Component {
                     </Header>
                     <Content>
                         <div className="content" ref={ node => this.contentNode = node }>
-                            <Spin spinning={this.state.isSpinning} tip={"加载中"} delay={500} size="large">		
-                                <PullRefresh 
-                                    style={{
-                                        height: this.state.height - 56,
-                                    }}
-                                    distanceToRefresh={80}
-                                    // indicator={{ activate: '松开刷新', deactivate: '继续下拉刷新', finish: '刷新完成' }}
-                                    refreshing={this.state.isRefreshing} 
-                                    onRefresh={this.refresh.bind(this)}
-                                >
-                                    {listDiv}
+                            <Spin isSpinning={this.state.isSpinning} indicator="a" size={40} />
+                            <PullRefresh 
+                                style={{
+                                    height: this.state.height - 56,
+                                }}
+                                distanceToRefresh={80}
+                                // indicator={{ activate: '松开刷新', deactivate: '继续下拉刷新', finish: '刷新完成' }}
+                                refreshing={this.state.isRefreshing} 
+                                onRefresh={this.refresh.bind(this)}
+                            >
+                                {listDiv}
 
-                                    {/* 下方组件为列表底部提示性信息：列表还有内容时，显示"正在加载"；列表无更多内容时，显示"—— 已无更多 ——" */}
-                                    {<div className="text-center" 
-                                        style={{backgroundColor: '#ededed', color: '#808080', fontSize: '14px', height: '45px', 
-                                            verticalAlign: 'middle', paddingTop: '10px'}}>
-                                        {this.state.hasMore ? <div><Icon type="loading" />  正在加载...</div> : "———— 已无更多 ————"}
-                                    </div>}
-                                </PullRefresh>
-                            </Spin>
+                                {/* 下方组件为列表底部提示性信息：列表还有内容时，显示"正在加载"；列表无更多内容时，显示"—— 已无更多 ——" */}
+                                {<div className="text-center" 
+                                    style={{backgroundColor: '#ededed', color: '#808080', fontSize: '14px', height: '45px', 
+                                        verticalAlign: 'middle', paddingTop: '10px'}}>
+                                    {this.state.hasMore ? <div><Icon type="loading" />  正在加载...</div> : "———— 已无更多 ————"}
+                                </div>}
+                            </PullRefresh>
                         </div>
                     </Content>
                 </Container>
