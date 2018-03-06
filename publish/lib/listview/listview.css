@@ -1,0 +1,40 @@
+.listview {
+    border-bottom: 1px solid rgb(221, 218, 218);
+    padding: 0 15px;
+    background-color: white;
+    height: 44px;
+}
+
+.listview > label {
+    font-size: 17px;
+    color: black;
+    display: inline-block;
+    padding: 8px 0 11px 0;
+    margin: 0;
+    white-space:nowrap; 
+    text-overflow:ellipsis; 
+    -o-text-overflow:ellipsis; 
+    overflow:hidden;
+}
+
+.listview .itemContent > label {
+    font-size: 17px;
+    color: black;
+    display: inline-block;
+    padding: 8px 0 11px 0;
+    margin: 0;
+    white-space:nowrap; 
+    text-overflow:ellipsis; 
+    -o-text-overflow:ellipsis; 
+    overflow:hidden;
+}
+
+.listview .itemContent > input[type="text"] {
+    color: black;
+    border: none;
+    width: 45%;
+    font-size: 17px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
