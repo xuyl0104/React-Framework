@@ -23,6 +23,7 @@
         - [Switch](#switch)
     - [断网检测](#%E6%96%AD%E7%BD%91%E6%A3%80%E6%B5%8B)
     - [API调用操作](#api%E8%B0%83%E7%94%A8%E6%93%8D%E4%BD%9C)
+    - [发布至npm](#%E5%8F%91%E5%B8%83%E8%87%B3npm)
 
 [TOC]
 
@@ -1351,3 +1352,55 @@ Checkbox目前有一种样式（之后可能会扩展）。
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 正常获取数据并弹出提示信息                                   | 网络连接中断                                                 | 网络超时                                                     | API调用失败                                                  |
 
+
+
+## 发布至npm
+
+- 将`~/package.json` 的`babel` 配置项修改为如下所示(presets处)
+
+  ```json
+  "babel": {
+      "presets": [
+        "react",
+        "es2015"
+      ],
+      "plugins": [
+        "transform-object-rest-spread",
+        "transform-class-properties"
+      ]
+    },
+  ```
+
+- 将修改后的待发版组件文件夹` ~/src/components` 内所有文件拷贝至`~/es6es5` 文件夹下
+
+  | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fp38kwsp14j30eg0ti0ue.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fp38lpyhxkj30eo0tiwg4.jpg) |
+  | ------------------------------------------------------------ | ------------------------------------------------------------ |
+  | ` ~/src/components`                                          | `~/es6es5`                                                   |
+
+- 在根目录执行命令
+
+  ```Bash
+  babel es6es5 -d es6es5
+  ```
+
+  此时`~/es6es5` 文件夹内的所有js文件被转码为ES5语法，css及其他文件不受影响。
+
+- 拷贝`~/es6es5` 内所有文件至`~/publish/lib` 
+
+  | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fp38lpyhxkj30eo0tiwg4.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fp38kwkwsfj30e20umq4l.jpg) |
+  | ------------------------------------------------------------ | ------------------------------------------------------------ |
+  | `~/es6es5`                                                   | `~/publish/lib`                                              |
+
+- 在根目录执行命令
+
+  ```Shell
+  npm adduser
+
+  npm publish
+  ```
+
+  > 注意：
+  >
+  > 1、需要先在npm官网注册账号；
+  >
+  > 2、每次发布新版本需要修改publish文件夹下package.json中的version。
