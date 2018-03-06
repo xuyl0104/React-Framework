@@ -25,7 +25,7 @@ class Input extends Component {
                     <div className={"col-8 col-lg-9 d-flex justify-content-between pr-0"}>
                         <input type="text" value={text} onChange={this.onTextChange.bind(this)} placeholder={placeholder} name={name}
                             onFocus={this.focus.bind(this)} onBlur={this.blur.bind(this)}
-                            style={{textAlign: `${align}`, border: 'none', width: '100%', fontSize: '17px'}}/>
+                            style={{textAlign: `${align}`, border: 'none', width: '100%', fontSize: '17px', outline: 'none'}}/>
                         <div className="pt-1 mt-2 ml-2" 
                             style={{display: (clear===true && text !== '' && this.state.showClear) ? '' : 'none'}} 
                             onClick={this.clear.bind(this, name)}>

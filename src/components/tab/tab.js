@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './tab.css';
-import '../../CSS/style.css'; //可以引入CSS文件夹下的字体文件，替代图片图标，节省网络资源
 
 class Tab extends Component {
 

@@ -99,7 +99,7 @@ class Details extends Component {
                             <input type="text" value={"济南市"} placeholder={"始发城市"}
                                 onClick={this.onClick.bind(this)} readOnly="true"/>
                             {/* <div className="ml-2 mr-2"><Icon type="arrow-right" size={'lg'}/></div> */}
-                            <img className="mt-3" src={require("../images/arrowdotted.png")} alt="" style={{width: "20px", height: "10px"}}/>
+                            <img src={require("../images/arrowdotted.png")} alt="" style={{width: "20px", height: "10px"}}/>
                             <input type="text" value={"布宜诺斯艾利斯"} placeholder={"到达城市"} className="text-right"
                                 onClick={this.onClick.bind(this)} readOnly="true"/>
                         </Listview>
