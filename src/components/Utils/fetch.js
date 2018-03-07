@@ -133,7 +133,6 @@ export default class Request {
             ...defaultOptions,
             ...this.options
         };
-        console.log(newOptions)
         return this.buildRequestObservable(this.request(newOptions), newOptions.format|| "json");
     }
     
