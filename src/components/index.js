@@ -18,5 +18,5 @@ export { default as Switch } from './switch';
 export { default as Tab } from './tab';
 export { default as Fetch } from './Utils/fetch';
 export { default as showMessage } from './Utils/showMessage';
-export { default as showModals } from './Utils/showModals';
+export { default as showModal } from './Utils/showModal';
 export { default as showToast } from './Utils/showToast';
