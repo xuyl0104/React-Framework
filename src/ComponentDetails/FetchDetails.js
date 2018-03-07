@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import './ComponentDetails.css';
-import requestObj from '../Utils/fetch';
-import showMessage from '../Utils/showMessage';
-import showToast from '../Utils/showToast';
+import { Fetch as requestObj, showMessage, showToast } from '../components';
 import Header from '../components/header/header';
 import Row from '../components/row/row';
 import Button from '../components/button/button';

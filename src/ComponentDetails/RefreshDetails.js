@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './ComponentDetails.css';
-import requestObj from '../Utils/fetch';
+import { Fetch as requestObj } from '../components';
 import showMessage from '../Utils/showMessage';
 import showToast from '../Utils/showToast';
 import PullRefresh from '../components/pullToRefresh/PullToRefresh';
