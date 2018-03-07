@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './ComponentDetails.css';
-import showMessage from "../Utils/showMessage";
-import showToast from '../Utils/showToast';
+import { showMessage, showToast } from '../components';
 import Header from '../components/header/header';
 import Row from '../components/row/row';
 import Container from '../components/container/container';

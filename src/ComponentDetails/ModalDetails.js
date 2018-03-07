@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './ComponentDetails.css';
 import Card from '../components/card/card';
-import showModal from '../Utils/showModals';
+import { showModal } from '../components';
 import Header from '../components/header/header';
 import Row from '../components/row/row';
 import Container from '../components/container/container';
