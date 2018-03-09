@@ -1,4 +1,4 @@
-# React framework使用说明
+# React组件使用说明
 [![Build Status](https://travis-ci.org/xuyl0104/React-Framework.svg?branch=master)](https://travis-ci.org/xuyl0104/React-Framework)
 
 - [React framework使用说明](#react-framework%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
@@ -29,7 +29,15 @@
 
 ## Install and start
 
-👉 [Demo](http://45.63.37.8:8080/) http://45.63.37.8:8080/
+👉 [组件包Demo](http://45.63.37.8:8080/) http://45.63.37.8:8080/
+
+- 安装组件包
+
+```
+npm install gsp-react --save
+```
+
+- 组件包演示程序
 
 ```
 git clone https://github.com/xuyl0104/React-Framework.git
@@ -206,6 +214,10 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
 | onLeftArrowClick | 返回按钮调用方法 | —      | func       |
 | 内部child元素    | 内嵌元素         | —      | React elem |
 
+```Js
+import { Header } from 'gsp-react';
+```
+
 ```js
 <Header name="Header" 
     onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
@@ -246,6 +258,10 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
 | style                     | 按钮样式数组     | —      | []: object          |
 | size                      | 按钮高度         | "lg"   | string ("lg", "sm") |
 
+```js
+import { Footer } from 'gsp-react';
+```
+
 ```Js
 <Footer size="sm"
     style={[{'color': 'white', 'backgroundColor': '#318ccf'}]}
@@ -254,8 +270,6 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
         this.callBackFooter0]}>
 </Footer>
 ```
-
-
 
 ```javascript
 <Footer size="lg"
@@ -290,6 +304,10 @@ Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/comp
 | newStyle | style={"new"}时设定 | —         | object，例如 {color: 'white', backgroundColor: '#318ccf'}    |
 
 ```js
+import { Button } from 'gsp-react';
+```
+
+```js
 <Button bstyle={"primary"} size="lg" text={"col-12"} col={12} onClick={this.buttonClick.bind(this)} />
 <Button bstyle={"primary"} size="lg" text={"col-6"} col={6} onClick={this.buttonClick.bind(this)} />
 <Button bstyle={"default"} size="lg" text={"col-6"} col={6} onClick={this.buttonClick.bind(this)}/>
@@ -320,6 +338,12 @@ Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/comp
 | name          | 绑定数据表中的名为name的字段 | —      | string                   |
 
 > ==name属性需与数据表中的数据属性对应==  📌
+
+```js
+import { Input } from 'gsp-react';
+```
+
+
 
 ```js
 this.state = {
@@ -375,8 +399,8 @@ onTextChange(e) {
 | duration | Toast显示时长 | 2      | num                                      |
 
 ```javascript
-import showMessage from "../Utils/showMessage";
-import showToast from '../Utils/showToast';
+import { showMessage } from "gsp-react";
+import { showToast } from 'gsp-react';
 
 <Button style={"primary"} size="lg" text="info" col={12} onClick={() => showMessage("info", "这是一条消息", 2)}/>
 
@@ -399,7 +423,7 @@ Modal组件是弹出的对话框及输入框，基于`antd-mobile`的`Modal`组�
 | defaultValue | mode为"prompt"时可以设置，输入框的默认值     | —    | string                     |
 
 ```javascript
-import showModal from '../Utils/showModals';
+import { showModal } from 'gsp-react';
 ```
 
 ```javascript
@@ -479,6 +503,10 @@ Card组件基于Bootstrap v4的[Media-object](https://getbootstrap.com/docs/4.0/
 解释
 
 ![](https://ws3.sinaimg.cn/large/006tKfTcly1fori6v30w4j30fr0cp400.jpg)
+
+```Js
+import { Card } from 'gsp-react';
+```
 
 
 
@@ -686,6 +714,12 @@ Card组件基于Bootstrap v4的[Media-object](https://getbootstrap.com/docs/4.0/
 | min        | 最小时间            | —         | object: Date()                        |
 
 ```js
+import { Picker } from 'gsp-react';
+```
+
+
+
+```js
 <label>日期时间DateTime</label>
 <Listview text={"时间"} onClick={this.handleClick1.bind(this)}>
     <label onClick={this.handleClick1.bind(this)}>{this.state.timestring1}			</label>
@@ -781,17 +815,41 @@ handleSelect1(time) {
 }
 ```
 
+
+
+### Spin
+
+加载数据时显示的等待动画，目前只有三种样式。
+
+| 属性       | 描述     | 默认值    | 类型                   |
+| ---------- | -------- | --------- | ---------------------- |
+| isSpinning | 是否显示 | —         | boolean                |
+| indicator  | 样式图案 | "a"       | string ("a", "b", "c") |
+| size       | 图案大小 | 30        | num                    |
+| color      | 图案颜色 | “#318ccf” | string                 |
+
+```js
+import { Spin } from 'gsp-react';
+
+...
+<Spin isSpinning={this.state.isSpinning} indicator="a" size={40} color={"red"}/>
+```
+
+| ![](https://ws3.sinaimg.cn/large/006tNc79ly1fp6nf0uanyg30al0iqdh4.gif) | ![](https://ws3.sinaimg.cn/large/006tNc79ly1fp6nf0nh23g30am0iq75j.gif) | ![](https://ws3.sinaimg.cn/large/006tNc79ly1fp6nf0uanyg30al0iqdh4.gif) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 样式a                                                        | 样式b                                                        | 样式c                                                        |
+
 ### Refresh/Loadmore
 
 **下拉刷新**组件只是对antd-mobile的[PullToRefresh](https://mobile.ant.design/components/pull-to-refresh-cn/)进行了简单的封装，调用过程相对简单。
 
-如需在刷新时显示旋转加载动画，可以引入`<Spin />`组件并包裹在外层。
+如需在刷新时显示旋转加载动画，可以引入`<Spin />`组件。
 
 ![](https://ws4.sinaimg.cn/large/006tNc79ly1fotyb0fzw1g30aq0iwx6s.gif)
 
 ```js
-import PullRefresh from '../components/pullToRefresh/PullToRefresh';
-import Spin from 'antd/lib/spin';
+import { PullRefresh } from 'gsp-react';
+import { Spin } from 'gsp-react';
 ```
 
 ```js
@@ -809,11 +867,8 @@ this.state = {
 
 
 ```js
-<Spin spinning={this.state.isSpinning} tip={"加载中"} delay={500} size="large">
+<Spin isSpinning={this.state.isSpinning} indicator="a" size={40} />
     <PullRefresh 
-        style={{
-            height: this.state.height - 56,
-        }}
         distanceToRefresh={80}
         indicator={{ activate: '松开刷新', deactivate: '继续下拉刷新', finish: '刷新完成' }}
         refreshing={false} 
@@ -853,14 +908,14 @@ refresh() {
 }
 ```
 
-| 属性                | 描述                             | 默认值                                      | 类型         |
-| ----------------- | ------------------------------ | ---------------------------------------- | ---------- |
-| style             | （目前没搞明白原理…）可以控制`<Spin />`的显示位置 | —                                        | objec      |
-| distanceToRefresh | 激活刷新的的拉动距离                     | 80                                       | num        |
-| indicator         | 组件不同状态时的提示文字                   | { activate: '松开立即刷新', deactivate: '下拉可以刷新', finish: '完成刷新' } | object     |
-| refreshing        | （不建议修改该属性）是否显示刷新状态             | false                                    | bool       |
-| onRefresh         | 必选，刷新回调函数                      | —                                        | func       |
-| 内部child组件         | 调用下拉刷新的长列表                     | —                                        | React elem |
+| 属性              | 描述                                                  | 默认值                                                       | 类型       |
+| ----------------- | ----------------------------------------------------- | ------------------------------------------------------------ | ---------- |
+| ~~style~~         | （~~目前没搞明白原理…）可以控制`<Spin />`的显示位置~~ | —                                                            | ~~object~~ |
+| distanceToRefresh | 激活刷新的的拉动距离                                  | 80                                                           | num        |
+| indicator         | 组件不同状态时的提示文字                              | { activate: '松开立即刷新', deactivate: '下拉可以刷新', finish: '完成刷新' } | object     |
+| refreshing        | （不建议修改该属性）是否显示刷新状态                  | false                                                        | bool       |
+| onRefresh         | 必选，刷新回调函数                                    | —                                                            | func       |
+| 内部child组件     | 调用下拉刷新的长列表                                  | —                                                            | React elem |
 
 **上滑加载**功能因为需要调用React自身的生命周期函数，所以尚未封装为独立的组件。（antd-mobile中的上划加载功能因为强制使用其List组件，且调用不便，所以目前未采用）
 
@@ -869,7 +924,8 @@ refresh() {
 1. 为页面添加`ref` ，这里起名为contentNode
 
    ```js
-   <div className="content" ref={ node => this.contentNode = node }>
+    //此处的className=content的div具有属性 overflow-y: scroll，必须添加，否则无法触发loadMore方法
+   <div className="content" ref={ node => this.contentNode = node }> 
        <Spin spinning={this.state.isSpinning} tip={"加载中"} delay={500} size="large">		
            <PullRefresh 
                style={{
@@ -1012,6 +1068,12 @@ Tab组件添加位置：
 
 示例：
 
+```js
+import { Tab } from 'gsp-react';
+```
+
+
+
 ```Js
 <Tab tabs={['本日', '本周']} 
     selected={this.state.selected} callBack={this.changeTab.bind(this)}/>
@@ -1061,6 +1123,12 @@ TODO：
 | ------------- | -------------- | ------ | ---------- |
 | text          | 左侧描述性信息 | —      | string     |
 | 内部child组件 | 右侧元素       | —      | React elem |
+
+```Js
+import { Listview } from 'gsp-react';
+```
+
+
 
 ```js
 <Listview text={"时间"}>
@@ -1180,6 +1248,12 @@ Checkbox目前有一种样式（之后可能会扩展）。
 | divide单选按钮                               | divide按钮在listitem中                       | line单选按钮                                 | 多选按钮                                     |
 
 ```js
+import { CheckGroup, RadioGroup } from 'gsp-react;
+```
+
+
+
+```js
 <RadioGroup name="payment" mode="divide"
     size="lg"
     option={['签单', '工卡', '微信']} 
@@ -1226,6 +1300,12 @@ Checkbox目前有一种样式（之后可能会扩展）。
 | ![](https://ws1.sinaimg.cn/large/006tKfTcly1fodh0758yuj30ky02eaa5.jpg) | ![](https://ws1.sinaimg.cn/large/006tKfTcly1fodh070tfhj30q80320sz.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fodh1e9ft6j30ky02m74d.jpg) |
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | 默认样式                                     | 自定义按钮颜色                                  | 禁用状态                                     |
+
+```js
+import { Switch } from 'gsp-react';
+```
+
+
 
 ```js
 <Listview text={"索要发票"}>
@@ -1297,7 +1377,7 @@ Checkbox目前有一种样式（之后可能会扩展）。
 1. 引入fetch文件
 
    ```js
-   import requestObj from '../Utils/fetch';
+   import { Fetch as requestObj } from 'gsp-react';
    ```
 
 2. 初始化对象示例
@@ -1394,7 +1474,7 @@ Checkbox目前有一种样式（之后可能会扩展）。
 - 在`~/publish` 目录执行命令
 
   ```Shell
-  npm adduser
+  npm adduser //只在第一次发布时执行
 
   npm publish
   ```
