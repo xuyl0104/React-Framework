@@ -835,7 +835,7 @@ import { Spin } from 'gsp-react';
 <Spin isSpinning={this.state.isSpinning} indicator="a" size={40} color={"red"}/>
 ```
 
-| ![](https://ws3.sinaimg.cn/large/006tNc79ly1fp6nf0uanyg30al0iqdh4.gif) | ![](https://ws3.sinaimg.cn/large/006tNc79ly1fp6nf0nh23g30am0iq75j.gif) | ![](https://ws3.sinaimg.cn/large/006tNc79ly1fp6nf0uanyg30al0iqdh4.gif) |
+| ![](https://ws1.sinaimg.cn/large/006tNc79ly1fp6nft9nn7g30ap0iqwfp.gif) | ![](https://ws3.sinaimg.cn/large/006tNc79ly1fp6nf0nh23g30am0iq75j.gif) | ![](https://ws3.sinaimg.cn/large/006tNc79ly1fp6nf0uanyg30al0iqdh4.gif) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 样式a                                                        | 样式b                                                        | 样式c                                                        |
 
