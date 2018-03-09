@@ -174,12 +174,12 @@ class Details extends Component {
                     </Header>
                     <Content>
                         <div className="content" ref={ node => this.contentNode = node }>
-                            <Spin isSpinning={this.state.isSpinning} indicator="a" size={40} />
+                            <Spin isSpinning={this.state.isSpinning} indicator="a" size={40} color={"#318ccf"}/>
                             <PullRefresh 
-                                style={{
-                                    height: this.state.height - 56,
-                                }}
-                                distanceToRefresh={80}
+                                // style={{
+                                //     height: this.state.height - 56,
+                                // }}
+                                // distanceToRefresh={80}
                                 // indicator={{ activate: '松开刷新', deactivate: '继续下拉刷新', finish: '刷新完成' }}
                                 refreshing={this.state.isRefreshing} 
                                 onRefresh={this.refresh.bind(this)}

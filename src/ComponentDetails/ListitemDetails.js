@@ -33,7 +33,7 @@ class Details extends Component {
         return (
             <div className="transition-item detail-page">
                 <Container>
-                    <Header name="Listitem" 
+                    <Header name="Listview" 
                         onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
                     </Header>
                     <Content padding={[0, 0, 0, 0]} bgColor={'#e8e8e8'}>

@@ -14,7 +14,7 @@ class Details extends Component {
     }
 
     render() {
-        let finishedComponent = ['Button', 'Input', 'Message', 'Modal', 'Card', 'Stepper', 'Picker', 'Header', 'Footer', 'Refresh/Load More', 'RadioCheck', 'Listitem', 'Tab', 'Fetch', 'Page template', 'Page transition'];
+        let finishedComponent = ['Button', 'Input', 'Message', 'Modal', 'Card', 'Stepper', 'Picker', 'Header', 'Footer', 'Refresh/Load More', 'RadioCheck', 'Listview', 'Tab', 'Fetch', 'Page template', 'Page transition'];
         let finishedIndicator = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
         let displayDivs = finishedComponent.map((item, index) => {
             return (
