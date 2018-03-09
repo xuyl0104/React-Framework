@@ -16,6 +16,7 @@
         - [Modal](#modal)
         - [Card](#card)
         - [Picker](#picker)
+        - [Spin](#Spin)
         - [Refresh/Loadmore](#refreshloadmore)
         - [Tab](#tab)
         - [Listitem](#listitem)
