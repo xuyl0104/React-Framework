@@ -25,7 +25,7 @@ class Spin extends Component {
         let indicatorSize = this.props.size || 30;
         let indicatorColor = this.props.color || "#318ccf";
         return (
-            <div className="spin" style={{display: isSpinning ? 'block' : 'none'}}>
+            <div className="gsp-spin" style={{display: isSpinning ? 'block' : 'none'}}>
                 <div className="theIcon">
                     <i className={`${className} animate-spin`} 
                         style={{fontSize: `${indicatorSize}px`, color: indicatorColor, marginLeft: `${-indicatorSize/2}px`}}>

@@ -1,29 +1,21 @@
-/* .footer {
-    font-size: 18px;
-}
-
-.footer div {
-    padding: 15px 0;
-} */
-
-.buttonHeight-lg {
+.gsp-footer .buttonHeight-lg {
     font-size: 18px;
     height: 56px;
 }
 
-.buttonHeight-sm {
+.gsp-footer .buttonHeight-sm {
     font-size: 14px;
     height: 44px;
 }
 
-.py-11 {
+.gsp-footer .py-11 {
     padding: 11px 0;
 }
 
-.py-15 {
+.gsp-footer .py-15 {
     padding: 15px 0;
 }
 
-.w-33 {
+.gsp-footer .w-33 {
     width: 33.3%;
 }

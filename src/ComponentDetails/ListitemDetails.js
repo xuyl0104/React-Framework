@@ -37,7 +37,7 @@ class Details extends Component {
                         onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
                     </Header>
                     <Content padding={[0, 0, 0, 0]} bgColor={'#e8e8e8'}>
-                        <Listview text={"时间"}>
+                        <Listview text={"时间"} required={true}>
                             <input type="text" value={"2018-01-30 16:45:30"} placeholder={"请输入时间"}
                                 onClick={this.onClick.bind(this)} readOnly="true" style={{width: '100%'}}/>
                         </Listview>

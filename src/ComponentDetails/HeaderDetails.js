@@ -52,13 +52,11 @@ class Details extends Component {
                 <Container>
                     {headerDiv}
                     <Content>
-                        <div className="content">
-                            <Row>
-                                <Button bstyle={"primary"} size="" text="无按钮的header" col={12} onClick={this.onButtonClick.bind(this, 0)}/>
-                                <Button bstyle={"primary"} size="" text="一个按钮的header" col={12} onClick={this.onButtonClick.bind(this, 1)}/>
-                                <Button bstyle={"primary"} size="" text="多个按钮的header" col={12} onClick={this.onButtonClick.bind(this, 2)}/>
-                            </Row>                                                
-                        </div>
+                        <Row>
+                            <Button bstyle={"primary"} size="" text="无按钮的header" col={12} onClick={this.onButtonClick.bind(this, 0)}/>
+                            <Button bstyle={"primary"} size="" text="一个按钮的header" col={12} onClick={this.onButtonClick.bind(this, 1)}/>
+                            <Button bstyle={"primary"} size="" text="多个按钮的header" col={12} onClick={this.onButtonClick.bind(this, 2)}/>
+                        </Row>                                                
                     </Content>
                 </Container>
             </div>

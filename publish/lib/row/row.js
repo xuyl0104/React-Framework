@@ -32,12 +32,13 @@ var Row = function (_Component) {
     _createClass(Row, [{
         key: 'render',
         value: function render() {
+            var padding = this.props.padding || "0";
             return _react2.default.createElement(
                 'div',
                 null,
                 _react2.default.createElement(
                     'div',
-                    { className: 'row', style: { 'margin': '0 0' } },
+                    { className: 'row', style: { 'margin': '0', padding: padding } },
                     this.renderChildren(this.props)
                 )
             );

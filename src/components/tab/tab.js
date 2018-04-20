@@ -50,7 +50,7 @@ class Tab extends Component {
             );
         });
         return (
-            <div className="nav-tabs">
+            <div className="gsp-tabs">
                 {tabDivs}
             </div>
         );

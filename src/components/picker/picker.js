@@ -13,7 +13,7 @@ class Picker extends Component {
         let theme = this.props.theme || "android";
         let min = this.props.min;
         return (
-            <div>
+            <div className='gsp-timepicker'>
                 <DatePicker
                     value={value}
                     isOpen={isOpen}

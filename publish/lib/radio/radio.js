@@ -67,7 +67,7 @@ var RadioGroup = function (_Component) {
                 radioDivs = options.map(function (option, index) {
                     return _react2.default.createElement(
                         'div',
-                        { className: 'divide ' + size + ' ' + (selected === values[index] ? 'active' : ''),
+                        { className: 'divide ' + size + ' ' + (selected === values[index] ? 'radio-active' : ''),
                             key: index, onClick: _this2.onRadioClick.bind(_this2, values[index]) },
                         options[index]
                     );
@@ -110,7 +110,7 @@ var RadioGroup = function (_Component) {
 
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'gsp-radio' },
                 radioDivs
             );
         }

@@ -1,11 +1,11 @@
-.form-group-input {
+.gsp-input .form-group-input {
     border-bottom: 1px solid rgb(221, 218, 218);
     padding: 0 15px;
     background-color: white;
     height: 44px;
 }
 
-.form-group-input>label {
+.gsp-input .form-group-input>label {
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: left;
@@ -18,22 +18,14 @@
 
 }
 
-.form-group-input>input[type="text"] {
+.gsp-input .form-group-input>input[type="text"] {
     border: none;
     font-size: 18px !important;
     padding: 11px 4px;
     width: 95%;
 }
 
-input::-webkit-input-placeholder {
+.gsp-input input::-webkit-input-placeholder {
     color: #aab2bd;
     font-size: 17px;
 }
-
-
-/* label {
-    font-size: 12px;
-    font-weight: normal;
-    color: #999;
-    margin-bottom: 0px;
-} */

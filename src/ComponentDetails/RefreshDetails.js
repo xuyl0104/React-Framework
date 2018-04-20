@@ -173,7 +173,7 @@ class Details extends Component {
                         onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
                     </Header>
                     <Content>
-                        <div className="content" ref={ node => this.contentNode = node }>
+                        <div className="scroll" ref={ node => this.contentNode = node }>
                             <Spin isSpinning={this.state.isSpinning} indicator="a" size={40} color={"#318ccf"}/>
                             <PullRefresh 
                                 // style={{

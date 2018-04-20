@@ -58,7 +58,7 @@ var Listview = function (_Component) {
             }
             return _react2.default.createElement(
                 'div',
-                { className: 'listview d-flex',
+                { className: 'gsp-listview d-flex',
                     onClick: this.props.onClick },
                 _react2.default.createElement(
                     'label',

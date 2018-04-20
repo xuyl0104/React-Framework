@@ -4,9 +4,10 @@ import './row.css';
 class Row extends Component {
     
     render() {
+        let padding = this.props.padding || "0";
         return (
             <div>
-                <div className="row" style={{'margin': '0 0'}}>
+                <div className="row" style={{'margin': '0', padding: padding}}>
                     {this.renderChildren(this.props)}
                 </div>
             </div>

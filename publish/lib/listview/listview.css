@@ -1,11 +1,11 @@
-.listview {
+.gsp-listview {
     border-bottom: 1px solid rgb(221, 218, 218);
     padding: 0 15px;
     background-color: white;
     height: 44px;
 }
 
-.listview > label {
+.gsp-listview > label {
     font-size: 17px;
     color: black;
     display: inline-block;
@@ -17,7 +17,7 @@
     overflow:hidden;
 }
 
-.listview .itemContent > label {
+.gsp-listview .itemContent > label {
     font-size: 17px;
     color: black;
     display: inline-block;
@@ -29,7 +29,7 @@
     overflow:hidden;
 }
 
-.listview .itemContent > input[type="text"] {
+.gsp-listview .itemContent > input[type="text"] {
     color: black;
     border: none;
     width: 45%;

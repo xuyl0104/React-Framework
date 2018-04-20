@@ -48,7 +48,7 @@ class Footer extends Component {
         })
 
         return (
-            <div>
+            <div className='gsp-footer'>
                 <div className="w-100">
                     {footerButtonDiv}
                 </div>

@@ -41,31 +41,35 @@ var Header = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'w-100' },
+        { className: 'gsp-header' },
         _react2.default.createElement(
-          _row2.default,
-          null,
+          'div',
+          { className: 'w-100' },
           _react2.default.createElement(
-            'div',
-            { className: 'col-3 no-gutter header pl-0' },
-            _react2.default.createElement('div', { className: 'icon-left-open-big', style: { fontSize: '25px', marginTop: '5px', marginLeft: '0' }, onClick: this.props.onLeftArrowClick })
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'col-6 no-gutter header pl-0' },
-            _react2.default.createElement(
-              'span',
-              { className: 'header header-brand' },
-              this.props.name
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'col-3 no-gutter header pl-0' },
+            _row2.default,
+            null,
             _react2.default.createElement(
               'div',
-              { className: 'float-right buttonright' },
-              this.renderChildren(this.props)
+              { className: 'col-3 no-gutter header pl-0' },
+              _react2.default.createElement('div', { className: 'icon-left-open-big', style: { fontSize: '25px', marginTop: '5px', marginLeft: '0' }, onClick: this.props.onLeftArrowClick })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-6 no-gutter header pl-0' },
+              _react2.default.createElement(
+                'span',
+                { className: 'header header-brand' },
+                this.props.name
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-3 no-gutter header pl-0' },
+              _react2.default.createElement(
+                'div',
+                { className: 'float-right buttonright' },
+                this.renderChildren(this.props)
+              )
             )
           )
         )

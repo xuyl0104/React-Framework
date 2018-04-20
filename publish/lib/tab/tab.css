@@ -1,4 +1,4 @@
-.nav-tabs {
+.gsp-tabs {
     width: 100%;
     height: 40px;
     /* position: fixed; */
@@ -6,7 +6,7 @@
     z-index: 999;
 }
 
-.nav-tabs div {
+.gsp-tabs div {
     float: left;
     background: #fff;
     color: #555;
@@ -15,58 +15,58 @@
     line-height: 18px;
 }
 
-.nav-tabs div.twoCols {
+.gsp-tabs div.twoCols {
     position: relative;
     width: 50%;
 }
 
-.nav-tabs div.threeCols {
+.gsp-tabs div.threeCols {
     position: relative;
     width: 33.3333%;
 }
 
-.nav-tabs div.fourCols {
+.gsp-tabs div.fourCols {
     position: relative;
     width: 25%;
 }
 
-.nav-tabs div.fiveCols {
+.gsp-tabs div.fiveCols {
     position: relative;
     width: 20%;
 }
 
-/* .nav-tabs div.active {
+/* .gsp-tabs div.active {
     border-bottom: 2px solid #318ccf;
     color: #318ccf;
 } */
 
-.nav-tabs .oneway:after {
+.gsp-tabs .oneway:after {
     content: "|";
     color: #ccc;
     position: absolute;
     right: 50%;
 }
 
-.nav-tabs .fiveCols {
+.gsp-tabs .fiveCols {
     width: 20.0%;
 }
 
-.nav-tabs .fourCols {
+.gsp-tabs .fourCols {
     width: 25.0%;
 }
 
-.nav-tabs .threeCols {
+.gsp-tabs .threeCols {
     width: 33.3333%;
 }
 
-.nav-tabs .twoCols {
+.gsp-tabs .twoCols {
     width: 50%;
 }
 
 
 /* twoCols */
 
-.nav-tabs .twoCols:first-child:after {
+.gsp-tabs .twoCols:first-child:after {
     content: "|";
     color: #ccc;
     position: absolute;
@@ -76,14 +76,14 @@
 
 /* threeCols */
 
-.nav-tabs .threeCols:nth-child(1):after {
+.gsp-tabs .threeCols:nth-child(1):after {
     content: "|";
     color: #ccc;
     position: absolute;
     right: 0%;
 }
 
-.nav-tabs .threeCols:nth-child(2):after {
+.gsp-tabs .threeCols:nth-child(2):after {
     content: "|";
     color: #ccc;
     position: absolute;
@@ -93,21 +93,21 @@
 
 /* fourCols */
 
-.nav-tabs .fourCols:nth-child(1):after {
+.gsp-tabs .fourCols:nth-child(1):after {
     content: "|";
     color: #ccc;
     position: absolute;
     right: 0%;
 }
 
-.nav-tabs .fourCols:nth-child(2):after {
+.gsp-tabs .fourCols:nth-child(2):after {
     content: "|";
     color: #ccc;
     position: absolute;
     right: 0%;
 }
 
-.nav-tabs .fourCols:nth-child(3):after {
+.gsp-tabs .fourCols:nth-child(3):after {
     content: "|";
     color: #ccc;
     position: absolute;
@@ -117,55 +117,30 @@
 
 /* fiveCols */
 
-.nav-tabs .fiveCols:first-child:after {
+.gsp-tabs .fiveCols:first-child:after {
     content: "|";
     color: #ccc;
     position: absolute;
     right: 0%;
 }
 
-.nav-tabs .fiveCols:nth-child(2):after {
+.gsp-tabs .fiveCols:nth-child(2):after {
     content: "|";
     color: #ccc;
     position: absolute;
     right: 0%;
 }
 
-.nav-tabs .fiveCols:nth-child(3):after {
+.gsp-tabs .fiveCols:nth-child(3):after {
     content: "|";
     color: #ccc;
     position: absolute;
     right: 0%;
 }
 
-.nav-tabs .fiveCols:nth-child(4):after {
+.gsp-tabs .fiveCols:nth-child(4):after {
     content: "|";
     color: #ccc;
     position: absolute;
     right: 0%;
 }
-
-
-/* border-bottom-line */
-/* .nav-tabs .line-2 {
-    width: 50%;
-    height: 1px;
-    background-color: #318ccf;
-    margin: 38px 0 0 0;
-}
-
-.nav-tabs .no2right-1 {
-    transform: translateX(100%) 0.5s;
-}
-.nav-tabs .no2left-1 {
-    transform: translateX(0%) 0.2s;
-} */
-
-/* @keyframes no2right-1 {
-    0% {left: 0;}
-    100% {left: 50%;}
-}
-@keyframes no2right-1 {
-    0% {left: 0;}
-    100% {left: 50%;}
-} */

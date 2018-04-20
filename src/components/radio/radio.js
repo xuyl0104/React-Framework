@@ -28,7 +28,7 @@ class RadioGroup extends Component {
         if(mode === "divide") {
             radioDivs = options.map((option, index) => {
                 return (
-                    <div className={`divide ${size} ${selected === values[index] ? 'active' : ''}`}
+                    <div className={`divide ${size} ${selected === values[index] ? 'radio-active' : ''}`}
                         key={index} onClick={this.onRadioClick.bind(this, values[index])}>
                         {options[index]}
                     </div>
@@ -69,7 +69,7 @@ class RadioGroup extends Component {
         }
         
         return (
-            <div>
+            <div className='gsp-radio'>
                 {radioDivs}
             </div>
         );

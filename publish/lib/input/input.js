@@ -52,34 +52,38 @@ var Input = function (_Component) {
             var clear = this.props.clear;
             return _react2.default.createElement(
                 'div',
-                { className: 'form-group-input d-flex',
-                    onClick: this.props.onClick },
-                _react2.default.createElement(
-                    'label',
-                    { className: "col-4 col-lg-3" },
-                    _react2.default.createElement(
-                        'nobr',
-                        null,
-                        label
-                    )
-                ),
+                { className: 'gsp-input' },
                 _react2.default.createElement(
                     'div',
-                    { className: "col-8 col-lg-9 d-flex justify-content-between pr-0" },
-                    _react2.default.createElement('input', { type: 'text', value: text, onChange: this.onTextChange.bind(this), placeholder: placeholder, name: name,
-                        onFocus: this.focus.bind(this), onBlur: this.blur.bind(this),
-                        style: { textAlign: '' + align, border: 'none', width: '100%', fontSize: '17px', outline: 'none' } }),
+                    { className: 'form-group-input d-flex',
+                        onClick: this.props.onClick },
                     _react2.default.createElement(
-                        'div',
-                        { className: 'pt-1 mt-2 ml-2',
-                            style: { display: clear === true && text !== '' && this.state.showClear ? '' : 'none' },
-                            onClick: this.clear.bind(this, name) },
-                        _react2.default.createElement(_icon2.default, { type: 'cross-circle-o', size: 'xs', color: "#aaa" })
+                        'label',
+                        { className: "col-4 col-lg-3" },
+                        _react2.default.createElement(
+                            'nobr',
+                            null,
+                            label
+                        )
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'pt-2 ml-2' },
-                        image
+                        { className: "col-8 col-lg-9 d-flex justify-content-between pr-0" },
+                        _react2.default.createElement('input', { type: 'text', value: text, onChange: this.onTextChange.bind(this), placeholder: placeholder, name: name,
+                            onFocus: this.focus.bind(this), onBlur: this.blur.bind(this),
+                            style: { textAlign: '' + align, border: 'none', width: '100%', fontSize: '17px', outline: 'none' } }),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'pt-1 mt-2 ml-2',
+                                style: { display: clear === true && text !== '' && this.state.showClear ? '' : 'none' },
+                                onClick: this.clear.bind(this, name) },
+                            _react2.default.createElement(_icon2.default, { type: 'cross-circle-o', size: 'xs', color: "#aaa" })
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'pt-2 ml-2' },
+                            image
+                        )
                     )
                 )
             );

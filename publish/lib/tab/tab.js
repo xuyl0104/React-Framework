@@ -82,7 +82,7 @@ var Tab = function (_Component) {
             });
             return _react2.default.createElement(
                 'div',
-                { className: 'nav-tabs' },
+                { className: 'gsp-tabs' },
                 tabDivs
             );
         }

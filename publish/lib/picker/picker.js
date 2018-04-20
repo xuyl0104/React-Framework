@@ -46,7 +46,7 @@ var Picker = function (_Component) {
             var min = this.props.min;
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'gsp-timepicker' },
                 _react2.default.createElement(_reactMobileDatepicker2.default, {
                     value: value,
                     isOpen: isOpen,

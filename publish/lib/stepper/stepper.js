@@ -47,7 +47,7 @@ var Stepper = function (_Component) {
             });
             return _react2.default.createElement(
                 'div',
-                { className: 'stepper' },
+                { className: 'gsp-stepper' },
                 _react2.default.createElement(
                     _steps2.default,
                     { current: current, direction: direction },

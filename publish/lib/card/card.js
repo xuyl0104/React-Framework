@@ -52,55 +52,59 @@ var Card = function (_Component) {
             if (position === "bottom") {
                 return _react2.default.createElement(
                     'div',
-                    { className: 'card', style: { 'padding': padding, 'margin': margin, borderRadius: '0', width: width }, onClick: this.props.onClick },
-                    this.renderChildren(this.props),
+                    { className: 'gsp-card' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'media' },
-                        this.props.avatar,
+                        { className: 'card', style: { 'padding': padding, 'margin': margin, borderRadius: '0', width: width }, onClick: this.props.onClick },
+                        this.renderChildren(this.props),
                         _react2.default.createElement(
                             'div',
-                            { className: 'media-body' },
+                            { className: 'media' },
+                            this.props.avatar,
                             _react2.default.createElement(
                                 'div',
-                                { className: 'd-flex ml-1 justify-content-between' },
+                                { className: 'media-body' },
                                 _react2.default.createElement(
                                     'div',
-                                    { className: 'pt-1 align-self-start' },
-                                    title
+                                    { className: 'd-flex ml-1 justify-content-between' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'pt-1 align-self-start' },
+                                        title
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'pt-1 align-self-start' },
+                                        topRight
+                                    )
                                 ),
                                 _react2.default.createElement(
                                     'div',
-                                    { className: 'pt-1 align-self-start' },
-                                    topRight
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'd-flex ml-1 justify-content-between' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'pt-1 align-self-start' },
-                                    middleLeft
+                                    { className: 'd-flex ml-1 justify-content-between' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'pt-1 align-self-start' },
+                                        middleLeft
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'pt-1 align-self-start' },
+                                        middleRight
+                                    )
                                 ),
                                 _react2.default.createElement(
                                     'div',
-                                    { className: 'pt-1 align-self-start' },
-                                    middleRight
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'd-flex ml-1 justify-content-between' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'pt-1 align-self-end' },
-                                    text
-                                ),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'pt-1 align-self-end' },
-                                    bottomRight
+                                    { className: 'd-flex ml-1 justify-content-between' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'pt-1 align-self-end' },
+                                        text
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'pt-1 align-self-end' },
+                                        bottomRight
+                                    )
                                 )
                             )
                         )
@@ -109,59 +113,63 @@ var Card = function (_Component) {
             } else {
                 return _react2.default.createElement(
                     'div',
-                    { className: 'card', style: { 'padding': '8px 8px', borderRadius: '0' }, onClick: this.props.onClick },
+                    { className: 'gsp-card' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'media' },
-                        this.props.avatar,
+                        { className: 'card', style: { 'padding': '8px 8px', borderRadius: '0' }, onClick: this.props.onClick },
                         _react2.default.createElement(
                             'div',
-                            { className: 'media-body' },
+                            { className: 'media' },
+                            this.props.avatar,
                             _react2.default.createElement(
                                 'div',
-                                { className: 'd-flex ml-1 justify-content-between' },
+                                { className: 'media-body' },
                                 _react2.default.createElement(
                                     'div',
-                                    { className: 'pt-1 align-self-start' },
-                                    title
+                                    { className: 'd-flex ml-1 justify-content-between' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'pt-1 align-self-start' },
+                                        title
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'pt-1 align-self-start' },
+                                        topRight
+                                    )
                                 ),
                                 _react2.default.createElement(
                                     'div',
-                                    { className: 'pt-1 align-self-start' },
-                                    topRight
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'd-flex ml-1 justify-content-between' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'pt-1 align-self-start' },
-                                    middleLeft
+                                    { className: 'd-flex ml-1 justify-content-between' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'pt-1 align-self-start' },
+                                        middleLeft
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'pt-1 align-self-start' },
+                                        middleRight
+                                    )
                                 ),
                                 _react2.default.createElement(
                                     'div',
-                                    { className: 'pt-1 align-self-start' },
-                                    middleRight
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'd-flex ml-1 justify-content-between' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'pt-1 align-self-end' },
-                                    text
-                                ),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'pt-1 align-self-end' },
-                                    bottomRight
+                                    { className: 'd-flex ml-1 justify-content-between' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'pt-1 align-self-end' },
+                                        text
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'pt-1 align-self-end' },
+                                        bottomRight
+                                    )
                                 )
                             )
-                        )
-                    ),
-                    this.renderChildren(this.props)
+                        ),
+                        this.renderChildren(this.props)
+                    )
                 );
             }
         }

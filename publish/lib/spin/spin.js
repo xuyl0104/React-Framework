@@ -57,7 +57,7 @@ var Spin = function (_Component) {
             var indicatorColor = this.props.color || "#318ccf";
             return _react2.default.createElement(
                 'div',
-                { className: 'spin', style: { display: isSpinning ? 'block' : 'none' } },
+                { className: 'gsp-spin', style: { display: isSpinning ? 'block' : 'none' } },
                 _react2.default.createElement(
                     'div',
                     { className: 'theIcon' },

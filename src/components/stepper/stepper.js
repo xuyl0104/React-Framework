@@ -15,7 +15,7 @@ class Stepper extends Component {
             );
         });
         return (
-            <div className="stepper">
+            <div className="gsp-stepper">
                 <Steps current={current} direction={direction}>
                     {stepDivs}
                 </Steps>

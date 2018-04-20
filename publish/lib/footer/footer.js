@@ -82,7 +82,7 @@ var Footer = function (_Component) {
 
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'gsp-footer' },
                 _react2.default.createElement(
                     'div',
                     { className: 'w-100' },

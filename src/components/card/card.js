@@ -22,33 +22,35 @@ class Card extends Component {
 
         if(position === "bottom") {
             return (
-                <div className="card" style={{'padding': padding, 'margin': margin, borderRadius: '0', width: width}} onClick={this.props.onClick}>
-                    {this.renderChildren(this.props)}
-                    <div className="media">
-                        {this.props.avatar}
-                        <div className="media-body">
-                            <div className="d-flex ml-1 justify-content-between">
-                                <div className={`pt-1 align-self-start`}>
-                                    {title}
+                <div className='gsp-card'>
+                    <div className="card" style={{'padding': padding, 'margin': margin, borderRadius: '0', width: width}} onClick={this.props.onClick}>
+                        {this.renderChildren(this.props)}
+                        <div className="media">
+                            {this.props.avatar}
+                            <div className="media-body">
+                                <div className="d-flex ml-1 justify-content-between">
+                                    <div className={`pt-1 align-self-start`}>
+                                        {title}
+                                    </div>
+                                    <div className={`pt-1 align-self-start`}>
+                                        {topRight}
+                                    </div>
                                 </div>
-                                <div className={`pt-1 align-self-start`}>
-                                    {topRight}
+                                <div className="d-flex ml-1 justify-content-between">
+                                    <div className={`pt-1 align-self-start`}>
+                                        {middleLeft}
+                                    </div>
+                                    <div className={`pt-1 align-self-start`}>
+                                        {middleRight}
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="d-flex ml-1 justify-content-between">
-                                <div className={`pt-1 align-self-start`}>
-                                    {middleLeft}
-                                </div>
-                                <div className={`pt-1 align-self-start`}>
-                                    {middleRight}
-                                </div>
-                            </div>
-                            <div className="d-flex ml-1 justify-content-between">
-                                <div className={`pt-1 align-self-end`}>
-                                    {text}
-                                </div>
-                                <div className={`pt-1 align-self-end`}>
-                                    {bottomRight}
+                                <div className="d-flex ml-1 justify-content-between">
+                                    <div className={`pt-1 align-self-end`}>
+                                        {text}
+                                    </div>
+                                    <div className={`pt-1 align-self-end`}>
+                                        {bottomRight}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -57,37 +59,39 @@ class Card extends Component {
             );
         } else {
             return (
-                <div className="card" style={{'padding': '8px 8px', borderRadius: '0'}} onClick={this.props.onClick}>
-                    <div className="media">
-                        {this.props.avatar}
-                        <div className="media-body">
-                            <div className="d-flex ml-1 justify-content-between">
-                                <div className={`pt-1 align-self-start`}>
-                                    {title}
+                <div className='gsp-card'>
+                    <div className="card" style={{'padding': '8px 8px', borderRadius: '0'}} onClick={this.props.onClick}>
+                        <div className="media">
+                            {this.props.avatar}
+                            <div className="media-body">
+                                <div className="d-flex ml-1 justify-content-between">
+                                    <div className={`pt-1 align-self-start`}>
+                                        {title}
+                                    </div>
+                                    <div className={`pt-1 align-self-start`}>
+                                        {topRight}
+                                    </div>
                                 </div>
-                                <div className={`pt-1 align-self-start`}>
-                                    {topRight}
+                                <div className="d-flex ml-1 justify-content-between">
+                                    <div className={`pt-1 align-self-start`}>
+                                        {middleLeft}
+                                    </div>
+                                    <div className={`pt-1 align-self-start`}>
+                                        {middleRight}
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="d-flex ml-1 justify-content-between">
-                                <div className={`pt-1 align-self-start`}>
-                                    {middleLeft}
-                                </div>
-                                <div className={`pt-1 align-self-start`}>
-                                    {middleRight}
-                                </div>
-                            </div>
-                            <div className="d-flex ml-1 justify-content-between">
-                                <div className={`pt-1 align-self-end`}>
-                                    {text}
-                                </div>
-                                <div className={`pt-1 align-self-end`}>
-                                    {bottomRight}
+                                <div className="d-flex ml-1 justify-content-between">
+                                    <div className={`pt-1 align-self-end`}>
+                                        {text}
+                                    </div>
+                                    <div className={`pt-1 align-self-end`}>
+                                        {bottomRight}
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        {this.renderChildren(this.props)}
                     </div>
-                    {this.renderChildren(this.props)}
                 </div>
             );
         }
