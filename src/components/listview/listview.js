@@ -9,6 +9,7 @@ class Listview extends Component {
         let tagClassName;
         let tagClassNameLg;
         let length = this.props.children.length;
+        let required = this.props.required || false;
         if(!this.props.children.length) {
             length = 1;
         }
@@ -29,9 +30,9 @@ class Listview extends Component {
                 break;
         }
         return (
-            <div className="listview d-flex" 
+            <div className="gsp-listview d-flex" 
                 onClick={this.props.onClick}>
-                    <label className={"col-"+tagClassName+" col-lg-"+(tagClassNameLg)+ " col-md-"+(tagClassNameLg)}><nobr>{text}</nobr></label>
+                    <label className={"col-"+tagClassName+" col-lg-"+(tagClassNameLg)+ " col-md-"+(tagClassNameLg) + `${required === true ? ' content-required' : ''}`}><nobr>{text}</nobr></label>
                     <div className={"itemContent col-"+(12-tagClassName)+" col-lg-"+(12-tagClassNameLg)+" col-md-"+(12-tagClassNameLg)+" d-flex justify-content-between align-items-center pr-0"}>
                         {this.props.children}
                     </div>
