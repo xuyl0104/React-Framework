@@ -18,7 +18,7 @@
 }
 
 .gsp-listview .content-required:after {
-    content: '*';
+    content: ' *';
 	color: rgb(247, 46, 46);
 }
 

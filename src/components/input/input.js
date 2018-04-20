@@ -18,11 +18,13 @@ class Input extends Component {
         let align = this.props.align || "left";
         let image = this.props.img;
         let clear = this.props.clear;
+        let required = this.props.required || false;
+    
         return (
             <div className='gsp-input'>
                 <div className="form-group-input d-flex" 
                     onClick={this.props.onClick}>
-                        <label className={"col-4 col-lg-3"}><nobr>{label}</nobr></label>
+                        <label className={"col-4 col-lg-3" + (required === true ? ' input-required' : '')}><nobr>{label}</nobr></label>
                         <div className={"col-8 col-lg-9 d-flex justify-content-between pr-0"}>
                             <input type="text" value={text} onChange={this.onTextChange.bind(this)} placeholder={placeholder} name={name}
                                 onFocus={this.focus.bind(this)} onBlur={this.blur.bind(this)}

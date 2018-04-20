@@ -5,6 +5,11 @@
     height: 44px;
 }
 
+.gsp-input .form-group-input .input-required:after {
+    content: ' *';
+	color: rgb(247, 46, 46);
+}
+
 .gsp-input .form-group-input>label {
     overflow: hidden;
     text-overflow: ellipsis;

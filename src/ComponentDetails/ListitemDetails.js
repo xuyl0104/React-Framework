@@ -48,7 +48,7 @@ class Details extends Component {
                         </Listview>
 
                         {/* 空div占位实现第二个child右对齐 */}
-                        <Listview text={"所在单位"}>
+                        <Listview text={"所在单位"} required={true}>
                             <label onClick={this.onClick.bind(this)}>{"浪潮国际平台与技术部"}</label>
                             <div className="ml-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
                         </Listview>
@@ -58,7 +58,7 @@ class Details extends Component {
                             <div className="ml-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
                         </Listview>
 
-                        <Listview text={"会议结束时间"}>
+                        <Listview text={"会议结束时间"} required={true}>
                             <label onClick={this.onClick.bind(this)}>{"2018-01-30 16:30"}</label>
                             <div className="ml-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
                         </Listview>
@@ -109,7 +109,7 @@ class Details extends Component {
                             <div className="ml-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
                         </Listview>
 
-                        <Listview text={"这是十分长的label"}>
+                        <Listview text={"这是十分长的label"} required={true}>
                             <label onClick={this.onClick.bind(this)}>{"浪潮国际平台与技术部 陈经理"}</label>
                             <div className="ml-2" onClick={this.onClick.bind(this)}><Icon type="right" size={'lg'}/></div>
                         </Listview>
@@ -124,12 +124,12 @@ class Details extends Component {
                             <Switch checked={this.state.switchChecked} onChange={this.onSwitchChange.bind(this)} disabled/>
                         </Listview>
 
-                        <Listview text={"删除购买历史"}>
+                        <Listview text={"删除购买历史"} required={true}>
                             <div></div>
                             <Switch checked={this.state.switchChecked} onChange={this.onSwitchChange.bind(this)} color={"#318ccf"}/>
                         </Listview>
 
-                        <Listview text={"支付方式"}>
+                        <Listview text={"支付方式"} required={true}>
                             <div></div>
                             <RadioGroup name="payment" mode="divide"
                                 size="sm"
