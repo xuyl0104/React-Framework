@@ -6,6 +6,9 @@
 #backupfiles
 /backup
 
+#publish folder
+/publish
+
 #intermediate files when escape using babel
 /es6es5
 
