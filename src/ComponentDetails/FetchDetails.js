@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './ComponentDetails.css';
-import { Fetch as requestObj, showMessage, showToast } from '../components';
+import { Fetch as requestObj, ShowMessage, ShowToast } from '../components';
 import Header from '../components/header/header';
 import Row from '../components/row/row';
 import Button from '../components/button/button';
@@ -26,19 +26,19 @@ class Details extends Component {
             this.setState({
                 results: result
             }, () => {
-                showMessage("success", "列表获取成功！");
+                ShowMessage("success", "列表获取成功！");
             });
             
         }, function (err) {
             if(err.status === 'timeout') {
-                showMessage("info", "网络超时，请重试");
+                ShowMessage("info", "网络超时，请重试");
             }
             if(err.status=== 'offline') {
-                showToast("offline", "网络连接不可用，请检查网络设置");
+                ShowToast("offline", "网络连接不可用，请检查网络设置");
             }
             if(err.status=== 'error') {
                 console.log(err);
-                showMessage("info", "列表获取失败，请重试");
+                ShowMessage("info", "列表获取失败，请重试");
             }
         })
     }
@@ -66,19 +66,19 @@ class Details extends Component {
             this.setState({
                 results: result
             }, () => {
-                showMessage("success", "下单成功！");
+                ShowMessage("success", "下单成功！");
             });
             
         }, function (err) {
             if(err.status === 'timeout') {
-                showMessage("info", "网络超时，请重试");
+                ShowMessage("info", "网络超时，请重试");
             }
             if(err.status=== 'offline') {
-                showToast("offline", "网络连接不可用，请检查网络设置");
+                ShowToast("offline", "网络连接不可用，请检查网络设置");
             }
             if(err.status=== 'error') {
                 console.log(err);
-                showMessage("info", "下单失败，请重试");
+                ShowMessage("info", "下单失败，请重试");
             }
         })
     }
@@ -101,19 +101,19 @@ class Details extends Component {
             this.setState({
                 results: result
             }, () => {
-                showMessage("success", "个人信息更新成功！");
+                ShowMessage("success", "个人信息更新成功！");
             });
             
         }, function (err) {
             if(err.status === 'timeout') {
-                showMessage("info", "网络超时，请重试");
+                ShowMessage("info", "网络超时，请重试");
             }
             if(err.status=== 'offline') {
-                showToast("offline", "网络连接不可用，请检查网络设置");
+                ShowToast("offline", "网络连接不可用，请检查网络设置");
             }
             if(err.status=== 'error') {
                 console.log(err);
-                showMessage("info", "信息更新失败，请重试");
+                ShowMessage("info", "信息更新失败，请重试");
             }
         })
     }
@@ -133,19 +133,19 @@ class Details extends Component {
             this.setState({
                 results: result
             }, () => {
-                showMessage("success", "订单删除成功！");
+                ShowMessage("success", "订单删除成功！");
             });
             
         }, function (err) {
             if(err.status === 'timeout') {
-                showMessage("info", "网络超时，请重试");
+                ShowMessage("info", "网络超时，请重试");
             }
             if(err.status=== 'offline') {
-                showToast("offline", "网络连接不可用，请检查网络设置");
+                ShowToast("offline", "网络连接不可用，请检查网络设置");
             }
             if(err.status=== 'error') {
                 console.log(err);
-                showMessage("info", "订单删除失败，请重试");
+                ShowMessage("info", "订单删除失败，请重试");
             }
         })
     }
@@ -164,19 +164,19 @@ class Details extends Component {
             this.setState({
                 results: result
             }, () => {
-                showMessage("success", "订单信息更新成功！");
+                ShowMessage("success", "订单信息更新成功！");
             });
             
         }, function (err) {
             if(err.status === 'timeout') {
-                showMessage("info", "网络超时，请重试");
+                ShowMessage("info", "网络超时，请重试");
             }
             if(err.status=== 'offline') {
-                showToast("offline", "网络连接不可用，请检查网络设置");
+                ShowToast("offline", "网络连接不可用，请检查网络设置");
             }
             if(err.status=== 'error') {
                 console.log(err);
-                showMessage("info", "信息更新失败，请重试");
+                ShowMessage("info", "信息更新失败，请重试");
             }
         })
     }

@@ -5,7 +5,7 @@ import Row from '../components/row/row';
 import Container from '../components/container/container';
 import Content from '../components/content/content';
 import Button from '../components/button/button';
-import PageTransition from '../components/pageTransition/pageTransition';
+import PageTransition from '../components/page-transition/page-transition';
 
 class Details extends Component {
     constructor() {

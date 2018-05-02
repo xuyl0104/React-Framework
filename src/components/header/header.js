@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './header.css';
-import './css/fontello.css'; //可以引入CSS文件夹下的字体文件，替代图片图标，节省网络资源
+// import './style/header.css';
+// import './style/fontello.css'; //可以引入CSS文件夹下的字体文件，替代图片图标，节省网络资源
+import './style/css';
 import Row from '../row/row';
 
 class Header extends Component {

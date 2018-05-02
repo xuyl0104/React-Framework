@@ -149,7 +149,10 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
-              
+              plugins: [
+                ['import', { libraryName: 'gsp-react', style: "css" }],
+                ['import', { libraryName: 'antd', style: true }],
+              ],
               compact: true,
             },
           },

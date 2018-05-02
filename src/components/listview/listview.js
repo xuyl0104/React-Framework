@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import './listview.css';
+// import './style/listview.css';
+import './style/css';
 
 class Listview extends Component {
 

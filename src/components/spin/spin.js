@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import './spin.css';
-import './css/fontello.css';
-import './css/animation.css';
+// import './style/spin.css';
+// import './style/fontello.css';
+// import './style/animation.css';
+import './style/css';
 
 class Spin extends Component {
     render() {

@@ -3,7 +3,7 @@ import './ComponentDetails.css';
 import Header from '../components/header/header';
 import Icon from 'antd/lib/icon';
 import 'antd/lib/icon/style/css';
-import RadioGroup from '../components/radio/radio';
+import RadioGroup from '../components/radio-group/radio-group';
 import Container from '../components/container/container';
 import Content from '../components/content/content';
 import Listview from '../components/listview/listview';

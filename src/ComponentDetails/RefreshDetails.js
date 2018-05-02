@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './ComponentDetails.css';
 import { Fetch as requestObj, showMessage, showToast } from '../components';
-import PullRefresh from '../components/pullToRefresh/PullToRefresh';
+import PullRefresh from '../components/pull-to-refresh/pull-to-refresh';
 import Header from '../components/header/header';
 import Container from '../components/container/container';
 import Content from '../components/content/content';
@@ -174,7 +174,7 @@ class Details extends Component {
                     </Header>
                     <Content>
                         <div className="scroll" ref={ node => this.contentNode = node }>
-                            <Spin isSpinning={this.state.isSpinning} indicator="a" size={40} color={"#318ccf"}/>
+                            <Spin isSpinning={this.state.isSpinning} indicator="c" size={40} color={"#318ccf"}/>
                             <PullRefresh 
                                 // style={{
                                 //     height: this.state.height - 56,

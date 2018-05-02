@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './tab.css';
+// import './style/tab.css';
+import './style/css';
 
 class Tab extends Component {
 

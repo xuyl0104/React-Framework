@@ -7,7 +7,7 @@ import Listview from '../components/listview/listview';
 import Icon from 'antd/lib/icon';
 import 'antd/lib/icon/style/css';
 import DatePicker from '../components/picker/picker';
-import PageTransition from '../components/pageTransition/pageTransition';
+import PageTransition from '../components/page-transition/page-transition';
 
 class Details extends Component {
     constructor() {

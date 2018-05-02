@@ -3,8 +3,8 @@ import './ComponentDetails.css';
 import Header from '../components/header/header';
 import Container from '../components/container/container';
 import Content from '../components/content/content';
-import RadioGroup from '../components/radio/radio';
-import CheckGroup from '../components/checkbox/checkbox';
+import RadioGroup from '../components/radio-group/radio-group';
+import CheckGroup from '../components/check-group/check-group';
 import 'antd-mobile/lib/pull-to-refresh/style/css';
 import Listview from '../components/listview/listview';
 

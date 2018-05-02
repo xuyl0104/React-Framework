@@ -22,12 +22,12 @@ Object.defineProperty(exports, 'Card', {
   }
 });
 
-var _checkbox = require('./checkbox');
+var _checkGroup = require('./check-group');
 
 Object.defineProperty(exports, 'CheckGroup', {
   enumerable: true,
   get: function get() {
-    return _interopRequireDefault(_checkbox).default;
+    return _interopRequireDefault(_checkGroup).default;
   }
 });
 
@@ -85,7 +85,7 @@ Object.defineProperty(exports, 'Listview', {
   }
 });
 
-var _pageTransition = require('./pageTransition');
+var _pageTransition = require('./page-transition');
 
 Object.defineProperty(exports, 'PageTransition', {
   enumerable: true,
@@ -103,7 +103,7 @@ Object.defineProperty(exports, 'Picker', {
   }
 });
 
-var _pullToRefresh = require('./pullToRefresh');
+var _pullToRefresh = require('./pull-to-refresh');
 
 Object.defineProperty(exports, 'PullToRefresh', {
   enumerable: true,
@@ -112,12 +112,12 @@ Object.defineProperty(exports, 'PullToRefresh', {
   }
 });
 
-var _radio = require('./radio');
+var _radioGroup = require('./radio-group');
 
 Object.defineProperty(exports, 'RadioGroup', {
   enumerable: true,
   get: function get() {
-    return _interopRequireDefault(_radio).default;
+    return _interopRequireDefault(_radioGroup).default;
   }
 });
 
@@ -166,7 +166,7 @@ Object.defineProperty(exports, 'Tab', {
   }
 });
 
-var _fetch = require('./Utils/fetch');
+var _fetch = require('./fetch');
 
 Object.defineProperty(exports, 'Fetch', {
   enumerable: true,
@@ -175,27 +175,27 @@ Object.defineProperty(exports, 'Fetch', {
   }
 });
 
-var _showMessage = require('./Utils/showMessage');
+var _showMessage = require('./show-message');
 
-Object.defineProperty(exports, 'showMessage', {
+Object.defineProperty(exports, 'ShowMessage', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_showMessage).default;
   }
 });
 
-var _showModal = require('./Utils/showModal');
+var _showModal = require('./show-modal');
 
-Object.defineProperty(exports, 'showModal', {
+Object.defineProperty(exports, 'ShowModal', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_showModal).default;
   }
 });
 
-var _showToast = require('./Utils/showToast');
+var _showToast = require('./show-toast');
 
-Object.defineProperty(exports, 'showToast', {
+Object.defineProperty(exports, 'ShowToast', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_showToast).default;

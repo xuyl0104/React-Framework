@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import './switch.css';
+// import './style/switch.css';
+import './style/css';
 import Switch from 'antd-mobile/lib/switch';
 import 'antd-mobile/lib/switch/style/css';
 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './ComponentDetails.css';
 import Card from '../components/card/card';
-import { showModal } from '../components';
+import { ShowModal } from '../components';
 import Header from '../components/header/header';
 import Row from '../components/row/row';
 import Container from '../components/container/container';
@@ -36,7 +36,7 @@ class Details extends Component {
                         <Row>
                             <Button bstyle={"primary"} size="lg" text="普通提示框" col={12} 
                                 onClick={
-                                    () => {showModal("alert", 
+                                    () => {ShowModal("alert", 
                                         "这是一个提示框", 
                                         "确定要删除？", 
                                         [
@@ -49,7 +49,7 @@ class Details extends Component {
                             />
                             <Button bstyle={"primary"} size="lg" text="多按钮提示框" col={12} 
                                 onClick={
-                                    () => {showModal("alert", 
+                                    () => {ShowModal("alert", 
                                         "这是一个提示框", 
                                         "确定要删除？", 
                                         [
@@ -66,7 +66,7 @@ class Details extends Component {
                         <Row>
                             <Button bstyle={"success"} size="lg" text="普通输入框" col={12} 
                                 onClick={
-                                    () => {showModal("prompt", 
+                                    () => {ShowModal("prompt", 
                                         "这是一个输入框", 
                                         "请输入要导出的邮箱", 
                                         [
@@ -79,7 +79,7 @@ class Details extends Component {
                             />
                             <Button bstyle={"success"} size="lg" text="带默认值输入框" col={12} 
                                 onClick={
-                                    () => {showModal("prompt", 
+                                    () => {ShowModal("prompt", 
                                         "这是一个输入框", 
                                         "请输入要导出的邮箱", 
                                         [

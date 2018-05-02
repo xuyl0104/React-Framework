@@ -10,7 +10,7 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-require('./input.css');
+require('./style/css');
 
 var _icon = require('antd-mobile/lib/icon');
 
@@ -25,6 +25,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import './style/input.css';
+
 
 var Input = function (_Component) {
     _inherits(Input, _Component);
@@ -50,6 +52,8 @@ var Input = function (_Component) {
             var align = this.props.align || "left";
             var image = this.props.img;
             var clear = this.props.clear;
+            var required = this.props.required || false;
+
             return _react2.default.createElement(
                 'div',
                 { className: 'gsp-input' },
@@ -59,7 +63,7 @@ var Input = function (_Component) {
                         onClick: this.props.onClick },
                     _react2.default.createElement(
                         'label',
-                        { className: "col-4 col-lg-3" },
+                        { className: "col-4 col-lg-3" + (required === true ? ' input-required' : '') },
                         _react2.default.createElement(
                             'nobr',
                             null,

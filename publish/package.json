@@ -1,6 +1,6 @@
 {
   "name": "gsp-react",
-  "version": "0.1.11",
+  "version": "0.1.17",
   "description": "React components for GSP Cloud",
   "main": "lib/index.js",
   "repository": {

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import './stepper.css';
+// import './style/stepper.css';
+import './style/css';
 import Steps from 'antd-mobile/lib/steps';
 import 'antd-mobile/lib/steps/style/css';
 

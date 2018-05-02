@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import './input.css';
+// import './style/input.css';
+import './style/css';
 import Icon from 'antd-mobile/lib/icon';
 import 'antd-mobile/lib/icon/style/css';
 

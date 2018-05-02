@@ -7,7 +7,7 @@ import Content from '../components/content/content';
 import Card from '../components/card/card';
 import Icon from 'antd/lib/icon';
 import 'antd/lib/icon/style/css';
-import CheckGroup from '../components/checkbox/checkbox';
+import CheckGroup from '../components/check-group/check-group';
 import Button from '../components/button/button';
 
 class Details extends Component {
