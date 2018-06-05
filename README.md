@@ -3,6 +3,7 @@
 
 
 - [React组件使用说明](#react)
+    - [Release notes](#release-notes)
     - [Install and start](#install-and-start)
     - [Layout](#layout)
         - [Container](#container)
@@ -29,6 +30,12 @@
     - [发布至npm](#npm)
 
 [TOC]
+
+## Release notes
+
+- 0.1.18
+
+  改进了下拉刷新和上划加载组件
 
 ## Install and start
 
