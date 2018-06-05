@@ -12,6 +12,7 @@ class PullRefresh extends Component {
         let refreshing = this.props.refreshing;
         let onRefresh = this.props.onRefresh;
         let style = this.props.style;
+        let className = this.props.className;
         return (
                 <PullToRefresh 
                     style={style}
@@ -19,6 +20,7 @@ class PullRefresh extends Component {
                     indicator={indicator}
                     refreshing={refreshing} 
                     onRefresh={onRefresh}
+                    className={className}
                 >
                     {this.renderChildren(this.props)}        
                 </PullToRefresh>

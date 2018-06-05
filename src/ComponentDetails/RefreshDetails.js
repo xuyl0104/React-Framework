@@ -24,26 +24,67 @@ class Details extends Component {
         };
     }
 
+    // /**
+    //  * 1. 挂载scroll监听方法至contentNode上
+    //  * 该contentNode为scrollable的实体dom
+    //  */
+    // componentDidMount() {
+    //     if (this.contentNode) {
+    //         this.contentNode.addEventListener('scroll', this.onScrollHandle.bind(this));
+    //     }
+    //     this.refresh();
+    //     this.setState({
+    //         timesOfLoad: 1
+    //     });
+    // }
+
+    // /**
+    //  * 3. 卸载scroll监听方法
+    //  */
+    // componentWillUnmount() {
+    //     if (this.contentNode) {
+    //         this.contentNode.removeEventListener('scroll', this.onScrollHandle.bind(this));
+    //     }
+    // }
+
+    // /**
+    //  * 2. scroll监听方法，滚动至底部时，在自动加载更多数据的方法-->更新state中的数据-->更新dom
+    //  * @param {*} event 
+    //  */
+    // onScrollHandle(event) {
+    //     const clientHeight = event.target.clientHeight; // 屏幕高度
+    //     const scrollHeight = event.target.scrollHeight; // 总的内容高度
+    //     const scrollTop = event.target.scrollTop; // 已经滑动的距离
+    //     const isBottom = (clientHeight + scrollTop === scrollHeight)
+    //     if(isBottom) {
+    //         if(this.state.hasMore) {
+    //             this.loadMore();
+    //         }
+    //     }
+    // }
     /**
      * 1. 挂载scroll监听方法至contentNode上
      * 该contentNode为scrollable的实体dom
      */
     componentDidMount() {
-        if (this.contentNode) {
-            this.contentNode.addEventListener('scroll', this.onScrollHandle.bind(this));
+        let scrollableElement = document.getElementsByClassName("scroll");
+        console.log(scrollableElement)
+        if (scrollableElement && scrollableElement.length > 0) {
+            scrollableElement[0].addEventListener('scroll', this.onScrollHandle.bind(this));
+            this.refresh();
+            this.setState({
+                timesOfLoad: 1
+            });
         }
-        this.refresh();
-        this.setState({
-            timesOfLoad: 1
-        });
     }
 
     /**
      * 3. 卸载scroll监听方法
      */
     componentWillUnmount() {
-        if (this.contentNode) {
-            this.contentNode.removeEventListener('scroll', this.onScrollHandle.bind(this));
+        let scrollableElement = document.getElementsByClassName("scroll");
+        if (scrollableElement && scrollableElement.length > 0) {
+            scrollableElement[0].removeEventListener('scroll', this.onScrollHandle.bind(this));
         }
     }
 
@@ -55,9 +96,12 @@ class Details extends Component {
         const clientHeight = event.target.clientHeight; // 屏幕高度
         const scrollHeight = event.target.scrollHeight; // 总的内容高度
         const scrollTop = event.target.scrollTop; // 已经滑动的距离
-        const isBottom = (clientHeight + scrollTop === scrollHeight)
+        const isBottom = (clientHeight + scrollTop === scrollHeight);
         if(isBottom) {
             if(this.state.hasMore) {
+				this.setState({
+					isSpinning: true
+				});
                 this.loadMore();
             }
         }
@@ -173,7 +217,7 @@ class Details extends Component {
                         onLeftArrowClick={this.onLeftArrowClick.bind(this)}>
                     </Header>
                     <Content>
-                        <div className="scroll" ref={ node => this.contentNode = node }>
+                        {/* <div className="scroll" ref={ node => this.contentNode = node }> */}
                             <Spin isSpinning={this.state.isSpinning} indicator="c" size={40} color={"#318ccf"}/>
                             <PullRefresh 
                                 // style={{
@@ -183,6 +227,7 @@ class Details extends Component {
                                 // indicator={{ activate: '松开刷新', deactivate: '继续下拉刷新', finish: '刷新完成' }}
                                 refreshing={this.state.isRefreshing} 
                                 onRefresh={this.refresh.bind(this)}
+                                className={"scroll"}
                             >
                                 {listDiv}
 
@@ -193,7 +238,7 @@ class Details extends Component {
                                     {this.state.hasMore ? <div><Icon type="loading" />  正在加载...</div> : "———— 已无更多 ————"}
                                 </div>}
                             </PullRefresh>
-                        </div>
+                        {/* </div> */}
                     </Content>
                 </Container>
             </div>
