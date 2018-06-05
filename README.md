@@ -860,31 +860,83 @@ import { Spin } from 'gsp-react';
 this.state = {
     results: [],
     isRefreshing: false,
-    isLoading: false,
-    timesOfLoad: 0,
+    timesOfLoad: 0, // 计数加载次数（实际应用中可以采用其他方法）
     hasMore: true, // 是否继续上划加载
-    height: document.documentElement.clientHeight,
-    isSpinning: true
+    isSpinning: true // 是否显示加载动画
 };
+```
+
+```js
+/**
+ * 1. 挂载scroll监听方法
+ */
+componentDidMount() {
+    let scrollableElement = document.getElementsByClassName("scroll");
+    console.log(scrollableElement)
+    if (scrollableElement && scrollableElement.length > 0) {
+        scrollableElement[0].addEventListener('scroll', this.onScrollHandle.bind(this));
+        this.refresh();
+        this.setState({
+            timesOfLoad: 1
+        });
+    }
+}
+
+/**
+ * 3. 卸载scroll监听方法
+ */
+componentWillUnmount() {
+    let scrollableElement = document.getElementsByClassName("scroll");
+    if (scrollableElement && scrollableElement.length > 0) {
+        scrollableElement[0].removeEventListener('scroll', this.onScrollHandle.bind(this));
+    }
+}
+
+/**
+ * 2. scroll监听方法，滚动至底部时，在自动加载更多数据的方法-->更新state中的数据-->更新dom
+ * @param {*} event 
+ */
+onScrollHandle(event) {
+    const clientHeight = event.target.clientHeight; // 屏幕高度
+    const scrollHeight = event.target.scrollHeight; // 总的内容高度
+    const scrollTop = event.target.scrollTop; // 已经滑动的距离
+    const isBottom = (clientHeight + scrollTop === scrollHeight);
+    if(isBottom) {
+        if(this.state.hasMore) {
+            this.setState({
+                isSpinning: true
+            });
+            this.loadMore();
+        }
+    }
+}
 ```
 
 
 
 ```js
-<Spin isSpinning={this.state.isSpinning} indicator="a" size={40} />
-    <PullRefresh 
-        distanceToRefresh={80}
-        indicator={{ activate: '松开刷新', deactivate: '继续下拉刷新', finish: '刷新完成' }}
-        refreshing={false} 
-        onRefresh={this.refresh.bind(this)}
-    >
-        {listDiv}
-    </PullRefresh>
-</Spin>
+<Spin isSpinning={this.state.isSpinning} indicator="c" size={40} color={"#318ccf"}/>
+<PullRefresh 
+    refreshing={this.state.isRefreshing} 
+    onRefresh={this.refresh.bind(this)}
+    className={"scroll"}
+>
+    {listDiv}
 
+    {/* 下方组件为列表底部提示性信息：列表还有内容时，显示"正在加载"；列表无更多内容时，显示"—— 已无更多 ——" */}
+    {<div className="text-center" 
+        style={{backgroundColor: '#ededed', color: '#808080', fontSize: '14px', height: '45px', 
+            verticalAlign: 'middle', paddingTop: '10px'}}>
+        {this.state.hasMore ? <div><Icon type="loading" />  正在加载...</div> : "———— 已无更多 ————"}
+    </div>}
+</PullRefresh>
+
+```
+
+```js
 refresh() {
     let url = "http://jsonplaceholder.typicode.com/users";
-    let self = this;
+    // let self = this;
     let optionsGET = {
     };
 
@@ -911,6 +963,42 @@ refresh() {
     })
 }
 ```
+
+```js
+loadMore() {
+    let url = "http://jsonplaceholder.typicode.com/users";
+    let self = this;
+    let optionsGET = {};
+
+    let FETCH = new requestObj(url, optionsGET);
+    FETCH.get()
+    .subscribe(result => {
+        let prevResults = self.state.results;
+        let newResults = prevResults.concat(result);
+        let timesOfLoad = self.state.timesOfLoad + 1;
+        let hasMore = timesOfLoad > 2 ? false : true;
+        self.setState({
+            timesOfLoad: timesOfLoad,
+            results: newResults,
+            isSpinning: false,
+            hasMore: hasMore
+        });
+    }, function (err) {
+        if(err.status === 'timeout') {
+            showMessage("info", "网络超时，请重试");
+        }
+        if(err.status=== 'offline') {
+            showToast("offline", "网络连接不可用，请检查网络设置");
+        }
+        if(err.status=== 'error') {
+            console.log(err);
+            showMessage("info", "列表获取失败，请重试");
+        }
+    })
+}
+```
+
+
 
 | 属性              | 描述                                                  | 默认值                                                       | 类型       |
 | ----------------- | ----------------------------------------------------- | ------------------------------------------------------------ | ---------- |
