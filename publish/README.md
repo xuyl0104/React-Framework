@@ -1,7 +1,9 @@
 # React组件使用说明
 [![Build Status](https://travis-ci.org/xuyl0104/React-Framework.svg?branch=master)](https://travis-ci.org/xuyl0104/React-Framework)
 
-- [React framework使用说明](#react-framework%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
+
+- [React组件使用说明](#react)
+    - [Release notes](#release-notes)
     - [Install and start](#install-and-start)
     - [Layout](#layout)
         - [Container](#container)
@@ -17,16 +19,23 @@
         - [Card](#card)
         - [Picker](#picker)
         - [Spin](#spin)
-        - [Refresh/Loadmore](#refreshloadmore)
+        - [Refresh/Loadmore](#refresh-loadmore)
         - [Tab](#tab)
         - [Listitem](#listitem)
-        - [Radio/Check](#radiocheck)
+        - [Radio/Check](#radio-check)
         - [Switch](#switch)
-    - [断网检测](#%E6%96%AD%E7%BD%91%E6%A3%80%E6%B5%8B)
-    - [API调用操作](#api%E8%B0%83%E7%94%A8%E6%93%8D%E4%BD%9C)
-    - [发布至npm](#%E5%8F%91%E5%B8%83%E8%87%B3npm)
+    - [断网检测](#)
+    - [API调用操作](#api)
+    - [按需加载](#)
+    - [发布至npm](#npm)
 
 [TOC]
+
+## Release notes
+
+- 0.1.18
+
+  改进了下拉刷新和上划加载组件
 
 ## Install and start
 
@@ -337,6 +346,7 @@ import { Button } from 'gsp-react';
 | onChange      | 输入时调用的方法             | —      | func                     |
 | 内部child组件 | 嵌套的内部组件               | —      | React elem               |
 | name          | 绑定数据表中的名为name的字段 | —      | string                   |
+| required      | 是否必填                     | false  | boolean                  |
 
 > ==name属性需与数据表中的数据属性对应==  📌
 
@@ -380,7 +390,7 @@ onTextChange(e) {
 
 ### Message
 
-消息提示Message组件完全基于`antd`的`Message`组件和`antd-mobile`的`Toast`组件，将Message和Toast的调用进行了简单的封装，导出为 `showMessage`和`showToast`两个方法，易于调用。
+消息提示Message组件完全基于`antd`的`Message`组件和`antd-mobile`的`Toast`组件，将Message和Toast的调用进行了简单的封装，导出为 `ShowMessage`和`ShowToast`两个方法，易于调用。
 
 - Message
 
@@ -400,19 +410,19 @@ onTextChange(e) {
 | duration | Toast显示时长 | 2      | num                                      |
 
 ```javascript
-import { showMessage } from "gsp-react";
-import { showToast } from 'gsp-react';
+import { ShowMessage } from "gsp-react";
+import { ShowToast } from 'gsp-react';
 
-<Button style={"primary"} size="lg" text="info" col={12} onClick={() => showMessage("info", "这是一条消息", 2)}/>
+<Button style={"primary"} size="lg" text="info" col={12} onClick={() => ShowMessage("info", "这是一条消息", 2)}/>
 
-<Button style={"primary"} size="lg" text={"success"} col={6} onClick={() => showToast("success", "加载成功")}/>
+<Button style={"primary"} size="lg" text={"success"} col={6} onClick={() => ShowToast("success", "加载成功")}/>
 
 
 ```
 
 ### Modal
 
-Modal组件是弹出的对话框及输入框，基于`antd-mobile`的`Modal`组件开发，导出为`showModal`方法。
+Modal组件是弹出的对话框及输入框，基于`antd-mobile`的`Modal`组件开发，导出为`ShowModal`方法。
 
 | 属性           | 描述                             | 默认值  | 类型                         |
 | ------------ | ------------------------------ | ---- | -------------------------- |
@@ -424,13 +434,13 @@ Modal组件是弹出的对话框及输入框，基于`antd-mobile`的`Modal`组�
 | defaultValue | mode为"prompt"时可以设置，输入框的默认值     | —    | string                     |
 
 ```javascript
-import { showModal } from 'gsp-react';
+import { ShowModal } from 'gsp-react';
 ```
 
 ```javascript
 <Button style={"primary"} size="lg" text="普通提示框" col={12} 
     onClick={
-        () => {showModal("alert", 
+        () => {ShowModal("alert", 
             "这是一个提示框", 
             "确定要删除？", 
             [
@@ -446,7 +456,7 @@ import { showModal } from 'gsp-react';
 ```javascript
 <Button style={"success"} size="lg" text="普通输入框" col={12} 
     onClick={
-        () => {showModal("prompt", 
+        () => {ShowModal("prompt", 
             "这是一个输入框", 
             "请输入要导出的邮箱", 
             [
@@ -462,7 +472,7 @@ import { showModal } from 'gsp-react';
 ```javascript
 <Button style={"success"} size="lg" text="带默认值输入框" col={12} 
     onClick={
-        () => {showModal("prompt", 
+        () => {ShowModal("prompt", 
             "这是一个输入框", 
             "请输入要导出的邮箱", 
             [
@@ -857,31 +867,83 @@ import { Spin } from 'gsp-react';
 this.state = {
     results: [],
     isRefreshing: false,
-    isLoading: false,
-    timesOfLoad: 0,
+    timesOfLoad: 0, // 计数加载次数（实际应用中可以采用其他方法）
     hasMore: true, // 是否继续上划加载
-    height: document.documentElement.clientHeight,
-    isSpinning: true
+    isSpinning: true // 是否显示加载动画
 };
+```
+
+```js
+/**
+ * 1. 挂载scroll监听方法
+ */
+componentDidMount() {
+    let scrollableElement = document.getElementsByClassName("scroll");
+    console.log(scrollableElement)
+    if (scrollableElement && scrollableElement.length > 0) {
+        scrollableElement[0].addEventListener('scroll', this.onScrollHandle.bind(this));
+        this.refresh();
+        this.setState({
+            timesOfLoad: 1
+        });
+    }
+}
+
+/**
+ * 3. 卸载scroll监听方法
+ */
+componentWillUnmount() {
+    let scrollableElement = document.getElementsByClassName("scroll");
+    if (scrollableElement && scrollableElement.length > 0) {
+        scrollableElement[0].removeEventListener('scroll', this.onScrollHandle.bind(this));
+    }
+}
+
+/**
+ * 2. scroll监听方法，滚动至底部时，在自动加载更多数据的方法-->更新state中的数据-->更新dom
+ * @param {*} event 
+ */
+onScrollHandle(event) {
+    const clientHeight = event.target.clientHeight; // 屏幕高度
+    const scrollHeight = event.target.scrollHeight; // 总的内容高度
+    const scrollTop = event.target.scrollTop; // 已经滑动的距离
+    const isBottom = (clientHeight + scrollTop === scrollHeight);
+    if(isBottom) {
+        if(this.state.hasMore) {
+            this.setState({
+                isSpinning: true
+            });
+            this.loadMore();
+        }
+    }
+}
 ```
 
 
 
 ```js
-<Spin isSpinning={this.state.isSpinning} indicator="a" size={40} />
-    <PullRefresh 
-        distanceToRefresh={80}
-        indicator={{ activate: '松开刷新', deactivate: '继续下拉刷新', finish: '刷新完成' }}
-        refreshing={false} 
-        onRefresh={this.refresh.bind(this)}
-    >
-        {listDiv}
-    </PullRefresh>
-</Spin>
+<Spin isSpinning={this.state.isSpinning} indicator="c" size={40} color={"#318ccf"}/>
+<PullRefresh 
+    refreshing={this.state.isRefreshing} 
+    onRefresh={this.refresh.bind(this)}
+    className={"scroll"}
+>
+    {listDiv}
 
+    {/* 下方组件为列表底部提示性信息：列表还有内容时，显示"正在加载"；列表无更多内容时，显示"—— 已无更多 ——" */}
+    {<div className="text-center" 
+        style={{backgroundColor: '#ededed', color: '#808080', fontSize: '14px', height: '45px', 
+            verticalAlign: 'middle', paddingTop: '10px'}}>
+        {this.state.hasMore ? <div><Icon type="loading" />  正在加载...</div> : "———— 已无更多 ————"}
+    </div>}
+</PullRefresh>
+
+```
+
+```js
 refresh() {
     let url = "http://jsonplaceholder.typicode.com/users";
-    let self = this;
+    // let self = this;
     let optionsGET = {
     };
 
@@ -908,6 +970,42 @@ refresh() {
     })
 }
 ```
+
+```js
+loadMore() {
+    let url = "http://jsonplaceholder.typicode.com/users";
+    let self = this;
+    let optionsGET = {};
+
+    let FETCH = new requestObj(url, optionsGET);
+    FETCH.get()
+    .subscribe(result => {
+        let prevResults = self.state.results;
+        let newResults = prevResults.concat(result);
+        let timesOfLoad = self.state.timesOfLoad + 1;
+        let hasMore = timesOfLoad > 2 ? false : true;
+        self.setState({
+            timesOfLoad: timesOfLoad,
+            results: newResults,
+            isSpinning: false,
+            hasMore: hasMore
+        });
+    }, function (err) {
+        if(err.status === 'timeout') {
+            showMessage("info", "网络超时，请重试");
+        }
+        if(err.status=== 'offline') {
+            showToast("offline", "网络连接不可用，请检查网络设置");
+        }
+        if(err.status=== 'error') {
+            console.log(err);
+            showMessage("info", "列表获取失败，请重试");
+        }
+    })
+}
+```
+
+
 
 | 属性              | 描述                                                  | 默认值                                                       | 类型       |
 | ----------------- | ----------------------------------------------------- | ------------------------------------------------------------ | ---------- |
@@ -1124,6 +1222,7 @@ TODO：
 | ------------- | -------------- | ------ | ---------- |
 | text          | 左侧描述性信息 | —      | string     |
 | 内部child组件 | 右侧元素       | —      | React elem |
+| required      | 是否必填       | false  | boolean    |
 
 ```Js
 import { Listview } from 'gsp-react';
@@ -1221,7 +1320,7 @@ import { Listview } from 'gsp-react';
 
 单选按钮分为divide型和line型两种；
 
-Checkbox目前有一种样式（之后可能会扩展）。
+CheckGroup目前有一种样式（之后可能会扩展）。
 
 - Radio
 
@@ -1432,6 +1531,59 @@ import { Switch } from 'gsp-react';
 | ![](https://ws4.sinaimg.cn/large/006tNc79ly1fours7bdsrg30ti06nn0l.gif) | ![](https://ws1.sinaimg.cn/large/006tNc79ly1fouru5gitcg30ah0inacp.gif) | ![](https://ws2.sinaimg.cn/large/006tNc79ly1fourw33zwxg30ah0il768.gif) | ![](https://ws1.sinaimg.cn/large/006tNc79ly1fourzdzjlyg30ae0ihabk.gif) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 正常获取数据并弹出提示信息                                   | 网络连接中断                                                 | 网络超时                                                     | API调用失败                                                  |
+
+
+
+## 按需加载
+
+为了优化打包速度及打包生成文件的大小，需要使用按需加载技术，根据实际用到的gsp-react组件，打包相应的CSS样式文件，具体步骤如下：
+
+1. 安装插件
+
+   ```bash
+   npm install babel-plugin-import --save-dev
+   ```
+
+   ​
+
+2. 将项目进行降级处理
+
+   ```
+   npm run eject
+   ```
+
+3. 暴露出的webpack配置文件（webpack.config.dev.js和webpack.config.prod.js）中添加如下插件配置，babel-loader配置器如下：
+
+   ```Bash
+   // Process JS with Babel.
+     {
+       test: /\.(js|jsx|mjs)$/,
+       include: paths.appSrc,
+       loader: require.resolve('babel-loader'),
+       options: {
+         plugins: [
+           ['import', { libraryName: 'gsp-react', style: "css" }],
+           ['import', { libraryName: 'antd', style: true }],
+         ],
+         // This is a feature of `babel-loader` for webpack (not Babel itself).
+         // It enables caching results in ./node_modules/.cache/babel-loader/
+         // directory for faster rebuilds.
+         cacheDirectory: true,
+       },
+     },
+   ```
+
+4. 按需在页面中引入组件
+
+   ```js
+   import { Header, Footer, Container, Content, Card } from 'gsp-react';
+   ```
+
+   webpack会自动引入相应组件的CSS文件，未使用组件的样式文件不会引入。
+
+
+
+> 注意：为了使babel-plugin-import插件能够顺利实现按需引入css文件，在进行组件文件夹命名时，需要保证组件名须与其所在文件夹相同，但大小写可以不同，如Button组件所在文件夹为/button，PullToRefresh组件文件夹为/pull-to-refresh。若将RadioGroup组件置于Radio文件夹，则加载出错。
 
 
 
