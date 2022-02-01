@@ -2,8 +2,7 @@
 [![Build Status](https://travis-ci.org/xuyl0104/React-Framework.svg?branch=master)](https://travis-ci.org/xuyl0104/React-Framework)
 
 
-- [React组件使用说明](#react%e7%bb%84%e4%bb%b6%e4%bd%bf%e7%94%a8%e8%af%b4%e6%98%8e)
-  - [📌 ALERT](#%f0%9f%93%8c-alert)
+- [React组件使用说明](#react组件使用说明)
   - [Release notes](#release-notes)
   - [Install and start](#install-and-start)
   - [Layout](#layout)
@@ -18,42 +17,37 @@
     - [Message](#message)
     - [Modal](#modal)
     - [Card](#card)
-    - [Picker](#picker)
+    - [DatePicker](#datepicker)
     - [Spin](#spin)
     - [Refresh/Loadmore](#refreshloadmore)
     - [Tab](#tab)
     - [Listitem](#listitem)
     - [Radio/Check](#radiocheck)
     - [Switch](#switch)
-  - [断网检测](#%e6%96%ad%e7%bd%91%e6%a3%80%e6%b5%8b)
-  - [API调用操作](#api%e8%b0%83%e7%94%a8%e6%93%8d%e4%bd%9c)
-  - [按需加载](#%e6%8c%89%e9%9c%80%e5%8a%a0%e8%bd%bd)
-  - [发布至npm](#%e5%8f%91%e5%b8%83%e8%87%b3npm)
+  - [断网检测](#断网检测)
+  - [API调用操作](#api调用操作)
+  - [按需加载](#按需加载)
+  - [发布至npm](#发布至npm)
 
 [TOC]
-
-## 📌 ALERT
-据反应，本说明文档内的图片由于新浪图床启用防外链而失效...（免费午餐吃不得啊）
-
-请下载运行以查看组件效果
 
 ## Release notes
 
 - 0.1.18
 
-  改进了下拉刷新和上划加载组件
+  Added pull down to refresh and swipe up for loading more
 
 ## Install and start
 
-👉 [组件包Demo](http://45.63.37.8:8080/) http://45.63.37.8:8080/
+👉 [Demo](http://116.62.207.59:81) http://116.62.207.59:81
 
-- 安装组件包
+- Installation
 
 ```
 npm install gsp-react --save
 ```
 
-- 组件包演示程序
+- Demo
 
 ```
 git clone https://github.com/xuyl0104/React-Framework.git
@@ -64,11 +58,11 @@ http://localhost:3000
 
 ## Layout
 
-页面布局基于Bootstrap v4，采用`Flex`布局排版技术。
+Based on Bootstrap v4，with`Flex` layout。
 
 ### Container
 
-- Container组件设定了flex排列方式。
+- Container use Flex layout。
 
   ```js
   <div className="w-100 d-flex flex-column" style={{height: '100vh'}}>
@@ -77,16 +71,16 @@ http://localhost:3000
   ```
 
 
-- Container组件需要包裹页面中的其他元素（当使用页面切换效果组件PageTransition时，Container须位于切换组件内部）。
+- Container needs to wrap up all the components in the app page (if there is PageTransition component in this page, Container should be inside PageTransition)
 
 ### Content
 
-Content组件包裹页面中主体内容部分（即Header、Footer之外的部分）。
+Content should be outside all the other content components (such as components excluding header, footer)
 
-| 属性    | 描述     | 默认值                                      | 类型   |
-| ------- | -------- | ------------------------------------------- | ------ |
-| padding | 内边距   | [0, 0, 0, 0] （[top, right, bottom, left]） | []     |
-| bgColor | 背景颜色 | '#f8f9fa'                                   | string |
+| Attributes | Description      | Default                                     | Type   |
+| ---------- | ---------------- | ------------------------------------------- | ------ |
+| padding    | Inner padding    | [0, 0, 0, 0] （[top, right, bottom, left]） | []     |
+| bgColor    | Background color | '#f8f9fa'                                   | string |
 
 ```js
 <PageTransition>
@@ -100,7 +94,7 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
 </PageTransition>
 ```
 
-详情请在演示程序中点击进入PageTemplate页面查看。
+Please click the  Page template button for more details.
 
 
 
@@ -108,16 +102,18 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
 
 ### PageTransition
 
-- PageTransition页面切换过渡动画需要与第三方组件[react-router-page-transition](https://github.com/trungdq88/react-router-page-transition)结合使用
+- PageTransition is developed based on a third-party package [react-router-page-transition](https://github.com/trungdq88/react-router-page-transition)
+
+- Install react-router-page-transition before using the page transition
 
   ```
   npm install react-router-page-transition --save
   ```
 
 
-- 页面切换实现步骤
+- Page transition implementation steps
 
-  1. 添加react-router-page-transition到`Router`，设定`timeout`、`location`；须使用`React-router-dom`中的`Switch`组件。
+  1. Add react-router-page-transition to `Router`, set`timeout`, `location`;  you need to use `switch` in `React-router-dom`.
 
      ```javascript
      <Router>
@@ -136,15 +132,15 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
      </Router>
      ```
 
-  2. 编写动画切换效果
+  2. Coding the animation
 
-     见`CSS/transition-main.css`  （list-page、detail-page等类名可以自定义）
+     See more details in `CSS/transition-main.css`  (you can name the names such as list-page, detail-page according to your need).
 
-     第一个页面`ComponentList`设定为`list-page` ，之后的页面设定为`detail-page`。
+     In this demo app, we name the first page`ComponentList` to be `list-page` , and the following details page to be `detail-page`.
 
-  3. 每个页面添加我们编写的PageTransition组件
+  3. Add our PageTransition component to each page
 
-     设定PageTransition的`transitionClass`和`direction`属性
+     Set the `transitionClass` and `direction` attributes
 
      ```javascript
      <PageTransition transitionClass={"detail-page"} direction={this.state.className}>
@@ -154,7 +150,7 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
              </Header>
              <Content>
                  <Row>
-                     <Button style={"primary"} size="lg" text={"点击测试翻页效果"} col={12} onClick={this.goToSeeDetails.bind(this)} />
+                     <Button style={"primary"} size="lg" text={"Page transition animation"} col={12} onClick={this.goToSeeDetails.bind(this)} />
                  </Row>
              </Content>
          </Container>
@@ -166,19 +162,19 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
      > | transitionClass | 本页面的CSS类名 | —      | string |
      > | direction       | 动画方向        | ""     | string |
 
-  4. 编写React生命周期函数，实现动画方向的正确设定
+  4. Code the React life cycle functions to set the transition animation direction
 
-     假如有四个界面A、B、C、D
+     Image we have four pages: A、B、C、D
 
      A <—> B <—> C <—>D
 
-     B、C作为中间界面，需要编写生命周期函数进行方向调整：
+     B and C are middle pages and we need to write functions to set the transition animation directions
 
      ```javascript
      /**
-      * 该方法用于中间页面中（如A->B->C->D 时，用于B,C页面），用于判断中间页面的appear动画方向
-      * 当该中间页面是因为路由POP操作出现，则执行detail-page-reverse的appear；
-      * 否则（被PUSH进路由history），执行detail-page的appear。
+      * this functions is written in middle pages (such as page B, C) to decide which direction this page appears
+      * If this page appears after being poped, the animation should be set to be detail-page-reverse;
+      * If this page appears after being pushed into the history stack, we do not need to set the direction to be reversed.
       */
      componentWillMount() {
          let middle = this.props.history.action === "POP" ? "-reverse" : "";
@@ -190,14 +186,11 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
 
      ```javascript
      /**
-      * 根据当前页面的路由动作，设定当前页面执行的leave动画方向
-      * POP：detail-page的leave方向
-      * REPLACE：detail-page的leave方向
-      * PUSH：detail-page-reverse的leave方向
+      * this funciton is used to set the transition animation direction when leave this page
       * @param {*} nextProps 
       */
      componentWillReceiveProps(nextProps) {
-         // 后退的时候，直接pop最上面的page
+         // go back to the previous page (pop)
          if (nextProps.history.action === 'POP') {
              this.setState({
                  className: ""
@@ -208,27 +201,27 @@ Content组件包裹页面中主体内容部分（即Header、Footer之外的部�
                      className: ""
                  });
              }
-             // 跳转新页面的时候，push
+             // to a new page (push)
              this.setState({
                  className: "-reverse"
              });
          }
      }
      ```
-
-     ![](https://ws3.sinaimg.cn/large/006tKfTcly1fochd6f2rjg309h0go7gk.gif)
+     
+     ![](https://i.imgur.com/u4bow5C.gif)
 
 ### Header
 
-- Header组件包含左侧返回按钮、中间标题、右侧按钮
-- Header组件根据右侧按钮的种类，分为右侧无按钮、右侧一个按钮、右侧多个按钮
-- 可以根据实际需要，在Header内部嵌套不同图标，实现不同功能。该方法易于对不同图标设定相应的调用方法
+- Header consists of back button, header title, and right hand side button (optional)
+- Header can have no, one or multiple right hand side button(s)
+- Users can embed icons in the header
 
-| 属性             | 描述             | 默认值 | 类型       |
-| ---------------- | ---------------- | ------ | ---------- |
-| name             | 标题             | —      | string     |
-| onLeftArrowClick | 返回按钮调用方法 | —      | func       |
-| 内部child元素    | 内嵌元素         | —      | React elem |
+| 属性             | 描述                          | 默认值 | 类型       |
+| ---------------- | ----------------------------- | ------ | ---------- |
+| name             | Title                         | —      | string     |
+| onLeftArrowClick | Callback of the return button | —      | func       |
+| Child components | Embedded components           | —      | React elem |
 
 ```Js
 import { Header } from 'gsp-react';
@@ -257,22 +250,22 @@ import { Header } from 'gsp-react';
 </Header>
 ```
 
-| ![](https://ws4.sinaimg.cn/large/006tKfTcly1fochic1y34j30lq0d20tm.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1fochibtjf5j30lq0cudgr.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1forbgevm9oj30lk0cy0tl.jpg) |
-| :--------------------------------------------------------------------: | :--------------------------------------------------------------------: | :--------------------------------------------------------------------: |
-|                               右侧无按钮                               |                              右侧一个按钮                              |                              右侧若干按钮                              |
+| ![](https://i.imgur.com/uDn0Lad.png) | ![](https://i.imgur.com/byN7xjX.png) | ![](https://i.imgur.com/vkBYpVt.png) |
+| :----------------------------------: | :----------------------------------: | :----------------------------------: |
+|              No button               |            Single button             |           Multiple buttons           |
 
 ### Footer
 
-- Footer组件可以包含不同数量的按钮。用户可设定footer的按钮数量为1、2、3…（建议不超过3）
-- 每个按钮显示的文字、调用的方法、按钮的样式均可以自由设定
-- 提供了两种高度的footer供用户选择
+- Footer can have different number of buttons (1,2,3... but we do not recommend more than 3)
+- The text, callback functions, styles of each button can be set by users easily
+- We provide two height for the footer (lg and sm)
 
-| 属性                      | 描述             | 默认值 | 类型                |
-| ------------------------- | ---------------- | ------ | ------------------- |
-| buttonName                | 按钮名称数组     | —      | []: string          |
-| callBackFooterButtonClick | 按钮调用方法数组 | —      | []: func            |
-| style                     | 按钮样式数组     | —      | []: object          |
-| size                      | 按钮高度         | "lg"   | string ("lg", "sm") |
+| 属性                      | 描述                 | 默认值 | 类型                |
+| ------------------------- | -------------------- | ------ | ------------------- |
+| buttonName                | Names of buttons     | —      | []: string          |
+| callBackFooterButtonClick | Callbacks of buttons | —      | []: func            |
+| style                     | Styles of buttons    | —      | []: object          |
+| size                      | Button size          | "lg"   | string ("lg", "sm") |
 
 ```js
 import { Footer } from 'gsp-react';
@@ -281,7 +274,7 @@ import { Footer } from 'gsp-react';
 ```Js
 <Footer size="sm"
     style={[{'color': 'white', 'backgroundColor': '#318ccf'}]}
-    buttonName={["下单"]}
+    buttonName={["Submit"]}
     callBackFooterButtonClick={[
         this.callBackFooter0]}>
 </Footer>
@@ -292,7 +285,7 @@ import { Footer } from 'gsp-react';
     style={[{'color': '#318ccf', 'backgroundColor': '#ffffff'}, 
             {'color': 'white', 'backgroundColor': '#318ccf'},
             {'color': '#318ccf', 'backgroundColor': '#ffffff'}]}
-    buttonName={["取消", "删除", "确定"]}
+    buttonName={["Cancel", "Delele", "OK"]}
     callBackFooterButtonClick={[
         this.callBackFooter0, 
         this.callBackFooter1,
@@ -301,23 +294,23 @@ import { Footer } from 'gsp-react';
 </Footer>
 ```
 
-| ![](https://ws2.sinaimg.cn/large/006tKfTcly1fochnr6iuoj30mo04w74a.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fochnr286wj30mc042t8s.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1fochnqx9j6j30ly03ujrk.jpg) |
-| :--------------------------------------------------------------------: | :--------------------------------------------------------------------: | :--------------------------------------------------------------------: |
-| ![](https://ws4.sinaimg.cn/large/006tKfTcly1fochnqq5a2j30mm03iq2w.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fochnqhc9yj30me03smx7.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1fochnqcwwkj30m203gjri.jpg) |
-|                            一个按钮(lg, sm)                            |                            两个按钮(lg, sm)                            |                            三个按钮(lg, sm)                            |
+| ![](https://i.imgur.com/N6B0rXk.png) | ![](https://i.imgur.com/uoQ5YCt.png) | ![](https://i.imgur.com/s2P0Qdq.png) |
+| :----------------------------------: | :----------------------------------: | :----------------------------------: |
+| ![](https://i.imgur.com/1IP7Dfe.png) | ![](https://i.imgur.com/gAcz2uO.png) | ![](https://i.imgur.com/pX3mAVI.png) |
+|        Single button (lg, sm)        |         Two buttons (lg, sm)         |        Three buttons (lg, sm)        |
 
 ### Button
 
-Button组件根据Bootstrap v4的[Button](https://getbootstrap.com/docs/4.0/components/buttons/)进行封装。
+Button is an encapsulation of Bootstrap v4 [Button](https://getbootstrap.com/docs/4.0/components/buttons/)。
 
-| 属性     | 描述                | 默认值    | 类型                                                                                     |
-| -------- | ------------------- | --------- | ---------------------------------------------------------------------------------------- |
-| bstyle   | 按钮样式            | "primary" | string ("primary", "secondary", "success", "danger", "warning", "info", "light", "dark") |
-| size     | 按钮大小            | "lg"      | string ("lg", "sm")                                                                      |
-| text     | 按钮文字            | —         | string                                                                                   |
-| col      | 按钮所占col         | —         | num (12, 6, 4, 3)                                                                        |
-| onClick  | 调用方法            |           | func                                                                                     |
-| newStyle | style={"new"}时设定 | —         | object，例如 {color: 'white', backgroundColor: '#318ccf'}                                |
+| 属性     | 描述                    | 默认值    | 类型                                                         |
+| -------- | ----------------------- | --------- | ------------------------------------------------------------ |
+| bstyle   | Button styles           | "primary" | string ("primary", "secondary", "success", "danger", "warning", "info", "light", "dark") |
+| size     | Button size             | "lg"      | string ("lg", "sm")                                          |
+| text     | Button text             | —         | string                                                       |
+| col      | Num of cols occupied    | —         | num (12, 6, 4, 3)                                            |
+| onClick  | Callback funcion        |           | func                                                         |
+| newStyle | Used when style={"new"} | —         | object, such as {color: 'white', backgroundColor: '#318ccf'} |
 
 ```js
 import { Button } from 'gsp-react';
@@ -338,29 +331,27 @@ import { Button } from 'gsp-react';
 
 ```
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1fochqrd7g4j30lw0i0my5.jpg) 
+![](https://i.imgur.com/SYi34I5.png)
 
 ### Input
 
-| 属性          | 描述                         | 默认值 | 类型                     |
-| ------------- | ---------------------------- | ------ | ------------------------ |
-| label         | 左侧描述性label信息          | —      | string                   |
-| text          | 输入框内的内容               | —      | string                   |
-| placeholder   | placeholder                  | —      | string                   |
-| align         | 对其方式                     | "left" | string ("left", "right") |
-| clear         | 是否带有清空按钮             | —      | bool                     |
-| onChange      | 输入时调用的方法             | —      | func                     |
-| 内部child组件 | 嵌套的内部组件               | —      | React elem               |
-| name          | 绑定数据表中的名为name的字段 | —      | string                   |
-| required      | 是否必填                     | false  | boolean                  |
+| 属性        | 描述                     | 默认值 | 类型                     |
+| ----------- | ------------------------ | ------ | ------------------------ |
+| label       | Label of input           | —      | string                   |
+| text        | Text content of input    | —      | string                   |
+| placeholder | placeholder              | —      | string                   |
+| align       | Alignment                | "left" | string ("left", "right") |
+| clear       | Has a clear button?      | —      | bool                     |
+| onChange    | Callback                 | —      | func                     |
+| child       | Embedded child component | —      | React element            |
+| name        | Bind the column (name)   | —      | string                   |
+| required    | Required?                | false  | boolean                  |
 
-> ==name属性需与数据表中的数据属性对应==  📌
+> ==name attribute should be consistent with the column in data ==  📌
 
 ```js
 import { Input } from 'gsp-react';
 ```
-
-
 
 ```js
 this.state = {
@@ -370,12 +361,17 @@ this.state = {
 
 ```js
 <Input label={"左对齐带清空"} name={"a"} text={this.state.info[0]["a"]} onChange={this.onTextChange} placeholder={"姓名"} align={"left"} clear={true} />
+  
 <Input label={"上级审批人"} name={"b"} text={this.state.info[0]["b"]} onChange={this.onTextChange} placeholder={"上级审批人姓名"} align={"left"} />
+  
 <Input label={"左对齐带图标"} name={"c"} text={this.state.info[0]["c"]} onChange={this.onTextChange} placeholder={"审批意见"} align={"left"} 
     img={<Icon type="calendar" />}/>
+      
 <Input label={"右对齐带清空"} name={"d"} text={this.state.info[0]["d"]} onChange={this.onTextChange} placeholder={"请输入金额"} align={"right"} clear={true}/>
+  
 <Input label={"交易金额"} name={"e"} text={this.state.info[0]["e"]} onChange={this.onTextChange} placeholder={"请输入金额"} align={"right"} 
     img={<Icon type="right" />}/>
+      
 <Input label={"交易金额"} name={"f"} text={this.state.info[0]["f"]} onChange={this.onTextChange} placeholder={"请输入金额"} align={"right"} 
     img={<Icon type="pay-circle-o" />}/>
 ```
@@ -390,54 +386,81 @@ onTextChange(e) {
 }
 ```
 
-
-
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fotw3r7atdj30le0f6jt8.jpg) 
+![](https://i.imgur.com/zgh52r4.png)
 
 ### Message
 
-消息提示Message组件完全基于`antd`的`Message`组件和`antd-mobile`的`Toast`组件，将Message和Toast的调用进行了简单的封装，导出为 `ShowMessage`和`ShowToast`两个方法，易于调用。
+Message component combines the advantages of `Message` in `antd` and `Toast` in `antd-mobile`. We encapsulate these two third party components and expose two easy using functions-- `showMessage()` and `showToast()`.
 
 - Message
 
-|     属性 | 描述                                      | 默认值 | 类型                                   |
-| -------: | ----------------------------------------- | ------ | -------------------------------------- |
-|     type | Message的类型                             | —      | String（success, fail, info, warning） |
-|     text | Message内容                               | —      | String                                 |
-| duration | Message显示时长（秒）                     | 2      | num                                    |
-| position | Message显示在屏幕的位置（距顶部的像素数） | 70     | num                                    |
+|     属性 | 描述                                                    | 默认值 | 类型                                   |
+| -------: | ------------------------------------------------------- | ------ | -------------------------------------- |
+|     type | Message type                                            | —      | String（success, fail, info, warning） |
+|     text | Message content                                         | —      | String                                 |
+| duration | Message display duration (in seconds)                   | 2      | num                                    |
+| position | Message display position (pixels off the top of screen) | 70     | num                                    |
 
 - Toast
 
-| 属性     | 描述          | 默认值 | 类型                                     |
-| -------- | ------------- | ------ | ---------------------------------------- |
-| type     | Toast的类型   | —      | String（success, fail, offline,loading） |
-| text     | Toast的内容   | —      | String                                   |
-| duration | Toast显示时长 | 2      | num                                      |
+| 属性     | 描述                                | 默认值 | 类型                                      |
+| -------- | ----------------------------------- | ------ | ----------------------------------------- |
+| type     | Toast type                          | —      | String（success, fail, offline, loading） |
+| text     | Toast content                       | —      | String                                    |
+| duration | Toast display duration (in seconds) | 2      | num                                       |
 
 ```javascript
 import { ShowMessage } from "gsp-react";
 import { ShowToast } from 'gsp-react';
 
-<Button style={"primary"} size="lg" text="info" col={12} onClick={() => ShowMessage("info", "这是一条消息", 2)}/>
+<Row>
+  	<Button bstyle={"primary"} size="lg" text="info" col={12} 
+							onClick={() => {ShowMessage("info", "this is a message", 2)}}/>
+  	<Button bstyle={"success"} size="lg" text="success" col={12} 
+							onClick={() => {ShowMessage("success", "this is a success message")}}/>
+  	<Button bstyle={"danger"} size="lg" text="danger" col={12} 
+							onClick={() => {ShowMessage("fail", "this is a danger message")}}/>
+  	<Button bstyle={"warning"} size="lg" text="warning" col={12} 
+							onClick={() => {ShowMessage("warning", "this is a warning message")}}/>
+</Row>
 
-<Button style={"primary"} size="lg" text={"success"} col={6} onClick={() => ShowToast("success", "加载成功")}/>
+
+<Row>
+  	<Button bstyle={"primary"} size="lg" text={"success"} col={6} 
+						onClick={() => ShowToast("success", "SUCCESS")}/>
+  	<Button bstyle={"primary"} size="lg" text={"fail"} col={6} 
+						onClick={() => ShowToast("fail", "Fail")}/>
+  	<Button bstyle={"primary"} size="lg" text={"network failure"} col={6} 
+						onClick={() => ShowToast("offline", "NETWORK FAILURE")}/>
+  	<Button bstyle={"primary"} size="lg" text={"loading"} col={6} 
+						onClick={() => ShowToast("loading", "LOADING...")}/>
+</Row>
 
 
 ```
 
+| ![](https://i.imgur.com/RF2WHIk.png) | ![](https://i.imgur.com/YYv2XR2.png) | ![](https://i.imgur.com/A7BoALA.png) | ![](https://i.imgur.com/egCigGL.png) |
+| :----------------------------------: | :----------------------------------: | :----------------------------------: | ------------------------------------ |
+|                 info                 |               success                |                 fail                 | Warning                              |
+
+| ![](https://i.imgur.com/1g0Fk74.png) | ![](https://i.imgur.com/cAIrPvv.png) | ![](https://i.imgur.com/dofWN3F.png) | ![](https://i.imgur.com/l7l15qs.png) |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| success                              | fail                                 | Network failure                      | Loading                              |
+
+
+
 ### Modal
 
-Modal组件是弹出的对话框及输入框，基于`antd-mobile`的`Modal`组件开发，导出为`ShowModal`方法。
+Modal is dialogue box or input box on the screen.
 
-| 属性         | 描述                                             | 默认值 | 类型                         |
-| ------------ | ------------------------------------------------ | ------ | ---------------------------- |
-| mode         | Modal类型                                        | —      | string （"alert", "prompt"） |
-| title        | 标题                                             | —      | string                       |
-| message      | 提示信息                                         | —      | string                       |
-| actionArr    | 按钮文字及绑定的方法                             | —      | []:  {text, onPress}         |
-| option       | mode为"prompt"时可以设置，用于设置输入框的默认值 | —      | string （"default"）         |
-| defaultValue | mode为"prompt"时可以设置，输入框的默认值         | —      | string                       |
+| 属性         | 描述                                        | 默认值 | 类型                         |
+| ------------ | ------------------------------------------- | ------ | ---------------------------- |
+| mode         | Modal type                                  | —      | string （"alert", "prompt"） |
+| title        | Title                                       | —      | string                       |
+| message      | Information shown on the modal              | —      | string                       |
+| actionArr    | Button texts and callback functions         | —      | []:  {text, onPress}         |
+| option       | Set when mode is "prompt", placeholder text | —      | string （"default"）         |
+| defaultValue | Set when Mode is "prompt", default value    | —      | string                       |
 
 ```javascript
 import { ShowModal } from 'gsp-react';
@@ -491,31 +514,33 @@ import { ShowModal } from 'gsp-react';
 />
 ```
 
-| ![](https://ws2.sinaimg.cn/large/006tKfTcly1foci8opa6aj30hw0a0dgd.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1foci8oja8yj30hw0foq3m.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1foci8odxfgj30hq0cq0tg.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1foci8o5fekj30i60ciq3r.jpg) |
-| :--------------------------------------------------------------------: | :--------------------------------------------------------------------: | :--------------------------------------------------------------------: | :--------------------------------------------------------------------: |
-|                            两个按钮的提示框                            |                            多个按钮的提示框                            |                               普通输入框                               |                            带默认值的输入框                            |
+| ![](https://i.imgur.com/ABuh6Sb.png) | ![](https://i.imgur.com/thKtXXg.png) | ![](https://i.imgur.com/YR5UNIG.png) | ![](https://i.imgur.com/4SOtFOt.png) | ![](https://i.imgur.com/2TTEzeY.png) |
+| :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | ------------------------------------ |
+|             Two buttons              |           Multiple buttons           |              Input box               |     Input box with default value     | Modal  sliding from Botton           |
 
 ### Card
 
-Card组件用于设计页面中的卡片元素以更好地展示内容。
+Card component is a great choice to bundle information together and display in a concise way.
 
-Card组件基于Bootstrap v4的[Media-object](https://getbootstrap.com/docs/4.0/layout/media-object/) 设计，可以制作美观的卡片header部分，并在下方嵌套所需的其他组件。
+You can make beautiful card header and embed whatever information inside.
 
-| 属性          | 描述                     | 默认值 | 类型                         |
-| ------------- | ------------------------ | ------ | ---------------------------- |
-| avatar        | 头像                     | —      | `<img>`                      |
-| position      | header在Card中的位置     | "top"  | string （"top", "bottom"）   |
-| title         | header标题               | —      | string                       |
-| text          | Header内容               | —      | String                       |
-| onClick       | 点击卡片的调用方法       | —      | func                         |
-| 内部child组件 | 卡片header下方的其他内容 | —      | React elem                   |
-| topRight      | header右上方显示内容     | —      | React elem                   |
-| bottomRight   | header右下方显示的内容   | —      | React elem                   |
-| middleLeft    | header中间行左侧的内容   | —      | React elem                   |
-| middleRight   | header中间行右侧的内容   | —      | React elem                   |
-| width         | 卡片所占的宽度           | “100%” | string                       |
-| padding       | 卡片内边距               | "8px"  | string （"6px 5px 6px 5px"） |
-| margin        | 卡片外边距               | "0"    | string （"6px 5px 6px 5px"） |
+Based on [Media-object](https://getbootstrap.com/docs/4.0/layout/media-object/).
+
+| 属性        | 描述                                         | 默认值 | 类型                         |
+| ----------- | -------------------------------------------- | ------ | ---------------------------- |
+| avatar      | Avatar (optional)                            | —      | `<img>`                      |
+| position    | header position in the card                  | "top"  | string （"top", "bottom"）   |
+| title       | header title                                 | —      | string                       |
+| text        | Header text                                  | —      | String                       |
+| onClick     | Callback when clicking the card              | —      | func                         |
+| child       | Info displayed under the header              | —      | React elem                   |
+| topRight    | Info displayed on top right of the header    | —      | React elem                   |
+| bottomRight | Info displayed on Bottom right of the header | —      | React elem                   |
+| middleLeft  | Info displayed on middle left of the header  | —      | React elem                   |
+| middleRight | Info displayed on middle right of the header | —      | React elem                   |
+| width       | Width of the card                            | “100%” | string                       |
+| padding     | Inner padding                                | "8px"  | string （"6px 5px 6px 5px"） |
+| margin      | Outer margin                                 | "0"    | string （"6px 5px 6px 5px"） |
 
 解释
 
@@ -707,34 +732,32 @@ import { Card } from 'gsp-react';
 
 
 
-| ![](https://ws2.sinaimg.cn/large/006tKfTcly1focifk4xcbj30ky0b2n33.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1focifjo6sqj30l00d8tb7.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1focifjedd4j30l209qwfl.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1focifj4u0gj30l20j8n6g.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fornzuypa4j30m40l67c4.jpg) |
-| :--------------------------------------------------------------------: | :--------------------------------------------------------------------: | :--------------------------------------------------------------------: | :--------------------------------------------------------------------: | ---------------------------------------------------------------------- |
-|                                餐厅卡片                                |                               仿微信卡片                               |                              机票申请卡片                              |                                复杂卡片                                | 仿Medium卡片                                                           |
-| ![](https://ws1.sinaimg.cn/large/006tKfTcly1fordx6qenij30l80io1bu.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1forj5a2qjnj30qm08wq9r.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1forhsw3xbtj30lg06amyb.jpg) | ![](https://ws1.sinaimg.cn/large/006tKfTcly1forj8vfiycj30lc06swf7.jpg) | ![](https://ws3.sinaimg.cn/large/006tNc79ly1fotnn8bsauj30lk0fkgq7.jpg) |
-|                             仿YouTube卡片1                             |                             仿YouTube卡片2                             |                              仿Gmail卡片                               |                               无头像卡片                               | 卡片width不为100%（可横向滑动）                                        |
+|             ![](https://i.imgur.com/XaQTRo4.png)             | ![](https://i.imgur.com/fDYsnmK.png) | ![](https://i.imgur.com/3P7aCLi.png) | ![](https://i.imgur.com/gwWUrSN.png) | ![image-20210615220657595](../../../../../Library/Application Support/typora-user-images/image-20210615220657595.png) |
+| :----------------------------------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | ------------------------------------------------------------ |
+|                          Diner card                          |               WhatsApp               |          Ticket application          |           Complicated card           | Medium website card                                          |
+| ![image-20210615220713757](../../../../../Library/Application Support/typora-user-images/image-20210615220713757.png) | ![](https://i.imgur.com/zhaHSMv.png) | ![](https://i.imgur.com/qxzfj7u.png) | ![](https://i.imgur.com/6uDFoUl.png) | ![](https://i.imgur.com/DpLhYGe.png)                         |
+|                         YouTube card                         |            Youtube card2             |              Gmail card              |            No avatar card            | Horizontally scrollable card (width < 100%)                  |
 
-### Picker
 
-目前只有时间选择器。
 
-时间选择器基于`react-mobile-datepicker` 开发，可以对YYYY、MM、DD、hh、mm进行选择。（计划在未来使用antd-mobile的时间选择器）
+### DatePicker
 
-| 属性       | 描述                           | 默认值    | 类型                                     |
-| ---------- | ------------------------------ | --------- | ---------------------------------------- |
-| value      | 时间控件的值                   | —         | object: Date()                           |
-| isOpen     | 是否显示选择器                 | false     | bool                                     |
-| onSelect   | 点击“完成”调用的方法           | —         | func                                     |
-| onCancel   | 点击“取消”调用的方法           | —         | Func                                     |
-| dateFormat | 时间格式                       | —         | []: string                               |
-| showFormat | 显示在选择器上方的事件字符样式 | —         | string                                   |
-| theme      | 样式主题                       | "android" | string ("android", "ios")，推荐"android" |
-| min        | 最小时间                       | —         | object: Date()                           |
+DatePicker is based on `react-mobile-datepicker` ; users can finger scroll to change and select YYYY, MM, DD, hh, mm.
+
+| 属性       | 描述                       | 默认值    | 类型                                           |
+| ---------- | -------------------------- | --------- | ---------------------------------------------- |
+| value      | Value of the datepicker    | —         | object: Date()                                 |
+| isOpen     | Display the picker?        | false     | bool                                           |
+| onSelect   | Callback when click OK     | —         | func                                           |
+| onCancel   | Callback when click Cancel | —         | Func                                           |
+| dateFormat | Time format                | —         | []: string                                     |
+| showFormat | Format shown on the picker | —         | string                                         |
+| theme      | Theme                      | "android" | string ("android", "ios")，recommend "android" |
+| min        | Minimum time               | —         | object: Date()                                 |
 
 ```js
 import { Picker } from 'gsp-react';
 ```
-
-
 
 ```js
 <label>日期时间DateTime</label>
@@ -832,18 +855,22 @@ handleSelect1(time) {
 }
 ```
 
+| ![](https://i.imgur.com/4ZYZqgE.png) | ![](https://i.imgur.com/Uv651Jy.png) | ![](https://i.imgur.com/kFhJZ5K.png) |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| DateTime                             | Date                                 | Start-End time                       |
+
 
 
 ### Spin
 
-加载数据时显示的等待动画，目前只有三种样式。
+Spin animation when waiting for the data loading
 
-| 属性       | 描述     | 默认值    | 类型                   |
-| ---------- | -------- | --------- | ---------------------- |
-| isSpinning | 是否显示 | —         | boolean                |
-| indicator  | 样式图案 | "a"       | string ("a", "b", "c") |
-| size       | 图案大小 | 30        | num                    |
-| color      | 图案颜色 | “#318ccf” | string                 |
+| 属性       | 描述                     | 默认值    | 类型                   |
+| ---------- | ------------------------ | --------- | ---------------------- |
+| isSpinning | Show the animation?      | —         | boolean                |
+| indicator  | Pattern of the animation | "a"       | string ("a", "b", "c") |
+| size       | Size of the animation    | 30        | num                    |
+| color      | Color of the pattern     | “#318ccf” | string                 |
 
 ```js
 import { Spin } from 'gsp-react';
@@ -852,17 +879,19 @@ import { Spin } from 'gsp-react';
 <Spin isSpinning={this.state.isSpinning} indicator="a" size={40} color={"red"}/>
 ```
 
-| ![](https://ws1.sinaimg.cn/large/006tNc79ly1fp6nft9nn7g30ap0iqwfp.gif) | ![](https://ws3.sinaimg.cn/large/006tNc79ly1fp6nf0nh23g30am0iq75j.gif) | ![](https://ws3.sinaimg.cn/large/006tNc79ly1fp6nf0uanyg30al0iqdh4.gif) |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| 样式a                                                                  | 样式b                                                                  | 样式c                                                                  |
+|       |       |       |
+| ----- | ----- | ----- |
+| 样式a | 样式b | 样式c |
 
 ### Refresh/Loadmore
 
-**下拉刷新**组件只是对antd-mobile的[PullToRefresh](https://mobile.ant.design/components/pull-to-refresh-cn/)进行了简单的封装，调用过程相对简单。
+Pull-to-refresh is just an improvement over the [PullToRefresh](https://mobile.ant.design/components/pull-to-refresh-cn/); the use is relatively easy.
 
-如需在刷新时显示旋转加载动画，可以引入`<Spin />`组件。
+If you want to show the spin animation when refreshing the page, you need to import the `<Spin />`.
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fotyb0fzw1g30aq0iwx6s.gif)
+![](https://i.imgur.com/9xim8Uh.gif)
+
+
 
 ```js
 import { PullRefresh } from 'gsp-react';
@@ -964,14 +993,14 @@ refresh() {
         });
     }, function (err) {
         if(err.status === 'timeout') {
-            showMessage("info", "网络超时，请重试");
+            showMessage("info", "timeout, try later");
         }
         if(err.status=== 'offline') {
-            showToast("offline", "网络连接不可用，请检查网络设置");
+            showToast("offline", "No connection, please check");
         }
         if(err.status=== 'error') {
             console.log(err);
-            showMessage("info", "列表获取失败，请重试");
+            showMessage("info", "Data error");
         }
     })
 }
@@ -998,14 +1027,14 @@ loadMore() {
         });
     }, function (err) {
         if(err.status === 'timeout') {
-            showMessage("info", "网络超时，请重试");
+            showMessage("info", "timeout, try later");
         }
         if(err.status=== 'offline') {
-            showToast("offline", "网络连接不可用，请检查网络设置");
+            showToast("offline", "No connection, please check");
         }
         if(err.status=== 'error') {
             console.log(err);
-            showMessage("info", "列表获取失败，请重试");
+            showMessage("info", "Data error");
         }
     })
 }
@@ -1013,53 +1042,54 @@ loadMore() {
 
 
 
-| 属性              | 描述                                                  | 默认值                                                                       | 类型       |
-| ----------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------- | ---------- |
-| ~~style~~         | （~~目前没搞明白原理…）可以控制`<Spin />`的显示位置~~ | —                                                                            | ~~object~~ |
-| distanceToRefresh | 激活刷新的的拉动距离                                  | 80                                                                           | num        |
-| indicator         | 组件不同状态时的提示文字                              | { activate: '松开立即刷新', deactivate: '下拉可以刷新', finish: '完成刷新' } | object     |
-| refreshing        | （不建议修改该属性）是否显示刷新状态                  | false                                                                        | bool       |
-| onRefresh         | 必选，刷新回调函数                                    | —                                                                            | func       |
-| 内部child组件     | 调用下拉刷新的长列表                                  | —                                                                            | React elem |
+| 属性              | 描述                                           | 默认值                                                       | 类型       |
+| ----------------- | ---------------------------------------------- | ------------------------------------------------------------ | ---------- |
+|                   |                                                |                                                              |            |
+| distanceToRefresh | Distance to drag before activate refresh       | 80                                                           | num        |
+| indicator         | Information shown with different drag distance | { activate: 'release to refresh', deactivate: 'drag to refresh', finish: 'refreshed' } | object     |
+| refreshing        | Do not change this                             | false                                                        | bool       |
+| onRefresh         | Required, callback of refresh                  | —                                                            | func       |
+| child             | Long list view that want to do drag to refresh | —                                                            | React elem |
 
-**上滑加载**功能因为需要调用React自身的生命周期函数，所以尚未封装为独立的组件。（antd-mobile中的上划加载功能因为强制使用其List组件，且调用不便，所以目前未采用）
+**Swipe-to-load-more** needs to call the life cycle functions of react, so we haven't encapsulated this to be a standalone component.
 
-实现步骤：
+We do not recommend use the swipe to load more component in and-mobile as it requires to use its own List component as the container and not easy to DIY.
 
-1. 为页面添加`ref` ，这里起名为contentNode
+Steps：
+
+1. Add `ref` to the page, let's name it contentNode
 
    ```js
-    //此处的className=content的div具有属性 overflow-y: scroll，必须添加，否则无法触发loadMore方法
+    //className=content; overflow-y: scroll，this is a must, otherwise it wont activate the loadmore function
    <div className="content" ref={ node => this.contentNode = node }> 
-       <Spin spinning={this.state.isSpinning} tip={"加载中"} delay={500} size="large">		
+       <Spin spinning={this.state.isSpinning} tip={"loading"} delay={500} size="large">		
            <PullRefresh 
                style={{
                    height: this.state.height - 56,
                }}
                distanceToRefresh={80}
-               // indicator={{ activate: '松开刷新', deactivate: '继续下拉刷新', finish: '刷新完成' }}
+               // indicator={{ activate: 'release to refresh', deactivate: 'drag to refresh', finish: 'refreshed' }}
                refreshing={this.state.isRefreshing} 
                onRefresh={this.refresh.bind(this)}
            >
                {listDiv}
 
-               {/* 下方组件为列表底部提示性信息：列表还有内容时，显示"正在加载"；列表无更多内容时，显示"—— 已无更多 ——" */}
+               {/* show helpful information in this bottom area: if there are more content to load, show 'refreshing'; otherwise, show '—— No more data ——' */}
                {<div className="text-center" 
                    style={{backgroundColor: '#ededed', color: '#808080', fontSize: '14px', height: '45px', 
                        verticalAlign: 'middle', paddingTop: '10px'}}>
-                   {this.state.hasMore ? <div><Icon type="loading" />  正在加载</div> : "———— 已无更多 ————"}
+                   {this.state.hasMore ? <div><Icon type="loading" />  refreshing</div> : "———— No more data ————"}
                </div>}
            </PullRefresh>
        </Spin>
    </div>
    ```
 
-2. 挂载scroll监听方法至`contentNode`上，该过程可以在componentDidMount()声明函数上执行
+2. Mount the scroll callback to `contentNode` in the componentDidMount() function
 
    ```js
    /**
-    * 1. 挂载scroll监听方法至contentNode上
-    * 该contentNode为scrollable的实体dom
+    * 1. mount the scroll callback to contentNode
     */
    componentDidMount() {
        if (this.contentNode) {
@@ -1071,18 +1101,18 @@ loadMore() {
        });
    }
    ```
-
-3. scroll监听方法，滚动至底部时，自动加载loadMore()方法—>更新state中的数据—>更新dom
+   
+3. scroll callback, when scroll to the end of the screen, activate loadMore() —> update state—>update dom
 
    ```js
    /**
-    * 2. scroll监听方法，滚动至底部时，在自动加载更多数据的方法-->更新state中的数据-->更新dom
+    * 2. scroll callback, when scroll to the end of the screen, activate loadMore() —> update state—>update dom
     * @param {*} event 
     */
    onScrollHandle(event) {
-       const clientHeight = event.target.clientHeight; // 屏幕高度
-       const scrollHeight = event.target.scrollHeight; // 总的内容高度
-       const scrollTop = event.target.scrollTop; // 已经滑动的距离
+       const clientHeight = event.target.clientHeight; // screen height
+       const scrollHeight = event.target.scrollHeight; // content height
+       const scrollTop = event.target.scrollTop; // distance scrolled
        const isBottom = (clientHeight + scrollTop === scrollHeight)
        if(isBottom) {
            if(this.state.hasMore) {
@@ -1113,20 +1143,20 @@ loadMore() {
            });
        }, function (err) {
            if(err.status === 'timeout') {
-               showMessage("info", "网络超时，请重试");
+               showMessage("info", "timeout, try later");
            }
            if(err.status=== 'offline') {
-               showToast("offline", "网络连接不可用，请检查网络设置");
+               showToast("offline", "No connection, please check");
            }
            if(err.status=== 'error') {
                console.log(err);
-               showMessage("info", "列表获取失败，请重试");
+               showMessage("info", "Data error");
            }
        })
    }
    ```
 
-4. 卸载scroll监听方法
+4. Unmount the scroll callback
 
    ```js
    componentWillUnmount() {
@@ -1134,25 +1164,25 @@ loadMore() {
            this.contentNode.removeEventListener('scroll', this.onScrollHandle.bind(this));
        }
    }
-
+   
    ```
 
 
 
 ### Tab
 
-- Tab数量可以设定（2 <= n <= 5）
-- Tab样式可以设定（激活和未激活Tab的字体，背景色等）
-- 当前Tab下方横线样式可以设定（粗细、样式、颜色等）
+- Tab can be 2 <= n <= 5
+- Tab style is easy to set (activated and inactivated tab font, color, etc.)
+- Underline style in the Current tab can be set (stroke, style, color)
 
-| 属性           | 描述                    | 默认值                                           | 类型       |
-| -------------- | ----------------------- | ------------------------------------------------ | ---------- |
-| tabs           | tab标签文字数组         | —                                                | []: string |
-| selected       | 当前被选中tab           | 0                                                | num        |
-| callBack       | 点击tab的回调方法       | —                                                | func       |
-| activeStyle    | 激活状态tab样式         | {color: '#318ccf', backgroundColor: '#ffffff'}   | {}         |
-| inactiveStyle  | 未激活状态tab样式       | {color: '#000000', backgroundColor: '#ffffff'}   | {}         |
-| indicatorStyle | 激活状态tab下方横线样式 | {color: '#318ccf', style: 'solid', width: '2px'} | {}         |
+| 属性           | 描述                                 | 默认值                                           | 类型       |
+| -------------- | ------------------------------------ | ------------------------------------------------ | ---------- |
+| tabs           | tab title list                       | —                                                | []: string |
+| selected       | Current selected tab                 | 0                                                | num        |
+| callBack       | Tab click callback                   | —                                                | func       |
+| activeStyle    | Activated tab style                  | {color: '#318ccf', backgroundColor: '#ffffff'}   | {}         |
+| inactiveStyle  | Inactivated tab style                | {color: '#000000', backgroundColor: '#ffffff'}   | {}         |
+| indicatorStyle | Activated tab bottom underline style | {color: '#318ccf', style: 'solid', width: '2px'} | {}         |
 
 Tab组件添加位置：
 
@@ -1197,25 +1227,19 @@ import { Tab } from 'gsp-react';
     selected={this.state.selected} callBack={this.changeTab.bind(this)}/>
 ```
 
-| ![](https://ws2.sinaimg.cn/large/006tNc79ly1foy8eyf1laj30lg0d40tc.jpg) | ![](https://ws1.sinaimg.cn/large/006tNc79ly1foy8ey7wnoj30la0d0js0.jpg) | ![](https://ws3.sinaimg.cn/large/006tNc79ly1foy8exzs9tj30le0cywf5.jpg) | ![](https://ws3.sinaimg.cn/large/006tNc79ly1foy8extosrj30lg0d63z7.jpg) | ![](https://ws3.sinaimg.cn/large/006tNc79ly1foy8exlpynj30la0d0aam.jpg) |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| 2个tab                                                                 | 3个tab                                                                 | 4个tab                                                                 | 5个tab                                                                 | 样式修改                                                               |
-
-TODO：
-
-- 高度自定义
-- 动画切换效果
+| ![](https://i.imgur.com/RK7wMcB.png) | ![](https://i.imgur.com/RK7wMcB.png) | ![](https://i.imgur.com/ein1N3W.png) | ![](https://i.imgur.com/nRMFXte.png) | ![](https://i.imgur.com/VGTfj9j.png) |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| 2 tab                                | 3 tab                                | 4 tab                                | 5 tab                                | DIY                                  |
 
 
 
 ### Listitem
 
-- Listitem组件方便用户在页面上进行信息设定。
+- Listitem is used to easily input and display information on the page.
 
 
-- 左侧为提示性信息，右侧根据用户需要可以嵌套不同数量、不同种类的元素(`Icon`，`image`， `Input`， `label`，`Switch`，`Button`等)；
-- 右侧部分应用了Bootstrap v4定位，根据元素数量自动定位 👉[here](https://getbootstrap.com/docs/4.0/utilities/flex/#justify-content)
-- Trick：右侧只有一个元素而又想帖靠在右侧时，可以添加一个空的`div`进行占位（此时右侧实际包含两个元素，详见“索要发票”示例）(很矬，待改进)
+- Left side of Listitem is label, right side can be embedded in other elements (`Icon`，`image`， `Input`， `label`，`Switch`，`Button`, etc.)
+- Automatic layout techniques based on number of right side elements from Bootstrap v4 👉[here](https://getbootstrap.com/docs/4.0/utilities/flex/#justify-content)
 
 | 右侧元素数量 | 右侧分布情况                       |
 | ------------ | ---------------------------------- |
@@ -1224,11 +1248,11 @@ TODO：
 | 3            | A——————————————B———————————————C   |
 | 4            | A————————B————————— C ———————————D |
 
-| 属性          | 描述           | 默认值 | 类型       |
-| ------------- | -------------- | ------ | ---------- |
-| text          | 左侧描述性信息 | —      | string     |
-| 内部child组件 | 右侧元素       | —      | React elem |
-| required      | 是否必填       | false  | boolean    |
+| 属性     | 描述                  | 默认值 | 类型       |
+| -------- | --------------------- | ------ | ---------- |
+| text     | Label on the left     | —      | string     |
+| child    | Elements on the right | —      | React elem |
+| required | Required?             | false  | boolean    |
 
 ```Js
 import { Listview } from 'gsp-react';
@@ -1318,40 +1342,40 @@ import { Listview } from 'gsp-react';
 </Listview> 
 ```
 
-| ![](https://ws1.sinaimg.cn/large/006tKfTcly1focijwpf9tj30ky02oq30.jpg) | ![](https://ws1.sinaimg.cn/large/006tKfTcly1focijwko5gj30l002qq34.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1focijwf5pbj30l202g0sv.jpg) | ![](https://ws4.sinaimg.cn/large/006tKfTcly1focijw9nmjj30l202mwen.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1focijx18h1j30kw02idfx.jpg) | ![](https://ws1.sinaimg.cn/large/006tKfTcly1focijwxcitj30l002mq32.jpg) |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| 时间                                                                   | 所在单位                                                               | 起止时间                                                               | 城市区间                                                               | 索要发票                                                               | 支付方式                                                               |
+| ![](https://i.imgur.com/WLLntbb.png) |
+| ------------------------------------ |
+| Listitem                             |
 
 ### Radio/Check
 
-单选按钮分为divide型和line型两种；
+Two kinds of radio - divide and inline
 
-CheckGroup目前有一种样式（之后可能会扩展）。
+CheckGroup has only one style now
 
 - Radio
 
-| 属性     | 描述                                    | 默认值   | 类型                       |
-| -------- | --------------------------------------- | -------- | -------------------------- |
-| mode     | Radio样式                               | “divide” | string（"divide", "line"） |
-| size     | Radio按钮大小                           | "md"     | string ("lg", "md", "sm")  |
-| option   | Radio选项                               | —        | []                         |
-| val      | Radio按钮的值                           | —        | []                         |
-| id       | （可选）按钮的ID，在传统Radio中需要设置 | —        | []                         |
-| selected | 当前选中项                              | —        | num                        |
-| onChange | 点击调用的方法                          | —        | func                       |
+| 属性     | 描述                            | 默认值   | 类型                       |
+| -------- | ------------------------------- | -------- | -------------------------- |
+| mode     | Radio style                     | “divide” | string（"divide", "line"） |
+| size     | Radio button size               | "md"     | string ("lg", "md", "sm")  |
+| option   | Radio options                   | —        | []                         |
+| val      | Radio value bound to the button | —        | []                         |
+| id       | Optional                        | —        | []                         |
+| selected | Current selected button         | —        | num                        |
+| onChange | callback                        | —        | func                       |
 
 - Check
 
-| 属性     | 描述          | 默认值 | 类型    |
-| -------- | ------------- | ------ | ------- |
-| option   | Check选项     | —      | []      |
-| val      | Check按钮的值 | —      | []      |
-| selected | 当前选中项    | —      | []: num |
-| onChange | 点击调用方法  | —      | func    |
+| 属性     | 描述                                  | 默认值 | 类型    |
+| -------- | ------------------------------------- | ------ | ------- |
+| option   | Check option                          | —      | []      |
+| val      | Check value bound to the check button | —      | []      |
+| selected | Current selected button               | —      | []: num |
+| onChange | callback                              | —      | func    |
 
-| ![](https://ws1.sinaimg.cn/large/006tKfTcly1fodglix6jij30kw0agjs4.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fodglj4cy4j30l202kjrj.jpg) | ![](https://ws1.sinaimg.cn/large/006tKfTcly1fodglj9eu0j30l007k0sv.jpg) | ![](https://ws2.sinaimg.cn/large/006tKfTcly1fodgljgpjsj30l209ywey.jpg) |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| divide单选按钮                                                         | divide按钮在listitem中                                                 | line单选按钮                                                           | 多选按钮                                                               |
+| ![](https://i.imgur.com/ovPItyN.png) | ![](https://i.imgur.com/w1jKEyI.png) | ![](https://i.imgur.com/dnRdLNm.png) | ![](https://i.imgur.com/FffefaE.png) |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| divide单选按钮                       | divide按钮在listitem中               | line单选按钮                         | 多选按钮                             |
 
 ```js
 import { CheckGroup, RadioGroup } from 'gsp-react;
@@ -1396,16 +1420,16 @@ import { CheckGroup, RadioGroup } from 'gsp-react;
 
 - 建议与Listitem组件一起使用
 
-| 属性     | 描述         | 默认值    | 类型   |
-| -------- | ------------ | --------- | ------ |
-| checked  | 是否开启     | —         | bool   |
+| 属性       | 描述     | 默认值       | 类型     |
+| -------- | ------ | --------- | ------ |
+| checked  | 是否开启   | —         | bool   |
 | onChange | 点击回调函数 | —         | func   |
 | color    | 开启后的颜色 | "#4dd865" | string |
-| disabled | 禁用         | false     | bool   |
+| disabled | 禁用     | false     | bool   |
 
 | ![](https://ws1.sinaimg.cn/large/006tKfTcly1fodh0758yuj30ky02eaa5.jpg) | ![](https://ws1.sinaimg.cn/large/006tKfTcly1fodh070tfhj30q80320sz.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fodh1e9ft6j30ky02m74d.jpg) |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| 默认样式                                                               | 自定义按钮颜色                                                         | 禁用状态                                                               |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| 默认样式                                     | 自定义按钮颜色                                  | 禁用状态                                     |
 
 ```js
 import { Switch } from 'gsp-react';
@@ -1509,7 +1533,7 @@ import { Switch } from 'gsp-react';
        }, () => {
            showMessage("success", "列表获取成功！"); // 操作成功提示信息
        });
-
+   
    }, function (err) {
        if(err.status === 'timeout') {
            showMessage("info", "网络超时，请重试");  // 网络超时提示信息
@@ -1535,8 +1559,8 @@ import { Switch } from 'gsp-react';
 > ```
 
 | ![](https://ws4.sinaimg.cn/large/006tNc79ly1fours7bdsrg30ti06nn0l.gif) | ![](https://ws1.sinaimg.cn/large/006tNc79ly1fouru5gitcg30ah0inacp.gif) | ![](https://ws2.sinaimg.cn/large/006tNc79ly1fourw33zwxg30ah0il768.gif) | ![](https://ws1.sinaimg.cn/large/006tNc79ly1fourzdzjlyg30ae0ihabk.gif) |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| 正常获取数据并弹出提示信息                                             | 网络连接中断                                                           | 网络超时                                                               | API调用失败                                                            |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 正常获取数据并弹出提示信息                                   | 网络连接中断                                                 | 网络超时                                                     | API调用失败                                                  |
 
 
 
@@ -1550,7 +1574,7 @@ import { Switch } from 'gsp-react';
    npm install babel-plugin-import --save-dev
    ```
 
-   ​
+   
 
 2. 将项目进行降级处理
 
@@ -1613,8 +1637,8 @@ import { Switch } from 'gsp-react';
 - 将修改后的待发版组件文件夹` ~/src/components` 内所有文件拷贝至`~/es6es5` 文件夹下
 
   | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fp38kwsp14j30eg0ti0ue.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fp38lpyhxkj30eo0tiwg4.jpg) |
-  | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-  | ` ~/src/components`                                                    | `~/es6es5`                                                             |
+  | ------------------------------------------------------------ | ------------------------------------------------------------ |
+  | ` ~/src/components`                                          | `~/es6es5`                                                   |
 
 - 在根目录执行命令
 
@@ -1627,14 +1651,14 @@ import { Switch } from 'gsp-react';
 - 拷贝`~/es6es5` 内所有文件至`~/publish/lib` 
 
   | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fp38lpyhxkj30eo0tiwg4.jpg) | ![](https://ws3.sinaimg.cn/large/006tKfTcly1fp38kwkwsfj30e20umq4l.jpg) |
-  | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-  | `~/es6es5`                                                             | `~/publish/lib`                                                        |
+  | ------------------------------------------------------------ | ------------------------------------------------------------ |
+  | `~/es6es5`                                                   | `~/publish/lib`                                              |
 
 - 在`~/publish` 目录执行命令
 
   ```Shell
   npm adduser //只在第一次发布时执行
-
+  
   npm publish
   ```
 
